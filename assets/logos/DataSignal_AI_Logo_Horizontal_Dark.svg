@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 80" width="600" height="80">
+<rect width="600" height="80" fill="#0A1628"/>
+
+<g transform="translate(20, 10)">
+<circle cx="30" cy="30" r="4" fill="#0EA5E9"/>
+<circle cx="30" cy="30" r="7" fill="none" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+<circle cx="30" cy="30" r="16" fill="none" stroke="#0EA5E9" stroke-width="0.5" opacity="0.1"/>
+
+<line x1="34" y1="27" x2="50" y2="16" stroke="#0EA5E9" stroke-width="0.8" opacity="0.4"/>
+<circle cx="52" cy="14" r="2.5" fill="#06B6D4"/>
+<line x1="34" y1="33" x2="52" y2="44" stroke="#0EA5E9" stroke-width="0.8" opacity="0.4"/>
+<circle cx="54" cy="46" r="2.5" fill="#06B6D4"/>
+<line x1="26" y1="27" x2="12" y2="16" stroke="#0EA5E9" stroke-width="0.8" opacity="0.4"/>
+<circle cx="10" cy="14" r="2.5" fill="#22D3EE"/>
+<line x1="26" y1="33" x2="10" y2="44" stroke="#0EA5E9" stroke-width="0.8" opacity="0.4"/>
+<circle cx="8" cy="46" r="2" fill="#22D3EE"/>
+<line x1="30" y1="23" x2="30" y2="10" stroke="#0EA5E9" stroke-width="0.8" opacity="0.4"/>
+<circle cx="30" cy="8" r="2" fill="#38BDF8"/>
+<line x1="30" y1="37" x2="30" y2="50" stroke="#0EA5E9" stroke-width="0.8" opacity="0.4"/>
+<circle cx="30" cy="52" r="2" fill="#38BDF8"/>
+</g>
+
+<text x="96" y="47" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="200" letter-spacing="4" fill="#F0F9FF">DATA<tspan font-weight="700" fill="#0EA5E9">SIGNAL</tspan> <tspan font-weight="200" fill="#475569" font-size="22">AI</tspan></text>
+
+<line x1="96" y1="56" x2="340" y2="56" stroke="#0EA5E9" stroke-width="0.3" opacity="0.2"/>
+<text x="96" y="68" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="400" letter-spacing="3" fill="#475569">DATA INTELLIGENCE &#183; LEAD GENERATION &#183; AI AUTOMATION</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 340">
+
+<g transform="translate(160, 20)">
+<circle cx="90" cy="90" r="20" fill="#0EA5E9" opacity="0.08"/>
+<circle cx="90" cy="90" r="40" fill="none" stroke="#0EA5E9" stroke-width="1" opacity="0.12"/>
+<circle cx="90" cy="90" r="62" fill="none" stroke="#0EA5E9" stroke-width="0.8" opacity="0.08"/>
+<circle cx="90" cy="90" r="82" fill="none" stroke="#06B6D4" stroke-width="0.5" opacity="0.05"/>
+
+<circle cx="90" cy="90" r="7" fill="#0EA5E9"/>
+<circle cx="90" cy="90" r="12" fill="none" stroke="#0EA5E9" stroke-width="1.5" opacity="0.45"/>
+
+<line x1="97" y1="84" x2="145" y2="48" stroke="#0EA5E9" stroke-width="1" opacity="0.35"/>
+<circle cx="149" cy="44" r="5.5" fill="#0284C7"/>
+<circle cx="149" cy="44" r="10" fill="none" stroke="#0284C7" stroke-width="0.8" opacity="0.25"/>
+
+<line x1="97" y1="96" x2="152" y2="124" stroke="#0EA5E9" stroke-width="1" opacity="0.35"/>
+<circle cx="156" cy="127" r="5" fill="#0284C7"/>
+<circle cx="156" cy="127" r="9" fill="none" stroke="#0284C7" stroke-width="0.8" opacity="0.25"/>
+
+<line x1="83" y1="83" x2="38" y2="42" stroke="#0EA5E9" stroke-width="1" opacity="0.35"/>
+<circle cx="34" cy="38" r="5" fill="#0891B2"/>
+<circle cx="34" cy="38" r="9" fill="none" stroke="#0891B2" stroke-width="0.8" opacity="0.25"/>
+
+<line x1="83" y1="97" x2="28" y2="122" stroke="#0EA5E9" stroke-width="1" opacity="0.35"/>
+<circle cx="24" cy="125" r="4.5" fill="#0891B2"/>
+<circle cx="24" cy="125" r="8" fill="none" stroke="#0891B2" stroke-width="0.8" opacity="0.25"/>
+
+<line x1="90" y1="76" x2="90" y2="28" stroke="#0EA5E9" stroke-width="1" opacity="0.35"/>
+<circle cx="90" cy="22" r="4.5" fill="#0369A1"/>
+<circle cx="90" cy="22" r="8" fill="none" stroke="#0369A1" stroke-width="0.8" opacity="0.25"/>
+
+<line x1="90" y1="104" x2="90" y2="152" stroke="#0EA5E9" stroke-width="1" opacity="0.35"/>
+<circle cx="90" cy="158" r="4.5" fill="#0369A1"/>
+<circle cx="90" cy="158" r="8" fill="none" stroke="#0369A1" stroke-width="0.8" opacity="0.25"/>
+
+<line x1="149" y1="50" x2="168" y2="78" stroke="#0284C7" stroke-width="0.6" opacity="0.15"/>
+<circle cx="172" cy="82" r="3" fill="#0EA5E9" opacity="0.3"/>
+<line x1="34" y1="44" x2="14" y2="72" stroke="#0891B2" stroke-width="0.6" opacity="0.15"/>
+<circle cx="10" cy="76" r="3" fill="#0891B2" opacity="0.3"/>
+
+<path d="M48 90 Q58 72, 68 90 Q78 108, 90 90 Q102 72, 112 90 Q122 108, 132 90" fill="none" stroke="#0EA5E9" stroke-width="2" opacity="0.1" stroke-linecap="round"/>
+</g>
+
+<text x="250" y="240" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="200" letter-spacing="8" fill="#0F172A">DATA<tspan font-weight="700" fill="#0EA5E9">SIGNAL</tspan></text>
+
+<text x="250" y="272" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="300" letter-spacing="14" fill="#94A3B8">ARTIFICIAL INTELLIGENCE</text>
+
+<line x1="130" y1="288" x2="370" y2="288" stroke="#0EA5E9" stroke-width="0.6" opacity="0.2"/>
+
+<text x="250" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="400" letter-spacing="4" fill="#94A3B8">DATA INTELLIGENCE &#183; LEAD GENERATION &#183; AI AUTOMATION</text>
+</svg>
