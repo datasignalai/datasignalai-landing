@@ -356,12 +356,12 @@
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> CRM pipeline &amp; CSV export</li>
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> 10 bonus leads on signup</li>
                     <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No DNC scrubbing</span></li>
-                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No territory exclusivity</span></li>
+                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">Leads shared with other agents</span></li>
                     <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No priority delivery</span></li>
                     <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No priority support</span></li>
                     <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No dedicated account manager</span></li>
                 </ul>
-                <a href="#signup" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
+                <a href="#signup" onclick="selectPlan('starter')" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
                 <div class="mt-3 text-xs text-gray-400">Pay with Bitcoin: $134/mo (10% off)</div>
             </div>
 
@@ -386,7 +386,7 @@
                     <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No priority support</span></li>
                     <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No dedicated account manager</span></li>
                 </ul>
-                <a href="#signup" class="block w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
+                <a href="#signup" onclick="selectPlan('growth')" class="block w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
                 <div class="mt-3 text-xs text-gray-400">Pay with Bitcoin: $314/mo (10% off)</div>
             </div>
 
@@ -395,7 +395,7 @@
                 <div class="text-lg font-bold mb-1">Pro</div>
                 <div class="text-4xl font-extrabold text-brand-500">$599</div>
                 <div class="text-gray-400 text-sm mb-6">/month</div>
-                <div class="text-xs text-brand-600 font-semibold mb-4">Best per-lead rate &mdash; own your territory</div>
+                <div class="text-xs text-brand-600 font-semibold mb-4">Best per-lead rate. Every lead is yours alone.</div>
                 <ul class="text-left space-y-3 text-sm mb-8">
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <strong>Up to 5 county territories</strong></li>
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <strong>Up to 500 leads/month</strong></li>
@@ -405,13 +405,14 @@
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Full CRM dashboard</li>
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> 10 bonus leads on signup</li>
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> DNC scrubbed before delivery</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <strong>Exclusive territory lock (1 agent/county)</strong></li>
+                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <strong>Exclusive leads (each lead sold to you only)</strong></li>
+                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Higher percentage of hot leads (score 50+)</li>
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Priority delivery</li>
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Priority support</li>
                     <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Dedicated account manager</li>
                 </ul>
-                <p class="text-xs text-gray-400 mb-4">Lead volume varies by county. Major metros (Miami-Dade, Broward, Palm Beach) generate 200+ leads/month. Smaller counties may generate fewer leads. Exclusive territory is a Pro-only feature.</p>
-                <a href="#signup" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
+                <p class="text-xs text-gray-400 mb-4">Lead volume varies by county. Major metros (Miami-Dade, Broward, Palm Beach) generate 200+ leads/month. Smaller counties may generate fewer. Exclusive leads means each lead is only sold to one agent. No sharing, no competition.</p>
+                <a href="#signup" onclick="selectPlan('pro')" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
                 <div class="mt-3 text-xs text-gray-400">Pay with Bitcoin: $539/mo (10% off)</div>
             </div>
         </div>
@@ -443,10 +444,10 @@
                             <td class="py-3 px-4 text-center font-semibold">Up to 5</td>
                         </tr>
                         <tr class="border-b border-gray-100">
-                            <td class="py-3 px-4 text-gray-600">Territory exclusivity</td>
+                            <td class="py-3 px-4 text-gray-600">Lead exclusivity</td>
                             <td class="py-3 px-4 text-center text-gray-400">Shared</td>
                             <td class="py-3 px-4 text-center text-brand-500 font-medium">Semi-Exclusive</td>
-                            <td class="py-3 px-4 text-center text-green-600 font-bold">Exclusive</td>
+                            <td class="py-3 px-4 text-center text-green-600 font-bold">Exclusive Leads</td>
                         </tr>
                         <!-- All plans (✓ ✓ ✓) -->
                         <tr class="border-b border-gray-100 bg-gray-50">
@@ -545,6 +546,10 @@
             <div>
                 <label class="block text-sm font-semibold mb-1">Email</label>
                 <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none" placeholder="jane@agency.com">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Phone <span class="text-gray-400 font-normal">(optional)</span></label>
+                <input type="tel" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none" placeholder="(555) 123-4567">
             </div>
             <div>
                 <label class="block text-sm font-semibold mb-1">Select Your Plan</label>
@@ -736,6 +741,17 @@
 
 // ▼ UPDATE THIS when your API server is deployed ▼
 const API_BASE_URL = '';  // e.g. 'https://api.datasignal.ai' — leave empty to use same origin
+
+/**
+ * Select a plan radio button when a pricing card "Get Started" button is clicked.
+ * Scrolls to the signup form with the correct plan pre-selected.
+ */
+function selectPlan(planValue) {
+    const radio = document.querySelector('input[name="plan"][value="' + planValue + '"]');
+    if (radio) {
+        radio.checked = true;
+    }
+}
 
 const form = document.getElementById('signup-form');
 if (form) {
