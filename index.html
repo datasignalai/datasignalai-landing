@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataSignal AI — Fresh Insurance Leads from Florida Public Records</title>
-    <meta name="description" content="DataSignal AI - AI-powered Florida insurance lead generation. New businesses, homeowners, contractors, boat owners - scored and delivered daily to your territory.">
+    <title>DataSignal AI - AI-Powered Lead Generation for Florida Professionals</title>
+    <meta name="description" content="DataSignal AI scrapes 90+ Florida government databases daily to deliver fresh, scored leads to insurance agents, attorneys, real estate agents, and more.">
     <link rel="icon" type="image/svg+xml" href="assets/logos/DataSignal_AI_Icon_512.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -27,6 +27,17 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
         @keyframes glowPulse { 0%, 100% { filter: drop-shadow(0 0 8px rgba(14,165,233,0.3)); } 50% { filter: drop-shadow(0 0 20px rgba(14,165,233,0.6)); } }
+        .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+        .coming-soon-overlay { position: relative; }
+        .coming-soon-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.04);
+            border-radius: inherit;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="text-gray-800 leading-relaxed">
@@ -36,7 +47,6 @@
      ════════════════════════════════════════════════════════════════════ -->
 <section class="gradient-hero text-white py-24 px-6 text-center">
     <div class="max-w-3xl mx-auto fade-in">
-        <!-- DataSignal AI Logo (Primary Dark variant) -->
         <div class="mb-8 flex justify-center">
             <img src="assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-20 h-20 glow-pulse">
         </div>
@@ -44,265 +54,132 @@
             <span class="text-4xl md:text-5xl font-extralight tracking-widest text-gray-100">DATA</span><span class="text-4xl md:text-5xl font-bold tracking-widest text-brand-500">SIGNAL</span>
             <span class="text-2xl md:text-3xl font-light tracking-widest text-gray-500 ml-2">AI</span>
         </div>
+        <p class="text-sm uppercase tracking-widest text-brand-300 mb-8">AI-Powered Lead Generation for Florida Professionals</p>
         <h1 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
-            Insurance Leads From Florida Government Databases<br>&mdash; Delivered Daily by AI
+            Fresh Leads. Real Triggers. Delivered Daily.
         </h1>
-        <p class="text-xl md:text-2xl opacity-90 mb-4">
-            Delivered Daily. Not Recycled. Not Aged.
+        <p class="text-lg md:text-xl opacity-85 mb-4 max-w-2xl mx-auto">
+            We scrape 90+ Florida government databases every day to find people with immediate needs. New business filings, court records, property transfers, license changes. You get the names, contact info, and the trigger event that created the need.
         </p>
-        <p class="text-base opacity-70 mb-8 max-w-xl mx-auto">
-            Sourced from official FL government databases. Our AI monitors 90+ state and county data sources so you contact them before anyone else.
-        </p>
-        <a href="#signup" class="inline-block bg-accent-500 hover:bg-accent-600 text-white font-bold text-lg px-10 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
-            Subscribe &amp; Get 10 Bonus Leads
-        </a>
-        <p class="mt-4 text-sm opacity-60">Plans start at $149/mo. Get 10 bonus leads instantly when you subscribe.</p>
     </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════════
-     SOCIAL PROOF BAR
-     ════════════════════════════════════════════════════════════════════ -->
-<section class="bg-gray-50 py-12 px-6">
-    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-            <div class="text-3xl font-extrabold text-brand-500">90+</div>
-            <div class="text-sm text-gray-500 mt-1">Government Data Sources</div>
-        </div>
-        <div>
-            <div class="text-3xl font-extrabold text-brand-500">67</div>
-            <div class="text-sm text-gray-500 mt-1">FL Counties Covered</div>
-        </div>
-        <div>
-            <div class="text-3xl font-extrabold text-brand-500">37</div>
-            <div class="text-sm text-gray-500 mt-1">Insurance Lines Tracked</div>
-        </div>
-        <div>
-            <div class="text-3xl font-extrabold text-brand-500">Daily</div>
-            <div class="text-sm text-gray-500 mt-1">Fresh Leads Every Morning</div>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════
-     LEAD TYPE SHOWCASE
-     ════════════════════════════════════════════════════════════════════ -->
-<section class="py-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-4">Lead Types That Actually Convert</h2>
-    <p class="text-center text-gray-500 mb-12 max-w-2xl mx-auto">Every lead is triggered by a real life event that creates an insurance need. Not someone clicking an ad.</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div class="text-3xl mb-3">🏢</div>
-            <h3 class="font-bold text-lg mb-2">New Business Filings</h3>
-            <p class="text-gray-500 text-sm">Fresh LLC/Corp registrations from state databases. Need CGL, Workers Comp, BOP, Commercial Auto.</p>
-            <div class="mt-3 text-xs text-brand-600 font-semibold">Score: 40-85 points</div>
-        </div>
-        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div class="text-3xl mb-3">🏠</div>
-            <h3 class="font-bold text-lg mb-2">New Homeowners</h3>
-            <p class="text-gray-500 text-sm">Recent property sales from county appraisers. Need Homeowners, Flood, Umbrella, Life.</p>
-            <div class="mt-3 text-xs text-brand-600 font-semibold">Score: 50-100 points</div>
-        </div>
-        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div class="text-3xl mb-3">🔨</div>
-            <h3 class="font-bold text-lg mb-2">Building Permits</h3>
-            <p class="text-gray-500 text-sm">New construction permits filed with the county. Need Builders Risk, GL, Workers Comp.</p>
-            <div class="mt-3 text-xs text-brand-600 font-semibold">Score: 45-90 points</div>
-        </div>
-        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div class="text-3xl mb-3">🌊</div>
-            <h3 class="font-bold text-lg mb-2">Flood Zone Properties</h3>
-            <p class="text-gray-500 text-sm">Federal flood zone data cross-referenced with property records. Mandatory flood insurance leads.</p>
-            <div class="mt-3 text-xs text-brand-600 font-semibold">Score: 30-80 points</div>
-        </div>
-        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div class="text-3xl mb-3">💒</div>
-            <h3 class="font-bold text-lg mb-2">New Marriages</h3>
-            <p class="text-gray-500 text-sm">Marriage license filings from county records. Need Life, Health, auto bundling.</p>
-            <div class="mt-3 text-xs text-brand-600 font-semibold">Score: 25-65 points</div>
-        </div>
-        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div class="text-3xl mb-3">🚤</div>
-            <h3 class="font-bold text-lg mb-2">Boat Registrations</h3>
-            <p class="text-gray-500 text-sm">FL vessel registrations and titles. Need Marine/Boat insurance, Umbrella.</p>
-            <div class="mt-3 text-xs text-brand-600 font-semibold">Score: 50-90 points</div>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════
-     SAMPLE LEAD PREVIEW
-     ════════════════════════════════════════════════════════════════════ -->
-<section class="bg-gray-50 py-20 px-6">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-4">See What You Get</h2>
-        <p class="text-center text-gray-500 mb-10">Here's what a real lead looks like in your dashboard &mdash; plus everything included to help you close it:</p>
-
-        <!-- Lead Card Preview -->
-        <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-            <div class="flex flex-col md:flex-row md:items-start gap-6">
-                <div class="flex-1">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">Score: 78</span>
-                        <span class="bg-orange-100 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full">HOT LEAD</span>
-                        <span class="text-xs text-gray-400">Added: Mar 12, 2026</span>
-                    </div>
-                    <h3 class="text-xl font-bold">J****** M. Rodriguez</h3>
-                    <p class="text-gray-500">Sunshine Coast Contracting LLC</p>
-                    <div class="mt-4 grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
-                        <div><span class="text-gray-400">Phone:</span> (813) 555-****</div>
-                        <div><span class="text-gray-400">Email:</span> j****@suncoast****.com</div>
-                        <div><span class="text-gray-400">City:</span> Tampa</div>
-                        <div><span class="text-gray-400">County:</span> Hillsborough</div>
-                        <div><span class="text-gray-400">Type:</span> Business</div>
-                        <div><span class="text-gray-400">Source:</span> State Records</div>
-                    </div>
-                </div>
-                <div class="md:w-64 bg-gray-50 rounded-lg p-4">
-                    <div class="text-xs font-semibold text-gray-400 uppercase mb-2">Insurance Needs</div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="bg-brand-50 text-brand-700 text-xs px-2.5 py-1 rounded-md font-medium">CGL</span>
-                        <span class="bg-brand-50 text-brand-700 text-xs px-2.5 py-1 rounded-md font-medium">Workers Comp</span>
-                        <span class="bg-brand-50 text-brand-700 text-xs px-2.5 py-1 rounded-md font-medium">Commercial Auto</span>
-                        <span class="bg-brand-50 text-brand-700 text-xs px-2.5 py-1 rounded-md font-medium">BOP</span>
-                    </div>
-                    <div class="text-xs font-semibold text-gray-400 uppercase mt-4 mb-2">Signals</div>
-                    <div class="space-y-1 text-xs text-gray-600">
-                        <div>+ New business filing (Mar 8)</div>
-                        <div>+ Contractor license (Mar 10)</div>
-                        <div>+ Building permit filed (Mar 11)</div>
-                    </div>
-                    <div class="text-xs font-semibold text-gray-400 uppercase mt-4 mb-2">Est. Revenue</div>
-                    <div class="text-lg font-extrabold text-green-600">$3,200 &ndash; $5,800<span class="text-xs font-normal text-gray-400">/yr</span></div>
-                    <div class="text-xs text-gray-400">Based on typical commercial bundle</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Included With Every Lead -->
-        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center">
-                <div class="text-3xl mb-3">&#128222;</div>
-                <h4 class="font-bold text-sm mb-1">Ready-to-Use Call Scripts</h4>
-                <p class="text-xs text-gray-500">Every lead comes with a personalized cold-call script tailored to their business type, insurance needs, and triggers &mdash; so you sound prepared on the first ring.</p>
-            </div>
-            <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center">
-                <div class="text-3xl mb-3">&#128200;</div>
-                <h4 class="font-bold text-sm mb-1">Estimated Agent Revenue</h4>
-                <p class="text-xs text-gray-500">See projected annual commission for each lead before you pick up the phone. Prioritize the highest-value opportunities in your territory first.</p>
-            </div>
-            <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center">
-                <div class="text-3xl mb-3">&#128218;</div>
-                <h4 class="font-bold text-sm mb-1">Sales Guides &amp; Pitch Points</h4>
-                <p class="text-xs text-gray-500">Coverage recommendations, objection handlers, and closing strategies built into every lead card. You get the playbook, not just the name.</p>
-            </div>
-        </div>
-
-        <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center">
-                <div class="text-3xl mb-3">&#129302;</div>
-                <h4 class="font-bold text-sm mb-1">AI-Generated Daily</h4>
-                <p class="text-xs text-gray-500">Our AI scans Florida government databases every morning for new business filings, permits, and licenses, then delivers fresh leads before your first cup of coffee.</p>
-            </div>
-            <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center">
-                <div class="text-3xl mb-3">&#127919;</div>
-                <h4 class="font-bold text-sm mb-1">Intent Scoring (0&ndash;100)</h4>
-                <p class="text-xs text-gray-500">Every lead is scored by insurance intent. Multiple signals = higher score = higher close rate. Stop guessing and start closing.</p>
-            </div>
-            <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center">
-                <div class="text-3xl mb-3">&#128274;</div>
-                <h4 class="font-bold text-sm mb-1">Exclusive Territory Lock</h4>
-                <p class="text-xs text-gray-500">Your leads are yours. We cap the number of agents per county so you're not competing with 50 other agents calling the same prospect.</p>
-            </div>
-        </div>
-
-        <p class="text-center text-gray-400 text-sm mt-6">Full contact info visible after signup. Every lead includes phone, email, address, call scripts, pitch points, and estimated revenue.</p>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════
-     INTERACTIVE DEMO
+     INDUSTRY CARDS
      ════════════════════════════════════════════════════════════════════ -->
 <section class="py-20 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-3">See the Dashboard in Action</h2>
-        <p class="text-center text-gray-500 mb-10 max-w-2xl mx-auto">Click through the interactive demo below to see how agents manage leads, send emails, and close deals from one screen.</p>
-        <div style="position: relative; padding-bottom: calc(49.6354% + 41px); height: 0px; width: 100%;"><iframe src="https://demo.arcade.software/7HpI7UMWOA1nFdBOkNUI?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Manage Insurance Leads and Client Communication" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div>
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-4">What industry are you in?</h2>
+        <p class="text-center text-gray-500 mb-14 max-w-2xl mx-auto">Pick your profession. We deliver the leads that matter to you.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1: Insurance Agents -->
+            <div class="border border-gray-200 rounded-xl p-8 card-hover bg-white">
+                <div class="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center mb-5">
+                    <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3">Insurance Agents</h3>
+                <p class="text-gray-500 text-sm mb-4">13,750+ traffic citations, 1,799 evictions, 1,187 divorces monthly. Leads scored 0-100 with trigger events.</p>
+                <p class="text-sm font-semibold text-brand-600 mb-5">From $149/mo</p>
+                <a href="/insurance/" class="block text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                    View Insurance Plans
+                </a>
+            </div>
+
+            <!-- Card 2: Attorneys -->
+            <div class="border border-gray-200 rounded-xl p-8 card-hover bg-white">
+                <div class="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center mb-5">
+                    <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3">Attorneys</h3>
+                <p class="text-gray-500 text-sm mb-4">34,543 court filings pulled daily from county clerks. PI, family law, criminal defense, eviction, foreclosure.</p>
+                <p class="text-sm font-semibold text-brand-600 mb-5">From $199/mo</p>
+                <a href="/attorneys/" class="block text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                    View Attorney Plans
+                </a>
+            </div>
+
+            <!-- Card 3: Real Estate Agents (Coming Soon) -->
+            <div class="border border-gray-200 rounded-xl p-8 bg-gray-50 relative overflow-hidden">
+                <div class="absolute top-4 right-4 bg-gray-200 text-gray-500 text-xs font-semibold px-3 py-1 rounded-full">Coming Soon</div>
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-5">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-gray-400">Real Estate Agents</h3>
+                <p class="text-gray-400 text-sm mb-4">New property transfers, foreclosure auctions, deed recordings.</p>
+                <p class="text-sm font-semibold text-gray-400 mb-5">From $149/mo</p>
+                <span class="block text-center bg-gray-200 text-gray-400 font-semibold py-3 px-6 rounded-lg cursor-default">
+                    Coming Soon
+                </span>
+            </div>
+
+            <!-- Card 4: Mortgage Brokers (Coming Soon) -->
+            <div class="border border-gray-200 rounded-xl p-8 bg-gray-50 relative overflow-hidden">
+                <div class="absolute top-4 right-4 bg-gray-200 text-gray-500 text-xs font-semibold px-3 py-1 rounded-full">Coming Soon</div>
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-5">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-gray-400">Mortgage Brokers</h3>
+                <p class="text-gray-400 text-sm mb-4">New home purchases, mortgage recordings, refinance triggers.</p>
+                <p class="text-sm font-semibold text-gray-400 mb-5">From $149/mo</p>
+                <span class="block text-center bg-gray-200 text-gray-400 font-semibold py-3 px-6 rounded-lg cursor-default">
+                    Coming Soon
+                </span>
+            </div>
+
+            <!-- Card 5: Contractors & Home Services (Coming Soon) -->
+            <div class="border border-gray-200 rounded-xl p-8 bg-gray-50 relative overflow-hidden">
+                <div class="absolute top-4 right-4 bg-gray-200 text-gray-500 text-xs font-semibold px-3 py-1 rounded-full">Coming Soon</div>
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-5">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-gray-400">Contractors &amp; Home Services</h3>
+                <p class="text-gray-400 text-sm mb-4">Building permits, roof permits, pool permits, renovation permits.</p>
+                <p class="text-sm font-semibold text-gray-400 mb-5">From $99/mo</p>
+                <span class="block text-center bg-gray-200 text-gray-400 font-semibold py-3 px-6 rounded-lg cursor-default">
+                    Coming Soon
+                </span>
+            </div>
+
+            <!-- Card 6: Financial Advisors (Coming Soon) -->
+            <div class="border border-gray-200 rounded-xl p-8 bg-gray-50 relative overflow-hidden">
+                <div class="absolute top-4 right-4 bg-gray-200 text-gray-500 text-xs font-semibold px-3 py-1 rounded-full">Coming Soon</div>
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-5">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-gray-400">Financial Advisors</h3>
+                <p class="text-gray-400 text-sm mb-4">Trust formations, probate filings, guardianship, estate planning triggers.</p>
+                <p class="text-sm font-semibold text-gray-400 mb-5">From $199/mo</p>
+                <span class="block text-center bg-gray-200 text-gray-400 font-semibold py-3 px-6 rounded-lg cursor-default">
+                    Coming Soon
+                </span>
+            </div>
+
+        </div>
     </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════════
-     AGENT DASHBOARD
+     STATS BAR
      ════════════════════════════════════════════════════════════════════ -->
-<section class="py-20 px-6" style="background:linear-gradient(135deg, #0A1628 0%, #0F2847 100%);">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-3 text-white">Your Agent Dashboard</h2>
-        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">More than just leads. You get a complete sales toolkit to contact prospects, close deals, and grow your book of business.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            <!-- Fresh Leads Delivered Daily -->
-            <div class="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/10">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 rounded-lg bg-brand-500/20 flex items-center justify-center text-xl">&#128293;</div>
-                    <h3 class="font-bold text-white text-lg">Fresh Leads Delivered Daily</h3>
-                </div>
-                <ul class="space-y-2 text-sm text-gray-300">
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> New leads added to your dashboard every morning</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Each lead scored 0-100 based on insurance intent</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Filter by county, insurance type, lead score, and trigger event</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Full contact info: name, phone, email, address</li>
-                </ul>
-            </div>
-
-            <!-- Ready-to-Use Sales Scripts -->
-            <div class="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/10">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 rounded-lg bg-brand-500/20 flex items-center justify-center text-xl">&#128222;</div>
-                    <h3 class="font-bold text-white text-lg">Ready-to-Use Sales Scripts</h3>
-                </div>
-                <ul class="space-y-2 text-sm text-gray-300">
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Personalized phone script on every lead card</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Voicemail drops, email templates, and SMS scripts</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Objection handlers tailored to each trigger event</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> 125+ scripts across 25 lead types and 5 contact methods</li>
-                </ul>
-            </div>
-
-            <!-- Lead Intelligence -->
-            <div class="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/10">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 rounded-lg bg-brand-500/20 flex items-center justify-center text-xl">&#128161;</div>
-                    <h3 class="font-bold text-white text-lg">Lead Intelligence</h3>
-                </div>
-                <ul class="space-y-2 text-sm text-gray-300">
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> See exactly what triggered each lead (new LLC, home purchase, DUI, etc.)</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Insurance needs auto-tagged (CGL, WC, Homeowners, Life, etc.)</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Estimated premium and commission on every lead</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Days since trigger event so you know how fresh they are</li>
-                </ul>
-            </div>
-
-            <!-- CRM & Export -->
-            <div class="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/10">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 rounded-lg bg-brand-500/20 flex items-center justify-center text-xl">&#128202;</div>
-                    <h3 class="font-bold text-white text-lg">CRM &amp; Export Tools</h3>
-                </div>
-                <ul class="space-y-2 text-sm text-gray-300">
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Built-in pipeline: New &rarr; Contacted &rarr; Quoted &rarr; Closed</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Add notes, log calls, and track follow-ups per lead</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> CSV export for GoHighLevel, HubSpot, EZLynx, or any CRM</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> PDF lead cards with full details for offline use</li>
-                </ul>
-            </div>
-
+<section class="bg-navy-800 py-14 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+            <div class="text-3xl font-extrabold text-brand-400">90+</div>
+            <div class="text-sm text-gray-400 mt-1">Government Data Sources</div>
         </div>
-
-        <div class="text-center mt-10">
-            <a href="#signup" class="inline-block bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 px-10 rounded-lg transition-colors text-lg shadow-lg shadow-brand-500/25">Get Dashboard Access &rarr;</a>
-            <p class="text-gray-500 text-xs mt-3">Leads, scripts, intelligence, and CRM tools -- all included in every subscription.</p>
+        <div>
+            <div class="text-3xl font-extrabold text-brand-400">67</div>
+            <div class="text-sm text-gray-400 mt-1">Florida Counties</div>
+        </div>
+        <div>
+            <div class="text-3xl font-extrabold text-brand-400">24hrs</div>
+            <div class="text-sm text-gray-400 mt-1">Updated Every 24 Hours</div>
+        </div>
+        <div>
+            <div class="text-3xl font-extrabold text-brand-400">8.5M+</div>
+            <div class="text-sm text-gray-400 mt-1">Records Processed</div>
         </div>
     </div>
 </section>
@@ -310,394 +187,42 @@
 <!-- ════════════════════════════════════════════════════════════════════
      HOW IT WORKS
      ════════════════════════════════════════════════════════════════════ -->
-<section class="py-20 px-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-            <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-            <h3 class="font-bold text-lg mb-2">We Scan Public Records</h3>
-            <p class="text-gray-500 text-sm">Every day, our AI pipeline scans Florida government databases for new filings, permits, sales, and registrations.</p>
-        </div>
-        <div class="text-center">
-            <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-            <h3 class="font-bold text-lg mb-2">Score & Categorize</h3>
-            <p class="text-gray-500 text-sm">Each lead is scored 0-100 based on insurance triggers. Multiple signals = higher score = higher intent.</p>
-        </div>
-        <div class="text-center">
-            <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-            <h3 class="font-bold text-lg mb-2">Delivered to Your Dashboard</h3>
-            <p class="text-gray-500 text-sm">Leads land in your dashboard with call scripts, email templates, and pitch points ready. Upload, email, and call &mdash; all from one screen.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════
-     PRICING TABLE
-     ════════════════════════════════════════════════════════════════════ -->
-<section class="bg-gray-50 py-20 px-6" id="pricing">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-4">Pricing</h2>
-        <p class="text-center text-gray-500 mb-8">Every new subscription includes 10 bonus leads delivered instantly.</p>
-
-        <!-- Subscription Plans -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <!-- Starter -->
-            <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
-                <div class="text-lg font-bold mb-1">Starter</div>
-                <div class="text-4xl font-extrabold text-brand-500">$149</div>
-                <div class="text-gray-400 text-sm mb-6">/month</div>
-                <div class="text-xs text-brand-600 font-semibold mb-4">$1.49/lead &mdash; vs. $6-15 industry avg</div>
-                <ul class="text-left space-y-3 text-sm mb-8">
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> 1 county territory</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> 100 leads/month</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Daily delivery to dashboard</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> AI lead scoring (0&ndash;100)</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Call scripts &amp; sales guides</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> CRM pipeline &amp; CSV export</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> 10 bonus leads on signup</li>
-                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No DNC scrubbing</span></li>
-                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">Leads shared with other agents</span></li>
-                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No priority delivery</span></li>
-                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No priority support</span></li>
-                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No dedicated account manager</span></li>
-                </ul>
-                <a href="#signup" onclick="selectPlan('starter')" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
-                <div class="mt-3 text-xs text-gray-400">Pay with Bitcoin: $134/mo (10% off)</div>
+<section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-14">How It Works</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+                <h3 class="font-semibold mb-2">We Scrape Public Records</h3>
+                <p class="text-gray-500 text-sm">Every day, our system pulls data from 90+ Florida government databases. County clerks, state agencies, federal registries.</p>
             </div>
-
-            <!-- Growth (Popular) -->
-            <div class="bg-white border-2 border-brand-500 rounded-2xl p-8 text-center shadow-xl relative">
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-5 py-1 rounded-full">Most Popular</div>
-                <div class="text-lg font-bold mb-1">Growth</div>
-                <div class="text-4xl font-extrabold text-brand-500">$349</div>
-                <div class="text-gray-400 text-sm mb-6">/month</div>
-                <div class="text-xs text-brand-600 font-semibold mb-4">$1.16/lead &mdash; best value for agencies</div>
-                <ul class="text-left space-y-3 text-sm mb-8">
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> 3 county territories</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <strong>300 leads/month</strong></li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Daily delivery to dashboard</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> AI lead scoring (0&ndash;100)</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Call scripts &amp; sales guides</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Full CRM dashboard</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> 10 bonus leads on signup</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> DNC scrubbed before delivery</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Semi-exclusive (up to 3 agents per county)</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Priority delivery</li>
-                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No priority support</span></li>
-                    <li class="flex items-start gap-2"><span class="text-gray-400 font-bold">&times;</span> <span class="text-gray-400">No dedicated account manager</span></li>
-                </ul>
-                <a href="#signup" onclick="selectPlan('growth')" class="block w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
-                <div class="mt-3 text-xs text-gray-400">Pay with Bitcoin: $314/mo (10% off)</div>
+            <div class="text-center">
+                <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+                <h3 class="font-semibold mb-2">Filings Are Parsed</h3>
+                <p class="text-gray-500 text-sm">Every filing is parsed for names, addresses, and trigger events. The specific life event that created the need.</p>
             </div>
-
-            <!-- Pro -->
-            <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
-                <div class="text-lg font-bold mb-1">Pro</div>
-                <div class="text-4xl font-extrabold text-brand-500">$599</div>
-                <div class="text-gray-400 text-sm mb-6">/month</div>
-                <div class="text-xs text-brand-600 font-semibold mb-4">Best per-lead rate. Every lead is yours alone.</div>
-                <ul class="text-left space-y-3 text-sm mb-8">
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <strong>Up to 5 county territories</strong></li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <strong>Up to 500 leads/month</strong></li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Daily delivery to dashboard</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> AI lead scoring (0&ndash;100)</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Call scripts &amp; sales guides</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Full CRM dashboard</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> 10 bonus leads on signup</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> DNC scrubbed before delivery</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <strong>Exclusive leads (each lead sold to you only)</strong></li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Higher percentage of hot leads (score 50+)</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Priority delivery</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Priority support</li>
-                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Dedicated account manager</li>
-                </ul>
-                <p class="text-xs text-gray-400 mb-4">Lead volume varies by county. Major metros (Miami-Dade, Broward, Palm Beach) generate 200+ leads/month. Smaller counties may generate fewer. Exclusive leads means each lead is only sold to one agent. No sharing, no competition.</p>
-                <a href="#signup" onclick="selectPlan('pro')" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
-                <div class="mt-3 text-xs text-gray-400">Pay with Bitcoin: $539/mo (10% off)</div>
+            <div class="text-center">
+                <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+                <h3 class="font-semibold mb-2">Scored and Classified</h3>
+                <p class="text-gray-500 text-sm">Leads are scored 0-100 and classified by industry, so you only see the leads that match your business.</p>
             </div>
-        </div>
-
-        <!-- Feature Comparison Table -->
-        <div class="max-w-4xl mx-auto mb-16">
-            <h3 class="text-xl font-bold text-center mb-6">Compare Plans</h3>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm border-collapse">
-                    <thead>
-                        <tr class="border-b-2 border-gray-200">
-                            <th class="text-left py-3 px-4 text-gray-500 font-medium">Feature</th>
-                            <th class="py-3 px-4 text-center font-bold">Starter</th>
-                            <th class="py-3 px-4 text-center font-bold text-brand-500">Growth</th>
-                            <th class="py-3 px-4 text-center font-bold">Pro</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-3 px-4 text-gray-600">Monthly leads</td>
-                            <td class="py-3 px-4 text-center">100</td>
-                            <td class="py-3 px-4 text-center font-semibold">300</td>
-                            <td class="py-3 px-4 text-center font-semibold">Up to 500</td>
-                        </tr>
-                        <tr class="border-b border-gray-100 bg-gray-50">
-                            <td class="py-3 px-4 text-gray-600">County territories</td>
-                            <td class="py-3 px-4 text-center">1</td>
-                            <td class="py-3 px-4 text-center">3</td>
-                            <td class="py-3 px-4 text-center font-semibold">Up to 5</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-3 px-4 text-gray-600">Lead exclusivity</td>
-                            <td class="py-3 px-4 text-center text-gray-400">Shared</td>
-                            <td class="py-3 px-4 text-center text-brand-500 font-medium">Semi-Exclusive</td>
-                            <td class="py-3 px-4 text-center text-green-600 font-bold">Exclusive Leads</td>
-                        </tr>
-                        <!-- All plans (✓ ✓ ✓) -->
-                        <tr class="border-b border-gray-100 bg-gray-50">
-                            <td class="py-3 px-4 text-gray-600">AI lead scoring</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-3 px-4 text-gray-600">Call scripts &amp; playbook</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                        </tr>
-                        <tr class="border-b border-gray-100 bg-gray-50">
-                            <td class="py-3 px-4 text-gray-600">CRM dashboard &amp; export</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-3 px-4 text-gray-600">Signup bonus leads</td>
-                            <td class="py-3 px-4 text-center">10</td>
-                            <td class="py-3 px-4 text-center">10</td>
-                            <td class="py-3 px-4 text-center">10</td>
-                        </tr>
-                        <!-- Growth + Pro (— ✓ ✓) -->
-                        <tr class="border-b border-gray-100 bg-gray-50">
-                            <td class="py-3 px-4 text-gray-600">Priority delivery</td>
-                            <td class="py-3 px-4 text-center text-gray-300">&mdash;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-3 px-4 text-gray-600">DNC scrubbed</td>
-                            <td class="py-3 px-4 text-center text-gray-300">&mdash;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                        </tr>
-                        <!-- Pro only (— — ✓) -->
-                        <tr class="border-b border-gray-100 bg-gray-50">
-                            <td class="py-3 px-4 text-gray-600">Priority support</td>
-                            <td class="py-3 px-4 text-center text-gray-300">&mdash;</td>
-                            <td class="py-3 px-4 text-center text-gray-300">&mdash;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-3 px-4 text-gray-600">Dedicated account manager</td>
-                            <td class="py-3 px-4 text-center text-gray-300">&mdash;</td>
-                            <td class="py-3 px-4 text-center text-gray-300">&mdash;</td>
-                            <td class="py-3 px-4 text-center text-brand-500">&#10003;</td>
-                        </tr>
-                        <tr class="border-b border-gray-100 bg-gray-50">
-                            <td class="py-3 px-4 text-gray-600">Per-lead cost</td>
-                            <td class="py-3 px-4 text-center">$1.49</td>
-                            <td class="py-3 px-4 text-center font-semibold text-green-600">$1.16</td>
-                            <td class="py-3 px-4 text-center">$1.20</td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 text-gray-600 font-medium">Price</td>
-                            <td class="py-3 px-4 text-center font-bold text-lg">$149/mo</td>
-                            <td class="py-3 px-4 text-center font-bold text-lg text-brand-500">$349/mo</td>
-                            <td class="py-3 px-4 text-center font-bold text-lg">$599/mo</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="text-center text-xs text-gray-400 mt-3">All plans are month-to-month. Cancel anytime. No contracts.</p>
-        </div>
-
-        <!-- Bitcoin Banner -->
-        <div class="max-w-3xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-6 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-            <div class="text-4xl">&#8383;</div>
-            <div>
-                <div class="font-bold text-lg">Bitcoin & Lightning Accepted &mdash; Save 10%</div>
-                <div class="text-sm text-gray-600">Get an extra 10% discount on any subscription when you pay with Bitcoin or Lightning Network.</div>
+            <div class="text-center">
+                <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
+                <h3 class="font-semibold mb-2">Delivered Fresh</h3>
+                <p class="text-gray-500 text-sm">New leads hit your dashboard every morning. Names, contact info, and the trigger event. Ready to work.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════════
-     SIGNUP CTA
+     TRUST SECTION
      ════════════════════════════════════════════════════════════════════ -->
-<section class="py-20 px-6" id="signup">
-    <div class="max-w-xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-4">Subscribe &amp; Get 10 Bonus Leads</h2>
-        <p class="text-center text-gray-500 mb-8">Tell us your county and what kind of leads you want. We'll deliver 10 real leads to your inbox within 24 hours.</p>
-
-        <!-- ▼ PAYMENT API URL — Update this when your API server is live ▼ -->
-        <form action="/api/checkout/subscribe" method="POST" class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 space-y-5" id="signup-form">
-            <div>
-                <label class="block text-sm font-semibold mb-1">Full Name</label>
-                <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none" placeholder="Jane Smith">
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">Email</label>
-                <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none" placeholder="jane@agency.com">
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">Phone <span class="text-gray-400 font-normal">(optional)</span></label>
-                <input type="tel" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none" placeholder="(555) 123-4567">
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">Select Your Plan</label>
-                <div class="grid grid-cols-3 gap-2">
-                    <label class="block cursor-pointer">
-                        <input type="radio" name="plan" value="starter" class="peer sr-only" checked>
-                        <div class="border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 rounded-lg p-3 text-center transition-colors">
-                            <div class="font-bold text-sm">Starter</div>
-                            <div class="text-brand-500 font-bold">$149/mo</div>
-                            <div class="text-xs text-gray-500">100 leads</div>
-                        </div>
-                    </label>
-                    <label class="block cursor-pointer">
-                        <input type="radio" name="plan" value="growth" class="peer sr-only">
-                        <div class="border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 rounded-lg p-3 text-center transition-colors">
-                            <div class="font-bold text-sm">Growth</div>
-                            <div class="text-brand-500 font-bold">$349/mo</div>
-                            <div class="text-xs text-gray-500">300 leads</div>
-                        </div>
-                    </label>
-                    <label class="block cursor-pointer">
-                        <input type="radio" name="plan" value="pro" class="peer sr-only">
-                        <div class="border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 rounded-lg p-3 text-center transition-colors">
-                            <div class="font-bold text-sm">Pro</div>
-                            <div class="text-brand-500 font-bold">$599/mo</div>
-                            <div class="text-xs text-gray-500">Up to 500 leads</div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">County Preference</label>
-                <select name="county" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none">
-                    <option value="">Select a county...</option>
-                    <option>Alachua</option><option>Baker</option><option>Bay</option><option>Bradford</option>
-                    <option>Brevard</option><option>Broward</option><option>Calhoun</option><option>Charlotte</option>
-                    <option>Citrus</option><option>Clay</option><option>Collier</option><option>Columbia</option>
-                    <option>DeSoto</option><option>Dixie</option><option>Duval</option><option>Escambia</option>
-                    <option>Flagler</option><option>Franklin</option><option>Gadsden</option><option>Gilchrist</option>
-                    <option>Glades</option><option>Gulf</option><option>Hamilton</option><option>Hardee</option>
-                    <option>Hendry</option><option>Hernando</option><option>Highlands</option><option>Hillsborough</option>
-                    <option>Holmes</option><option>Indian River</option><option>Jackson</option><option>Jefferson</option>
-                    <option>Lafayette</option><option>Lake</option><option>Lee</option><option>Leon</option>
-                    <option>Levy</option><option>Liberty</option><option>Madison</option><option>Manatee</option>
-                    <option>Marion</option><option>Martin</option><option>Miami-Dade</option><option>Monroe</option>
-                    <option>Nassau</option><option>Okaloosa</option><option>Okeechobee</option><option>Orange</option>
-                    <option>Osceola</option><option>Palm Beach</option><option>Pasco</option><option>Pinellas</option>
-                    <option>Polk</option><option>Putnam</option><option>Santa Rosa</option><option>Sarasota</option>
-                    <option>Seminole</option><option>St. Johns</option><option>St. Lucie</option><option>Sumter</option>
-                    <option>Suwannee</option><option>Taylor</option><option>Union</option><option>Volusia</option>
-                    <option>Wakulla</option><option>Walton</option><option>Washington</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">Lead Types You Want</label>
-                <div class="grid grid-cols-2 gap-2 text-sm">
-                    <label class="flex items-center gap-2"><input type="checkbox" name="types" value="business" class="accent-brand-500"> New Businesses</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="types" value="homeowner" class="accent-brand-500"> New Homeowners</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="types" value="contractor" class="accent-brand-500"> Contractors</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="types" value="flood" class="accent-brand-500"> Flood Zone</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="types" value="boat" class="accent-brand-500"> Boat Owners</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="types" value="all" class="accent-brand-500" checked> All Types</label>
-                </div>
-            </div>
-            <div class="flex items-start gap-2 mb-4">
-                <input type="checkbox" id="tos-agree" required class="accent-brand-500 mt-1">
-                <label for="tos-agree" class="text-xs text-gray-500">I agree to the <a href="/terms-of-service.html" target="_blank" class="text-brand-500 underline">Terms of Service</a> and <a href="/privacy-policy.html" target="_blank" class="text-brand-500 underline">Privacy Policy</a></label>
-            </div>
-            <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-4 rounded-lg text-lg transition-colors">
-                Subscribe &amp; Get My 10 Bonus Leads
-            </button>
-            <p class="text-xs text-gray-400 text-center">Secure checkout via Stripe. Cancel anytime -- no contracts.</p>
-        </form>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════
-     FAQ
-     ════════════════════════════════════════════════════════════════════ -->
-<section class="bg-gray-50 py-20 px-6">
-    <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-
-        <div class="space-y-4">
-            <details class="bg-white rounded-xl border border-gray-200 p-5 group" open>
-                <summary class="font-bold cursor-pointer flex justify-between items-center">
-                    Where do the leads come from?
-                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
-                </summary>
-                <p class="mt-3 text-gray-600 text-sm">Our AI scans dozens of official Florida government databases and public record sources every day. We monitor new business registrations, property transactions, professional license filings, permit applications, and other life events that create insurance needs. The data comes directly from state and county government systems.</p>
-            </details>
-
-            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
-                <summary class="font-bold cursor-pointer flex justify-between items-center">
-                    How fresh are the leads?
-                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
-                </summary>
-                <p class="mt-3 text-gray-600 text-sm">Our pipeline runs every morning. Most leads are 1-3 days old from the original filing date. Some sources update within 24 hours. You're contacting people during their decision-making window, not weeks or months after the fact.</p>
-            </details>
-
-            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
-                <summary class="font-bold cursor-pointer flex justify-between items-center">
-                    Are the leads exclusive to me?
-                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
-                </summary>
-                <p class="mt-3 text-gray-600 text-sm">Exclusivity depends on your plan. <strong>Pro plan:</strong> Full exclusive territory lock. You are the only agent who gets leads in your counties. <strong>Growth plan:</strong> Semi-exclusive, limited to 3 agents per county. <strong>Starter plan:</strong> Shared leads (up to 5 agents).</p>
-            </details>
-
-            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
-                <summary class="font-bold cursor-pointer flex justify-between items-center">
-                    What contact info is included?
-                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
-                </summary>
-                <p class="mt-3 text-gray-600 text-sm">Each lead includes: name, company (if business), address, city, county, and ZIP. Phone and email are included when publicly available. Business filings typically include registered agent contact information. Coverage varies by source. We also provide AI lead scoring, insurance category tags, and ready-to-use call scripts with every lead.</p>
-            </details>
-
-            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
-                <summary class="font-bold cursor-pointer flex justify-between items-center">
-                    What's your refund policy?
-                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
-                </summary>
-                <p class="mt-3 text-gray-600 text-sm">Every new subscription comes with 10 bonus leads delivered instantly. Subscriptions are month-to-month with no long-term commitment. Cancel anytime — no contracts, no cancellation fees.</p>
-            </details>
-
-            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
-                <summary class="font-bold cursor-pointer flex justify-between items-center">
-                    Can I pay with Bitcoin?
-                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
-                </summary>
-                <p class="mt-3 text-gray-600 text-sm">Yes! We accept Bitcoin and Lightning Network payments. You get a 10% discount on any subscription when paying with Bitcoin.</p>
-            </details>
-
-            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
-                <summary class="font-bold cursor-pointer flex justify-between items-center">
-                    How is this different from buying leads on the open market?
-                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
-                </summary>
-                <p class="mt-3 text-gray-600 text-sm">Traditional lead vendors sell aged, recycled internet leads to 5-8 agents at $25-50 each. Our leads are sourced directly from government records, often within 24 hours of filing. They're based on real life events (not ad clicks), so you're reaching people who actually need insurance right now.</p>
-            </details>
-
-            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
-                <summary class="font-bold cursor-pointer flex justify-between items-center">
-                    Can I try before I subscribe?
-                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
-                </summary>
-                <p class="mt-3 text-gray-600 text-sm">Every subscription comes with 10 bonus leads delivered instantly so you can see the quality right away. All plans are month-to-month with no contracts. Cancel anytime from your dashboard.</p>
-            </details>
-        </div>
+<section class="py-16 px-6 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Built on Florida Public Records</h2>
+        <p class="text-gray-500 mb-2">100% legal. 100% compliant.</p>
+        <p class="text-gray-500 text-sm">Every lead comes from government databases: county clerks, state agencies, federal registries. No purchased lists. No recycled data. No shared leads.</p>
     </div>
 </section>
 
@@ -706,78 +231,23 @@
      ════════════════════════════════════════════════════════════════════ -->
 <footer class="bg-navy-800 text-gray-400 py-12 px-6">
     <div class="max-w-5xl mx-auto text-center">
-        <!-- Horizontal Dark Logo -->
         <div class="flex justify-center mb-4">
             <img src="assets/logos/DataSignal_AI_Logo_Horizontal_Dark.svg" alt="DataSignal AI" class="h-12">
         </div>
-        <p class="text-sm mb-4 tracking-wide text-gray-500">Data Intelligence. Lead Generation. AI Automation.</p>
-        <p class="text-xs">
-            Leads sourced from publicly available Florida government records. Not affiliated with any government agency.
+        <p class="text-sm mb-2">9330 SW 222nd Way, Cutler Bay, FL 33190</p>
+        <p class="text-sm mb-4">
+            <a href="mailto:raul@datasignalai.tech" class="text-brand-400 hover:text-brand-300">raul@datasignalai.tech</a>
+            <span class="mx-2 text-gray-600">|</span>
+            <a href="tel:+17865253625" class="text-brand-400 hover:text-brand-300">(786) 525-3625</a>
         </p>
-        <div class="mt-6 text-xs space-x-4">
+        <div class="text-xs space-x-4 mb-4">
             <a href="/terms-of-service.html" class="text-brand-400 hover:text-brand-300">Terms of Service</a>
             <a href="/privacy-policy.html" class="text-brand-400 hover:text-brand-300">Privacy Policy</a>
-            <a href="mailto:raul@datasignalai.tech" class="text-brand-400 hover:text-brand-300">Contact</a>
         </div>
+        <p class="text-xs text-gray-600">All data sourced from Florida public records. Not affiliated with any government agency.</p>
         <div class="mt-4 text-xs text-gray-600">&copy; 2026 DataSignal AI. All rights reserved.</div>
     </div>
 </footer>
-
-<script>
-/**
- * Signup Form Handler
- *
- * HOW IT WORKS:
- * 1. Form POSTs to /api/checkout/subscribe on the FastAPI server
- * 2. FastAPI creates a Stripe Checkout session → redirects user to Stripe
- * 3. After payment, Stripe redirects to /checkout/success
- * 4. Stripe webhook fires → creates user account + delivers 10 bonus leads
- *
- * BEFORE STRIPE IS ACTIVE:
- * The form submits normally. If the API server returns the "not active" page,
- * the user sees a friendly "coming soon" message with manual signup instructions.
- *
- * TO ACTIVATE:
- * 1. Set API_BASE_URL below to your API server domain
- * 2. Configure Stripe keys in .env
- * 3. Start the API server: uvicorn api.server:app --port 8000
- */
-
-// ▼ UPDATE THIS when your API server is deployed ▼
-const API_BASE_URL = 'https://api.datasignalai.tech';
-
-/**
- * Select a plan radio button when a pricing card "Get Started" button is clicked.
- * Scrolls to the signup form with the correct plan pre-selected.
- */
-function selectPlan(planValue) {
-    const radio = document.querySelector('input[name="plan"][value="' + planValue + '"]');
-    if (radio) {
-        radio.checked = true;
-    }
-}
-
-const form = document.getElementById('signup-form');
-if (form) {
-    // If API_BASE_URL is set, update the form action to point to the API server
-    if (API_BASE_URL) {
-        form.action = API_BASE_URL + '/api/checkout/subscribe';
-    }
-
-    // The form submits as a regular POST (not AJAX), so the browser follows
-    // the redirect to Stripe Checkout automatically. No JavaScript needed
-    // for the happy path.
-
-    // Optional: show loading state on submit
-    form.addEventListener('submit', function() {
-        const btn = form.querySelector('button[type="submit"]');
-        if (btn) {
-            btn.disabled = true;
-            btn.innerHTML = '<span class="inline-block animate-spin mr-2">&#9696;</span> Connecting to secure checkout...';
-        }
-    });
-}
-</script>
 
 </body>
 </html>
