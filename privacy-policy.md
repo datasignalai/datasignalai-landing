@@ -1,0 +1,66 @@
+1. About This Policy
+This Privacy Policy describes how DataSignal AI LLC ("DataSignal AI," "we," "us," or "our") collects, uses, stores, and discloses information when you use our platform, website (datasignalai.tech), and related services (collectively, the "Services").
+By using our Services, you agree to the collection and use of information in accordance with this policy.
+2. Information We Collect
+2a. Information You Provide to Us
+When you register, subscribe, or contact us, we may collect:
+Full name and contact information (email address, phone number)
+Florida insurance license number and license status
+Business name and agency information
+Payment information (processed securely by Stripe or Coinbase Commerce — we do not store card numbers)
+Account credentials (username and encrypted password)
+Communications you send us via email or support requests
+2b. Information Collected Automatically
+When you use our platform, we may automatically collect:
+IP address and approximate geographic location
+Browser type, device type, and operating system
+Pages visited, features used, and time spent on the platform
+Login timestamps and session activity
+Error logs and performance data
+2c. Lead Data We Process
+DataSignal AI processes publicly available government records to generate lead data. This data is sourced exclusively from public databases including Florida Division of Corporations (Sunbiz), county property appraisers, county building permit offices, DBPR licensee databases, and workers compensation records. This data is not collected from private individuals and is legally accessible under Florida public records law.
+3. How We Use Your Information
+We use the information we collect to:
+Create and manage your account
+Process payments and send receipts
+Deliver leads, platform access, and support
+Send service-related communications including lead delivery emails and billing notifications
+Send marketing communications about DataSignal AI updates and offers (you may opt out at any time)
+Improve our platform, scoring algorithms, and lead quality
+Comply with legal obligations and enforce our Terms of Service
+Detect and prevent fraud or abuse
+4. How We Share Your Information
+DataSignal AI does not sell your personal information to third parties. We may share your information with:
+Stripe Inc. and Coinbase Commerce for payment processing
+Google LLC for email, calendar, and workspace services
+DigitalOcean for secure cloud hosting and data storage
+Law enforcement or government authorities if required by law or to protect our legal rights
+All third-party service providers are contractually obligated to protect your data and use it only for the purposes we specify.
+5. Data Retention
+We retain your account information for as long as your account is active or as needed to provide Services. If you cancel your account, we will retain your data for up to 12 months for legal and billing purposes, after which it will be deleted or anonymized.
+Transaction records may be retained for up to 7 years to comply with tax and accounting requirements.
+6. Data Security
+DataSignal AI implements industry-standard security measures to protect your information, including:
+SSL/TLS encryption for all data in transit
+Encrypted password storage using bcrypt hashing
+Role-based access controls limiting data access to authorized personnel
+Regular security monitoring and log review
+No method of transmission over the internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security. You use the Services at your own risk.
+7. Cookies and Tracking
+Our platform uses session cookies necessary for authentication and platform functionality. We do not use third-party advertising cookies or behavioral tracking cookies. You may disable cookies in your browser settings, but doing so may affect platform functionality.
+8. Your Rights and Choices
+You have the following rights regarding your personal data:
+Access: Request a copy of the personal information we hold about you
+Correction: Request correction of inaccurate or incomplete information
+Deletion: Request deletion of your account and personal information (subject to legal retention requirements)
+Opt-out: Unsubscribe from marketing emails at any time using the unsubscribe link in any email
+Portability: Request your data in a portable format
+To exercise any of these rights, contact us at raul@datasignalai.tech. We will respond within 30 days.
+9. Children's Privacy
+Our Services are intended for licensed insurance professionals and are not directed at individuals under the age of 18. We do not knowingly collect personal information from minors. If we discover that a minor has provided us with personal information, we will promptly delete it.
+10. Florida Privacy Rights
+As a Florida-based business, DataSignal AI complies with applicable Florida privacy laws. Florida residents have the right to request access to and deletion of their personal information by contacting us at raul@datasignalai.tech.
+11. Changes to This Privacy Policy
+We may update this Privacy Policy from time to time. We will notify active users via email before material changes take effect. The "Effective Date" at the top of this document will reflect the most recent revision. Continued use of our Services after the effective date constitutes acceptance of the revised policy.
+12. Contact Us
+For privacy-related questions, requests, or concerns:

@@ -1,0 +1,71 @@
+1. Acceptance of Terms
+These Terms of Service ("Terms") govern your access to and use of the DataSignal AI platform, website, and services (collectively, the "Services") operated by DataSignal AI LLC ("DataSignal AI," "we," "us," or "our"), a Florida limited liability company.
+By creating an account, purchasing a subscription, or using any part of our Services, you agree to be bound by these Terms and our Privacy Policy. If you do not agree, do not use our Services.
+2. Description of Services
+DataSignal AI provides an AI-powered insurance lead generation platform that:
+Aggregates and processes publicly available Florida government records from sources including Sunbiz business filings, county property records, building permits, Department of Business and Professional Regulation (DBPR) data, and workers compensation filings
+Scores, enriches, and categorizes leads for insurance agents and agencies
+Delivers leads via a Streamlit dashboard, CSV exports, and email delivery
+Provides sales scripts, CRM pipeline tools, and coverage recommendation engines
+Offers subscription plans and individual lead purchases
+3. Eligibility
+You must be at least 18 years of age and a licensed insurance agent or agency representative to use our Services. By using DataSignal AI, you represent that you meet these requirements. We reserve the right to verify licensing status and suspend accounts that do not comply.
+4. Account Registration
+To access the platform, you must create an account and provide accurate, complete information. You are responsible for:
+Maintaining the confidentiality of your account credentials
+All activity that occurs under your account
+Notifying us immediately at raul@datasignalai.tech if you suspect unauthorized access
+We reserve the right to suspend or terminate accounts that violate these Terms.
+5. Subscription Plans and Payment
+DataSignal AI offers the following subscription tiers:
+Subscriptions are billed monthly. Payment is processed via Stripe (USD) or Coinbase Commerce (Bitcoin). A 10% discount applies to Bitcoin payments. All sales are final. By subscribing, you authorize recurring charges until you cancel.
+6. Cancellation and Refund Policy
+You may cancel your subscription at any time through your account settings or by contacting raul@datasignalai.tech. Cancellation takes effect at the end of the current billing period.
+Due to the nature of lead data delivery, DataSignal AI does not offer cash refunds on delivered leads or completed billing periods. Leads are generated from public government records and represent pre-intent signals. DataSignal AI does not guarantee that any lead will result in a sale, policy, or commission.
+6a. Lead Quality Disputes
+DataSignal AI stands behind the quality of its data sourcing. If you believe a delivered lead contains a material error — such as a demonstrably incorrect name, address, or business that does not exist — you may submit a dispute within 7 days of delivery by emailing raul@datasignalai.tech with the following:
+Your account email and active subscription plan
+The lead ID or lead name in question
+The specific error or inaccuracy identified
+Any supporting documentation or evidence
+DataSignal AI will review all disputes within 5 business days. Approved disputes are resolved as follows:
+Lead credits do not expire and are applied to your next billing cycle. A replacement lead may occasionally be issued at DataSignal AI's sole discretion for disputes involving demonstrably incorrect contact information only — this is not a guaranteed remedy and is offered in lieu of, not in addition to, a credit.
+The following are explicitly not eligible for dispute or credit:
+Leads where the contact did not answer or respond to outreach attempts
+Leads where the prospect declined insurance or expressed no interest
+Leads where the agent made contact but did not close the sale
+Leads that are accurate but not the agent's preferred demographic, coverage type, or territory
+Leads submitted for dispute after 7 days of delivery
+Leads on cancelled or expired subscriptions
+DataSignal AI does not issue cash refunds for disputed leads under any circumstances. Our maximum obligation is a lead credit or, at our sole discretion, a replacement lead.
+7. Lead Data and No Guarantee
+All leads provided by DataSignal AI are sourced from publicly available government databases. DataSignal AI makes no representations or warranties regarding:
+The accuracy, completeness, or timeliness of lead contact information
+The insurance eligibility or purchasing intent of any individual in our database
+Conversion rates, close rates, commission amounts, or revenue outcomes
+The exclusivity of leads on Starter or Growth plans (shared and semi-exclusive respectively)
+You acknowledge that lead generation involves inherent uncertainty and that results will vary based on your outreach strategy, market conditions, and individual lead circumstances.
+8. Acceptable Use
+By using our Services, you agree to:
+Use leads solely for lawful insurance solicitation in compliance with Florida law and all applicable state and federal regulations
+Comply with the CAN-SPAM Act, TCPA, Florida Telemarketing Act, and all applicable do-not-call regulations
+Not resell, redistribute, or share lead data with third parties without written consent from DataSignal AI
+Not use the platform for any unlawful, harassing, or deceptive purpose
+Maintain your own valid Florida insurance license in good standing
+Violation of acceptable use policies may result in immediate account termination without refund.
+9. Intellectual Property
+All platform software, dashboards, scoring algorithms, sales scripts, branding, and content are the intellectual property of DataSignal AI LLC. You receive a limited, non-exclusive, non-transferable license to use the platform for your internal business purposes during an active subscription.
+You may not copy, reverse engineer, resell, or create derivative works from any part of the DataSignal AI platform without express written permission.
+10. Limitation of Liability
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, DATASIGNAL AI LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST REVENUE, OR LOST BUSINESS OPPORTUNITIES, ARISING FROM YOUR USE OF THE SERVICES.
+DataSignal AI's total liability to you for any claim arising out of or related to these Terms shall not exceed the amount paid by you to DataSignal AI in the three (3) months preceding the claim.
+11. Indemnification
+You agree to indemnify, defend, and hold harmless DataSignal AI LLC and its officers, members, employees, and agents from any claims, damages, losses, liabilities, and expenses (including reasonable attorneys' fees) arising from your use of the Services, your violation of these Terms, or your violation of any applicable law or third-party right.
+12. Governing Law and Dispute Resolution
+These Terms are governed by the laws of the State of Florida, without regard to conflict of law principles. Any disputes shall be resolved in the state or federal courts located in Miami-Dade County, Florida. You consent to exclusive jurisdiction and venue in these courts.
+13. Modifications to Terms
+DataSignal AI reserves the right to update these Terms at any time. We will notify active subscribers via email at least 14 days before material changes take effect. Continued use of the Services after the effective date constitutes acceptance of the revised Terms.
+14. Termination
+We reserve the right to suspend or terminate your account at any time for violation of these Terms, non-payment, fraudulent activity, or for any other reason at our discretion. Upon termination, your license to use the platform immediately ends.
+15. Contact Information
+For questions about these Terms, contact:
