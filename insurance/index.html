@@ -744,53 +744,35 @@
  * 3. Start the API server: uvicorn api.server:app --port 8000
  */
 
-// ▼ UPDATE THIS when your API server is deployed ▼
-const API_BASE_URL = 'https://api.datasignalai.tech';
+// Stripe Payment Links (direct, no API needed)
+const PAYMENT_LINKS = {
+    starter: 'https://buy.stripe.com/9B6dR37JK6S8goM0B0dIA01',
+    growth: 'https://buy.stripe.com/7sY6oBc001xOdcA6ZodIA02',
+    pro: 'https://buy.stripe.com/8x26oB3tu3FW2xW97wdIA03'
+};
 
-/**
- * Select a plan radio button when a pricing card "Get Started" button is clicked.
- * Scrolls to the signup form with the correct plan pre-selected.
- */
 function selectPlan(planValue) {
-    const radio = document.querySelector('input[name="plan"][value="' + planValue + '"]');
-    if (radio) {
-        radio.checked = true;
+    // Direct redirect to Stripe payment link
+    if (PAYMENT_LINKS[planValue]) {
+        window.location.href = PAYMENT_LINKS[planValue];
     }
 }
 
 const form = document.getElementById('signup-form');
 if (form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
+        const plan = form.querySelector('input[name="plan"]:checked');
+        const planValue = plan ? plan.value : 'starter';
         const btn = form.querySelector('button[type="submit"]');
         if (btn) {
             btn.disabled = true;
             btn.innerHTML = '<span class="inline-block animate-spin mr-2">&#9696;</span> Connecting to secure checkout...';
         }
-        try {
-            const formData = new FormData(form);
-            const resp = await fetch(API_BASE_URL + '/api/checkout/subscribe', {
-                method: 'POST',
-                body: formData,
-                redirect: 'follow'
-            });
-            if (resp.redirected) {
-                window.location.href = resp.url;
-            } else if (resp.ok) {
-                const text = await resp.text();
-                if (text.includes('http')) {
-                    window.location.href = text.trim();
-                } else {
-                    document.body.innerHTML = text;
-                }
-            } else {
-                const err = await resp.json().catch(() => ({detail: 'Checkout failed. Please try again.'}));
-                alert(err.detail || 'Checkout failed. Please try again.');
-                if (btn) { btn.disabled = false; btn.innerHTML = 'Get Started'; }
-            }
-        } catch(ex) {
-            alert('Connection error. Please try again.');
-            if (btn) { btn.disabled = false; btn.innerHTML = 'Get Started'; }
+        if (PAYMENT_LINKS[planValue]) {
+            window.location.href = PAYMENT_LINKS[planValue];
+        } else {
+            window.location.href = PAYMENT_LINKS.starter;
         }
     });
 }
