@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSignal AI — New Business Leads for Florida Accountants &amp; CPAs</title>
+    <meta name="description" content="DataSignal AI delivers daily new business filings, annual report delinquencies, and business transitions from FL Sunbiz and county records. New businesses need an accountant. Be their first call.">
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
+                        accent: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' },
+                        navy: { 800: '#0a1628', 900: '#060f1c' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-hero { background: linear-gradient(135deg, #0a1628 0%, #0c2d4a 40%, #0369a1 80%, #0ea5e9 100%); }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+        @keyframes glowPulse { 0%, 100% { filter: drop-shadow(0 0 8px rgba(14,165,233,0.3)); } 50% { filter: drop-shadow(0 0 20px rgba(14,165,233,0.6)); } }
+        .tab-active { border-color: #0ea5e9; color: #0ea5e9; background-color: #f0f9ff; }
+        .plan-popular { border-color: #0ea5e9; }
+    </style>
+</head>
+<body class="text-gray-800 leading-relaxed">
+
+<!-- ════════════════════════════════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="gradient-hero text-white py-24 px-6 text-center">
+    <div class="max-w-3xl mx-auto fade-in">
+        <div class="mb-8 flex justify-center">
+            <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-20 h-20 glow-pulse">
+        </div>
+        <div class="mb-6">
+            <span class="text-4xl md:text-5xl font-extralight tracking-widest text-gray-100">DATA</span><span class="text-4xl md:text-5xl font-bold tracking-widest text-brand-500">SIGNAL</span>
+            <span class="text-2xl md:text-3xl font-light tracking-widest text-gray-500 ml-2">AI</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
+            New Businesses Need an Accountant. Be Their First Call.
+        </h1>
+        <p class="text-xl md:text-2xl opacity-90 mb-4">
+            Daily new business filings, annual report deadlines, and business transitions from FL Sunbiz and county records.
+        </p>
+        <p class="text-base opacity-70 mb-8 max-w-xl mx-auto">
+            Every new LLC and corporation needs bookkeeping, tax prep, and compliance help. Get to them first with real filing data, delivered daily.
+        </p>
+        <a href="#lead-types" class="inline-block bg-accent-500 hover:bg-accent-600 text-white font-bold text-lg px-10 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+            See Leads for Your Practice
+        </a>
+        <p class="mt-4 text-sm opacity-60">Plans start at $149/mo. 3 bonus leads on signup.</p>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     SOCIAL PROOF BAR
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="bg-gray-50 py-12 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+            <div class="text-3xl font-extrabold text-brand-500">90+</div>
+            <div class="text-sm text-gray-500 mt-1">FL Government Data Sources</div>
+        </div>
+        <div>
+            <div class="text-3xl font-extrabold text-brand-500">Daily</div>
+            <div class="text-sm text-gray-500 mt-1">Updated From Sunbiz Records</div>
+        </div>
+        <div>
+            <div class="text-3xl font-extrabold text-brand-500">67</div>
+            <div class="text-sm text-gray-500 mt-1">FL Counties Covered</div>
+        </div>
+        <div>
+            <div class="text-3xl font-extrabold text-brand-500">1 CPA</div>
+            <div class="text-sm text-gray-500 mt-1">Max Per Lead (Pro Plan)</div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     LEAD TYPE SELECTOR + DYNAMIC CONTENT
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 px-6" id="lead-types">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-4">Choose Your Lead Type</h2>
+        <p class="text-center text-gray-500 mb-10">Select a lead type to see volume, sample data, and pricing tailored to your practice.</p>
+
+        <!-- Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12" id="pa-tabs">
+            <button onclick="selectPA('newbiz')" class="pa-tab tab-active px-5 py-2.5 border-2 border-gray-200 rounded-lg text-sm font-semibold transition-all" data-pa="newbiz">New Business Filings</button>
+            <button onclick="selectPA('delinquent')" class="pa-tab px-5 py-2.5 border-2 border-gray-200 rounded-lg text-sm font-semibold transition-all" data-pa="delinquent">Annual Report Delinquencies</button>
+            <button onclick="selectPA('dissolution')" class="pa-tab px-5 py-2.5 border-2 border-gray-200 rounded-lg text-sm font-semibold transition-all" data-pa="dissolution">Business Dissolutions</button>
+            <button onclick="selectPA('dba')" class="pa-tab px-5 py-2.5 border-2 border-gray-200 rounded-lg text-sm font-semibold transition-all" data-pa="dba">DBA/Fictitious Name</button>
+            <button onclick="selectPA('license')" class="pa-tab px-5 py-2.5 border-2 border-gray-200 rounded-lg text-sm font-semibold transition-all" data-pa="license">New Professional Licenses</button>
+            <button onclick="selectPA('reinstatement')" class="pa-tab px-5 py-2.5 border-2 border-gray-200 rounded-lg text-sm font-semibold transition-all" data-pa="reinstatement">Reinstatements</button>
+        </div>
+
+        <!-- Dynamic Content Area -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Left: Stats + Details -->
+            <div>
+                <div class="bg-brand-50 border border-brand-200 rounded-xl p-6 mb-6">
+                    <div class="text-3xl font-extrabold text-brand-700" id="pa-lead-count">8,400</div>
+                    <div class="text-sm text-brand-600 mt-1" id="pa-lead-desc">new LLCs and corporations filed this quarter on FL Sunbiz</div>
+                </div>
+                <h3 class="font-bold text-lg mb-3">What Each Lead Includes</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Business name and entity type</li>
+                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Registered agent name and address</li>
+                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Principal/officer names</li>
+                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Filing date and document number</li>
+                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> Mailing and principal address</li>
+                    <li class="flex items-start gap-2"><span class="text-brand-500 font-bold">&#10003;</span> <span id="pa-extra-field">Industry classification and NAICS code when available</span></li>
+                </ul>
+                <h4 class="font-bold text-sm mt-6 mb-2 text-gray-400 uppercase tracking-wide">Entity Types Covered</h4>
+                <p class="text-sm text-gray-600" id="pa-case-types">LLC, Corporation, Professional LLC, Professional Corporation, Limited Partnership, Non-Profit</p>
+            </div>
+
+            <!-- Right: Sample Lead Card -->
+            <div>
+                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                    <div class="text-xs font-semibold text-gray-400 uppercase mb-3">Sample Lead (Redacted)</div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full" id="sample-badge">New LLC</span>
+                        <span class="text-xs text-gray-400" id="sample-date">Filed: Mar 18, 2026</span>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+                            <div><span class="text-gray-400">Business:</span> <span id="sample-plaintiff">C***** Solutions LLC</span></div>
+                            <div><span class="text-gray-400">Entity Type:</span> <span id="sample-defendant">Florida LLC</span></div>
+                            <div><span class="text-gray-400">Doc #:</span> <span id="sample-case">L26-000****</span></div>
+                            <div><span class="text-gray-400">Filing:</span> <span id="sample-type">Articles of Organization</span></div>
+                            <div><span class="text-gray-400">County:</span> <span id="sample-county">Miami-Dade</span></div>
+                            <div><span class="text-gray-400">Status:</span> <span id="sample-court">Active</span></div>
+                            <div class="col-span-2"><span class="text-gray-400">Address:</span> <span id="sample-address">8*** Brickell Ave, Miami, FL 331**</span></div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <div class="text-xs text-gray-400">Full contact details, officer names, and registered agent info visible after signup.</div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400 text-center mt-3">Business names, addresses, and document numbers partially redacted for privacy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     HOW IT WORKS
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                <h3 class="font-bold text-lg mb-2">We Pull Business Records</h3>
+                <p class="text-gray-500 text-sm">Every day, our system collects new business filings, annual reports, dissolutions, and reinstatements from FL Sunbiz and county databases.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                <h3 class="font-bold text-lg mb-2">Parse and Extract</h3>
+                <p class="text-gray-500 text-sm">Each filing is parsed for business names, officer names, registered agent details, addresses, entity type, and filing dates.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                <h3 class="font-bold text-lg mb-2">Score and Classify</h3>
+                <p class="text-gray-500 text-sm">Leads are scored by accounting need and classified into new filings, delinquencies, dissolutions, DBAs, licenses, or reinstatements.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-14 h-14 bg-brand-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+                <h3 class="font-bold text-lg mb-2">Delivered to You</h3>
+                <p class="text-gray-500 text-sm">Fresh leads land in your dashboard daily with full business details. Export to CSV or work them directly from the platform.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     PRICING (Dynamic by Lead Type)
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 px-6" id="pricing">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-2">Pricing</h2>
+        <p class="text-center text-gray-500 mb-2">Prices shown for: <strong id="pricing-pa-label">New Business Filings</strong></p>
+        <p class="text-center text-sm text-brand-600 mb-8">Bonus leads included on every new signup.</p>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <!-- Starter -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
+                <div class="text-lg font-bold mb-1">Starter</div>
+                <div class="text-4xl font-extrabold text-brand-500" id="price-starter">$149</div>
+                <div class="text-gray-400 text-sm mb-2">/month</div>
+                <div class="inline-block bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">3 bonus leads on signup</div>
+                <div class="text-sm text-gray-600 mb-2" id="leads-starter">50 leads + 3 bonus leads</div>
+                <div class="text-xs text-brand-600 font-semibold mb-1" id="ppl-starter">$2.98/lead</div>
+                <div class="text-xs text-gray-500 mb-6" id="comp-starter">TaxBuzz charges $30-75 per lead. You pay $2.98.</div>
+                <a href="#signup" onclick="selectPlan('starter')" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
+            </div>
+
+            <!-- Growth (Popular) -->
+            <div class="bg-white border-2 border-brand-500 rounded-2xl p-8 text-center shadow-xl relative">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-5 py-1 rounded-full">Most Popular</div>
+                <div class="text-lg font-bold mb-1">Growth</div>
+                <div class="text-4xl font-extrabold text-brand-500" id="price-growth">$299</div>
+                <div class="text-gray-400 text-sm mb-2">/month</div>
+                <div class="inline-block bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">5 bonus leads on signup</div>
+                <div class="text-sm text-gray-600 mb-2" id="leads-growth">150 leads + 5 bonus leads</div>
+                <div class="text-xs text-brand-600 font-semibold mb-1" id="ppl-growth">$1.99/lead</div>
+                <div class="text-xs text-gray-500 mb-6" id="comp-growth">TaxBuzz charges $30-75 per lead. You pay $1.99.</div>
+                <a href="#signup" onclick="selectPlan('growth')" class="block w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
+            </div>
+
+            <!-- Pro -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
+                <div class="text-lg font-bold mb-1">Pro</div>
+                <div class="text-4xl font-extrabold text-brand-500" id="price-pro">$549</div>
+                <div class="text-gray-400 text-sm mb-2">/month</div>
+                <div class="inline-block bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">10 bonus leads on signup</div>
+                <div class="text-sm text-gray-600 mb-2" id="leads-pro">300 exclusive leads + 10 bonus leads</div>
+                <div class="text-xs text-brand-600 font-semibold mb-1" id="ppl-pro">$1.83/lead</div>
+                <div class="text-xs text-gray-500 mb-6" id="comp-pro">TaxBuzz charges $30-75 per lead. You pay $1.83.</div>
+                <a href="#signup" onclick="selectPlan('pro')" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-lg transition-colors">Get Started</a>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-gray-400">All plans are month-to-month. Cancel anytime. No contracts.</p>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     COMPETITOR COMPARISON
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-4">How We Compare</h2>
+        <p class="text-center text-gray-500 mb-10">Most accounting lead providers charge per lead and deliver stale data. We don't.</p>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse bg-white rounded-xl shadow-sm overflow-hidden">
+                <thead>
+                    <tr class="bg-gray-50 border-b-2 border-gray-200">
+                        <th class="text-left py-4 px-5 text-gray-500 font-medium">Provider</th>
+                        <th class="py-4 px-5 text-center text-gray-500 font-medium">Cost Per Lead</th>
+                        <th class="py-4 px-5 text-center text-gray-500 font-medium">Exclusivity</th>
+                        <th class="py-4 px-5 text-center text-gray-500 font-medium">Contract</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-5 text-gray-700">TaxBuzz</td>
+                        <td class="py-3 px-5 text-center text-gray-600">$30-75</td>
+                        <td class="py-3 px-5 text-center text-gray-600">Shared (3+)</td>
+                        <td class="py-3 px-5 text-center text-gray-600">Annual</td>
+                    </tr>
+                    <tr class="border-b border-gray-100 bg-gray-50">
+                        <td class="py-3 px-5 text-gray-700">Accounting Today</td>
+                        <td class="py-3 px-5 text-center text-gray-600">$25-50</td>
+                        <td class="py-3 px-5 text-center text-gray-600">Shared</td>
+                        <td class="py-3 px-5 text-center text-gray-600">6-12 months</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-5 text-gray-700">CPA.com Referrals</td>
+                        <td class="py-3 px-5 text-center text-gray-600">Subscription</td>
+                        <td class="py-3 px-5 text-center text-gray-600">Shared</td>
+                        <td class="py-3 px-5 text-center text-gray-600">Annual</td>
+                    </tr>
+                    <tr class="bg-brand-50">
+                        <td class="py-3 px-5 font-bold text-brand-700">DataSignal AI</td>
+                        <td class="py-3 px-5 text-center font-bold text-brand-700">$1.83-2.98</td>
+                        <td class="py-3 px-5 text-center font-bold text-brand-700">Exclusive (Pro)</td>
+                        <td class="py-3 px-5 text-center font-bold text-brand-700">None</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-center text-xs text-gray-400 mt-4">Competitor pricing based on publicly available information and industry averages as of 2026.</p>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     FAQ
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <details class="bg-white rounded-xl border border-gray-200 p-5 group" open>
+                <summary class="font-bold cursor-pointer flex justify-between items-center">
+                    Where do the leads come from?
+                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm">Our system pulls new business filings, annual reports, dissolutions, and reinstatements from Florida Sunbiz (Division of Corporations) and county clerk databases. The data is public record.</p>
+            </details>
+            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-bold cursor-pointer flex justify-between items-center">
+                    How fresh are the leads?
+                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm">Our pipeline runs every morning. Most leads are 1-3 days from the original filing date. You are reaching new business owners while they are actively setting up operations and looking for professional help.</p>
+            </details>
+            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-bold cursor-pointer flex justify-between items-center">
+                    Are the leads exclusive?
+                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm">On the Pro plan, each lead is sold to a maximum of one accountant/CPA. Growth and Starter plans may share leads with a limited number of other accounting professionals in the same county.</p>
+            </details>
+            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-bold cursor-pointer flex justify-between items-center">
+                    What contact information is included?
+                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm">Each lead includes business name, entity type, officer/member names, registered agent, mailing address, principal address, and filing date. Phone and email are included when available from supplemental public records.</p>
+            </details>
+            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-bold cursor-pointer flex justify-between items-center">
+                    Is there a long-term contract?
+                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm">No. All plans are month-to-month. Cancel anytime from your dashboard. No cancellation fees, no lock-in periods.</p>
+            </details>
+            <details class="bg-white rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-bold cursor-pointer flex justify-between items-center">
+                    Can I filter by county or entity type?
+                    <span class="text-gray-400 group-open:rotate-180 transition-transform">&#9660;</span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm">Yes. During signup you select your county preference. You can also filter leads by county, entity type, filing type, and date from within the dashboard.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     SIGNUP FORM
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 px-6 bg-gray-50" id="signup">
+    <div class="max-w-xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-4">Get Started</h2>
+        <p class="text-center text-gray-500 mb-8">Select your specialty and county. We will deliver your first leads within 24 hours.</p>
+
+        <form action="/api/checkout/subscribe" method="POST" class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 space-y-5" id="signup-form">
+            <input type="hidden" name="vertical" value="accountant">
+            <div>
+                <label class="block text-sm font-semibold mb-1">Full Name</label>
+                <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none" placeholder="Jane Smith, CPA">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Email</label>
+                <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none" placeholder="jane@smithcpa.com">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Phone <span class="text-gray-400 font-normal">(optional)</span></label>
+                <input type="tel" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none" placeholder="(555) 123-4567">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">County</label>
+                <select name="county" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none">
+                    <option value="">Select a county...</option>
+                    <option>Alachua</option><option>Baker</option><option>Bay</option><option>Bradford</option>
+                    <option>Brevard</option><option>Broward</option><option>Calhoun</option><option>Charlotte</option>
+                    <option>Citrus</option><option>Clay</option><option>Collier</option><option>Columbia</option>
+                    <option>DeSoto</option><option>Dixie</option><option>Duval</option><option>Escambia</option>
+                    <option>Flagler</option><option>Franklin</option><option>Gadsden</option><option>Gilchrist</option>
+                    <option>Glades</option><option>Gulf</option><option>Hamilton</option><option>Hardee</option>
+                    <option>Hendry</option><option>Hernando</option><option>Highlands</option><option>Hillsborough</option>
+                    <option>Holmes</option><option>Indian River</option><option>Jackson</option><option>Jefferson</option>
+                    <option>Lafayette</option><option>Lake</option><option>Lee</option><option>Leon</option>
+                    <option>Levy</option><option>Liberty</option><option>Madison</option><option>Manatee</option>
+                    <option>Marion</option><option>Martin</option><option>Miami-Dade</option><option>Monroe</option>
+                    <option>Nassau</option><option>Okaloosa</option><option>Okeechobee</option><option>Orange</option>
+                    <option>Osceola</option><option>Palm Beach</option><option>Pasco</option><option>Pinellas</option>
+                    <option>Polk</option><option>Putnam</option><option>Santa Rosa</option><option>Sarasota</option>
+                    <option>Seminole</option><option>St. Johns</option><option>St. Lucie</option><option>Sumter</option>
+                    <option>Suwannee</option><option>Taylor</option><option>Union</option><option>Volusia</option>
+                    <option>Wakulla</option><option>Walton</option><option>Washington</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Specialty</label>
+                <select name="specialty" required id="signup-pa" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none">
+                    <option value="">Select your specialty...</option>
+                    <option value="tax">Tax Preparation</option>
+                    <option value="bookkeeping">Bookkeeping</option>
+                    <option value="audit">Audit</option>
+                    <option value="payroll">Payroll</option>
+                    <option value="advisory">Business Advisory</option>
+                    <option value="forensic">Forensic Accounting</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Select Your Plan</label>
+                <div class="grid grid-cols-3 gap-2" id="signup-plans">
+                    <label class="block cursor-pointer">
+                        <input type="radio" name="plan" value="starter" class="peer sr-only" checked>
+                        <div class="border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 rounded-lg p-3 text-center transition-colors">
+                            <div class="font-bold text-sm">Starter</div>
+                            <div class="text-brand-500 font-bold" id="signup-price-starter">$149/mo</div>
+                            <div class="text-xs text-gray-500" id="signup-leads-starter">50 leads</div>
+                        </div>
+                    </label>
+                    <label class="block cursor-pointer">
+                        <input type="radio" name="plan" value="growth" class="peer sr-only">
+                        <div class="border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 rounded-lg p-3 text-center transition-colors">
+                            <div class="font-bold text-sm">Growth</div>
+                            <div class="text-brand-500 font-bold" id="signup-price-growth">$299/mo</div>
+                            <div class="text-xs text-gray-500" id="signup-leads-growth">150 leads</div>
+                        </div>
+                    </label>
+                    <label class="block cursor-pointer">
+                        <input type="radio" name="plan" value="pro" class="peer sr-only">
+                        <div class="border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 rounded-lg p-3 text-center transition-colors">
+                            <div class="font-bold text-sm">Pro</div>
+                            <div class="text-brand-500 font-bold" id="signup-price-pro">$549/mo</div>
+                            <div class="text-xs text-gray-500" id="signup-leads-pro">300 leads</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="flex items-start gap-2">
+                <input type="checkbox" id="tos-agree" required class="accent-brand-500 mt-1">
+                <label for="tos-agree" class="text-xs text-gray-500">I agree to the <a href="/terms-of-service.html" target="_blank" class="text-brand-500 underline">Terms of Service</a> and <a href="/privacy-policy.html" target="_blank" class="text-brand-500 underline">Privacy Policy</a></label>
+            </div>
+            <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-4 rounded-lg text-lg transition-colors">
+                Subscribe and Get Started
+            </button>
+            <p class="text-xs text-gray-400 text-center">Secure checkout via Stripe. Cancel anytime. No contracts.</p>
+        </form>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════════════ -->
+<footer class="bg-navy-800 text-gray-400 py-12 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+        <div class="mb-6">
+            <img src="../assets/logos/DataSignal_AI_Logo_Horizontal_Dark.svg" alt="DataSignal AI" class="h-10 mx-auto block">
+            <p class="text-sm text-gray-500 tracking-wide mt-2">Data Intelligence. Lead Generation. AI Automation.</p>
+        </div>
+        <p class="text-sm mb-4">
+            <a href="mailto:raul@datasignalai.tech" class="text-brand-400 hover:text-brand-300">raul@datasignalai.tech</a>
+            <span class="mx-2 text-gray-600">|</span>
+            <a href="tel:+17865253625" class="text-brand-400 hover:text-brand-300">(786) 525-3625</a>
+        </p>
+        <div class="text-xs space-x-4 mb-4">
+            <a href="/terms-of-service.html" class="text-brand-400 hover:text-brand-300">Terms of Service</a>
+            <a href="/privacy-policy.html" class="text-brand-400 hover:text-brand-300">Privacy Policy</a>
+        </div>
+        <p class="text-xs text-gray-600">All data sourced from Florida public records. Not affiliated with any government agency.</p>
+        <div class="mt-4 text-xs text-gray-600">&copy; 2026 DataSignal AI. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+/**
+ * Lead Type Data Configuration
+ */
+const PA_DATA = {
+    newbiz: {
+        label: 'New Business Filings',
+        leadCount: '8,400',
+        leadDesc: 'new LLCs and corporations filed this quarter on FL Sunbiz',
+        extraField: 'Industry classification and NAICS code when available',
+        caseTypes: 'LLC, Corporation, Professional LLC, Professional Corporation, Limited Partnership, Non-Profit',
+        sampleBadge: 'New LLC',
+        sampleDate: 'Filed: Mar 18, 2026',
+        samplePlaintiff: 'C***** Solutions LLC',
+        sampleDefendant: 'Florida LLC',
+        sampleCase: 'L26-000****',
+        sampleType: 'Articles of Organization',
+        sampleCounty: 'Miami-Dade',
+        sampleCourt: 'Active',
+        sampleAddress: '8*** Brickell Ave, Miami, FL 331**',
+        pricing: {
+            starter: { price: '$149', leads: '50 leads + 3 bonus leads', ppl: '$2.98/lead', comp: 'TaxBuzz charges $30-75 per lead. You pay $2.98.', signupPrice: '$149/mo', signupLeads: '50 leads' },
+            growth:  { price: '$299', leads: '150 leads + 5 bonus leads', ppl: '$1.99/lead', comp: 'TaxBuzz charges $30-75 per lead. You pay $1.99.', signupPrice: '$299/mo', signupLeads: '150 leads' },
+            pro:     { price: '$549', leads: '300 exclusive leads + 10 bonus leads', ppl: '$1.83/lead', comp: 'TaxBuzz charges $30-75 per lead. You pay $1.83.', signupPrice: '$549/mo', signupLeads: '300 leads' }
+        }
+    },
+    delinquent: {
+        label: 'Annual Report Delinquencies',
+        leadCount: '3,200',
+        leadDesc: 'businesses behind on annual reports this quarter on FL Sunbiz',
+        extraField: 'Last filing date and delinquency status',
+        caseTypes: 'Late annual report, missed filing deadline, administrative dissolution warning, reinstatement required, compliance lapse',
+        sampleBadge: 'Delinquent Report',
+        sampleDate: 'Flagged: Mar 20, 2026',
+        samplePlaintiff: 'S***** Properties LLC',
+        sampleDefendant: 'Florida LLC',
+        sampleCase: 'L19-000****',
+        sampleType: 'Annual Report Delinquent',
+        sampleCounty: 'Broward',
+        sampleCourt: 'Delinquent',
+        sampleAddress: '4*** N Federal Hwy, Fort Lauderdale, FL 333**',
+        pricing: {
+            starter: { price: '$149', leads: '50 leads + 3 bonus leads', ppl: '$2.98/lead', comp: 'Accounting Today charges $25-50 per lead. You pay $2.98.', signupPrice: '$149/mo', signupLeads: '50 leads' },
+            growth:  { price: '$299', leads: '150 leads + 5 bonus leads', ppl: '$1.99/lead', comp: 'Accounting Today charges $25-50 per lead. You pay $1.99.', signupPrice: '$299/mo', signupLeads: '150 leads' },
+            pro:     { price: '$549', leads: '300 exclusive leads + 10 bonus leads', ppl: '$1.83/lead', comp: 'Accounting Today charges $25-50 per lead. You pay $1.83.', signupPrice: '$549/mo', signupLeads: '300 leads' }
+        }
+    },
+    dissolution: {
+        label: 'Business Dissolutions',
+        leadCount: '1,120',
+        leadDesc: 'business dissolutions filed this quarter statewide on Sunbiz',
+        extraField: 'Entity type, formation date, and dissolution reason',
+        caseTypes: 'Voluntary dissolution, administrative dissolution, judicial dissolution, LLC dissolution, corporate dissolution, partnership dissolution',
+        sampleBadge: 'Dissolution',
+        sampleDate: 'Filed: Mar 19, 2026',
+        samplePlaintiff: 'Coastal Dev Corp',
+        sampleDefendant: 'FL Corporation',
+        sampleCase: 'P26-000****',
+        sampleType: 'Voluntary Dissolution',
+        sampleCounty: 'Hillsborough',
+        sampleCourt: 'Dissolved',
+        sampleAddress: '4*** Bayshore Blvd, Tampa, FL 336**',
+        pricing: {
+            starter: { price: '$149', leads: '50 leads + 3 bonus leads', ppl: '$2.98/lead', comp: 'CPA.com charges subscription model. You pay $2.98/lead.', signupPrice: '$149/mo', signupLeads: '50 leads' },
+            growth:  { price: '$299', leads: '150 leads + 5 bonus leads', ppl: '$1.99/lead', comp: 'CPA.com charges subscription model. You pay $1.99/lead.', signupPrice: '$299/mo', signupLeads: '150 leads' },
+            pro:     { price: '$549', leads: '300 exclusive leads + 10 bonus leads', ppl: '$1.83/lead', comp: 'CPA.com charges subscription model. You pay $1.83/lead.', signupPrice: '$549/mo', signupLeads: '300 leads' }
+        }
+    },
+    dba: {
+        label: 'DBA/Fictitious Name Filings',
+        leadCount: '2,900',
+        leadDesc: 'fictitious name registrations this quarter statewide on Sunbiz',
+        extraField: 'Owner name and existing business entity when available',
+        caseTypes: 'Fictitious name registration, DBA filing, sole proprietor, partnership DBA, LLC DBA, corporate DBA',
+        sampleBadge: 'DBA Filing',
+        sampleDate: 'Filed: Mar 17, 2026',
+        samplePlaintiff: 'D***** K. Thompson',
+        sampleDefendant: 'Sole Proprietor',
+        sampleCase: 'G26-000****',
+        sampleType: 'Fictitious Name Registration',
+        sampleCounty: 'Palm Beach',
+        sampleCourt: 'Active',
+        sampleAddress: '2*** Ocean Blvd, Boca Raton, FL 334**',
+        pricing: {
+            starter: { price: '$149', leads: '50 leads + 3 bonus leads', ppl: '$2.98/lead', comp: 'TaxBuzz charges $30-75 per lead. You pay $2.98.', signupPrice: '$149/mo', signupLeads: '50 leads' },
+            growth:  { price: '$299', leads: '150 leads + 5 bonus leads', ppl: '$1.99/lead', comp: 'TaxBuzz charges $30-75 per lead. You pay $1.99.', signupPrice: '$299/mo', signupLeads: '150 leads' },
+            pro:     { price: '$549', leads: '300 exclusive leads + 10 bonus leads', ppl: '$1.83/lead', comp: 'TaxBuzz charges $30-75 per lead. You pay $1.83.', signupPrice: '$549/mo', signupLeads: '300 leads' }
+        }
+    },
+    license: {
+        label: 'New Professional Licenses',
+        leadCount: '1,850',
+        leadDesc: 'new professional licenses issued this quarter by DBPR',
+        extraField: 'License type, profession, and expiration date',
+        caseTypes: 'New CPA license, real estate license, contractor license, medical license, legal license, insurance license, cosmetology license',
+        sampleBadge: 'New License',
+        sampleDate: 'Issued: Mar 21, 2026',
+        samplePlaintiff: 'A***** N. Brown',
+        sampleDefendant: 'Professional',
+        sampleCase: 'LIC-2026-****',
+        sampleType: 'New Professional License',
+        sampleCounty: 'Orange',
+        sampleCourt: 'DBPR',
+        sampleAddress: '5*** International Dr, Orlando, FL 328**',
+        pricing: {
+            starter: { price: '$149', leads: '50 leads + 3 bonus leads', ppl: '$2.98/lead', comp: 'Accounting Today charges $25-50 per lead. You pay $2.98.', signupPrice: '$149/mo', signupLeads: '50 leads' },
+            growth:  { price: '$299', leads: '150 leads + 5 bonus leads', ppl: '$1.99/lead', comp: 'Accounting Today charges $25-50 per lead. You pay $1.99.', signupPrice: '$299/mo', signupLeads: '150 leads' },
+            pro:     { price: '$549', leads: '300 exclusive leads + 10 bonus leads', ppl: '$1.83/lead', comp: 'Accounting Today charges $25-50 per lead. You pay $1.83.', signupPrice: '$549/mo', signupLeads: '300 leads' }
+        }
+    },
+    reinstatement: {
+        label: 'Reinstatements',
+        leadCount: '780',
+        leadDesc: 'business reinstatements filed this quarter on FL Sunbiz',
+        extraField: 'Original formation date and period of inactivity',
+        caseTypes: 'LLC reinstatement, corporate reinstatement, partnership reinstatement, administrative reinstatement, voluntary reinstatement',
+        sampleBadge: 'Reinstatement',
+        sampleDate: 'Filed: Mar 16, 2026',
+        samplePlaintiff: 'R***** M. Davis Consulting LLC',
+        sampleDefendant: 'Florida LLC',
+        sampleCase: 'L20-000****',
+        sampleType: 'LLC Reinstatement',
+        sampleCounty: 'Pinellas',
+        sampleCourt: 'Active',
+        sampleAddress: '3*** Bay to Bay Blvd, Clearwater, FL 337**',
+        pricing: {
+            starter: { price: '$149', leads: '50 leads + 3 bonus leads', ppl: '$2.98/lead', comp: 'CPA.com charges subscription model. You pay $2.98/lead.', signupPrice: '$149/mo', signupLeads: '50 leads' },
+            growth:  { price: '$299', leads: '150 leads + 5 bonus leads', ppl: '$1.99/lead', comp: 'CPA.com charges subscription model. You pay $1.99/lead.', signupPrice: '$299/mo', signupLeads: '150 leads' },
+            pro:     { price: '$549', leads: '300 exclusive leads + 10 bonus leads', ppl: '$1.83/lead', comp: 'CPA.com charges subscription model. You pay $1.83/lead.', signupPrice: '$549/mo', signupLeads: '300 leads' }
+        }
+    }
+};
+
+let currentPA = 'newbiz';
+
+/**
+ * Switch lead type: updates tabs, dynamic content, pricing, and sample lead
+ */
+function selectPA(pa) {
+    currentPA = pa;
+    const data = PA_DATA[pa];
+    if (!data) return;
+
+    // Update tabs
+    document.querySelectorAll('.pa-tab').forEach(function(tab) {
+        if (tab.dataset.pa === pa) {
+            tab.classList.add('tab-active');
+        } else {
+            tab.classList.remove('tab-active');
+        }
+    });
+
+    // Update dynamic content
+    document.getElementById('pa-lead-count').textContent = data.leadCount;
+    document.getElementById('pa-lead-desc').textContent = data.leadDesc;
+    document.getElementById('pa-extra-field').textContent = data.extraField;
+    document.getElementById('pa-case-types').textContent = data.caseTypes;
+
+    // Update sample lead card
+    document.getElementById('sample-badge').textContent = data.sampleBadge;
+    document.getElementById('sample-date').textContent = data.sampleDate;
+    document.getElementById('sample-plaintiff').textContent = data.samplePlaintiff;
+    document.getElementById('sample-defendant').textContent = data.sampleDefendant;
+    document.getElementById('sample-case').textContent = data.sampleCase;
+    document.getElementById('sample-type').textContent = data.sampleType;
+    document.getElementById('sample-county').textContent = data.sampleCounty;
+    document.getElementById('sample-court').textContent = data.sampleCourt;
+    document.getElementById('sample-address').textContent = data.sampleAddress;
+
+    // Update pricing section
+    document.getElementById('pricing-pa-label').textContent = data.label;
+
+    var p = data.pricing;
+    document.getElementById('price-starter').textContent = p.starter.price;
+    document.getElementById('leads-starter').textContent = p.starter.leads;
+    document.getElementById('ppl-starter').textContent = p.starter.ppl;
+    document.getElementById('comp-starter').textContent = p.starter.comp;
+
+    document.getElementById('price-growth').textContent = p.growth.price;
+    document.getElementById('leads-growth').textContent = p.growth.leads;
+    document.getElementById('ppl-growth').textContent = p.growth.ppl;
+    document.getElementById('comp-growth').textContent = p.growth.comp;
+
+    document.getElementById('price-pro').textContent = p.pro.price;
+    document.getElementById('leads-pro').textContent = p.pro.leads;
+    document.getElementById('ppl-pro').textContent = p.pro.ppl;
+    document.getElementById('comp-pro').textContent = p.pro.comp;
+
+    // Update signup form plan cards
+    document.getElementById('signup-price-starter').textContent = p.starter.signupPrice;
+    document.getElementById('signup-leads-starter').textContent = p.starter.signupLeads;
+    document.getElementById('signup-price-growth').textContent = p.growth.signupPrice;
+    document.getElementById('signup-leads-growth').textContent = p.growth.signupLeads;
+    document.getElementById('signup-price-pro').textContent = p.pro.signupPrice;
+    document.getElementById('signup-leads-pro').textContent = p.pro.signupLeads;
+}
+
+/**
+ * Pre-select plan radio in signup form when pricing card CTA is clicked
+ */
+function selectPlan(planValue) {
+    var radio = document.querySelector('input[name="plan"][value="' + planValue + '"]');
+    if (radio) radio.checked = true;
+}
+
+/**
+ * Form submission handler
+ */
+const API_BASE_URL = 'https://api.datasignalai.tech';
+const form = document.getElementById('signup-form');
+if (form) {
+    if (API_BASE_URL) {
+        form.action = API_BASE_URL + '/api/checkout/subscribe';
+    }
+    form.addEventListener('submit', function() {
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = '<span class="inline-block animate-spin mr-2">&#9696;</span> Connecting to secure checkout...';
+        }
+    });
+}
+</script>
+
+</body>
+</html>

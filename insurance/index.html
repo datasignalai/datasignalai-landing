@@ -760,21 +760,37 @@ function selectPlan(planValue) {
 
 const form = document.getElementById('signup-form');
 if (form) {
-    // If API_BASE_URL is set, update the form action to point to the API server
-    if (API_BASE_URL) {
-        form.action = API_BASE_URL + '/api/checkout/subscribe';
-    }
-
-    // The form submits as a regular POST (not AJAX), so the browser follows
-    // the redirect to Stripe Checkout automatically. No JavaScript needed
-    // for the happy path.
-
-    // Optional: show loading state on submit
-    form.addEventListener('submit', function() {
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
         const btn = form.querySelector('button[type="submit"]');
         if (btn) {
             btn.disabled = true;
             btn.innerHTML = '<span class="inline-block animate-spin mr-2">&#9696;</span> Connecting to secure checkout...';
+        }
+        try {
+            const formData = new FormData(form);
+            const resp = await fetch(API_BASE_URL + '/api/checkout/subscribe', {
+                method: 'POST',
+                body: formData,
+                redirect: 'follow'
+            });
+            if (resp.redirected) {
+                window.location.href = resp.url;
+            } else if (resp.ok) {
+                const text = await resp.text();
+                if (text.includes('http')) {
+                    window.location.href = text.trim();
+                } else {
+                    document.body.innerHTML = text;
+                }
+            } else {
+                const err = await resp.json().catch(() => ({detail: 'Checkout failed. Please try again.'}));
+                alert(err.detail || 'Checkout failed. Please try again.');
+                if (btn) { btn.disabled = false; btn.innerHTML = 'Get Started'; }
+            }
+        } catch(ex) {
+            alert('Connection error. Please try again.');
+            if (btn) { btn.disabled = false; btn.innerHTML = 'Get Started'; }
         }
     });
 }
