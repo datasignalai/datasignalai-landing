@@ -1,2 +1,6 @@
+/s  https://api.datasignalai.tech/go/scripts  302
+/t  https://api.datasignalai.tech/go/taste-test  302
+/scripts  https://api.datasignalai.tech/landing/scripts/  302
+/taste-test  https://api.datasignalai.tech/landing/taste-test/  302
 /dashboard  https://your-dashboard-url.com  302
 /*  /index.html  200
