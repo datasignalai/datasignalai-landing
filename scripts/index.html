@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Cold Call Scripts for FL Insurance Agents | DataSignal AI</title>
+<meta name="description" content="6 lead types, full objection handling, voicemail templates, and follow-up cadences. Free, no signup required.">
+<meta property="og:title" content="Free Cold Call Scripts for FL Insurance Agents | DataSignal AI">
+<meta property="og:description" content="6 lead types, full objection handling, voicemail templates, and follow-up cadences. Free, no signup required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://datasignalai.tech/scripts">
+<meta property="og:image" content="https://datasignalai.tech/assets/og-scripts.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://datasignalai.tech/scripts">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YTPFXE2QV9');
+function trackEvent(action, category, label) {
+  gtag('event', action, { event_category: category, event_label: label });
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy: '#0A1628',
+        navyLight: '#132038',
+        accent: '#16a34a',
+        accentHover: '#15803d',
+      }
+    }
+  }
+}
+</script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+<style>
+  html { scroll-behavior: smooth; }
+  .script-block { white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.6; }
+  .tab-active { border-bottom: 2px solid #16a34a; color: #16a34a; font-weight: 600; }
+  .tab-inactive { border-bottom: 2px solid transparent; color: #9ca3af; }
+  .tab-inactive:hover { color: #d1d5db; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in { animation: fadeIn 0.3s ease-out; }
+</style>
+
+<!-- FAQ Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What do you say when cold calling a new business owner about insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open with congratulations on their new business filing, establish local expertise, mention that most new LLCs need general liability and a business owner's policy, and ask for 2 minutes of their time. Reference their specific business name and county to show relevance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle the 'I already have insurance' objection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Validate their decision first. Then reframe your value as a gap analysis or comparison, not a replacement. Say something like: 'That's great. A lot of business owners get a basic policy and find out later it doesn't cover everything. Would you mind if I did a quick gap analysis? It takes 5 minutes and could save you from an uncovered claim.'"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What coverage does a new LLC need in Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most new Florida LLCs need Commercial General Liability ($800-$2,500/yr), a Business Owner's Policy ($700-$2,000/yr), Workers Compensation if they have employees ($2,000-$6,000/yr), and Commercial Auto if they use vehicles for business ($1,500-$4,500/yr)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best voicemail script for insurance cold calls?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep it under 25 seconds. Lead with congratulations on their trigger event, state one specific benefit, leave your number twice (beginning and end). Example: 'Hi [Name], congrats on registering [Business]. I help new businesses in [County] get affordable coverage with same-day quotes. Call me at [number]. Again, [your name], [number].'"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you cold call someone about flood insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lead with the surprising fact that their standard homeowners policy does NOT cover flood damage. Reference their specific property address and FEMA flood zone designation. Offer to compare NFIP (government) and private flood carrier quotes, noting that private carriers are often 20-40% cheaper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best follow-up cadence for insurance leads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Day 0: Call plus voicemail plus text. Day 3: Email with quote comparison. Day 5: Second call attempt. Day 7: Final email with urgency. Day 14: Add to monthly newsletter. The first agent to call wins 60% of the time, so speed to contact is critical."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen">
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useRef, useEffect } = React;
+
+// ── DATA ──
+
+const LEAD_TYPES = [
+  {
+    id: 'new_business',
+    icon: '\ud83c\udfe2',
+    name: 'New Business Formation',
+    desc: 'New LLCs need GL, WC, and commercial auto before signing their first contract',
+    subtypes: ['General', 'Restaurant', 'Contractor'],
+    coverage: [
+      { type: 'Commercial General Liability', range: '$800 - $2,500/yr', reason: 'Required before signing contracts or leasing commercial space' },
+      { type: 'Workers Compensation', range: '$2,000 - $6,000/yr', reason: 'Required by FL law if they have 1+ employees (construction) or 4+ (non-construction)' },
+      { type: 'Commercial Auto', range: '$1,500 - $4,500/yr', reason: 'Required if business uses any vehicles for work' },
+      { type: 'Business Owner Policy (BOP)', range: '$700 - $2,000/yr', reason: 'Bundles GL + commercial property at a discount for small businesses' },
+    ],
+    phone: {
+      General: {
+        opening: `Hi [Name], this is [Agent] with [Agency].\n\nI noticed that [Business Name] was recently registered with the state of Florida. Congratulations on the new venture!\n\nI specialize in helping new business owners in [County] County get the right coverage at competitive rates. Most new LLCs need at least general liability and a business owner's policy, and I can usually get quotes back same-day.`,
+        bridge: `Do you have about 2 minutes? I'd love to understand what [Business Name] does so I can point you in the right direction.`,
+        discovery: [
+          'What type of work does [Business Name] do?',
+          'How many employees do you have or plan to hire?',
+          'Do you have any commercial vehicles?',
+          'Have you had any prior business insurance?',
+        ],
+        coveragePitch: `Most new businesses in [City] are paying between $50-150/month depending on the type of work. I work with multiple carriers and can usually get you 3-4 competitive quotes within 24 hours.`,
+        close: `Is there a good time this week for a 10-minute call? I can work around your schedule.`,
+      },
+      Restaurant: {
+        opening: `Hi [Name], this is [Agent] with [Agency].\n\nI noticed [Business Name] recently opened in [City]. Congratulations! Restaurants are one of my specialties, and I wanted to make sure you have the right coverage in place.\n\nFood service businesses need specific coverage that a standard BOP doesn't always include. Things like liquor liability if you serve alcohol, food contamination coverage, and equipment breakdown.`,
+        bridge: `Do you have your business insurance sorted out yet?`,
+        discovery: [
+          'What type of restaurant is it: sit-down, fast casual, or food truck?',
+          'Do you serve alcohol?',
+          'How many employees do you have?',
+          'What is your seating capacity?',
+        ],
+        coveragePitch: `Most restaurants I work with pay $200-400/month for comprehensive coverage including GL, food contamination, equipment breakdown, and liquor liability.`,
+        close: `Want me to put together a restaurant-specific package? Just reply with your restaurant type and seating capacity.`,
+      },
+      Contractor: {
+        opening: `Hi [Name], this is [Agent] with [Agency].\n\nI saw that you recently got your contractor's license. Congrats! I work with a lot of contractors in [County] County and wanted to see if you need help with your insurance setup.\n\nMost GCs in Florida need at least a GL policy and workers comp. If you're doing any residential work, your clients and the GC you sub for are going to ask for a certificate of insurance before you step on site.`,
+        bridge: `Do you have your coverage lined up yet?`,
+        discovery: [
+          'What type of contracting work do you do? Roofing, electrical, plumbing, general?',
+          'How many employees do you have?',
+          'Do you sub for other GCs or take direct jobs?',
+          'Do you use vehicles for work?',
+        ],
+        coveragePitch: `I can get you GL quotes in about 24 hours. Most contractors I work with pay $150-400/month for a full package including GL, WC, commercial auto, and COIs.`,
+        close: `I can usually get quotes back same-day and issue COIs immediately. Want me to run some numbers?`,
+      },
+    },
+    voicemail: `Hi [Name], this is [Agent] with [Agency]. Congratulations on registering [Business Name]!\n\nI help new businesses in [County] County get set up with the right insurance coverage, and I can get same-day quotes from multiple carriers.\n\nGive me a call back when you get a chance: [Phone]. Again, this is [Agent], [Phone]. Looking forward to connecting!`,
+    email: `Subject: Congrats on [Business Name] -- quick question about coverage\n\nHi [Name],\n\nCongratulations on registering [Business Name] in [City]! Starting a business is exciting, and getting the right insurance in place early protects everything you're building.\n\nMost new Florida businesses need:\n- General Liability (required by many clients and landlords)\n- Business Owner's Policy (property + liability bundle, saves 15-20%)\n- Workers Comp (required in FL if you have 4+ employees)\n\nI work with multiple carriers and can usually get you 3-4 competitive quotes within 24 hours. No obligation, just options.\n\nWould you have 10 minutes this week for a quick call? I can work around your schedule.\n\nBest,\n[Agent]\n[Agency]\n[Phone]`,
+    sms: `Hi [Name], congrats on [Business Name]! This is [Agent] with [Agency]. I help new FL businesses get affordable coverage. Want me to send you a free quote? No obligation.`,
+    directMail: `Dear [Name],\n\nCongratulations on launching [Business Name] in [City], Florida!\n\nAs a [County] County insurance specialist, I wanted to personally welcome you and share a quick checklist of coverage that most new Florida businesses need:\n\n[ ] General Liability -- protects against lawsuits and accidents\n[ ] Business Owner's Policy (BOP) -- bundles property + liability (saves 15-20%)\n[ ] Workers Compensation -- required if you have 4+ employees\n[ ] Commercial Auto -- if you use vehicles for business\n[ ] Professional Liability -- if you provide advice or services\n\nI work with 15+ insurance carriers to find you the best rates. I'd love to offer you a free, no-obligation coverage review.\n\nCall or text me at [Phone] or email [Email].\n\nWelcome to the [County] County business community!\n\n[Agent]\nLicensed Insurance Agent\n[Agency]`,
+    objections: [
+      {
+        q: 'I already have insurance',
+        a: "That's great. You're ahead of the game. A lot of new business owners get a basic policy and find out later it doesn't cover everything. Would you mind if I did a quick gap analysis? It takes 5 minutes and could save you from an uncovered claim.",
+        psych: "Validate their decision first (Carnegie: never say 'you're wrong'), then reframe your value as a safety check, not a replacement.",
+      },
+      {
+        q: "I can't afford it right now",
+        a: "I hear you. When cash flow is tight, every dollar matters. The good news is basic GL for most Florida businesses starts around $40-80/month. And I shop multiple carriers, so you're getting the best rate available. Would it help to see the actual numbers?",
+        psych: "Anchoring effect: giving a specific low price range changes the mental reference point from 'expensive' to 'manageable'.",
+      },
+      {
+        q: 'How did you get my number?',
+        a: "Your business filing is part of Florida's public records. I specialize in helping people who just registered a new business get the right coverage in place. I want to make sure you're covered before you start taking on clients or signing leases.",
+        psych: "Transparency builds trust. Immediately pivot to value so they focus on the benefit, not the source.",
+      },
+      {
+        q: "I'll think about it",
+        a: "Absolutely. I'll email you a summary right now. Just so I send the right info: what type of work does [Business Name] do? That way I can include relevant pricing and coverage details.",
+        psych: "Commitment and consistency (Cialdini): by answering one small question, they've invested in the conversation and are more likely to continue.",
+      },
+      {
+        q: 'Just email me something',
+        a: "Happy to. Before I do, quick question: what type of work does [Business Name] do? That way I send you something actually useful, not a generic brochure. I'll include specific pricing for your industry.",
+        psych: "Turn a brush-off into a micro-engagement. Getting them to answer one question opens the door to a real conversation.",
+      },
+    ],
+    psychology: "New business owners are excited, overwhelmed, and making dozens of decisions at once. By congratulating them and offering to simplify one decision (insurance), you position yourself as a helpful resource, not a salesman. The trigger is fresh, the need is real, and you may be the first agent to reach out.",
+    cadence: [
+      { day: 'Day 0', action: 'Call + voicemail + text (use opening script)' },
+      { day: 'Day 3', action: 'Email with quote comparison for their specific business type' },
+      { day: 'Day 5', action: 'Second call attempt' },
+      { day: 'Day 7', action: 'Final email with urgency ("many clients require a COI before signing contracts")' },
+      { day: 'Day 14', action: 'Add to monthly newsletter' },
+    ],
+  },
+  {
+    id: 'new_homeowner',
+    icon: '\ud83c\udfe0',
+    name: 'New Homeowner',
+    desc: 'Home buyers need homeowners + flood insurance before closing',
+    subtypes: null,
+    coverage: [
+      { type: 'Homeowners Insurance', range: '$1,500 - $3,500/yr', reason: 'Required by mortgage lender before closing' },
+      { type: 'Flood Insurance', range: '$600 - $2,800/yr', reason: 'Required if property is in a FEMA flood zone (most of South FL)' },
+      { type: 'Umbrella Policy', range: '$300 - $800/yr', reason: 'Extra liability layer for high-value properties' },
+    ],
+    phone: {
+      Default: {
+        opening: `Hi [Name], this is [Agent] with [Agency].\n\nCongratulations on your new home in [City]! I saw the property record come through and wanted to reach out.\n\nI help homeowners in [County] County make sure they have the right coverage. Especially important here in Florida with hurricane season. A lot of new homeowners don't realize their lender's required coverage might not be enough.`,
+        bridge: `Do you have your homeowner's policy set up yet?`,
+        discovery: [
+          'When is your closing date?',
+          'Has your lender already placed coverage, or are you shopping?',
+          'Is the property in a flood zone?',
+          'What is the approximate value of the home?',
+        ],
+        coveragePitch: `I work with 12+ carriers and can get you quotes fast. I typically save new homeowners $500-800/year compared to the first quote they get. I can also bundle homeowners + flood + auto for additional savings.`,
+        close: `Would you mind if I took a quick look at your coverage? No pressure, just want to make sure you're not overpaying.`,
+      },
+    },
+    voicemail: `Hi [Name], this is [Agent] with [Agency]. Congratulations on your new home in [City]!\n\nI help homeowners in [County] County save on insurance. I've been saving new homeowners an average of $800 a year. I'd love to run a quick comparison for you.\n\nCall me back at [Phone]. Again, [Agent], [Phone]. Congrats again!`,
+    email: `Subject: Your new home in [City] -- making sure you're covered\n\nHi [Name],\n\nCongratulations on your recent home purchase in [City]! As a [County] County insurance specialist, I wanted to make sure you're set up with the right coverage.\n\nIn Florida, homeowner's insurance is more than just a lender requirement. It's your financial safety net during hurricane season. I can help you with:\n\n- Homeowner's Insurance (I shop 12+ carriers for the best rate)\n- Flood Insurance (many [City] properties are in flood zones, and standard policies don't cover it)\n- Umbrella Policy (extra liability protection for high-value homes)\n\nI typically save new homeowners $500-800/year compared to the first quote they get. Want me to run a quick comparison?\n\nBest,\n[Agent]\n[Agency]\n[Phone]`,
+    sms: `Hi [Name], congrats on your new home in [City]! I'm [Agent] with [Agency]. I typically save new FL homeowners $500-800/yr on insurance. Want me to run a free quote?`,
+    directMail: `Welcome to your new home in [City]!\n\nDear [Name],\n\nAs a [County] County insurance specialist, I wanted to welcome you to the neighborhood and offer a free homeowner's insurance review.\n\nNew Florida homeowners should make sure they have:\n\n[ ] Homeowner's Insurance -- are you getting the best rate?\n[ ] Flood Insurance -- your homeowner's policy does NOT cover floods\n[ ] Umbrella Policy -- extra protection for your biggest asset\n[ ] Wind/Hurricane Coverage -- critical in [County] County\n\nI shop 15+ carriers to find you the best rates. Most new homeowners I work with save $500-800/year.\n\nFree quote: Call [Phone] or text "QUOTE" to get started.\n\n[Agent]\n[Agency]`,
+    objections: [
+      {
+        q: 'My lender already set up insurance',
+        a: "That happens a lot. Lenders often place coverage to protect their interest, but it may not fully protect YOU. It's usually the minimum required. Would you be open to a free comparison? I've saved homeowners in [County] an average of $800/year just by shopping it.",
+        psych: "Reframe from 'you have coverage' to 'you may not have ENOUGH coverage'. Subtle fear appeal combined with a specific savings number.",
+      },
+      {
+        q: "I can't afford it right now",
+        a: "I understand. That's exactly why shopping matters. Most homeowners I work with are surprised to find they can get better coverage for less. Let me run a comparison. If I can't save you money, no harm done.",
+        psych: "Reframe cost as a reason TO shop, not a reason to avoid it. Zero-risk proposition.",
+      },
+      {
+        q: 'How did you get my number?',
+        a: "Your property deed is part of Florida's public records. I reach out to new homeowners in [County] County to make sure they're properly covered before hurricane season. I want to make sure you're not overpaying or under-covered.",
+        psych: "Transparency plus immediate value pivot.",
+      },
+      {
+        q: "I'll think about it",
+        a: "Totally fair. Keep in mind there's a 30-day waiting period for flood insurance, and hurricane season starts June 1. Would it make sense for me to at least get you a flood quote so you have it ready?",
+        psych: "Introduce a real deadline (30-day waiting period) that creates genuine urgency without being pushy.",
+      },
+      {
+        q: 'Just email me something',
+        a: "Happy to. What's the best email? And quick question: do you know if the property is in a flood zone? That helps me send you the right info. A lot of [City] properties are, and standard homeowners doesn't cover floods.",
+        psych: "Turn a brush-off into useful engagement. The flood question often surprises people and creates a real conversation.",
+      },
+    ],
+    psychology: "New homeowners are in buying mode. They just made the biggest purchase of their life and are making a dozen related decisions (movers, utilities, insurance). Your timing is perfect because they NEED coverage before closing. Leading with congratulations builds rapport. The $800 savings hook is specific and believable. Flood insurance education creates genuine value.",
+    cadence: [
+      { day: 'Day 0', action: 'Call + voicemail + text' },
+      { day: 'Day 3', action: 'Email with homeowners + flood quote comparison' },
+      { day: 'Day 5', action: 'Second call attempt' },
+      { day: 'Day 7', action: 'Final email: "30-day waiting period for flood insurance starts now"' },
+      { day: 'Day 14', action: 'Add to monthly newsletter' },
+    ],
+  },
+  {
+    id: 'wc_stop_work',
+    icon: '\ud83d\udea7',
+    name: 'Workers Comp Stop-Work',
+    desc: 'Businesses caught without WC must buy immediately to resume operations',
+    subtypes: null,
+    coverage: [
+      { type: 'Workers Compensation', range: '$2,000 - $6,000/yr', reason: 'Required by FL law. Stop-work order means they cannot operate until covered.' },
+    ],
+    phone: {
+      Default: {
+        opening: `Hi [Name], this is [Agent] with [Agency].\n\nI understand you need to get your Workers Comp set up quickly. I can get you a quote today so you can get back to work.`,
+        bridge: `I specialize in helping businesses in [County] County get reinstated after a stop-work order. Speed matters here, and I work with carriers who can bind same-day.`,
+        discovery: [
+          'What type of work does your business do?',
+          'How many employees do you have?',
+          'What is your annual payroll estimate?',
+          'Have you had workers comp coverage before?',
+        ],
+        coveragePitch: `Workers comp rates are based on your industry class code and payroll. For most Florida businesses, you're looking at $2,000-$6,000/year. I can get you multiple quotes today and help you get the stop-work order lifted.`,
+        close: `Let me get your details and I'll have quotes back to you within a few hours. The sooner we bind, the sooner you can operate.`,
+      },
+    },
+    voicemail: `Hi [Name], this is [Agent] with [Agency]. I help businesses in [County] County get Workers Comp coverage set up fast.\n\nI know a stop-work order means you can't operate, and I can get you quoted and bound same-day. Give me a call at [Phone] and let's get this resolved. Again, [Agent], [Phone].`,
+    email: `Subject: Get your Workers Comp coverage today -- resume operations\n\nHi [Name],\n\nI understand your business is dealing with a Workers Comp compliance issue. I help businesses in [County] County get properly covered quickly so they can get back to work.\n\nHere's what I can do:\n- Same-day quotes from multiple carriers\n- Help with the stop-work order resolution process\n- Competitive rates based on your industry class code\n- Payment plans available to reduce upfront costs\n\nWorkers comp rates depend on your industry and payroll, but most Florida businesses pay $2,000-$6,000/year.\n\nLet me know your business type and employee count and I'll get quotes started immediately.\n\nBest,\n[Agent]\n[Agency]\n[Phone]`,
+    sms: `Hi [Name], this is [Agent] with [Agency]. I can help get your Workers Comp set up today so you can get back to work. Same-day quotes available. Call me: [Phone]`,
+    directMail: `URGENT: WORKERS COMPENSATION COMPLIANCE\n\nDear [Name],\n\nYour business needs Workers Compensation coverage to resume operations in Florida.\n\nI can help you get:\n[ ] Same-day Workers Comp quotes\n[ ] Competitive rates from multiple carriers\n[ ] Stop-work order resolution assistance\n[ ] Payment plan options\n\nDon't let another day go by without operating.\n\nCall now: [Phone]\n\n[Agent] | [Agency]`,
+    objections: [
+      {
+        q: 'I already have insurance',
+        a: "If you have active WC coverage, we can help you get the documentation to the state to lift the order. If your previous policy lapsed, I can get you re-covered today. Either way, let's get you back to work.",
+        psych: "Focus on solving their immediate problem (getting back to work) rather than selling.",
+      },
+      {
+        q: "I can't afford it right now",
+        a: "I understand. The challenge is every day without coverage is a day you can't operate, and the fines add up. Most carriers offer monthly payment plans so the upfront cost is manageable. Let me at least get you the numbers so you can make a decision.",
+        psych: "Frame the cost of NOT acting (lost revenue + fines) as greater than the cost of acting.",
+      },
+      {
+        q: 'How did you get my number?',
+        a: "Stop-work orders are part of Florida's public records. I reach out to business owners because I know time is critical. You can't operate without coverage, and I can help you get it resolved fast.",
+        psych: "Transparency plus urgency. They know the situation is public and time-sensitive.",
+      },
+      {
+        q: "I'll think about it",
+        a: "I understand. Just keep in mind that every day without coverage means lost revenue and potential fines. I can have quotes to you in a few hours with no obligation. At least you'll know your options.",
+        psych: "Real urgency (lost revenue) without being pushy. Give them information to make a decision.",
+      },
+      {
+        q: 'Just email me something',
+        a: "I'll send you a summary right now. Quick question: what type of work does your business do and how many employees? That way I can include actual pricing, not generic info. Time matters here since you can't operate without coverage.",
+        psych: "Urgency plus specificity. Getting business type lets you send a real quote, not a brochure.",
+      },
+    ],
+    psychology: "This is the highest-urgency lead type. The business literally cannot operate without WC coverage. They are not browsing. They have an immediate, legally mandated need. Your value proposition is simple: I can get you back to work TODAY. Speed and confidence are everything. Do not be soft. Be direct, competent, and fast.",
+    cadence: [
+      { day: 'Day 0', action: 'Call + voicemail + text (URGENT: same-day quotes)' },
+      { day: 'Day 1', action: 'Second call + email with quote' },
+      { day: 'Day 2', action: 'Third call attempt' },
+      { day: 'Day 3', action: 'Final email: "Every day without coverage is lost revenue"' },
+      { day: 'Day 7', action: 'Follow up if still unresolved' },
+    ],
+  },
+  {
+    id: 'flood_zone',
+    icon: '\ud83c\udf0a',
+    name: 'Flood Zone Property',
+    desc: 'Homeowners in FEMA flood zones need flood coverage their standard policy excludes',
+    subtypes: null,
+    coverage: [
+      { type: 'NFIP Flood Insurance', range: '$800 - $3,000/yr', reason: 'Government-backed flood program for FEMA flood zone properties' },
+      { type: 'Private Flood Insurance', range: '$600 - $2,000/yr', reason: 'Often 20-40% cheaper than NFIP with higher coverage limits' },
+    ],
+    phone: {
+      Default: {
+        opening: `Hi [Name], this is [Agent] with [Agency].\n\nI'm reaching out because your property in [City] is located in a FEMA-designated flood zone. A lot of homeowners in [County] County don't realize that regular homeowner's insurance does NOT cover flood damage.\n\nWith Florida's hurricane season, flood insurance is really important for your area. I can get you a quote from both the NFIP (National Flood Insurance Program) and private carriers. Private carriers are often 20-40% cheaper with better coverage.`,
+        bridge: `Do you currently have a flood policy in place?`,
+        discovery: [
+          'Do you know which flood zone your property is in?',
+          'When does your current policy renew (if you have one)?',
+          'Is the property your primary residence or an investment?',
+          'Has the property ever flooded?',
+        ],
+        coveragePitch: `NFIP policies typically run $800-$3,000/year, but private flood carriers can often beat that by 20-40% with higher coverage limits. I compare both for you at no cost.`,
+        close: `Want me to run a quick quote? I just need your property address and current coverage details.`,
+      },
+    },
+    voicemail: `Hi [Name], this is [Agent] with [Agency]. I'm calling about your property in [City].\n\nQuick heads up: your property is in a FEMA flood zone, and your homeowner's insurance does NOT cover flood damage. I can get you a flood policy quote that may be more affordable than you think.\n\nCall me back at [Phone]. I'd hate for you to be unprotected during hurricane season. This is [Agent], [Phone].`,
+    email: `Subject: Your [City] property -- flood zone coverage alert\n\nHi [Name],\n\nI'm reaching out because your property in [City] is located in a FEMA-designated flood zone. This is important because your standard homeowner's insurance does NOT cover flood damage.\n\nKey facts for [County] County property owners:\n- 25% of flood claims come from outside high-risk zones\n- Average flood claim in Florida is $52,000\n- There's a 30-day waiting period for new policies. Don't wait until storm season\n\nI can compare quotes from the NFIP (government program) and private carriers. Private carriers are often 20-40% less expensive with better coverage limits.\n\nWant me to run a quick quote? I just need your property address and current coverage details.\n\nBest,\n[Agent]\n[Agency]\n[Phone]`,
+    sms: `Hi [Name], your [City] property is in a FEMA flood zone. Homeowner's insurance does NOT cover floods. I can get you a quote. Private flood policies start around $400/yr. Want details? - [Agent], [Agency]`,
+    directMail: `FLOOD ZONE NOTICE -- [City], [County] County\n\nDear [Name],\n\nYour property is located in a FEMA-designated flood zone. This means your standard homeowner's insurance DOES NOT cover flood damage.\n\nIMPORTANT FACTS:\n- Average FL flood claim: $52,000\n- Homeowner's insurance: $0 flood coverage\n- 30-day waiting period for new flood policies\n- Hurricane season: June 1 - November 30\n\nYOUR OPTIONS:\n1. NFIP (National Flood Insurance Program) -- government-backed\n2. Private Flood Insurance -- often 20-40% cheaper, higher limits\n\nI can compare both options for you at no cost.\n\nGet your free flood insurance quote:\nCall/Text: [Phone]\nEmail: [Email]\n\n[Agent] | [Agency]`,
+    objections: [
+      {
+        q: 'I already have insurance',
+        a: "You may have homeowners, but does it include a separate flood policy? Standard homeowners does NOT cover flood damage in Florida. Let me check if you have a standalone flood policy, and if so, I can see if I can save you money through a private carrier.",
+        psych: "Clarify the gap between homeowners and flood. Many people genuinely don't know they're separate.",
+      },
+      {
+        q: "I can't afford it right now",
+        a: "I understand. But consider this: the average flood claim in Florida is $52,000, and a preferred-risk flood policy can be as low as $400/year. That's about $33/month to protect your biggest asset. Would it help to at least see the numbers?",
+        psych: "Cost comparison ($400/yr vs $52K claim) makes insurance feel like a bargain.",
+      },
+      {
+        q: 'How did you get my number?',
+        a: "FEMA flood zone designations and property records are part of Florida's public records. I reach out to property owners in flood zones because many don't realize their homeowners policy doesn't cover floods. I just want to make sure you're protected.",
+        psych: "Transparent source plus genuine value. The information you're sharing is actually important.",
+      },
+      {
+        q: "I'll think about it",
+        a: "Fair enough. Just keep in mind there's a 30-day waiting period for new flood policies, and hurricane season runs June through November. If I can get you a quote now, you'll have it ready to go.",
+        psych: "The 30-day waiting period is a real, concrete deadline that creates genuine urgency.",
+      },
+      {
+        q: 'Just email me something',
+        a: "I'll send you a comparison of NFIP vs. private flood rates for your area. What's the best email? And do you know your property's elevation certificate? That's the biggest factor in pricing.",
+        psych: "Ask a technical question that shows expertise. Most people won't know their elevation cert, which opens the door for you to help them find it.",
+      },
+    ],
+    psychology: "Most homeowners genuinely do not know that their standard policy excludes floods. You are providing real, valuable information. The 30-day waiting period creates legitimate urgency (not manufactured). The NFIP vs. private comparison positions you as an expert who will find them the best deal, not just sell them a policy. Lead with education, close with value.",
+    cadence: [
+      { day: 'Day 0', action: 'Call + voicemail + text' },
+      { day: 'Day 3', action: 'Email with NFIP vs. private flood comparison for their zone' },
+      { day: 'Day 5', action: 'Second call attempt' },
+      { day: 'Day 7', action: 'Final email: "30-day waiting period. Hurricane season approaching."' },
+      { day: 'Day 14', action: 'Add to monthly newsletter' },
+    ],
+  },
+  {
+    id: 'marriage',
+    icon: '\ud83d\udc8d',
+    name: 'Marriage License',
+    desc: 'Newlyweds need bundled auto, homeowners, and life insurance',
+    subtypes: null,
+    coverage: [
+      { type: 'Combined Auto (15-25% bundle discount)', range: 'Saves $300 - $700/yr', reason: 'Bundling two auto policies creates immediate savings' },
+      { type: 'Term Life Insurance', range: '$400 - $1,500/yr', reason: 'Spouse now depends on your income. Lock in low rates while young and healthy.' },
+      { type: 'Homeowners Insurance', range: '$1,500 - $3,500/yr', reason: 'Update policy with new name/address. Bundle for additional savings.' },
+    ],
+    phone: {
+      Default: {
+        opening: `Hi [Name], this is [Agent] with [Agency].\n\nFirst of all, congratulations on the recent marriage! I help couples in [County] County make sure they're properly covered as they start their new chapter together.\n\nGetting married is actually one of the biggest insurance events. You can usually save by bundling policies, and it's a great time to review your life insurance needs now that you have a spouse depending on you.`,
+        bridge: `Have you had a chance to update your insurance since the wedding?`,
+        discovery: [
+          'Are you both currently insured separately for auto?',
+          'Do either of you have life insurance through work or individually?',
+          'Are you buying a home together or renting?',
+          'Have you updated beneficiaries on any existing policies?',
+        ],
+        coveragePitch: `Most couples save 15-25% on auto alone by bundling. A $500K term life policy at your age could be as low as $25-30/month. I can review everything in one 15-minute call.`,
+        close: `Would you be open to a quick 15-minute review? I can check your savings on auto bundling and quote life insurance at the same time.`,
+      },
+    },
+    voicemail: `Hi [Name], this is [Agent] with [Agency]. Congratulations on your recent marriage!\n\nI help newlyweds in [County] County save money by bundling their insurance. Most couples save 15-25% on auto alone. I'd love to do a quick review for you.\n\nCall me at [Phone]. This is [Agent], [Phone]. Congrats again!`,
+    email: `Subject: Congratulations! A quick insurance checklist for newlyweds\n\nHi [Name],\n\nCongratulations on your recent marriage! As you settle into this exciting new chapter, here's a quick insurance checklist that could save you money:\n\n[ ] Bundle auto policies -- most couples save 15-25%\n[ ] Update beneficiaries on any existing policies\n[ ] Review life insurance -- your spouse now depends on your income\n[ ] Update homeowner's/renter's insurance with new name/address\n[ ] Consider an umbrella policy for extra protection\n\nI help newlyweds in [County] County get everything set up. A quick 15-minute review could save you hundreds per year.\n\nWant me to run some numbers?\n\nBest,\n[Agent]\n[Agency]\n[Phone]`,
+    sms: `Congrats on the marriage, [Name]! I'm [Agent] with [Agency]. Did you know newlyweds can save 15-25% by bundling insurance? Want me to check your savings? Free, no obligation.`,
+    directMail: `Congratulations, [Name]!\n\nWishing you all the best as you start this exciting new chapter together.\n\nAs a [County] County insurance specialist, I'd love to help you start your marriage on solid financial footing. A quick insurance review can save newlyweds hundreds per year.\n\nYOUR NEWLYWED INSURANCE CHECKLIST:\n[ ] Bundle auto policies (save 15-25%)\n[ ] Get life insurance while you're young and healthy\n[ ] Update beneficiaries on all policies\n[ ] Review home/renters coverage\n\nFree, no-obligation review: [Phone]\n\n[Agent]\n[Agency]`,
+    objections: [
+      {
+        q: 'I already have insurance',
+        a: "That's great. Have you bundled your policies since the marriage? Most couples save 15-25% on auto alone by combining. Even if you keep your current carrier, I can check if you're missing any multi-policy discounts.",
+        psych: "Focus on savings from bundling, not replacing their current coverage.",
+      },
+      {
+        q: "I can't afford it right now",
+        a: "Actually, this is about saving money. By bundling your auto policies, most couples SAVE $300-700 per year. And life insurance at your age can be as low as $25/month. It's one of those things that actually costs less when you're younger.",
+        psych: "Reframe: this isn't an expense, it's a savings opportunity.",
+      },
+      {
+        q: 'How did you get my number?',
+        a: "Marriage licenses are part of Florida's public records. I reach out to newlyweds because there are real savings opportunities when you bundle policies, and most couples don't realize it. I just want to make sure you're not leaving money on the table.",
+        psych: "Transparency plus value framing (savings, not selling).",
+      },
+      {
+        q: "I'll think about it",
+        a: "Take your time. One thing to keep in mind: life insurance rates are locked based on your age and health when you apply. Every year you wait, the rate goes up. If you want, I can get you a quick quote now so you at least know the numbers.",
+        psych: "Time-based urgency that is genuinely true: life insurance premiums increase with age.",
+      },
+      {
+        q: 'Just email me something',
+        a: "Happy to. I'll send you a newlywed insurance checklist with estimated savings. Quick question: are you both currently insured separately for auto? That helps me estimate your bundle discount.",
+        psych: "Useful content (checklist) plus a qualifying question that opens dialogue.",
+      },
+    ],
+    psychology: "Newlyweds are in a positive emotional state and are already making joint financial decisions. Insurance bundling saves them real money, which makes this a genuinely helpful call. Life insurance is an easy sell when framed around 'your spouse now depends on your income.' The congratulations opener builds instant rapport. Keep the tone warm and celebratory.",
+    cadence: [
+      { day: 'Day 0', action: 'Call + voicemail + text' },
+      { day: 'Day 3', action: 'Email with newlywed savings checklist' },
+      { day: 'Day 5', action: 'Second call attempt' },
+      { day: 'Day 7', action: 'Final email: "Lock in life insurance rates while you\'re young"' },
+      { day: 'Day 14', action: 'Add to monthly newsletter' },
+    ],
+  },
+  {
+    id: 'building_permit',
+    icon: '\ud83d\udea7',
+    name: 'Building Permit',
+    desc: 'Contractors need builder\'s risk during construction + homeowners after',
+    subtypes: null,
+    coverage: [
+      { type: "Builder's Risk Insurance", range: '$1,000 - $5,000/yr', reason: 'Covers the structure during construction against fire, wind, theft, and vandalism' },
+      { type: 'Homeowners Rewrite (15-25% credit)', range: '$1,500 - $3,500/yr', reason: 'After construction: new or renovated home needs updated coverage at better rates' },
+    ],
+    phone: {
+      Default: {
+        opening: `Hi [Name], this is [Agent] with [Agency].\n\nI noticed you pulled a construction permit in [County] County. I help property owners and contractors get the right coverage during construction.\n\nA lot of people don't realize their standard homeowners policy doesn't cover a property under construction. You need builder's risk insurance to protect the project.`,
+        bridge: `Do you have builder's risk coverage set up for this project?`,
+        discovery: [
+          'Is this a new build or a renovation?',
+          'What is the estimated project value?',
+          'How long is the expected construction timeline?',
+          'Are you the homeowner or the contractor on this project?',
+        ],
+        coveragePitch: `Builder's risk typically costs 1-3% of the total project value. For most residential projects, you're looking at $1,000-$5,000 for the construction period. After the build is done, you can often get a 15-25% credit on your homeowners policy for new construction.`,
+        close: `Want me to get you a builder's risk quote? I just need the project value and timeline.`,
+      },
+    },
+    voicemail: `Hi [Name], this is [Agent] with [Agency]. I noticed you pulled a construction permit in [County] County.\n\nQuick heads up: your regular homeowners policy probably doesn't cover a property under construction. Builder's risk insurance protects the project during the build.\n\nCall me at [Phone] and I can get you a quick quote. This is [Agent], [Phone].`,
+    email: `Subject: Your construction project in [County] -- builder's risk coverage\n\nHi [Name],\n\nI noticed you recently pulled a construction permit in [County] County. Congratulations on the project!\n\nImportant: your standard homeowner's policy typically does NOT cover a property under active construction. You need builder's risk insurance to protect against:\n\n- Fire, wind, and storm damage during construction\n- Theft of materials and equipment\n- Vandalism\n- Accidental damage during the build\n\nBuilder's risk typically costs 1-3% of the total project value. After construction is complete, you may qualify for a 15-25% credit on your homeowners policy for new construction.\n\nWant me to get you a quote? I just need your project value and expected timeline.\n\nBest,\n[Agent]\n[Agency]\n[Phone]`,
+    sms: `Hi [Name], I noticed you pulled a building permit in [County]. Your homeowners policy may not cover the project during construction. I can get you a builder's risk quote. Interested? - [Agent], [Agency]`,
+    directMail: `CONSTRUCTION PROJECT INSURANCE NOTICE\n[County] County\n\nDear [Name],\n\nYou recently pulled a construction permit. Your standard homeowner's policy likely DOES NOT cover the property during construction.\n\nBuilder's Risk Insurance covers:\n[ ] Fire, wind, and storm damage\n[ ] Theft of materials and equipment\n[ ] Vandalism\n[ ] Accidental construction damage\n\nTypical cost: 1-3% of project value\nBonus: 15-25% credit on homeowners after completion\n\nGet a free builder's risk quote:\nCall/Text: [Phone]\n\n[Agent] | [Agency]`,
+    objections: [
+      {
+        q: 'I already have insurance',
+        a: "You may have homeowners, but most standard policies exclude properties under active construction. Builder's risk is a separate policy that covers the project during the build. It's temporary and usually very affordable. Worth checking if you have a gap.",
+        psych: "Education about the coverage gap. Most people genuinely don't know standard homeowners excludes construction.",
+      },
+      {
+        q: "I can't afford it right now",
+        a: "Builder's risk is typically 1-3% of the project value, so on a $200K project, you're looking at $2,000-$6,000 for the entire construction period. Compare that to the cost of a fire or storm wiping out an uninsured project. It's a small cost relative to the risk.",
+        psych: "Risk comparison makes the premium feel small.",
+      },
+      {
+        q: 'How did you get my number?',
+        a: "Building permits are public records filed with [County] County. I reach out to property owners starting construction projects because most people don't realize their homeowners policy doesn't cover the build phase.",
+        psych: "Transparency plus genuine value.",
+      },
+      {
+        q: "I'll think about it",
+        a: "No rush. Just keep in mind that the risk starts the day construction begins. If a storm or fire damages the project before you have builder's risk, your homeowners policy won't cover it. I can get you a quote today with no obligation.",
+        psych: "Concrete risk scenario creates genuine urgency.",
+      },
+      {
+        q: 'Just email me something',
+        a: "Sure. Is this a new build or renovation? And what's the approximate project value? That way I can send you actual pricing, not generic info.",
+        psych: "Qualifying questions turn a brush-off into a real conversation.",
+      },
+    ],
+    psychology: "Building permit leads are either homeowners doing major renovations or contractors pulling permits. Either way, there is a genuine coverage gap during construction that most people don't know about. Your role is educator first, agent second. The 15-25% homeowners credit after construction is a strong cross-sell hook.",
+    cadence: [
+      { day: 'Day 0', action: "Call + voicemail + text" },
+      { day: 'Day 3', action: "Email with builder's risk quote and post-construction savings info" },
+      { day: 'Day 5', action: 'Second call attempt' },
+      { day: 'Day 7', action: 'Final email: "Construction risk starts day one. Are you covered?"' },
+      { day: 'Day 14', action: 'Add to monthly newsletter' },
+    ],
+  },
+];
+
+
+// ── COMPONENTS ──
+
+function Header() {
+  return (
+    <header className="bg-navy border-b border-gray-800">
+      <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 text-center">
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" className="w-10 h-10" />
+          <span className="text-xl font-bold text-white">DataSignal AI</span>
+        </div>
+        <h1 className="text-2xl sm:text-4xl font-bold text-white leading-tight">
+          Free Cold Call Scripts for<br className="sm:hidden" /> FL Insurance Agents
+        </h1>
+        <p className="text-gray-400 mt-3 text-sm sm:text-base max-w-2xl mx-auto">
+          6 lead types. Full phone scripts, voicemail templates, email templates, objection handling, and follow-up cadences. 100% free, no signup required.
+        </p>
+      </div>
+    </header>
+  );
+}
+
+function LeadTypeCard({ lt, isActive, onClick }) {
+  return (
+    <button
+      onClick={() => { trackEvent('select_script', 'scripts', lt.name); onClick(); }}
+      className={`text-left p-5 rounded-xl border transition-all duration-200 ${
+        isActive
+          ? 'bg-navyLight border-accent shadow-lg shadow-green-900/20'
+          : 'bg-navyLight border-gray-800 hover:border-gray-600'
+      }`}
+    >
+      <div className="text-3xl mb-3">{lt.icon}</div>
+      <h2 className="text-lg font-semibold text-white mb-1">{lt.name}</h2>
+      <p className="text-gray-400 text-sm mb-3">{lt.desc}</p>
+      <span className={`inline-flex items-center gap-1.5 text-sm font-medium ${isActive ? 'text-accent' : 'text-accent'}`}>
+        {isActive ? 'Viewing scripts' : 'Get Script'} <span className="text-xs">{isActive ? '\u2191' : '\u2193'}</span>
+      </span>
+    </button>
+  );
+}
+
+function PhoneScript({ data, subtypes }) {
+  const keys = subtypes || ['Default'];
+  const [tab, setTab] = useState(keys[0]);
+  const script = data[tab];
+  if (!script) return null;
+
+  return (
+    <div>
+      {subtypes && subtypes.length > 1 && (
+        <div className="flex gap-4 border-b border-gray-700 mb-4">
+          {keys.map(k => (
+            <button key={k} onClick={() => setTab(k)}
+              className={`pb-2 text-sm ${tab === k ? 'tab-active' : 'tab-inactive'}`}>
+              {k}
+            </button>
+          ))}
+        </div>
+      )}
+      <div className="space-y-4">
+        <div>
+          <h4 className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">Opening</h4>
+          <div className="script-block bg-gray-900 rounded-lg p-4 text-gray-300">{script.opening}</div>
+        </div>
+        <div>
+          <h4 className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">Bridge</h4>
+          <div className="script-block bg-gray-900 rounded-lg p-4 text-gray-300">{script.bridge}</div>
+        </div>
+        <div>
+          <h4 className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">Discovery Questions</h4>
+          <ul className="space-y-2 ml-1">
+            {script.discovery.map((q, i) => (
+              <li key={i} className="flex gap-2 text-sm text-gray-300">
+                <span className="text-accent font-mono text-xs mt-0.5">{i+1}.</span> {q}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">Coverage Pitch</h4>
+          <div className="script-block bg-gray-900 rounded-lg p-4 text-gray-300">{script.coveragePitch}</div>
+        </div>
+        <div>
+          <h4 className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">Close</h4>
+          <div className="script-block bg-gray-900 rounded-lg p-4 text-yellow-200 font-semibold">{script.close}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ObjectionAccordion({ objections }) {
+  const [open, setOpen] = useState(null);
+  return (
+    <div className="space-y-2">
+      {objections.map((obj, i) => (
+        <div key={i} className="border border-gray-700 rounded-lg overflow-hidden">
+          <button
+            onClick={() => setOpen(open === i ? null : i)}
+            className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-800/50 transition-colors"
+          >
+            <span className="text-sm font-medium text-red-400">"{obj.q}"</span>
+            <span className="text-gray-500 text-xs ml-2">{open === i ? '\u25b2' : '\u25bc'}</span>
+          </button>
+          {open === i && (
+            <div className="px-4 pb-4 fade-in">
+              <div className="bg-gray-900 rounded-lg p-3 mb-2">
+                <p className="text-sm text-gray-200 leading-relaxed">{obj.a}</p>
+              </div>
+              <p className="text-xs text-gray-500 italic">Psychology: {obj.psych}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ChannelTemplate({ label, icon, content }) {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div className="border border-gray-700 rounded-lg">
+      <button onClick={() => setExpanded(!expanded)}
+        className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-800/50">
+        <div className="flex items-center gap-2">
+          <span>{icon}</span>
+          <span className="text-sm font-medium text-gray-200">{label}</span>
+        </div>
+        <span className="text-gray-500 text-xs">{expanded ? '\u25b2' : '\u25bc'}</span>
+      </button>
+      {expanded && (
+        <div className="px-4 pb-4 fade-in">
+          <div className="script-block bg-gray-900 rounded-lg p-4 text-gray-300">{content}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CoveragePanel({ coverage }) {
+  return (
+    <div className="grid gap-3">
+      {coverage.map((c, i) => (
+        <div key={i} className="bg-gray-900 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span className="text-sm font-semibold text-white">{c.type}</span>
+            <p className="text-xs text-gray-400 mt-0.5">{c.reason}</p>
+          </div>
+          <span className="text-sm font-mono text-accent whitespace-nowrap">{c.range}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function CadenceTimeline({ cadence }) {
+  return (
+    <div className="relative ml-4 border-l-2 border-gray-700 pl-6 space-y-4">
+      {cadence.map((c, i) => (
+        <div key={i} className="relative">
+          <div className="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-accent border-2 border-gray-950"></div>
+          <span className="text-xs font-semibold text-accent">{c.day}</span>
+          <p className="text-sm text-gray-300 mt-0.5">{c.action}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ScriptDetail({ lt }) {
+  const [section, setSection] = useState('phone');
+  const sections = [
+    { key: 'phone', label: 'Phone Script', icon: '\ud83d\udcde' },
+    { key: 'objections', label: 'Objection Handling', icon: '\ud83d\udee1\ufe0f' },
+    { key: 'channels', label: '5-Channel Templates', icon: '\ud83d\udce8' },
+    { key: 'coverage', label: 'Coverage & Premiums', icon: '\ud83d\udcb0' },
+    { key: 'cadence', label: 'Follow-Up Cadence', icon: '\ud83d\udcc5' },
+    { key: 'psychology', label: 'Psychology Note', icon: '\ud83e\udde0' },
+  ];
+
+  return (
+    <div className="bg-navyLight border border-gray-800 rounded-xl p-4 sm:p-6 fade-in">
+      <h2 className="text-xl font-bold text-white mb-1 flex items-center gap-2">
+        <span>{lt.icon}</span> {lt.name}
+      </h2>
+      <p className="text-sm text-gray-400 mb-4">{lt.desc}</p>
+
+      {/* Section tabs */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {sections.map(s => (
+          <button key={s.key} onClick={() => setSection(s.key)}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              section === s.key
+                ? 'bg-accent text-white'
+                : 'bg-gray-800 text-gray-400 hover:text-gray-200'
+            }`}>
+            {s.icon} {s.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Content */}
+      {section === 'phone' && (
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">Full Phone Script</h3>
+          <PhoneScript data={lt.phone} subtypes={lt.subtypes} />
+        </div>
+      )}
+
+      {section === 'objections' && (
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">Objection Handling</h3>
+          <ObjectionAccordion objections={lt.objections} />
+        </div>
+      )}
+
+      {section === 'channels' && (
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">5-Channel Templates</h3>
+          <div className="space-y-2">
+            <ChannelTemplate label="Voicemail (20-second formula)" icon="\ud83d\udcf1" content={lt.voicemail} />
+            <ChannelTemplate label="Email Follow-Up" icon="\ud83d\udce7" content={lt.email} />
+            <ChannelTemplate label="SMS Template" icon="\ud83d\udcac" content={lt.sms} />
+            <ChannelTemplate label="Direct Mail Template" icon="\ud83d\udcec" content={lt.directMail} />
+          </div>
+        </div>
+      )}
+
+      {section === 'coverage' && (
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">Coverage Recommendations & Premium Ranges</h3>
+          <CoveragePanel coverage={lt.coverage} />
+        </div>
+      )}
+
+      {section === 'cadence' && (
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">Follow-Up Cadence Timeline</h3>
+          <CadenceTimeline cadence={lt.cadence} />
+        </div>
+      )}
+
+      {section === 'psychology' && (
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">Why This Approach Works</h3>
+          <div className="bg-gray-900 rounded-lg p-4">
+            <p className="text-sm text-gray-300 leading-relaxed">{lt.psychology}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SampleLeadCard() {
+  return (
+    <div className="bg-gray-900 border border-gray-700 rounded-xl p-5 max-w-lg">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-xs font-semibold bg-accent/20 text-accent px-2 py-0.5 rounded-full">Score: 85/100</span>
+        <span className="text-xs text-gray-500">Filed 3 days ago</span>
+      </div>
+      <p className="text-sm text-gray-200 mb-3">
+        John registered ABC Roofing LLC in Broward County. FL contractors need GL, WC, commercial auto, and surety bonds.
+      </p>
+      <div className="text-xs text-gray-400 space-y-1.5 mb-3">
+        <div><span className="text-gray-500">Coverage needed:</span> GL, WC, Commercial Auto</div>
+        <div><span className="text-gray-500">Your opening:</span> <span className="text-gray-300 italic">"Hi John, congratulations on registering ABC Roofing..."</span></div>
+      </div>
+      <div className="flex items-center justify-between text-xs">
+        <span className="text-gray-400">Est. premium: <span className="text-white font-medium">$6,700 - $20,100/yr</span></span>
+        <span className="text-gray-400">Commission: <span className="text-accent font-medium">$804 - $3,618</span></span>
+      </div>
+    </div>
+  );
+}
+
+// ── AI CALL SIMULATOR ──
+
+const SIMULATOR_API = 'https://api.datasignalai.tech/api/simulator/chat';
+const MAX_EXCHANGES = 5;
+
+const PERSONA_NAMES = {
+  new_business: 'Maria Rodriguez',
+  new_homeowner: 'James Wilson',
+  wc_stop_work: 'Tony Marchetti',
+  flood_zone: 'Susan Chen',
+  marriage: 'David Park',
+  building_permit: 'Robert Alvarado',
+};
+
+const PERSONA_INTROS = {
+  new_business: 'New LLC owner, cleaning service in Miami-Dade. Skeptical of cold calls.',
+  new_homeowner: 'Just closed on a $425K home in Broward. Thinks he is fully covered.',
+  wc_stop_work: 'Concrete contractor in Hillsborough. Got a stop-work order yesterday.',
+  flood_zone: 'Homeowner in flood zone AE, Palm Beach. Paying $2,800/yr NFIP.',
+  marriage: 'Just got married in Orange County. Separate auto policies, no life insurance.',
+  building_permit: 'Pulled a roofing permit in Hillsborough. Paying $4,200/yr homeowners.',
+};
+
+function CallSimulator({ leadTypeId }) {
+  const [open, setOpen] = useState(false);
+  const [difficulty, setDifficulty] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [exchange, setExchange] = useState(0);
+  const [scores, setScores] = useState(null);
+  const [error, setError] = useState('');
+  const [listening, setListening] = useState(false);
+  const [voiceEnabled, setVoiceEnabled] = useState(true);
+  const [speaking, setSpeaking] = useState(false);
+  const [showCheatSheet, setShowCheatSheet] = useState(false);
+  const chatEndRef = useRef(null);
+  const recognitionRef = useRef(null);
+
+  // Get the lead type data for cheat sheet
+  const ltData = LEAD_TYPES.find(lt => lt.id === leadTypeId);
+
+  // Check if browser supports speech APIs
+  const hasSpeechRecognition = typeof window !== 'undefined' && (window.SpeechRecognition || window.webkitSpeechRecognition);
+  const hasSpeechSynthesis = typeof window !== 'undefined' && window.speechSynthesis;
+
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, scores]);
+
+  // Speak the AI response aloud
+  const speakText = (text) => {
+    if (!hasSpeechSynthesis || !voiceEnabled) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+    // Try to pick a female voice for the prospect
+    const voices = window.speechSynthesis.getVoices();
+    const femaleVoice = voices.find(v => v.name.includes('Female') || v.name.includes('Samantha') || v.name.includes('Zira') || v.name.includes('Google US English'));
+    if (femaleVoice) utterance.voice = femaleVoice;
+    utterance.onstart = () => setSpeaking(true);
+    utterance.onend = () => setSpeaking(false);
+    utterance.onerror = () => setSpeaking(false);
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // Auto-send timer: sends message 2s after user stops speaking
+  const autoSendTimerRef = useRef(null);
+  const latestTranscriptRef = useRef('');
+
+  // Start listening via mic (continuous mode with auto-send)
+  const startListening = () => {
+    if (!hasSpeechRecognition) {
+      setError('Your browser does not support voice input. Try Chrome.');
+      return;
+    }
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => setListening(true);
+    recognition.onresult = (event) => {
+      let transcript = '';
+      let isFinal = false;
+      for (let i = 0; i < event.results.length; i++) {
+        transcript += event.results[i][0].transcript;
+        if (event.results[i].isFinal) isFinal = true;
+      }
+      setInput(transcript);
+      latestTranscriptRef.current = transcript;
+
+      // Reset the auto-send timer on every new speech result
+      if (autoSendTimerRef.current) clearTimeout(autoSendTimerRef.current);
+
+      // If we got a final result, start 2s countdown to auto-send
+      if (isFinal && transcript.trim()) {
+        autoSendTimerRef.current = setTimeout(() => {
+          // Stop listening and trigger send
+          if (recognitionRef.current) recognitionRef.current.stop();
+          setListening(false);
+          // Use a small delay so React state updates with final transcript
+          setTimeout(() => {
+            const sendBtn = document.querySelector('[data-auto-send]');
+            if (sendBtn) sendBtn.click();
+          }, 100);
+        }, 2000);
+      }
+    };
+    recognition.onend = () => {
+      setListening(false);
+      if (autoSendTimerRef.current) clearTimeout(autoSendTimerRef.current);
+    };
+    recognition.onerror = (e) => {
+      setListening(false);
+      if (autoSendTimerRef.current) clearTimeout(autoSendTimerRef.current);
+      if (e.error !== 'no-speech' && e.error !== 'aborted') setError('Mic error: ' + e.error);
+    };
+
+    recognitionRef.current = recognition;
+    recognition.start();
+  };
+
+  const stopListening = () => {
+    if (autoSendTimerRef.current) clearTimeout(autoSendTimerRef.current);
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+    }
+    setListening(false);
+  };
+
+  const reset = () => {
+    setDifficulty(null);
+    setMessages([]);
+    setInput('');
+    setExchange(0);
+    setScores(null);
+    setError('');
+    setLoading(false);
+    setListening(false);
+    setSpeaking(false);
+    if (hasSpeechSynthesis) window.speechSynthesis.cancel();
+    if (recognitionRef.current) recognitionRef.current.stop();
+  };
+
+  const startCall = (diff) => {
+    setDifficulty(diff);
+    setMessages([]);
+    setExchange(0);
+    setScores(null);
+    setError('');
+  };
+
+  const sendMessage = async () => {
+    if (!input.trim() || loading || scores) return;
+    const userMsg = input.trim();
+    setInput('');
+    const newMessages = [...messages, { role: 'user', content: userMsg }];
+    setMessages(newMessages);
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch(SIMULATOR_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          lead_type: leadTypeId,
+          difficulty: difficulty,
+          user_message: userMsg,
+          conversation_history: messages,
+          action: 'chat',
+        }),
+      });
+      const data = await res.json();
+      if (data.error) {
+        setError(data.error);
+        setLoading(false);
+        return;
+      }
+      const withReply = [...newMessages, { role: 'assistant', content: data.reply }];
+      setMessages(withReply);
+      speakText(data.reply);
+      const newExchange = exchange + 1;
+      setExchange(newExchange);
+
+      if (newExchange >= MAX_EXCHANGES) {
+        // Auto-score
+        const scoreRes = await fetch(SIMULATOR_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            lead_type: leadTypeId,
+            difficulty: difficulty,
+            conversation_history: withReply,
+            action: 'score',
+          }),
+        });
+        const scoreData = await scoreRes.json();
+        if (!scoreData.error) {
+          setScores(scoreData);
+        } else {
+          setError(scoreData.error);
+        }
+      }
+    } catch (e) {
+      setError('Network error. Please try again.');
+    }
+    setLoading(false);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
+
+  const personaName = PERSONA_NAMES[leadTypeId] || 'Prospect';
+  const personaIntro = PERSONA_INTROS[leadTypeId] || '';
+
+  if (!open) {
+    return (
+      <button onClick={() => setOpen(true)}
+        className="w-full mt-4 flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-lg transition-all text-sm shadow-lg shadow-blue-900/30">
+        <span className="text-lg">{'\ud83c\udfa4'}</span> Practice This Call with AI
+      </button>
+    );
+  }
+
+  // Difficulty selection screen
+  if (!difficulty) {
+    return (
+      <div className="mt-4 bg-gray-900/80 border border-gray-700 rounded-xl p-5 fade-in">
+        <div className="flex items-center justify-between mb-4">
+          <h4 className="text-base font-semibold text-white flex items-center gap-2">
+            <span>{'\ud83c\udfa4'}</span> AI Call Simulator
+          </h4>
+          <button onClick={() => setOpen(false)} className="text-gray-500 hover:text-gray-300 text-sm">Close</button>
+        </div>
+        <div className="bg-gray-800/50 rounded-lg p-3 mb-4">
+          <p className="text-sm text-gray-300"><span className="font-semibold text-white">{personaName}</span> {' \u2014 '} {personaIntro}</p>
+        </div>
+        <p className="text-sm text-gray-400 mb-3">Choose difficulty level:</p>
+        <div className="grid grid-cols-3 gap-3">
+          <button onClick={() => { trackEvent('start_simulator', 'simulator', leadTypeId + '_easy'); startCall('easy'); }}
+            className="p-3 rounded-lg border border-green-700/50 bg-green-900/20 hover:bg-green-900/40 transition-colors text-center">
+            <div className="text-lg mb-1">{'\ud83d\ude0a'}</div>
+            <div className="text-sm font-semibold text-green-400">Easy</div>
+            <div className="text-xs text-gray-500 mt-0.5">1 mild objection</div>
+          </button>
+          <button onClick={() => { trackEvent('start_simulator', 'simulator', leadTypeId + '_medium'); startCall('medium'); }}
+            className="p-3 rounded-lg border border-yellow-700/50 bg-yellow-900/20 hover:bg-yellow-900/40 transition-colors text-center">
+            <div className="text-lg mb-1">{'\ud83e\udd28'}</div>
+            <div className="text-sm font-semibold text-yellow-400">Medium</div>
+            <div className="text-xs text-gray-500 mt-0.5">2 objections</div>
+          </button>
+          <button onClick={() => { trackEvent('start_simulator', 'simulator', leadTypeId + '_hard'); startCall('hard'); }}
+            className="p-3 rounded-lg border border-red-700/50 bg-red-900/20 hover:bg-red-900/40 transition-colors text-center">
+            <div className="text-lg mb-1">{'\ud83d\ude24'}</div>
+            <div className="text-sm font-semibold text-red-400">Hard</div>
+            <div className="text-xs text-gray-500 mt-0.5">Multiple objections</div>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Score card
+  if (scores) {
+    const total = scores.total || 0;
+    const circumference = 2 * Math.PI * 54;
+    const offset = circumference - (total / 100) * circumference;
+    const scoreColor = total >= 75 ? '#16a34a' : total >= 50 ? '#eab308' : '#ef4444';
+    const diffColors = { easy: 'text-green-400 bg-green-900/30', medium: 'text-yellow-400 bg-yellow-900/30', hard: 'text-red-400 bg-red-900/30' };
+
+    return (
+      <div className="mt-4 fade-in">
+        <div className="rounded-xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A1628 0%, #0c2d4a 100%)' }}>
+          <div className="p-6">
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-900/40 text-blue-400">{leadTypeId.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</span>
+                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${diffColors[difficulty] || ''}`}>{difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</span>
+              </div>
+              <span className="text-xs text-gray-500">DataSignal AI</span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-6 mb-6">
+              {/* Score circle */}
+              <div className="relative flex-shrink-0">
+                <svg width="128" height="128" className="-rotate-90">
+                  <circle cx="64" cy="64" r="54" stroke="#1e293b" strokeWidth="8" fill="none" />
+                  <circle cx="64" cy="64" r="54" stroke={scoreColor} strokeWidth="8" fill="none"
+                    strokeDasharray={circumference} strokeDashoffset={offset}
+                    strokeLinecap="round" style={{ transition: 'stroke-dashoffset 1s ease' }} />
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <span className="text-3xl font-bold text-white">{total}</span>
+                  <span className="text-xs text-gray-400">/ 100</span>
+                </div>
+              </div>
+
+              {/* Category bars */}
+              <div className="flex-1 w-full space-y-3">
+                {[
+                  { key: 'opening', label: 'Opening', color: '#3b82f6' },
+                  { key: 'discovery', label: 'Discovery', color: '#8b5cf6' },
+                  { key: 'coverage', label: 'Coverage', color: '#06b6d4' },
+                  { key: 'close', label: 'Close', color: '#f59e0b' },
+                ].map(cat => (
+                  <div key={cat.key}>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="text-gray-400">{cat.label}</span>
+                      <span className="text-white font-semibold">{scores[cat.key] || 0}/25</span>
+                    </div>
+                    <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                      <div className="h-full rounded-full transition-all duration-1000"
+                        style={{ width: `${((scores[cat.key] || 0) / 25) * 100}%`, backgroundColor: cat.color }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Feedback */}
+            {scores.feedback && (
+              <div className="bg-gray-900/60 rounded-lg p-4 mb-4">
+                <h5 className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">Coach Feedback</h5>
+                <p className="text-sm text-gray-300 leading-relaxed">{scores.feedback}</p>
+              </div>
+            )}
+
+            {/* Taste Test CTA */}
+            <div className="bg-gradient-to-r from-brand/10 to-accent/10 border border-accent/30 rounded-lg p-4 mb-4">
+              <p className="text-sm text-white font-semibold mb-1">Want to practice on real leads?</p>
+              <p className="text-xs text-gray-400 mb-3">Get 5 exclusive trigger alerts with intelligence briefs, opening scripts, and premium estimates. $29 one-time.</p>
+              <a href="../taste-test/" onClick={() => trackEvent('click_taste_test', 'cta', 'post_simulator')}
+                className="inline-flex items-center px-4 py-2 bg-accent hover:bg-accentHover text-white text-xs font-semibold rounded-lg transition-colors">
+                Try 5 Real Alerts for $29 &rarr;
+              </a>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-gray-600">Share Your Score</span>
+              <button onClick={reset}
+                className="px-4 py-2 bg-accent hover:bg-accentHover text-white text-sm font-semibold rounded-lg transition-colors">
+                New Practice Call
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Chat interface
+  return (
+    <div className="mt-4 bg-gray-900/80 border border-gray-700 rounded-xl overflow-hidden fade-in">
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700 bg-gray-800/50">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span className="text-sm font-semibold text-white">Call with {personaName}</span>
+          <span className={'text-xs px-2 py-0.5 rounded-full ' + (
+            difficulty === 'easy' ? 'bg-green-900/30 text-green-400' :
+            difficulty === 'medium' ? 'bg-yellow-900/30 text-yellow-400' :
+            'bg-red-900/30 text-red-400'
+          )}>{difficulty}</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <button onClick={() => setShowCheatSheet(!showCheatSheet)}
+            className={`text-xs px-2 py-1 rounded transition-colors ${showCheatSheet ? 'bg-accent/20 text-accent' : 'text-gray-500 hover:text-gray-300'}`}>
+            {showCheatSheet ? 'Hide Script' : 'Show Script'}
+          </button>
+          <span className="text-xs text-gray-400">Exchange {Math.min(exchange + 1, MAX_EXCHANGES)} of {MAX_EXCHANGES}</span>
+          <button onClick={reset} className="text-xs text-gray-500 hover:text-gray-300">End Call</button>
+        </div>
+      </div>
+
+      {/* Cheat Sheet Panel */}
+      {showCheatSheet && ltData && (
+        <div className="border-b border-gray-700 bg-gray-800/80 px-4 py-3 max-h-60 overflow-y-auto text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <h5 className="font-semibold text-accent uppercase tracking-wider mb-2">Phone Script</h5>
+              <div className="space-y-2 text-gray-300">
+                <div><span className="text-gray-500 font-semibold">Opening:</span> <span className="script-block text-xs">{ltData.scripts?.General?.opening || ltData.scripts?.[Object.keys(ltData.scripts)[0]]?.opening || ''}</span></div>
+                <div><span className="text-gray-500 font-semibold">Bridge:</span> {ltData.scripts?.General?.bridge || ltData.scripts?.[Object.keys(ltData.scripts)[0]]?.bridge || ''}</div>
+                <div><span className="text-gray-500 font-semibold">Discovery:</span>
+                  <ul className="list-disc list-inside mt-1 space-y-0.5 text-gray-400">
+                    {(ltData.scripts?.General?.discovery || ltData.scripts?.[Object.keys(ltData.scripts)[0]]?.discovery || []).map((q, i) => <li key={i}>{q}</li>)}
+                  </ul>
+                </div>
+                <div><span className="text-gray-500 font-semibold">Coverage Pitch:</span> {ltData.scripts?.General?.coveragePitch || ltData.scripts?.[Object.keys(ltData.scripts)[0]]?.coveragePitch || ''}</div>
+                <div><span className="text-gray-500 font-semibold">Close:</span> {ltData.scripts?.General?.close || ltData.scripts?.[Object.keys(ltData.scripts)[0]]?.close || ''}</div>
+              </div>
+            </div>
+            <div>
+              <h5 className="font-semibold text-accent uppercase tracking-wider mb-2">Objection Handling</h5>
+              <div className="space-y-2">
+                {(ltData.objections || []).map((obj, i) => (
+                  <div key={i} className="bg-gray-900/50 rounded p-2">
+                    <p className="text-red-400 font-semibold">"{obj.q}"</p>
+                    <p className="text-gray-300 mt-1">{obj.a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Messages */}
+      <div className="p-4 space-y-3 max-h-80 overflow-y-auto" style={{ minHeight: '200px' }}>
+        {messages.length === 0 && (
+          <div className="text-center py-8">
+            <p className="text-sm text-gray-500">The phone is ringing... Start with your opening pitch.</p>
+            <p className="text-xs text-gray-600 mt-1">Tip: Reference their trigger event and introduce yourself.</p>
+          </div>
+        )}
+        {messages.map((msg, i) => (
+          <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+              msg.role === 'user'
+                ? 'bg-accent/90 text-white rounded-br-md'
+                : 'bg-gray-800 text-gray-200 rounded-bl-md'
+            }`}>
+              {msg.role === 'assistant' && (
+                <span className="text-xs font-semibold text-gray-400 block mb-1">{personaName}</span>
+              )}
+              {msg.content}
+            </div>
+          </div>
+        ))}
+        {loading && (
+          <div className="flex justify-start">
+            <div className="bg-gray-800 rounded-2xl rounded-bl-md px-4 py-3">
+              <div className="flex gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-gray-500 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                <div className="w-2 h-2 rounded-full bg-gray-500 animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                <div className="w-2 h-2 rounded-full bg-gray-500 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+              </div>
+            </div>
+          </div>
+        )}
+        {error && <p className="text-xs text-red-400 text-center">{error}</p>}
+        <div ref={chatEndRef} />
+      </div>
+
+      {/* Input */}
+      <div className="border-t border-gray-700 p-3">
+        <div className="flex gap-2">
+          {hasSpeechRecognition && (
+            <button
+              onClick={listening ? stopListening : startListening}
+              disabled={loading || exchange >= MAX_EXCHANGES}
+              className={`px-3 py-2.5 rounded-lg text-sm font-semibold transition-all disabled:opacity-40 ${
+                listening
+                  ? 'bg-red-600 hover:bg-red-500 text-white animate-pulse'
+                  : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+              }`}
+              title={listening ? 'Stop listening' : 'Speak your response'}>
+              {listening ? '\ud83d\udd34' : '\ud83c\udfa4'}
+            </button>
+          )}
+          <input
+            type="text"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder={listening ? 'Listening...' : exchange >= MAX_EXCHANGES ? 'Call complete. Scoring...' : 'Type or tap mic to speak...'}
+            disabled={loading || exchange >= MAX_EXCHANGES}
+            className="flex-1 bg-gray-800 border border-gray-600 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-accent disabled:opacity-50"
+          />
+          <button onClick={sendMessage} data-auto-send="true"
+            disabled={loading || !input.trim() || exchange >= MAX_EXCHANGES}
+            className="px-4 py-2.5 bg-accent hover:bg-accentHover disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-semibold rounded-lg transition-colors">
+            Send
+          </button>
+        </div>
+        {hasSpeechSynthesis && (
+          <div className="flex items-center justify-between mt-2 px-1">
+            <div className="flex items-center gap-2">
+              <button onClick={() => { setVoiceEnabled(!voiceEnabled); if (speaking) window.speechSynthesis.cancel(); }}
+                className="text-xs text-gray-500 hover:text-gray-300 flex items-center gap-1">
+                {voiceEnabled ? '\ud83d\udd0a' : '\ud83d\udd07'} {voiceEnabled ? 'Voice on' : 'Voice off'}
+              </button>
+              {speaking && <span className="text-xs text-blue-400 animate-pulse">Speaking...</span>}
+            </div>
+            {listening && <span className="text-xs text-red-400 animate-pulse">Listening...</span>}
+          </div>
+        )}
+      </div>
+
+      {/* Progress bar */}
+      <div className="h-1 bg-gray-800">
+        <div className="h-full bg-accent transition-all duration-500" style={{ width: `${(exchange / MAX_EXCHANGES) * 100}%` }} />
+      </div>
+    </div>
+  );
+}
+
+function CrossSellCTA({ activeLT }) {
+  return (
+    <section className="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+      <div className="bg-navyLight border border-gray-800 rounded-2xl p-6 sm:p-10 text-center">
+        {/* Section 1 */}
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-white mb-2">This script was designed for leads from DataSignal AI</h2>
+          <p className="text-gray-400 text-sm mb-6 max-w-2xl mx-auto">
+            Every lead comes with a trigger event, coverage analysis, opening script, and commission estimate. Here is what a real lead looks like (anonymized):
+          </p>
+          <div className="max-w-2xl mx-auto text-left">
+            <SampleLeadCard />
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-white mb-4">Ready to try real trigger leads?</h3>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="../taste-test/" onClick={() => trackEvent('click_taste_test', 'cta', 'mid_page')}
+              className="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accentHover text-white font-semibold rounded-lg transition-colors text-sm">
+              Try 5 Real Leads for $29
+            </a>
+            <a href="https://datasignalai.tech"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-colors text-sm border border-gray-600">
+              Get 100 Leads/Month -- $149/mo
+            </a>
+          </div>
+        </div>
+
+        {/* Section 3a: Live Voice Call Simulator (ElevenLabs) */}
+        <VoiceSimulator activeLT={activeLT} />
+
+        {/* Section 3b: Text-Based Call Simulator */}
+        <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-5">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-2xl">{'\ud83c\udfaf'}</span>
+            <h3 className="text-lg font-semibold text-white">Practice This Call (Text)</h3>
+          </div>
+          <p className="text-sm text-gray-400 mb-4">
+            Prefer typing? Practice against a realistic AI prospect via text chat. Get scored on your opening, discovery, coverage pitch, and close.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {LEAD_TYPES.map(lt => (
+              <div key={lt.id} className="bg-gray-800/50 border border-gray-700 rounded-lg p-3">
+                <div className="flex items-center gap-2 mb-1">
+                  <span>{lt.icon}</span>
+                  <span className="text-sm font-semibold text-white">{lt.name}</span>
+                </div>
+                <p className="text-xs text-gray-500 mb-1">{PERSONA_INTROS[lt.id] || ''}</p>
+                <CallSimulator leadTypeId={lt.id} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="bg-navy border-t border-gray-800 py-8">
+      <div className="max-w-6xl mx-auto px-4 text-center">
+        <p className="text-gray-500 text-sm">
+          Powered by <a href="https://datasignalai.tech" className="text-accent hover:underline">DataSignal AI</a> | datasignalai.tech
+        </p>
+        <p className="text-gray-600 text-xs mt-2">
+          AI-sourced trigger alerts from FL public records. Fresh daily.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+const VOICE_AGENTS = {
+  'new_business': { id: 'agent_5601kn4zfgtjedytwha77sm6vxme', name: 'Maria Rodriguez', desc: 'New LLC owner, cleaning service in Miami-Dade' },
+  'new_homeowner': { id: 'agent_0401kn50qh3aed7vsxn1ehnevqz9', name: 'Marcus Thompson', desc: 'Just closed on a $425K home in Broward' },
+  'wc_stop_work': { id: 'agent_5101kn51efpffmxssxcd9qdsh4g1', name: 'Carlos Delgado', desc: 'Concrete contractor, WC stop-work order in Hillsborough' },
+};
+
+function VoiceSimulator({ activeLT }) {
+  const widgetRef = useRef(null);
+  const agent = activeLT ? VOICE_AGENTS[activeLT.id] : VOICE_AGENTS['new_business'];
+  const agentId = agent ? agent.id : VOICE_AGENTS['new_business'].id;
+  const agentName = agent ? agent.name : 'Maria Rodriguez';
+  const agentDesc = agent ? agent.desc : 'New LLC owner, cleaning service in Miami-Dade';
+
+  const [callActive, setCallActive] = useState(false);
+
+  useEffect(() => {
+    if (callActive && widgetRef.current) {
+      widgetRef.current.innerHTML = '';
+      const el = document.createElement('elevenlabs-convai');
+      el.setAttribute('agent-id', agentId);
+      // Force the widget to show expanded inline instead of floating bottom-right
+      el.style.position = 'relative';
+      el.style.display = 'block';
+      el.style.width = '100%';
+      el.style.minHeight = '80px';
+      widgetRef.current.appendChild(el);
+
+      // Auto-click the widget's call button after it renders
+      setTimeout(() => {
+        const shadowRoot = el.shadowRoot;
+        if (shadowRoot) {
+          const callBtn = shadowRoot.querySelector('button');
+          if (callBtn) callBtn.click();
+        }
+      }, 1000);
+    } else if (!callActive && widgetRef.current) {
+      widgetRef.current.innerHTML = '';
+      // Also remove any floating widget that ElevenLabs may have created
+      document.querySelectorAll('elevenlabs-convai').forEach(w => {
+        if (!widgetRef.current || !widgetRef.current.contains(w)) w.remove();
+      });
+    }
+  }, [agentId, callActive]);
+
+  const endCall = () => {
+    setCallActive(false);
+    if (widgetRef.current) widgetRef.current.innerHTML = '';
+  };
+
+  return (
+    <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 border border-blue-700/50 rounded-xl p-5 mb-6">
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-2xl">{'\ud83d\udcde'}</span>
+        <h3 className="text-lg font-semibold text-white">Live Voice Practice Call</h3>
+        <span className="text-xs bg-blue-600/30 text-blue-300 px-2 py-0.5 rounded-full">NEW</span>
+      </div>
+      <p className="text-sm text-gray-400 mb-2">
+        Talk to <span className="text-white font-semibold">{agentName}</span> using your actual voice.
+      </p>
+      <p className="text-xs text-gray-500 mb-4">{agentDesc}.</p>
+
+      {!callActive ? (
+        <button onClick={() => { trackEvent('start_voice_call', 'simulator', agentName); setCallActive(true); }}
+          className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-lg transition-all text-sm shadow-lg shadow-blue-900/30">
+          <span>{'\ud83d\udcde'}</span> Start Voice Call with {agentName}
+        </button>
+      ) : (
+        <div>
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-sm text-green-400 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Call active with {agentName}
+            </span>
+            <button onClick={endCall}
+              className="text-xs px-3 py-1 bg-red-600/20 text-red-400 hover:bg-red-600/40 rounded transition-colors">
+              End Call
+            </button>
+          </div>
+          <div ref={widgetRef}></div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function EmailGateModal({ onUnlock, onClose }) {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [county, setCounty] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  const counties = [
+    'Miami-Dade','Broward','Palm Beach','Hillsborough','Orange','Pinellas',
+    'Duval','Lee','Polk','Brevard','Volusia','Seminole','Sarasota',
+    'Pasco','Manatee','Collier','Marion','Escambia','Leon','St. Lucie',
+    'Osceola','Alachua','Clay','St. Johns','Okaloosa','Hernando',
+    'Lake','Charlotte','Santa Rosa','Bay','Martin','Other'
+  ];
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) { setError('Email is required'); return; }
+    setSubmitting(true);
+    setError('');
+    try {
+      await fetch('/api/newsletter-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          first_name: name,
+          primary_county: county,
+          source: 'scripts_gate'
+        })
+      });
+      localStorage.setItem('ds_scripts_unlocked', 'true');
+      trackEvent('scripts_unlock', 'lead_capture', county || 'no_county');
+      onUnlock();
+    } catch (err) {
+      localStorage.setItem('ds_scripts_unlocked', 'true');
+      onUnlock();
+    }
+    setSubmitting(false);
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" onClick={onClose}>
+      <div className="bg-navyLight border border-gray-700 rounded-2xl max-w-md w-full p-8" onClick={e => e.stopPropagation()}>
+        <h3 className="text-xl font-bold text-white mb-2">Unlock All 6 Script Packages</h3>
+        <p className="text-gray-400 text-sm mb-6">
+          Full phone scripts, objection handling, voicemail templates, and follow-up cadences for every lead type. Enter your email to unlock instantly.
+        </p>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email" required placeholder="Your email" value={email}
+            onChange={e => setEmail(e.target.value)}
+            className="w-full mb-3 px-4 py-3 bg-navy border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent"
+          />
+          <input
+            type="text" placeholder="First name (optional)" value={name}
+            onChange={e => setName(e.target.value)}
+            className="w-full mb-3 px-4 py-3 bg-navy border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent"
+          />
+          <select
+            value={county} onChange={e => setCounty(e.target.value)}
+            className="w-full mb-4 px-4 py-3 bg-navy border border-gray-600 rounded-lg text-gray-400 focus:outline-none focus:border-accent"
+          >
+            <option value="">Your county (optional)</option>
+            {counties.map(c => <option key={c} value={c}>{c}</option>)}
+          </select>
+          {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
+          <button
+            type="submit" disabled={submitting}
+            className="w-full py-3 bg-accent hover:bg-accentHover text-white font-semibold rounded-lg transition-colors"
+          >
+            {submitting ? 'Unlocking...' : 'Unlock Scripts Free'}
+          </button>
+        </form>
+        <p className="text-gray-500 text-xs mt-4 text-center">
+          Also subscribes you to weekly FL filing alerts. Unsubscribe anytime.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [active, setActive] = useState(null);
+  const [unlocked, setUnlocked] = useState(() => localStorage.getItem('ds_scripts_unlocked') === 'true');
+  const [showGate, setShowGate] = useState(false);
+  const detailRef = useRef(null);
+
+  useEffect(() => {
+    if (active !== null && detailRef.current) {
+      setTimeout(() => {
+        detailRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }, [active]);
+
+  const handleCardClick = (i) => {
+    if (!unlocked) {
+      setShowGate(true);
+      trackEvent('scripts_gate_shown', 'lead_capture', LEAD_TYPES[i].name);
+      return;
+    }
+    setActive(active === i ? null : i);
+  };
+
+  const handleUnlock = () => {
+    setUnlocked(true);
+    setShowGate(false);
+  };
+
+  const activeLT = active !== null ? LEAD_TYPES[active] : null;
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+
+      {/* Lead type grid */}
+      <section className="max-w-6xl mx-auto px-4 py-8 sm:py-12 w-full">
+        <h2 className="text-lg font-semibold text-gray-300 mb-6">Choose a lead type to get your full script package:</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {LEAD_TYPES.map((lt, i) => (
+            <LeadTypeCard
+              key={lt.id}
+              lt={lt}
+              isActive={active === i}
+              onClick={() => handleCardClick(i)}
+            />
+          ))}
+        </div>
+        {!unlocked && (
+          <p className="text-center text-gray-500 text-sm mt-4">
+            Enter your email to unlock all scripts, objection handling, and follow-up cadences.
+          </p>
+        )}
+      </section>
+
+      {/* Email gate modal */}
+      {showGate && <EmailGateModal onUnlock={handleUnlock} onClose={() => setShowGate(false)} />}
+
+      {/* Script detail */}
+      {activeLT && (
+        <section ref={detailRef} className="max-w-6xl mx-auto px-4 pb-8 w-full">
+          <ScriptDetail lt={activeLT} />
+        </section>
+      )}
+
+      <CrossSellCTA activeLT={activeLT} />
+      <Footer />
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>

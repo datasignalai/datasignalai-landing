@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FL Insurance Lead Source Audit | DataSignal AI</title>
+<meta name="description" content="Rate your current lead sources in 2 minutes. Get your score and see how many leads you are missing in your county.">
+<meta property="og:title" content="FL Insurance Lead Source Audit | DataSignal AI">
+<meta property="og:description" content="Rate your current lead sources in 2 minutes. Get your score and see how many leads you are missing in your county.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://datasignalai.tech/landing/lead-audit/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://datasignalai.tech/landing/lead-audit/">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YTPFXE2QV9');
+function trackEvent(action, category, label) {
+  gtag('event', action, { event_category: category, event_label: label });
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy: '#0A1628',
+        navyLight: '#132038',
+        accent: '#16a34a',
+        accentHover: '#15803d',
+      }
+    }
+  }
+}
+</script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in { animation: fadeIn 0.3s ease-out; }
+  @keyframes countUp { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+  .count-up { animation: countUp 0.6s ease-out; }
+</style>
+
+<!-- FAQ Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if my insurance leads are good quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Good leads are exclusive, same-day fresh, sourced from public records, and include verified contact information. If you are sharing leads with 5+ agents or getting leads older than 3 days, you are losing deals to faster competitors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many new business filings happen in Florida each week?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Florida averages over 10,000 new business filings per week across all 67 counties. Each filing represents a business owner who needs commercial insurance, general liability, and often a business owner's policy within their first 30 days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best response time for insurance leads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Studies show that responding within 5 minutes increases contact rates by 400% compared to waiting 30 minutes. The first agent to call a new lead wins the policy over 70% of the time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should insurance agents use exclusive or shared leads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exclusive leads convert 3-5x better than shared leads. Shared leads are sold to 5-8 agents, meaning you compete on speed alone. Exclusive leads from public records give you first-mover advantage with no competition."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find new homeowners in my county for insurance leads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New homeowners are recorded in county property appraiser records and deed transfers. These are public records updated daily. DataSignal AI monitors 30+ Florida government databases to surface these leads automatically."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="bg-navy text-gray-100 min-h-screen">
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const FL_COUNTIES = [
+  "Alachua","Baker","Bay","Bradford","Brevard","Broward","Calhoun","Charlotte",
+  "Citrus","Clay","Collier","Columbia","DeSoto","Dixie","Duval","Escambia",
+  "Flagler","Franklin","Gadsden","Gilchrist","Glades","Gulf","Hamilton","Hardee",
+  "Hendry","Hernando","Highlands","Hillsborough","Holmes","Indian River","Jackson",
+  "Jefferson","Lafayette","Lake","Lee","Leon","Levy","Liberty","Madison","Manatee",
+  "Marion","Martin","Miami-Dade","Monroe","Nassau","Okaloosa","Okeechobee","Orange",
+  "Osceola","Palm Beach","Pasco","Pinellas","Polk","Putnam","Santa Rosa","Sarasota",
+  "Seminole","St. Johns","St. Lucie","Sumter","Suwannee","Taylor","Union","Volusia",
+  "Wakulla","Walton","Washington"
+];
+
+const QUESTIONS = [
+  {
+    id: 1,
+    text: "Do you respond to new leads within 10 minutes?",
+    options: [
+      { label: "Yes", value: "yes", points: 10 },
+      { label: "Sometimes", value: "sometimes", points: 4 },
+      { label: "No", value: "no", points: 0 },
+    ],
+    recommendations: {
+      yes: "Great. Speed to lead is the #1 factor in conversion. Keep it up.",
+      sometimes: "Every minute you wait, your close rate drops. Agents who respond in under 5 minutes win 78% of policies. Set up instant notifications.",
+      no: "This is the biggest leak in your pipeline. The first agent to call wins 70%+ of the time. You need same-minute alerts.",
+    }
+  },
+  {
+    id: 2,
+    text: "Do you monitor FL public records for new business filings?",
+    options: [
+      { label: "Yes", value: "yes", points: 10 },
+      { label: "Not sure", value: "notsure", points: 2 },
+      { label: "No", value: "no", points: 0 },
+    ],
+    recommendations: {
+      yes: "Good. Public records are the highest-intent lead source in Florida. Make sure you are pulling daily, not weekly.",
+      notsure: "Florida has 10,000+ new business filings every week. Each one needs insurance. If you are not monitoring these, your competitors are.",
+      no: "You are missing the single best lead source in FL. New LLCs must get insurance within 30 days. These are not cold leads. They are buyers.",
+    }
+  },
+  {
+    id: 3,
+    text: "Do you have a system to find new homeowners in your county?",
+    options: [
+      { label: "Yes", value: "yes", points: 10 },
+      { label: "No", value: "no", points: 0 },
+    ],
+    recommendations: {
+      yes: "Smart. New homeowners need HO3, flood, and umbrella policies. Make sure your data is same-day fresh.",
+      no: "Every new deed transfer is a homeowner who needs insurance immediately. County property appraiser records update daily. You should be pulling these.",
+    }
+  },
+  {
+    id: 4,
+    text: "Are your leads exclusive to you or shared with other agents?",
+    options: [
+      { label: "Exclusive", value: "exclusive", points: 10 },
+      { label: "Mix of both", value: "mix", points: 5 },
+      { label: "Shared", value: "shared", points: 1 },
+    ],
+    recommendations: {
+      exclusive: "Exclusive leads convert 3-5x better. You are in the right position.",
+      mix: "Your shared leads are being called by 5-8 other agents simultaneously. Shift your budget toward exclusive sources.",
+      shared: "Shared leads are a race you will lose. When 7 agents call the same person in 10 minutes, nobody wins. Exclusive leads from public records change the game.",
+    }
+  },
+  {
+    id: 5,
+    text: "Do you know how many businesses filed in your county this week?",
+    options: [
+      { label: "Yes", value: "yes", points: 10 },
+      { label: "No", value: "no", points: 0 },
+    ],
+    recommendations: {
+      yes: "Good awareness. Make sure you are converting that knowledge into calls, not just tracking it.",
+      no: "If you do not know the number, you are not working the data. Hundreds of businesses file in most FL counties every week. Each one is a prospect.",
+    }
+  },
+  {
+    id: 6,
+    text: "Do you have cold call scripts for each lead type?",
+    options: [
+      { label: "Yes", value: "yes", points: 10 },
+      { label: "Some", value: "some", points: 5 },
+      { label: "No", value: "no", points: 0 },
+    ],
+    recommendations: {
+      yes: "Consistent scripts mean consistent results. Review and update them quarterly.",
+      some: "A new LLC needs a different opener than a new homeowner. Each lead type has different pain points. Build scripts for every type you call.",
+      no: "You are improvising on every call. That is why your close rate is inconsistent. Scripted agents close 2-3x more.",
+    }
+  },
+  {
+    id: 7,
+    text: "Do you follow up with leads who don't answer the first call?",
+    options: [
+      { label: "Yes, 3+ times", value: "yes3", points: 10 },
+      { label: "Once or twice", value: "once", points: 4 },
+      { label: "No", value: "no", points: 0 },
+    ],
+    recommendations: {
+      yes3: "Persistence pays. 80% of sales happen after the 5th contact. You are doing this right.",
+      once: "Most agents give up after 1-2 attempts. It takes an average of 6 touches to close. You are leaving money on the table.",
+      no: "You are throwing away every lead that does not pick up on the first ring. That is 60-70% of all leads. A 5-touch follow-up sequence can double your close rate.",
+    }
+  },
+  {
+    id: 8,
+    text: "Do you track which lead sources produce the most policies?",
+    options: [
+      { label: "Yes", value: "yes", points: 10 },
+      { label: "No", value: "no", points: 0 },
+    ],
+    recommendations: {
+      yes: "Data-driven agents scale faster. Double down on your top-performing sources.",
+      no: "You are spending money blind. Without tracking source-to-policy conversion, you cannot optimize your spend or cut dead weight.",
+    }
+  },
+  {
+    id: 9,
+    text: "Are you calling people before or after other agents reach out?",
+    options: [
+      { label: "Before", value: "before", points: 10 },
+      { label: "Not sure", value: "notsure", points: 3 },
+      { label: "After", value: "after", points: 0 },
+    ],
+    recommendations: {
+      before: "First-mover advantage is real. The first call wins the policy most of the time. Protect this edge.",
+      notsure: "If you do not know, you are probably second or third. The agent with same-day public record data calls first. Everyone else is chasing.",
+      after: "By the time you call, the prospect already has quotes. You are competing on price instead of speed. Get to the data faster.",
+    }
+  },
+  {
+    id: 10,
+    text: "How old are your leads when you get them?",
+    options: [
+      { label: "Same day", value: "sameday", points: 10 },
+      { label: "1-3 days", value: "1to3", points: 5 },
+      { label: "1 week+", value: "1week", points: 2 },
+      { label: "1 month+", value: "1month", points: 0 },
+    ],
+    recommendations: {
+      sameday: "Same-day leads are the gold standard. Your conversion rate should be 3-5x higher than agents working old data.",
+      "1to3": "Acceptable, but not ideal. In 3 days, 2-3 other agents have already called. Freshness is your biggest lever.",
+      "1week": "Week-old leads have been called by everyone. Your contact rate drops to under 20%. You need fresher data.",
+      "1month": "Month-old leads are nearly worthless. These people already have insurance or are tired of being called. You are wasting time and money.",
+    }
+  },
+];
+
+function ProgressBar({ current, total }) {
+  const pct = (current / total) * 100;
+  return (
+    <div className="w-full mb-8">
+      <div className="flex justify-between text-sm text-gray-400 mb-2">
+        <span>Question {current} of {total}</span>
+        <span>{Math.round(pct)}%</span>
+      </div>
+      <div className="w-full bg-navyLight rounded-full h-2.5">
+        <div
+          className="bg-accent h-2.5 rounded-full transition-all duration-500 ease-out"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
+function QuestionStep({ question, onAnswer }) {
+  return (
+    <div className="fade-in">
+      <h2 className="text-2xl md:text-3xl font-bold mb-8">{question.text}</h2>
+      <div className="space-y-3">
+        {question.options.map((opt) => (
+          <button
+            key={opt.value}
+            onClick={() => {
+              trackEvent('audit_answer', 'lead_audit', `q${question.id}_${opt.value}`);
+              onAnswer(question.id, opt.value, opt.points);
+            }}
+            className="w-full text-left px-6 py-4 rounded-lg border border-gray-700 bg-navyLight hover:border-accent hover:bg-navy transition-all duration-200 text-lg"
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function EmailCapture({ onSubmit, submitting }) {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [county, setCounty] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email) return;
+    trackEvent('audit_email_submit', 'lead_audit', county || 'no_county');
+    onSubmit({ email, name, county });
+  };
+
+  return (
+    <div className="fade-in">
+      <div className="text-center mb-8">
+        <div className="text-6xl mb-4">&#x1f4ca;</div>
+        <h2 className="text-2xl md:text-3xl font-bold mb-2">Your results are ready</h2>
+        <p className="text-gray-400 text-lg">Enter your email to see your score and personalized recommendations.</p>
+      </div>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+        <div>
+          <label className="block text-sm text-gray-400 mb-1">Email <span className="text-red-400">*</span></label>
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@agency.com"
+            className="w-full px-4 py-3 rounded-lg bg-navyLight border border-gray-700 text-white placeholder-gray-500 focus:border-accent focus:outline-none"
+          />
+        </div>
+        <div>
+          <label className="block text-sm text-gray-400 mb-1">First name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Optional"
+            className="w-full px-4 py-3 rounded-lg bg-navyLight border border-gray-700 text-white placeholder-gray-500 focus:border-accent focus:outline-none"
+          />
+        </div>
+        <div>
+          <label className="block text-sm text-gray-400 mb-1">Your county</label>
+          <select
+            value={county}
+            onChange={(e) => setCounty(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg bg-navyLight border border-gray-700 text-white focus:border-accent focus:outline-none"
+          >
+            <option value="">Select your county</option>
+            {FL_COUNTIES.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </div>
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full py-4 rounded-lg bg-accent hover:bg-accentHover text-white font-bold text-lg transition-colors disabled:opacity-50"
+        >
+          {submitting ? 'Loading...' : 'See My Score'}
+        </button>
+        <p className="text-xs text-gray-500 text-center">No spam. Unsubscribe anytime.</p>
+      </form>
+    </div>
+  );
+}
+
+function ScoreDisplay({ score }) {
+  let color = 'text-red-400';
+  let bg = 'border-red-500/30';
+  let label = 'Needs Work';
+  if (score > 60) { color = 'text-green-400'; bg = 'border-green-500/30'; label = 'Strong'; }
+  else if (score > 30) { color = 'text-yellow-400'; bg = 'border-yellow-500/30'; label = 'Average'; }
+
+  return (
+    <div className={`text-center p-8 rounded-2xl border-2 ${bg} bg-navyLight mb-8 count-up`}>
+      <div className="text-sm uppercase tracking-widest text-gray-400 mb-2">Your Lead Source Score</div>
+      <div className={`text-7xl md:text-8xl font-black ${color}`}>{score}</div>
+      <div className="text-2xl text-gray-300 mt-1">out of 100</div>
+      <div className={`mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold ${color} ${bg}`}>
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function Results({ score, answers, county }) {
+  const [copied, setCopied] = useState(false);
+  const countyText = county || 'your county';
+
+  const shareText = `I scored ${score}/100 on the FL Insurance Lead Source Audit by DataSignal AI. How do your leads stack up? https://datasignalai.tech/landing/lead-audit/`;
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(shareText).then(() => {
+      setCopied(true);
+      trackEvent('audit_share', 'lead_audit', `score_${score}`);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <div className="fade-in">
+      <ScoreDisplay score={score} />
+
+      {/* County insight */}
+      <div className="bg-navyLight border border-gray-700 rounded-xl p-6 mb-8 text-center">
+        <p className="text-lg">
+          In <span className="font-bold text-accent">{countyText}</span> this week:
+          <span className="font-bold text-white"> hundreds of new filings</span> you are not seeing.
+        </p>
+        <p className="text-gray-400 text-sm mt-2">
+          New businesses, property transfers, professional licenses, and more. Updated daily from 30+ FL government databases.
+        </p>
+      </div>
+
+      {/* Recommendations */}
+      <h3 className="text-xl font-bold mb-4">Your Breakdown</h3>
+      <div className="space-y-4 mb-8">
+        {QUESTIONS.map((q) => {
+          const ans = answers[q.id];
+          if (!ans) return null;
+          const opt = q.options.find(o => o.value === ans.value);
+          const rec = q.recommendations[ans.value];
+          const isGood = ans.points >= 8;
+          return (
+            <div key={q.id} className="bg-navyLight rounded-lg p-4 border border-gray-700">
+              <div className="flex items-start gap-3">
+                <span className={`mt-1 flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${isGood ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                  {isGood ? '+' : '-'}
+                </span>
+                <div>
+                  <div className="font-semibold text-sm text-gray-300 mb-1">Q{q.id}: {q.text}</div>
+                  <div className="text-xs text-gray-500 mb-2">Your answer: {opt?.label} ({ans.points}/10 pts)</div>
+                  <p className="text-sm text-gray-300">{rec}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* CTAs */}
+      <div className="space-y-4 mb-8">
+        <a
+          href={`/landing/taste-test/?utm_source=lead_audit&utm_medium=cta&utm_campaign=audit_result&county=${encodeURIComponent(county || '')}`}
+          onClick={() => trackEvent('audit_cta_taste_test', 'lead_audit', `score_${score}`)}
+          className="block w-full text-center py-4 rounded-lg bg-accent hover:bg-accentHover text-white font-bold text-lg transition-colors"
+        >
+          Get 5 Real Leads from {countyText} for $29
+        </a>
+        <a
+          href="/landing/scripts/"
+          onClick={() => trackEvent('audit_cta_scripts', 'lead_audit', `score_${score}`)}
+          className="block w-full text-center py-4 rounded-lg border border-accent text-accent hover:bg-accent/10 font-bold text-lg transition-colors"
+        >
+          Free Cold Call Scripts
+        </a>
+      </div>
+
+      {/* Share */}
+      <div className="text-center">
+        <button
+          onClick={handleShare}
+          className="px-6 py-3 rounded-lg border border-gray-600 text-gray-300 hover:text-white hover:border-gray-400 transition-colors text-sm"
+        >
+          {copied ? 'Copied to clipboard!' : 'Share your score'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [step, setStep] = useState(0); // 0-9 = questions, 10 = email capture, 11 = results
+  const [answers, setAnswers] = useState({});
+  const [totalScore, setTotalScore] = useState(0);
+  const [county, setCounty] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const containerRef = useRef(null);
+
+  const scrollTop = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleAnswer = (questionId, value, points) => {
+    setAnswers(prev => ({ ...prev, [questionId]: { value, points } }));
+    setTotalScore(prev => prev + points);
+    if (step < 9) {
+      setStep(step + 1);
+    } else {
+      setStep(10); // email capture
+    }
+    setTimeout(scrollTop, 50);
+  };
+
+  const handleEmailSubmit = async ({ email, name, county: c }) => {
+    setCounty(c);
+    setSubmitting(true);
+    try {
+      await fetch('/api/newsletter-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          first_name: name || undefined,
+          primary_county: c || undefined,
+          source: 'lead_audit',
+          audit_score: totalScore,
+        }),
+      });
+    } catch (e) {
+      // Silently continue to results even if API fails
+    }
+    setSubmitting(false);
+    setStep(11);
+    trackEvent('audit_complete', 'lead_audit', `score_${totalScore}`);
+    setTimeout(scrollTop, 50);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      {/* Header */}
+      <header className="border-b border-gray-800">
+        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+          <a href="https://datasignalai.tech" className="text-lg font-bold text-white">
+            DataSignal <span className="text-accent">AI</span>
+          </a>
+          <a href="/landing/scripts/" className="text-sm text-gray-400 hover:text-white transition-colors">
+            Free Scripts
+          </a>
+        </div>
+      </header>
+
+      {/* Main */}
+      <main className="flex-1 max-w-3xl mx-auto px-4 py-8 md:py-12 w-full" ref={containerRef}>
+        {step === 0 && Object.keys(answers).length === 0 && (
+          <div className="text-center mb-8 fade-in">
+            <h1 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
+              How Good Are Your Insurance Leads?
+            </h1>
+            <p className="text-gray-400 text-lg max-w-xl mx-auto">
+              10 questions. 2 minutes. Find out what you are missing and how to close more policies in Florida.
+            </p>
+          </div>
+        )}
+
+        {step <= 9 && (
+          <>
+            <ProgressBar current={step + 1} total={10} />
+            <QuestionStep
+              key={step}
+              question={QUESTIONS[step]}
+              onAnswer={handleAnswer}
+            />
+          </>
+        )}
+
+        {step === 10 && (
+          <EmailCapture onSubmit={handleEmailSubmit} submitting={submitting} />
+        )}
+
+        {step === 11 && (
+          <Results score={totalScore} answers={answers} county={county} />
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-800 text-center py-6 text-xs text-gray-500">
+        <p>&copy; {new Date().getFullYear()} DataSignal AI. All rights reserved.</p>
+        <p className="mt-1">
+          <a href="https://datasignalai.tech" className="text-gray-400 hover:text-white">Home</a>
+          {' | '}
+          <a href="/landing/scripts/" className="text-gray-400 hover:text-white">Scripts</a>
+          {' | '}
+          <a href="/landing/newsletter/" className="text-gray-400 hover:text-white">Newsletter</a>
+        </p>
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

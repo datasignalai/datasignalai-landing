@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Weekly FL Trigger Alerts | DataSignal AI</title>
+    <meta name="description" content="Every Monday, get a county-by-county breakdown of new businesses, property sales, building permits, and probate filings from Florida government databases. Free.">
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YTPFXE2QV9');
+    function trackEvent(action, category, label) {
+      gtag('event', action, { event_category: category, event_label: label });
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
+                        accent: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' },
+                        navy: { 800: '#0a1628', 900: '#060f1c' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-hero { background: linear-gradient(135deg, #0a1628 0%, #0c2d4a 40%, #0369a1 80%, #0ea5e9 100%); }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="text-gray-800 leading-relaxed">
+
+<!-- HERO -->
+<section class="gradient-hero text-white py-20 px-6 text-center">
+    <div class="max-w-3xl mx-auto fade-in">
+        <a href="https://datasignalai.tech" class="inline-block mb-8">
+            <div class="flex items-center justify-center gap-3">
+                <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-10 h-10">
+                <span class="text-2xl font-extralight tracking-widest text-gray-100">DATA</span><span class="text-2xl font-bold tracking-widest text-brand-500">SIGNAL</span>
+                <span class="text-lg font-light tracking-widest text-gray-500">AI</span>
+            </div>
+        </a>
+        <div class="mb-3">
+            <span class="inline-block bg-brand-600/30 text-brand-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Free. No commitment.</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            Free weekly FL trigger alerts<br>
+            <span class="text-brand-400">for insurance agents</span>
+        </h1>
+        <p class="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto">
+            Every Monday, get a county-by-county breakdown of new businesses, property sales, building permits, and probate filings pulled from Florida government databases. Free. No commitment.
+        </p>
+    </div>
+</section>
+
+<!-- FORM -->
+<section class="py-16 px-6 bg-white">
+    <div class="max-w-lg mx-auto">
+        <form id="newsletterForm" class="space-y-5">
+            <div>
+                <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                <input type="text" id="first_name" name="first_name" required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                    placeholder="Your first name">
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input type="email" id="email" name="email" required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                    placeholder="you@example.com">
+            </div>
+            <div>
+                <label for="primary_county" class="block text-sm font-medium text-gray-700 mb-1">Primary County</label>
+                <select id="primary_county" name="primary_county" required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-white">
+                    <option value="">Select your county</option>
+                </select>
+            </div>
+            <div>
+                <label for="secondary_county" class="block text-sm font-medium text-gray-700 mb-1">Secondary County <span class="text-gray-400">(optional)</span></label>
+                <select id="secondary_county" name="secondary_county"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-white">
+                    <option value="">None</option>
+                </select>
+            </div>
+            <button type="submit" id="submitBtn"
+                class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-6 rounded-lg text-lg transition-colors">
+                Get My Weekly Alerts
+            </button>
+        </form>
+
+        <!-- Success message (hidden by default) -->
+        <div id="successMsg" class="hidden text-center py-8">
+            <div class="text-5xl mb-4">&#10003;</div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">You're in.</h2>
+            <p class="text-gray-600">First alert arrives Monday.</p>
+        </div>
+
+        <!-- Error message (hidden by default) -->
+        <div id="errorMsg" class="hidden text-center py-4 text-red-600 font-medium"></div>
+
+        <p class="text-center text-sm text-gray-500 mt-6">
+            Sourced from 30+ FL government databases. Updated daily.<br>
+            Currently tracking 8.6 million records across 67 counties.
+        </p>
+    </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-10">What you get every Monday</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-500">
+                <h3 class="font-bold mb-2">New LLC filings</h3>
+                <p class="text-gray-600 text-sm">Every new business needs GL, commercial property, and workers comp. You see them the week they file.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-500">
+                <h3 class="font-bold mb-2">Property sales</h3>
+                <p class="text-gray-600 text-sm">New homeowners need coverage. Investors need landlord policies. You know before they close.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-500">
+                <h3 class="font-bold mb-2">Building permits</h3>
+                <p class="text-gray-600 text-sm">Reroofing, additions, new construction. Each one is a policy update or new builder's risk opportunity.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-500">
+                <h3 class="font-bold mb-2">Probate filings</h3>
+                <p class="text-gray-600 text-sm">Estates need coverage reviewed. Beneficiaries inherit property. Life insurance conversations start here.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-8 px-6 text-center text-sm text-gray-400">
+    <p>&copy; 2026 DataSignal AI. <a href="../privacy-policy.html" class="underline">Privacy Policy</a> | <a href="../terms-of-service.html" class="underline">Terms</a></p>
+</footer>
+
+<script>
+const FL_COUNTIES = [
+    "Alachua","Baker","Bay","Bradford","Brevard","Broward","Calhoun","Charlotte",
+    "Citrus","Clay","Collier","Columbia","DeSoto","Dixie","Duval","Escambia",
+    "Flagler","Franklin","Gadsden","Gilchrist","Glades","Gulf","Hamilton","Hardee",
+    "Hendry","Hernando","Highlands","Hillsborough","Holmes","Indian River","Jackson",
+    "Jefferson","Lafayette","Lake","Lee","Leon","Levy","Liberty","Madison","Manatee",
+    "Marion","Martin","Miami-Dade","Monroe","Nassau","Okaloosa","Okeechobee","Orange",
+    "Osceola","Palm Beach","Pasco","Pinellas","Polk","Putnam","Santa Rosa","Sarasota",
+    "Seminole","St. Johns","St. Lucie","Sumter","Suwannee","Taylor","Union","Volusia",
+    "Wakulla","Walton","Washington"
+];
+
+function populateCounties() {
+    const primary = document.getElementById('primary_county');
+    const secondary = document.getElementById('secondary_county');
+    FL_COUNTIES.forEach(c => {
+        primary.add(new Option(c, c));
+        secondary.add(new Option(c, c));
+    });
+}
+
+populateCounties();
+
+document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const errorDiv = document.getElementById('errorMsg');
+    errorDiv.classList.add('hidden');
+    btn.disabled = true;
+    btn.textContent = 'Signing up...';
+
+    const data = {
+        first_name: document.getElementById('first_name').value.trim(),
+        email: document.getElementById('email').value.trim().toLowerCase(),
+        primary_county: document.getElementById('primary_county').value,
+        secondary_county: document.getElementById('secondary_county').value || null
+    };
+
+    try {
+        const resp = await fetch('/api/newsletter-signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const result = await resp.json();
+        if (resp.ok) {
+            document.getElementById('newsletterForm').classList.add('hidden');
+            document.getElementById('successMsg').classList.remove('hidden');
+            trackEvent('newsletter_signup', 'conversion', data.primary_county);
+        } else {
+            errorDiv.textContent = result.detail || 'Something went wrong. Please try again.';
+            errorDiv.classList.remove('hidden');
+            btn.disabled = false;
+            btn.textContent = 'Get My Weekly Alerts';
+        }
+    } catch (err) {
+        errorDiv.textContent = 'Network error. Please try again.';
+        errorDiv.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Get My Weekly Alerts';
+    }
+});
+</script>
+</body>
+</html>
