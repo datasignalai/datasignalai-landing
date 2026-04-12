@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "description": "Exclude landing pages and tools from SPA catch-all so they serve their own HTML",
+  "exclude": [
+    "/landing/*",
+    "/calculator/*",
+    "/qualify/*",
+    "/lead-audit/*",
+    "/assets/*",
+    "/privacy-policy.html",
+    "/terms-of-service.html"
+  ]
+}

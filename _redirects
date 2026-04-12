@@ -6,19 +6,9 @@
 /go/newsletter  /landing/newsletter/  302
 /go/calculator  /calculator/  302
 
-# Direct landing page routes (serve actual HTML, not SPA)
-/landing/scripts/  /landing/scripts/index.html  200
-/landing/taste-test/  /landing/taste-test/index.html  200
-/landing/newsletter/  /landing/newsletter/index.html  200
-/landing/demo/  /landing/demo/index.html  200
-/calculator/  /calculator/index.html  200
-/qualify/  /qualify/index.html  200
-/lead-audit/  /lead-audit/index.html  200
-
 # Legacy redirects
 /scripts  /landing/scripts/  302
 /taste-test  /landing/taste-test/  302
-/dashboard  https://your-dashboard-url.com  302
 
-# SPA catch-all (must be LAST)
+# SPA catch-all (excluded paths handled by _routes.json)
 /*  /index.html  200
