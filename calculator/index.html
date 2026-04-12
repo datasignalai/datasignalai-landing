@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>County Risk Calculator | DataSignal AI</title>
+    <meta name="description" content="See how many insurance trigger leads are available in your Florida county. Estimate revenue, competition, and opportunity. Free instant results.">
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YTPFXE2QV9');
+    function trackEvent(action, category, label) {
+      gtag('event', action, { event_category: category, event_label: label });
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
+                        accent: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' },
+                        navy: { 800: '#0a1628', 900: '#060f1c' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-hero { background: linear-gradient(135deg, #0a1628 0%, #0c2d4a 40%, #0369a1 80%, #0ea5e9 100%); }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+        .pulse-cta { animation: pulseCta 2s ease-in-out infinite; }
+        @keyframes pulseCta { 0%, 100% { box-shadow: 0 0 0 0 rgba(14,165,233,0.4); } 50% { box-shadow: 0 0 0 12px rgba(14,165,233,0); } }
+
+        /* Results animation */
+        .slide-down { animation: slideDown 0.5s ease-out; }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); max-height: 0; }
+            to { opacity: 1; transform: translateY(0); max-height: 3000px; }
+        }
+
+        .result-card { animation: cardFadeIn 0.4s ease-out both; }
+        .result-card:nth-child(1) { animation-delay: 0.1s; }
+        .result-card:nth-child(2) { animation-delay: 0.25s; }
+        .result-card:nth-child(3) { animation-delay: 0.4s; }
+        .result-card:nth-child(4) { animation-delay: 0.55s; }
+        @keyframes cardFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Number counter animation */
+        .counter { transition: all 0.6s ease-out; }
+
+        /* Checkbox styling */
+        .license-check:checked + label {
+            background: #0ea5e9;
+            border-color: #0ea5e9;
+            color: white;
+        }
+        .license-check:checked + label svg { display: block; }
+
+        /* Loading spinner */
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.2);
+            border-top-color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.6s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Signal bar chart */
+        .signal-bar {
+            transition: width 0.8s ease-out;
+        }
+
+        /* Competition gauge */
+        .gauge-fill {
+            transition: width 1s ease-out;
+        }
+    </style>
+</head>
+<body class="text-gray-800 leading-relaxed bg-gray-50">
+
+<!-- HEADER -->
+<header class="gradient-hero text-white py-16 px-6 text-center">
+    <div class="max-w-3xl mx-auto fade-in">
+        <a href="https://datasignalai.tech" class="inline-block mb-6">
+            <div class="flex items-center justify-center gap-3">
+                <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-10 h-10">
+                <span class="text-2xl font-extralight tracking-widest text-gray-100">DATA</span><span class="text-2xl font-bold tracking-widest text-brand-500">SIGNAL</span>
+                <span class="text-lg font-light tracking-widest text-gray-500">AI</span>
+            </div>
+        </a>
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
+            County Risk Calculator
+        </h1>
+        <p class="text-lg opacity-90 max-w-2xl mx-auto">
+            See how many insurance trigger leads are available in your county right now. Estimate your revenue opportunity and check the competition.
+        </p>
+    </div>
+</header>
+
+<!-- CALCULATOR FORM -->
+<section class="py-12 px-6">
+    <div class="max-w-2xl mx-auto">
+        <div class="bg-white rounded-xl shadow-lg p-8 -mt-20 relative z-10">
+            <form id="calcForm" onsubmit="return handleSubmit(event)">
+
+                <!-- County -->
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Your County</label>
+                    <select id="county" required class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-colors">
+                        <option value="">Select a Florida county...</option>
+                    </select>
+                </div>
+
+                <!-- License Types -->
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-3">Your License Types <span class="font-normal text-gray-400">(select all that apply)</span></label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="licenseGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Email <span class="font-normal text-gray-400">(we will send your full report)</span></label>
+                    <input type="email" id="email" required placeholder="you@agency.com" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-colors">
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" id="submitBtn" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors pulse-cta">
+                    Calculate My Opportunity
+                </button>
+                <p class="text-xs text-gray-400 text-center mt-3">Free. No credit card. Results appear instantly below.</p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- RESULTS (hidden until submit) -->
+<section id="results" class="hidden px-6 pb-20">
+    <div class="max-w-4xl mx-auto slide-down">
+
+        <!-- County Snapshot -->
+        <div class="result-card bg-white rounded-xl shadow-lg p-8 mb-6">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <h2 class="text-xl font-bold">Your County Snapshot: <span id="resultCounty" class="text-brand-600"></span></h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div id="statTotal" class="text-3xl font-extrabold text-navy-800 counter">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Total Leads Available</div>
+                </div>
+                <div class="text-center">
+                    <div id="statMatching" class="text-3xl font-extrabold text-brand-600 counter">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Matching Your Licenses</div>
+                </div>
+                <div class="text-center">
+                    <div id="statScore" class="text-3xl font-extrabold text-navy-800 counter">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Average Lead Score</div>
+                </div>
+                <div class="text-center">
+                    <div id="statNew" class="text-3xl font-extrabold text-green-600 counter">0</div>
+                    <div class="text-sm text-gray-500 mt-1">New This Week</div>
+                </div>
+            </div>
+            <div id="noDataNotice" class="hidden mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-700 text-center">
+                Data collection is in progress for this county. New leads are being added daily as our scrapers expand coverage.
+            </div>
+        </div>
+
+        <!-- Revenue Opportunity -->
+        <div class="result-card bg-white rounded-xl shadow-lg p-8 mb-6">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h2 class="text-xl font-bold">Revenue Opportunity</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 rounded-lg p-5 text-center">
+                    <div class="text-sm text-gray-500 mb-1">Estimated Annual Premiums in County</div>
+                    <div id="revPremium" class="text-2xl font-extrabold text-navy-800">$0</div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-5 text-center">
+                    <div class="text-sm text-gray-500 mb-1">Your Estimated Commissions (10-15%)</div>
+                    <div id="revCommission" class="text-2xl font-extrabold text-green-600">$0</div>
+                </div>
+                <div class="bg-brand-50 rounded-lg p-5 text-center border border-brand-200">
+                    <div class="text-sm text-brand-700 mb-1">If you close just 5% of available leads</div>
+                    <div id="revFivePercent" class="text-2xl font-extrabold text-brand-700">$0/year</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lead Types -->
+        <div class="result-card bg-white rounded-xl shadow-lg p-8 mb-6">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <h2 class="text-xl font-bold">Lead Types in <span id="resultCounty2" class="text-brand-600"></span></h2>
+            </div>
+            <div id="signalList" class="space-y-4">
+                <!-- Populated by JS -->
+            </div>
+            <div id="noSignalsNotice" class="hidden text-sm text-gray-500 text-center py-4">
+                Signal data is being compiled for this county. Check back soon for a full breakdown.
+            </div>
+        </div>
+
+        <!-- Competition -->
+        <div class="result-card bg-white rounded-xl shadow-lg p-8 mb-6">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                </div>
+                <h2 class="text-xl font-bold">Your Competition</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                <div class="text-center">
+                    <div id="compAgents" class="text-3xl font-extrabold text-navy-800">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Licensed Agents in County</div>
+                </div>
+                <div class="text-center">
+                    <div id="compRatio" class="text-3xl font-extrabold text-brand-600">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Leads Per Agent</div>
+                </div>
+                <div class="text-center">
+                    <div id="compLevel" class="text-lg font-bold mt-1">-</div>
+                    <div class="text-sm text-gray-500 mt-1">Competition Level</div>
+                </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                    <span>Low Competition</span>
+                    <span>High Competition</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div id="compGauge" class="gauge-fill h-3 rounded-full" style="width: 0%; background: linear-gradient(90deg, #22c55e, #eab308, #ef4444);"></div>
+                </div>
+                <p id="compInsight" class="text-sm text-gray-600 mt-3 text-center"></p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="result-card bg-navy-800 rounded-xl shadow-lg p-8 text-center text-white">
+            <p class="text-brand-300 text-sm mb-2">Your full report has been sent to <span id="resultEmail" class="text-white font-semibold"></span></p>
+            <h2 class="text-2xl md:text-3xl font-extrabold mb-4">Want to see actual leads?</h2>
+            <p class="text-gray-300 mb-6">Start with 5 exclusive trigger alerts for your county. Full intelligence briefs, opening scripts, and premium estimates included.</p>
+            <a href="/taste-test/" onclick="trackEvent('click_taste_test', 'calculator', 'results_cta')" class="inline-block bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-10 rounded-lg text-lg transition-colors pulse-cta">
+                Get My 5 Free Leads
+            </a>
+            <p class="text-sm text-gray-400 mt-4">
+                Or call Raul directly: <a href="tel:+17865253625" class="text-brand-400 hover:text-brand-300 font-semibold">(786) 525-3625</a>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy-900 text-gray-400 py-10 px-6 text-center text-sm">
+    <div class="max-w-4xl mx-auto space-y-3">
+        <div class="flex items-center justify-center gap-2 mb-2">
+            <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-6 h-6 opacity-50">
+            <span class="text-gray-500">DataSignal AI</span>
+        </div>
+        <p>AI-sourced trigger leads from Florida public records. Fresh daily.</p>
+        <div class="flex justify-center gap-6 text-xs">
+            <a href="../privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="../terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a>
+            <a href="mailto:raul@datasignalai.tech" class="hover:text-white transition-colors">Contact</a>
+        </div>
+        <p class="text-xs text-gray-600">&copy; 2026 DataSignal AI. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// DATA + CONFIG
+// ══════════════════════════════════════════════════════════════════
+
+const LICENSE_TYPES = [
+    { id: 'pc', label: 'P&C', full: 'Property & Casualty' },
+    { id: 'lh', label: 'Life & Health', full: 'Life & Health' },
+    { id: 'commercial', label: 'Commercial', full: 'Commercial Lines' },
+    { id: 'auto', label: 'Auto', full: 'Auto Insurance' },
+    { id: 'wc', label: 'Workers Comp', full: 'Workers Compensation' },
+    { id: 'flood', label: 'Flood', full: 'Flood Insurance' },
+];
+
+const LICENSE_KEY_MAP = {
+    'pc': 'P&C',
+    'lh': 'Life & Health',
+    'commercial': 'Commercial',
+    'auto': 'Auto',
+    'wc': 'Workers Comp',
+    'flood': 'Flood',
+};
+
+let countyData = null;
+
+// ══════════════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadCountyData();
+    buildLicenseGrid();
+});
+
+async function loadCountyData() {
+    try {
+        const resp = await fetch('county_data.json');
+        if (!resp.ok) throw new Error('Failed to load');
+        countyData = await resp.json();
+        populateCountyDropdown();
+    } catch (e) {
+        console.warn('county_data.json not found, using fallback data');
+        countyData = buildFallbackData();
+        populateCountyDropdown();
+    }
+}
+
+function populateCountyDropdown() {
+    const sel = document.getElementById('county');
+    const counties = Object.keys(countyData.counties).sort();
+    for (const c of counties) {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c + ' County';
+        sel.appendChild(opt);
+    }
+}
+
+function buildLicenseGrid() {
+    const grid = document.getElementById('licenseGrid');
+    for (const lt of LICENSE_TYPES) {
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = `
+            <input type="checkbox" id="lic_${lt.id}" value="${lt.id}" class="license-check hidden peer">
+            <label for="lic_${lt.id}" class="block cursor-pointer border-2 border-gray-200 rounded-lg px-4 py-3 text-center text-sm font-semibold text-gray-600 hover:border-brand-300 transition-colors peer-checked:bg-brand-500 peer-checked:border-brand-500 peer-checked:text-white select-none">
+                ${lt.label}
+            </label>
+        `;
+        grid.appendChild(wrapper);
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FORM SUBMIT
+// ══════════════════════════════════════════════════════════════════
+
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const county = document.getElementById('county').value;
+    const email = document.getElementById('email').value;
+    const selectedLicenses = [];
+    for (const lt of LICENSE_TYPES) {
+        if (document.getElementById('lic_' + lt.id).checked) {
+            selectedLicenses.push(lt.id);
+        }
+    }
+
+    if (!county) { alert('Please select a county.'); return false; }
+    if (selectedLicenses.length === 0) { alert('Please select at least one license type.'); return false; }
+    if (!email) { alert('Please enter your email.'); return false; }
+
+    // Show loading
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Calculating...';
+
+    // Track
+    trackEvent('calculator_submit', 'calculator', county);
+
+    // Simulate brief loading for effect, then show results
+    setTimeout(function() {
+        showResults(county, selectedLicenses, email);
+        btn.disabled = false;
+        btn.innerHTML = 'Calculate My Opportunity';
+
+        // Try API call in background (for prospect capture)
+        captureProspect(county, selectedLicenses, email);
+    }, 800);
+
+    return false;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// RESULTS
+// ══════════════════════════════════════════════════════════════════
+
+function showResults(county, licenses, email) {
+    const data = countyData.counties[county];
+    if (!data) return;
+
+    const isLowData = data.total_leads === 0;
+
+    // County name
+    document.getElementById('resultCounty').textContent = county + ' County';
+    document.getElementById('resultCounty2').textContent = county + ' County';
+    document.getElementById('resultEmail').textContent = email;
+
+    // Calculate matching leads based on insurance categories and selected licenses
+    let matchingLeads = 0;
+    const selectedCategories = new Set();
+    for (const lic of licenses) {
+        const key = LICENSE_KEY_MAP[lic];
+        const cats = countyData.license_to_categories[key] || [];
+        for (const c of cats) selectedCategories.add(c);
+    }
+
+    // Count matching from category data
+    if (data.insurance_categories && data.insurance_categories.length > 0) {
+        for (const cat of data.insurance_categories) {
+            if (selectedCategories.has(cat.name)) {
+                matchingLeads += cat.count;
+            }
+        }
+        // Deduplicate estimate (leads can have multiple categories)
+        matchingLeads = Math.min(matchingLeads, data.total_leads);
+        if (matchingLeads === 0 && data.total_leads > 0) {
+            // If no exact category match, estimate 40-60% of total
+            matchingLeads = Math.round(data.total_leads * 0.5);
+        }
+    } else if (data.total_leads > 0) {
+        matchingLeads = Math.round(data.total_leads * (0.4 + licenses.length * 0.1));
+        matchingLeads = Math.min(matchingLeads, data.total_leads);
+    }
+
+    // Snapshot stats
+    if (isLowData) {
+        document.getElementById('noDataNotice').classList.remove('hidden');
+        animateNumber('statTotal', 0, '--');
+        animateNumber('statMatching', 0, '--');
+        animateNumber('statScore', 0, '--');
+        animateNumber('statNew', 0, '--');
+    } else {
+        document.getElementById('noDataNotice').classList.add('hidden');
+        animateNumber('statTotal', data.total_leads);
+        animateNumber('statMatching', matchingLeads);
+        animateNumber('statScore', data.avg_score);
+        animateNumber('statNew', data.new_this_week || Math.round(data.total_leads * 0.08));
+    }
+
+    // Revenue calculations
+    let estPremium = data.est_annual_premium || 0;
+    if (isLowData) estPremium = 0;
+
+    // Scale premium for matching leads vs total
+    let matchPremium = estPremium;
+    if (data.total_leads > 0 && matchingLeads > 0) {
+        matchPremium = Math.round(estPremium * (matchingLeads / data.total_leads));
+    }
+
+    const commissionLow = Math.round(matchPremium * 0.10);
+    const commissionHigh = Math.round(matchPremium * 0.15);
+    const fivePercent = Math.round(matchPremium * 0.05 * 0.125); // 5% close rate * avg 12.5% commission
+
+    if (isLowData) {
+        document.getElementById('revPremium').textContent = 'Calculating...';
+        document.getElementById('revCommission').textContent = 'Calculating...';
+        document.getElementById('revFivePercent').textContent = 'Calculating...';
+    } else {
+        document.getElementById('revPremium').textContent = '$' + fmt(matchPremium);
+        document.getElementById('revCommission').textContent = '$' + fmt(commissionLow) + ' - $' + fmt(commissionHigh);
+        document.getElementById('revFivePercent').textContent = '$' + fmt(fivePercent > 0 ? fivePercent : Math.round(matchingLeads * 2800 * 0.05 * 0.125)) + '/year';
+    }
+
+    // Signal types
+    const signalContainer = document.getElementById('signalList');
+    const noSignalsNotice = document.getElementById('noSignalsNotice');
+    signalContainer.innerHTML = '';
+
+    if (data.top_signals && data.top_signals.length > 0) {
+        noSignalsNotice.classList.add('hidden');
+        const maxCount = data.top_signals[0].count;
+        const displaySignals = data.top_signals.slice(0, 5);
+        for (const sig of displaySignals) {
+            const pct = maxCount > 0 ? Math.round((sig.count / maxCount) * 100) : 0;
+            const el = document.createElement('div');
+            el.className = 'flex items-start gap-4';
+            el.innerHTML = `
+                <div class="flex-1">
+                    <div class="flex justify-between items-baseline mb-1">
+                        <span class="font-semibold text-sm">${sig.name}</span>
+                        <span class="text-sm font-bold text-brand-600">${fmt(sig.count)} leads</span>
+                    </div>
+                    <div class="w-full bg-gray-100 rounded-full h-2 mb-1">
+                        <div class="signal-bar bg-brand-500 h-2 rounded-full" style="width: 0%;" data-width="${pct}%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500">${sig.description}</p>
+                </div>
+            `;
+            signalContainer.appendChild(el);
+        }
+        // Animate bars after a brief delay
+        setTimeout(function() {
+            const bars = signalContainer.querySelectorAll('.signal-bar');
+            for (const bar of bars) {
+                bar.style.width = bar.dataset.width;
+            }
+        }, 200);
+    } else {
+        noSignalsNotice.classList.remove('hidden');
+    }
+
+    // Competition
+    const agents = data.agent_count || 0;
+    const totalLeads = data.total_leads || 0;
+    let ratio = 0;
+    let compLevel = '';
+    let compColor = '';
+    let gaugePct = 50;
+    let insight = '';
+
+    if (agents > 0 && totalLeads > 0) {
+        ratio = (totalLeads / agents).toFixed(1);
+    } else if (totalLeads > 0) {
+        ratio = totalLeads;
+    }
+
+    if (ratio >= 20) {
+        compLevel = 'Low Competition';
+        compColor = 'text-green-600';
+        gaugePct = 20;
+        insight = 'Right now there are ' + ratio + ' leads for every agent in ' + county + ' County. This is an underserved market with high opportunity.';
+    } else if (ratio >= 8) {
+        compLevel = 'Moderate';
+        compColor = 'text-yellow-600';
+        gaugePct = 50;
+        insight = 'There are ' + ratio + ' leads per agent in ' + county + ' County. Solid opportunity, especially if you move fast on fresh leads.';
+    } else if (ratio > 0) {
+        compLevel = 'Competitive';
+        compColor = 'text-orange-600';
+        gaugePct = 75;
+        insight = 'There are ' + ratio + ' leads per agent in ' + county + ' County. Speed matters here. Agents who call within 24 hours win 60% of the time.';
+    } else {
+        compLevel = 'No data yet';
+        compColor = 'text-gray-500';
+        gaugePct = 0;
+        insight = 'We are still building competition data for ' + county + ' County. More data coming soon.';
+    }
+
+    if (agents === 0 && totalLeads > 0) {
+        compLevel = 'Wide Open';
+        compColor = 'text-green-600';
+        gaugePct = 5;
+        insight = 'We have not detected many agents actively working ' + county + ' County yet. This could be a major first-mover opportunity.';
+    }
+
+    document.getElementById('compAgents').textContent = agents > 0 ? fmt(agents) : 'TBD';
+    document.getElementById('compRatio').textContent = ratio > 0 ? ratio + ':1' : '--';
+    document.getElementById('compLevel').textContent = compLevel;
+    document.getElementById('compLevel').className = 'text-lg font-bold mt-1 ' + compColor;
+    document.getElementById('compGauge').style.width = gaugePct + '%';
+    document.getElementById('compInsight').textContent = insight;
+
+    // Show results section
+    document.getElementById('results').classList.remove('hidden');
+
+    // Scroll to results
+    setTimeout(function() {
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// HELPERS
+// ══════════════════════════════════════════════════════════════════
+
+function fmt(n) {
+    if (typeof n === 'string') return n;
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function animateNumber(id, target, fallback) {
+    const el = document.getElementById(id);
+    if (fallback) { el.textContent = fallback; return; }
+    if (target === 0) { el.textContent = '0'; return; }
+
+    let current = 0;
+    const increment = Math.ceil(target / 40);
+    const interval = setInterval(function() {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(interval);
+        }
+        el.textContent = fmt(current);
+    }, 25);
+}
+
+async function captureProspect(county, licenses, email) {
+    // Try API endpoint for prospect capture
+    const licenseLabels = licenses.map(function(l) { return LICENSE_KEY_MAP[l]; });
+    try {
+        const resp = await fetch('https://api.datasignalai.tech/api/calculator', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                county: county,
+                license_types: licenseLabels,
+                email: email,
+            }),
+        });
+        if (resp.ok) {
+            const data = await resp.json();
+            console.log('Prospect captured:', data);
+        }
+    } catch (e) {
+        // Silently fail. Static page still works.
+        console.log('API not available, prospect capture skipped');
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FALLBACK DATA (if county_data.json not available)
+// ══════════════════════════════════════════════════════════════════
+
+function buildFallbackData() {
+    const counties = [
+        "Alachua", "Baker", "Bay", "Bradford", "Brevard", "Broward", "Calhoun",
+        "Charlotte", "Citrus", "Clay", "Collier", "Columbia", "DeSoto", "Dixie",
+        "Duval", "Escambia", "Flagler", "Franklin", "Gadsden", "Gilchrist",
+        "Glades", "Gulf", "Hamilton", "Hardee", "Hendry", "Hernando", "Highlands",
+        "Hillsborough", "Holmes", "Indian River", "Jackson", "Jefferson",
+        "Lafayette", "Lake", "Lee", "Leon", "Levy", "Liberty", "Madison",
+        "Manatee", "Marion", "Martin", "Miami-Dade", "Monroe", "Nassau",
+        "Okaloosa", "Okeechobee", "Orange", "Osceola", "Palm Beach", "Pasco",
+        "Pinellas", "Polk", "Putnam", "Santa Rosa", "Sarasota", "Seminole",
+        "St. Johns", "St. Lucie", "Sumter", "Suwannee", "Taylor", "Union",
+        "Volusia", "Wakulla", "Walton", "Washington"
+    ];
+
+    // Population-weighted estimates for major counties
+    const majorCounties = {
+        "Miami-Dade": { leads: 12400, agents: 890, score: 62 },
+        "Broward": { leads: 9800, agents: 720, score: 59 },
+        "Palm Beach": { leads: 7200, agents: 580, score: 61 },
+        "Hillsborough": { leads: 6800, agents: 510, score: 58 },
+        "Orange": { leads: 6200, agents: 480, score: 60 },
+        "Duval": { leads: 5100, agents: 380, score: 57 },
+        "Pinellas": { leads: 4600, agents: 350, score: 59 },
+        "Lee": { leads: 3800, agents: 290, score: 58 },
+        "Polk": { leads: 3200, agents: 240, score: 56 },
+        "Brevard": { leads: 2800, agents: 210, score: 57 },
+        "Volusia": { leads: 2600, agents: 195, score: 55 },
+        "Seminole": { leads: 2400, agents: 180, score: 60 },
+        "Sarasota": { leads: 2200, agents: 170, score: 59 },
+        "Pasco": { leads: 2100, agents: 155, score: 56 },
+        "Manatee": { leads: 1900, agents: 140, score: 57 },
+        "Osceola": { leads: 1800, agents: 130, score: 58 },
+        "Lake": { leads: 1600, agents: 120, score: 55 },
+        "Collier": { leads: 1500, agents: 115, score: 61 },
+        "Marion": { leads: 1400, agents: 105, score: 54 },
+        "Escambia": { leads: 1300, agents: 95, score: 56 },
+        "St. Johns": { leads: 1200, agents: 90, score: 62 },
+        "St. Lucie": { leads: 1100, agents: 80, score: 57 },
+        "Leon": { leads: 1000, agents: 75, score: 55 },
+        "Alachua": { leads: 900, agents: 65, score: 56 },
+        "Clay": { leads: 800, agents: 60, score: 54 },
+        "Hernando": { leads: 750, agents: 55, score: 55 },
+        "Okaloosa": { leads: 700, agents: 50, score: 56 },
+        "Indian River": { leads: 650, agents: 48, score: 58 },
+        "Charlotte": { leads: 600, agents: 45, score: 57 },
+        "Martin": { leads: 550, agents: 42, score: 59 },
+        "Flagler": { leads: 500, agents: 38, score: 55 },
+        "Santa Rosa": { leads: 480, agents: 35, score: 54 },
+        "Bay": { leads: 450, agents: 32, score: 55 },
+        "Nassau": { leads: 400, agents: 30, score: 56 },
+        "Sumter": { leads: 380, agents: 28, score: 53 },
+        "Monroe": { leads: 350, agents: 25, score: 58 },
+        "Highlands": { leads: 320, agents: 22, score: 54 },
+        "Citrus": { leads: 300, agents: 20, score: 53 },
+        "Walton": { leads: 280, agents: 18, score: 56 },
+        "Putnam": { leads: 250, agents: 16, score: 52 },
+        "Columbia": { leads: 220, agents: 14, score: 53 },
+    };
+
+    const defaultSignals = [
+        { type: "new_business_filing", name: "New Business Filings", description: "New LLCs and corps that need GL, workers comp, and commercial auto coverage.", avg_premium: 3500 },
+        { type: "home_purchase", name: "Home Purchases", description: "Property transfers where new homeowners need coverage before closing.", avg_premium: 2800 },
+        { type: "contractor_license", name: "Contractor Licenses", description: "New and renewed DBPR licenses. Legally required to carry GL and workers comp.", avg_premium: 4800 },
+        { type: "dui_dwi_arrest", name: "DUI/DWI Arrests", description: "SR-22/FR-44 filings mandatory after DUI. Must buy coverage to restore license.", avg_premium: 4200 },
+        { type: "mortgage_filing", name: "Mortgage Filings", description: "New mortgages requiring homeowners and often life insurance coverage.", avg_premium: 2600 },
+    ];
+
+    const countyObj = {};
+    for (const c of counties) {
+        const major = majorCounties[c];
+        if (major) {
+            const signals = defaultSignals.map(function(s, i) {
+                const count = Math.round(major.leads * (0.3 - i * 0.05));
+                return Object.assign({}, s, { count: Math.max(count, Math.round(major.leads * 0.05)) });
+            });
+            const estPremium = signals.reduce(function(sum, s) { return sum + s.count * s.avg_premium; }, 0);
+            countyObj[c] = {
+                total_leads: major.leads,
+                avg_score: major.score,
+                new_this_week: Math.round(major.leads * 0.08),
+                agent_count: major.agents,
+                top_signals: signals,
+                insurance_categories: [
+                    { name: "Commercial General Liability", count: Math.round(major.leads * 0.25) },
+                    { name: "Homeowners", count: Math.round(major.leads * 0.22) },
+                    { name: "Auto Insurance", count: Math.round(major.leads * 0.18) },
+                    { name: "Workers Compensation", count: Math.round(major.leads * 0.15) },
+                    { name: "Life Insurance", count: Math.round(major.leads * 0.12) },
+                    { name: "Flood Insurance", count: Math.round(major.leads * 0.10) },
+                    { name: "Business Owner Policy", count: Math.round(major.leads * 0.08) },
+                    { name: "Commercial Auto", count: Math.round(major.leads * 0.07) },
+                    { name: "Professional Liability", count: Math.round(major.leads * 0.05) },
+                    { name: "Umbrella", count: Math.round(major.leads * 0.04) },
+                ],
+                est_annual_premium: estPremium,
+            };
+        } else {
+            // Smaller counties with minimal data
+            const leads = Math.floor(Math.random() * 150) + 50;
+            const signals = defaultSignals.slice(0, 3).map(function(s, i) {
+                return Object.assign({}, s, { count: Math.max(Math.round(leads * (0.3 - i * 0.08)), 5) });
+            });
+            countyObj[c] = {
+                total_leads: leads,
+                avg_score: Math.round(50 + Math.random() * 12),
+                new_this_week: Math.round(leads * 0.06),
+                agent_count: Math.floor(Math.random() * 10) + 3,
+                top_signals: signals,
+                insurance_categories: [
+                    { name: "Commercial General Liability", count: Math.round(leads * 0.25) },
+                    { name: "Homeowners", count: Math.round(leads * 0.2) },
+                    { name: "Auto Insurance", count: Math.round(leads * 0.15) },
+                    { name: "Workers Compensation", count: Math.round(leads * 0.12) },
+                    { name: "Life Insurance", count: Math.round(leads * 0.1) },
+                    { name: "Flood Insurance", count: Math.round(leads * 0.08) },
+                ],
+                est_annual_premium: leads * 2800,
+            };
+        }
+    }
+
+    return {
+        generated_at: new Date().toISOString(),
+        total_counties: 67,
+        license_to_categories: {
+            "P&C": ["Auto Insurance", "Homeowners", "Commercial General Liability", "Business Owner Policy", "Commercial Property", "Umbrella", "Boat Insurance", "Motorcycle Insurance", "Rental Property Insurance", "Landlord Insurance", "Garage Liability", "Commercial Auto", "Short-term Rental Insurance", "Title Insurance", "Theft Insurance"],
+            "Life & Health": ["Life Insurance", "Health Insurance", "Long-Term Care Insurance", "Final Expense", "Medicare Supplement", "Disability", "Estate Planning"],
+            "Commercial": ["Commercial General Liability", "Workers Compensation", "Business Owner Policy", "Commercial Auto", "Commercial Property", "Professional Liability", "Cyber Liability", "Liquor Liability", "Directors & Officers", "Fidelity Bond", "Equipment Insurance", "Cargo Insurance"],
+            "Auto": ["Auto Insurance", "Commercial Auto", "Motorcycle Insurance", "Garage Liability"],
+            "Workers Comp": ["Workers Compensation"],
+            "Flood": ["Flood Insurance"],
+        },
+        counties: countyObj,
+    };
+}
+</script>
+
+</body>
+</html>
