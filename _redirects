@@ -10,5 +10,4 @@
 /scripts  /landing/scripts/  302
 /taste-test  /landing/taste-test/  302
 
-# SPA catch-all (excluded paths handled by _routes.json)
-/*  /index.html  200
+# No SPA catch-all. All pages are static HTML served directly by Cloudflare Pages.
