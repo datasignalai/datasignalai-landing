@@ -1497,25 +1497,47 @@ function EmailGateModal({ onUnlock, onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email) { setError('Email is required'); return; }
+    // Match server-side validation (all 3 fields required). Previous version only
+    // validated email client-side, and the server's 400 was silently swallowed by the
+    // catch block which unlocked anyway — so users could bypass the gate with just
+    // an email and we'd lose the capture to DB entirely.
+    const trimmedName = (name || '').trim();
+    const trimmedEmail = (email || '').trim();
+    const trimmedCounty = (county || '').trim();
+    if (!trimmedName) { setError('First name is required'); return; }
+    if (!trimmedEmail || !trimmedEmail.includes('@')) { setError('Valid email is required'); return; }
+    if (!trimmedCounty) { setError('Primary county is required'); return; }
     setSubmitting(true);
     setError('');
     try {
-      await fetch('/api/newsletter-signup', {
+      const res = await fetch('/api/newsletter-signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email: email,
-          first_name: name,
-          primary_county: county,
+          email: trimmedEmail,
+          first_name: trimmedName,
+          primary_county: trimmedCounty,
           source: 'scripts_gate'
         })
       });
+      if (!res.ok) {
+        // Server rejected — show the message so the user can correct it. Do NOT unlock.
+        let detail = 'Signup failed. Please try again.';
+        try { const j = await res.json(); if (j && j.detail) detail = j.detail; } catch {}
+        setError(detail);
+        setSubmitting(false);
+        return;
+      }
       localStorage.setItem('ds_scripts_unlocked', 'true');
-      trackEvent('scripts_unlock', 'lead_capture', county || 'no_county');
+      trackEvent('scripts_unlock', 'lead_capture', trimmedCounty);
       onUnlock();
     } catch (err) {
+      // Network-level failure (CORS, offline, DNS). We still unlock as graceful
+      // degradation so they get the scripts, but also log so we can see drop-offs.
+      // A pure-API rejection above (if !res.ok) does NOT reach here.
+      setError('Network error. Scripts unlocked anyway — check your inbox after reconnecting.');
       localStorage.setItem('ds_scripts_unlocked', 'true');
+      trackEvent('scripts_unlock_network_fallback', 'lead_capture', trimmedCounty);
       onUnlock();
     }
     setSubmitting(false);
@@ -1535,7 +1557,7 @@ function EmailGateModal({ onUnlock, onClose }) {
             className="w-full mb-3 px-4 py-3 bg-navy border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent"
           />
           <input
-            type="text" placeholder="First name (optional)" value={name}
+            type="text" placeholder="First name" value={name}
             onChange={e => setName(e.target.value)}
             className="w-full mb-3 px-4 py-3 bg-navy border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent"
           />
@@ -1543,7 +1565,7 @@ function EmailGateModal({ onUnlock, onClose }) {
             value={county} onChange={e => setCounty(e.target.value)}
             className="w-full mb-4 px-4 py-3 bg-navy border border-gray-600 rounded-lg text-gray-400 focus:outline-none focus:border-accent"
           >
-            <option value="">Your county (optional)</option>
+            <option value="">Your primary county</option>
             {counties.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
           {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
