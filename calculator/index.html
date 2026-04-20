@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
     <title>County Risk Calculator | DataSignal AI</title>
     <meta name="description" content="See how many insurance trigger leads are available in your Florida county. Estimate revenue, competition, and opportunity. Free instant results.">
     <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
@@ -17,15 +18,22 @@
       gtag('event', action, { event_category: category, event_label: label });
     }
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                        serif: ['"Instrument Serif"', 'ui-serif', 'Georgia'],
+                    },
                     colors: {
-                        brand: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
-                        accent: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' },
-                        navy: { 800: '#0a1628', 900: '#060f1c' },
+                        ink: { 950: '#05070d', 900: '#0a0d16', 800: '#111624' },
+                        signal: { 100: '#d6f2ff', 200: '#aee4ff', 300: '#7dd2ff', 400: '#3ab6ff', 500: '#0a9bff', 600: '#007be0', 700: '#005fb5' },
+                        lime: { 300: '#d9ff4a', 400: '#bfff00', 500: '#a3e900' },
                     }
                 }
             }
@@ -33,13 +41,97 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        .gradient-hero { background: linear-gradient(135deg, #0a1628 0%, #0c2d4a 40%, #0369a1 80%, #0ea5e9 100%); }
-        .fade-in { animation: fadeIn 0.6s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-        .pulse-cta { animation: pulseCta 2s ease-in-out infinite; }
-        @keyframes pulseCta { 0%, 100% { box-shadow: 0 0 0 0 rgba(14,165,233,0.4); } 50% { box-shadow: 0 0 0 12px rgba(14,165,233,0); } }
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui;
+            background: #05070d;
+            color: #e6e9f0;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: -0.011em;
+        }
+        .display { font-family: 'Instrument Serif', ui-serif, Georgia; letter-spacing: -0.02em; }
+        .mesh-hero {
+            position: relative;
+            background:
+                radial-gradient(ellipse 80% 60% at 15% 20%, rgba(10,155,255,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse 70% 50% at 85% 30%, rgba(191,255,0,0.12) 0%, transparent 55%),
+                radial-gradient(ellipse 100% 80% at 50% 100%, rgba(0,95,181,0.4) 0%, transparent 65%),
+                linear-gradient(180deg, #05070d 0%, #0a0d16 60%, #05070d 100%);
+        }
+        .grid-lines {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 64px 64px;
+        }
+        .glass {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px -20px rgba(0,0,0,0.8);
+        }
+        .orb-glow { background: radial-gradient(circle, rgba(10,155,255,0.5) 0%, transparent 70%); animation: pulse-glow 4s ease-in-out infinite; }
+        @keyframes pulse-glow { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.15); } }
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #7dd2ff 60%, #bfff00 100%);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .cta-primary {
+            background: linear-gradient(180deg, #bfff00, #a3e900);
+            color: #05070d;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 0 1px rgba(191,255,0,0.4), 0 20px 40px -10px rgba(191,255,0,0.3);
+        }
+        .cta-primary:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(191,255,0,0.6), 0 28px 50px -10px rgba(191,255,0,0.45); }
+        .cta-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(10,155,255,0.08);
+            border: 1px solid rgba(10,155,255,0.2);
+            color: #7dd2ff;
+            padding: 6px 14px; border-radius: 999px;
+            font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+        }
+        .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #bfff00; box-shadow: 0 0 12px #bfff00; animation: dot-pulse 2s ease infinite; }
+        @keyframes dot-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .fade-in { animation: fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .icon-tile {
+            width: 44px; height: 44px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, rgba(10,155,255,0.15), rgba(10,155,255,0.02));
+            border: 1px solid rgba(10,155,255,0.25);
+            display: flex; align-items: center; justify-content: center;
+            color: #7dd2ff;
+        }
+
+        /* Form inputs */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: #e6e9f0;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .form-input:focus {
+            border-color: rgba(10,155,255,0.5);
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 0 0 4px rgba(10,155,255,0.1);
+        }
+        .form-input::placeholder { color: rgba(255,255,255,0.3); }
+        .form-input option { background: #0a0d16; color: #e6e9f0; }
+
+        /* License checkbox tiles */
+        .license-check:checked + label {
+            background: rgba(10,155,255,0.15) !important;
+            border-color: rgba(10,155,255,0.6) !important;
+            color: #7dd2ff !important;
+        }
 
         /* Results animation */
         .slide-down { animation: slideDown 0.5s ease-out; }
@@ -47,254 +139,200 @@
             from { opacity: 0; transform: translateY(-30px); max-height: 0; }
             to { opacity: 1; transform: translateY(0); max-height: 3000px; }
         }
-
         .result-card { animation: cardFadeIn 0.4s ease-out both; }
         .result-card:nth-child(1) { animation-delay: 0.1s; }
         .result-card:nth-child(2) { animation-delay: 0.25s; }
         .result-card:nth-child(3) { animation-delay: 0.4s; }
         .result-card:nth-child(4) { animation-delay: 0.55s; }
+        .result-card:nth-child(5) { animation-delay: 0.7s; }
         @keyframes cardFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Number counter animation */
-        .counter { transition: all 0.6s ease-out; }
-
-        /* Checkbox styling */
-        .license-check:checked + label {
-            background: #0ea5e9;
-            border-color: #0ea5e9;
-            color: white;
-        }
-        .license-check:checked + label svg { display: block; }
-
-        /* Loading spinner */
         .spinner {
-            border: 3px solid rgba(255,255,255,0.2);
-            border-top-color: white;
+            border: 2px solid rgba(5,7,13,0.3);
+            border-top-color: #05070d;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 16px; height: 16px;
             animation: spin 0.6s linear infinite;
             display: inline-block;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Signal bar chart */
-        .signal-bar {
-            transition: width 0.8s ease-out;
-        }
-
-        /* Competition gauge */
-        .gauge-fill {
-            transition: width 1s ease-out;
-        }
+        .signal-bar { transition: width 0.8s ease-out; }
+        .gauge-fill { transition: width 1s ease-out; }
     </style>
 </head>
-<body class="text-gray-800 leading-relaxed bg-gray-50">
+<body>
 
-<!-- HEADER -->
-<header class="gradient-hero text-white py-16 px-6 text-center">
-    <div class="max-w-3xl mx-auto fade-in">
-        <a href="https://datasignalai.tech" class="inline-block mb-6">
-            <div class="flex items-center justify-center gap-3">
-                <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-10 h-10">
-                <span class="text-2xl font-extralight tracking-widest text-gray-100">DATA</span><span class="text-2xl font-bold tracking-widest text-brand-500">SIGNAL</span>
-                <span class="text-lg font-light tracking-widest text-gray-500">AI</span>
+<!-- ============================ HERO ============================ -->
+<section class="mesh-hero overflow-hidden">
+    <div class="grid-lines">
+    <div class="max-w-4xl mx-auto px-6 pt-10 pb-16 relative text-center">
+        <a href="https://datasignalai.tech" class="inline-flex items-center justify-center gap-3 mb-12 fade-in">
+            <div class="relative">
+                <div class="absolute inset-0 orb-glow rounded-full"></div>
+                <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal" class="w-9 h-9 relative">
+            </div>
+            <div class="text-sm font-semibold tracking-wide">
+                <span class="text-white/60 font-light">DATA</span><span class="text-white">SIGNAL</span>
+                <span class="text-white/40 font-light ml-1 text-xs">AI</span>
             </div>
         </a>
-        <h1 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
-            County Risk Calculator
+        <div class="mb-6 fade-in">
+            <span class="badge"><span class="badge-dot"></span> Free · Instant · No signup</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-6 fade-in">
+            County Risk <span class="display italic font-normal gradient-text">Calculator</span>.
         </h1>
-        <p class="text-lg opacity-90 max-w-2xl mx-auto">
+        <p class="text-lg text-white/55 max-w-2xl mx-auto fade-in">
             See how many insurance trigger leads are available in your county right now. Estimate your revenue opportunity and check the competition.
         </p>
     </div>
-</header>
+    </div>
+</section>
 
-<!-- CALCULATOR FORM -->
-<section class="py-12 px-6">
-    <div class="max-w-2xl mx-auto">
-        <div class="bg-white rounded-xl shadow-lg p-8 -mt-20 relative z-10">
+<!-- ============================ CALCULATOR FORM ============================ -->
+<section class="px-6 pb-12">
+    <div class="max-w-2xl mx-auto -mt-10 relative z-10">
+        <div class="glass rounded-3xl p-8 md:p-10">
             <form id="calcForm" onsubmit="return handleSubmit(event)">
-
-                <!-- County -->
                 <div class="mb-6">
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Your County</label>
-                    <select id="county" required class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-colors">
-                        <option value="">Select a Florida county...</option>
+                    <label class="block text-xs font-semibold uppercase tracking-[0.12em] text-white/50 mb-2">Your county</label>
+                    <select id="county" required class="form-input">
+                        <option value="">Select a Florida county…</option>
                     </select>
                 </div>
 
-                <!-- License Types -->
                 <div class="mb-6">
-                    <label class="block text-sm font-semibold text-gray-700 mb-3">Your License Types <span class="font-normal text-gray-400">(select all that apply)</span></label>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="licenseGrid">
-                        <!-- Populated by JS -->
-                    </div>
+                    <label class="block text-xs font-semibold uppercase tracking-[0.12em] text-white/50 mb-3">Your license types <span class="text-white/30 normal-case tracking-normal">(select all that apply)</span></label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2" id="licenseGrid"></div>
                 </div>
 
-                <!-- Email -->
                 <div class="mb-6">
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Email <span class="font-normal text-gray-400">(we will send your full report)</span></label>
-                    <input type="email" id="email" required placeholder="you@agency.com" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-colors">
+                    <label class="block text-xs font-semibold uppercase tracking-[0.12em] text-white/50 mb-2">Email <span class="text-white/30 normal-case tracking-normal">(we will send your full report)</span></label>
+                    <input type="email" id="email" required placeholder="you@agency.com" class="form-input">
                 </div>
 
-                <!-- Submit -->
-                <button type="submit" id="submitBtn" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors pulse-cta">
+                <button type="submit" id="submitBtn" class="cta-primary w-full font-semibold text-base py-4 rounded-full inline-flex items-center justify-center gap-2">
                     Calculate My Opportunity
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 </button>
-                <p class="text-xs text-gray-400 text-center mt-3">Free. No credit card. Results appear instantly below.</p>
+                <p class="text-xs text-white/40 text-center mt-3">Free. No credit card. Results appear instantly below.</p>
             </form>
         </div>
     </div>
 </section>
 
-<!-- RESULTS (hidden until submit) -->
-<section id="results" class="hidden px-6 pb-20">
-    <div class="max-w-4xl mx-auto slide-down">
+<!-- ============================ RESULTS ============================ -->
+<section id="results" class="hidden px-6 pb-24">
+    <div class="max-w-4xl mx-auto slide-down space-y-4">
 
         <!-- County Snapshot -->
-        <div class="result-card bg-white rounded-xl shadow-lg p-8 mb-6">
+        <div class="result-card glass rounded-2xl p-8">
             <div class="flex items-center gap-3 mb-6">
-                <div class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                </div>
-                <h2 class="text-xl font-bold">Your County Snapshot: <span id="resultCounty" class="text-brand-600"></span></h2>
+                <div class="icon-tile"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+                <h2 class="text-xl font-bold">Your County Snapshot: <span id="resultCounty" class="text-signal-300"></span></h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="text-center">
-                    <div id="statTotal" class="text-3xl font-extrabold text-navy-800 counter">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Total Leads Available</div>
-                </div>
-                <div class="text-center">
-                    <div id="statMatching" class="text-3xl font-extrabold text-brand-600 counter">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Matching Your Licenses</div>
-                </div>
-                <div class="text-center">
-                    <div id="statScore" class="text-3xl font-extrabold text-navy-800 counter">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Average Lead Score</div>
-                </div>
-                <div class="text-center">
-                    <div id="statNew" class="text-3xl font-extrabold text-green-600 counter">0</div>
-                    <div class="text-sm text-gray-500 mt-1">New This Week</div>
-                </div>
+                <div class="text-center"><div id="statTotal" class="text-3xl font-bold gradient-text counter">0</div><div class="text-xs uppercase tracking-wider text-white/40 mt-2">Total Leads Available</div></div>
+                <div class="text-center"><div id="statMatching" class="text-3xl font-bold gradient-text counter">0</div><div class="text-xs uppercase tracking-wider text-white/40 mt-2">Matching Your Licenses</div></div>
+                <div class="text-center"><div id="statScore" class="text-3xl font-bold text-white counter">0</div><div class="text-xs uppercase tracking-wider text-white/40 mt-2">Average Lead Score</div></div>
+                <div class="text-center"><div id="statNew" class="text-3xl font-bold text-lime-300 counter">0</div><div class="text-xs uppercase tracking-wider text-white/40 mt-2">New This Week</div></div>
             </div>
-            <div id="noDataNotice" class="hidden mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-700 text-center">
+            <div id="noDataNotice" class="hidden mt-4 p-3 rounded-lg text-sm text-amber-200 text-center" style="background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.2);">
                 Data collection is in progress for this county. New leads are being added daily as our scrapers expand coverage.
             </div>
         </div>
 
         <!-- Revenue Opportunity -->
-        <div class="result-card bg-white rounded-xl shadow-lg p-8 mb-6">
+        <div class="result-card glass rounded-2xl p-8">
             <div class="flex items-center gap-3 mb-6">
-                <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
+                <div class="icon-tile" style="color: #bfff00; background: linear-gradient(135deg, rgba(191,255,0,0.15), rgba(191,255,0,0.02)); border-color: rgba(191,255,0,0.25);"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
                 <h2 class="text-xl font-bold">Revenue Opportunity</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-gray-50 rounded-lg p-5 text-center">
-                    <div class="text-sm text-gray-500 mb-1">Estimated Annual Premiums in County</div>
-                    <div id="revPremium" class="text-2xl font-extrabold text-navy-800">$0</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 text-center">
+                    <div class="text-xs uppercase tracking-wider text-white/40 mb-2">Estimated Annual Premiums</div>
+                    <div id="revPremium" class="text-2xl font-bold text-white">$0</div>
                 </div>
-                <div class="bg-gray-50 rounded-lg p-5 text-center">
-                    <div class="text-sm text-gray-500 mb-1">Your Estimated Commissions (10-15%)</div>
-                    <div id="revCommission" class="text-2xl font-extrabold text-green-600">$0</div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 text-center">
+                    <div class="text-xs uppercase tracking-wider text-white/40 mb-2">Your Commissions (10-15%)</div>
+                    <div id="revCommission" class="text-2xl font-bold text-lime-300">$0</div>
                 </div>
-                <div class="bg-brand-50 rounded-lg p-5 text-center border border-brand-200">
-                    <div class="text-sm text-brand-700 mb-1">If you close just 5% of available leads</div>
-                    <div id="revFivePercent" class="text-2xl font-extrabold text-brand-700">$0/year</div>
+                <div class="rounded-xl p-5 text-center" style="background: rgba(10,155,255,0.08); border: 1px solid rgba(10,155,255,0.3);">
+                    <div class="text-xs uppercase tracking-wider text-signal-300 mb-2">If you close 5% of leads</div>
+                    <div id="revFivePercent" class="text-2xl font-bold text-signal-200">$0/year</div>
                 </div>
             </div>
         </div>
 
         <!-- Lead Types -->
-        <div class="result-card bg-white rounded-xl shadow-lg p-8 mb-6">
+        <div class="result-card glass rounded-2xl p-8">
             <div class="flex items-center gap-3 mb-6">
-                <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                </div>
-                <h2 class="text-xl font-bold">Lead Types in <span id="resultCounty2" class="text-brand-600"></span></h2>
+                <div class="icon-tile" style="color: #c084fc; background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(168,85,247,0.02)); border-color: rgba(168,85,247,0.25);"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                <h2 class="text-xl font-bold">Lead Types in <span id="resultCounty2" class="text-signal-300"></span></h2>
             </div>
-            <div id="signalList" class="space-y-4">
-                <!-- Populated by JS -->
-            </div>
-            <div id="noSignalsNotice" class="hidden text-sm text-gray-500 text-center py-4">
-                Signal data is being compiled for this county. Check back soon for a full breakdown.
-            </div>
+            <div id="signalList" class="space-y-5"></div>
+            <div id="noSignalsNotice" class="hidden text-sm text-white/50 text-center py-4">Signal data is being compiled for this county. Check back soon for a full breakdown.</div>
         </div>
 
         <!-- Competition -->
-        <div class="result-card bg-white rounded-xl shadow-lg p-8 mb-6">
+        <div class="result-card glass rounded-2xl p-8">
             <div class="flex items-center gap-3 mb-6">
-                <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                </div>
+                <div class="icon-tile" style="color: #fb923c; background: linear-gradient(135deg, rgba(251,146,60,0.15), rgba(251,146,60,0.02)); border-color: rgba(251,146,60,0.25);"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
                 <h2 class="text-xl font-bold">Your Competition</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
-                <div class="text-center">
-                    <div id="compAgents" class="text-3xl font-extrabold text-navy-800">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Licensed Agents in County</div>
-                </div>
-                <div class="text-center">
-                    <div id="compRatio" class="text-3xl font-extrabold text-brand-600">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Leads Per Agent</div>
-                </div>
-                <div class="text-center">
-                    <div id="compLevel" class="text-lg font-bold mt-1">-</div>
-                    <div class="text-sm text-gray-500 mt-1">Competition Level</div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
+                <div class="text-center"><div id="compAgents" class="text-3xl font-bold text-white">0</div><div class="text-xs uppercase tracking-wider text-white/40 mt-2">Licensed Agents in County</div></div>
+                <div class="text-center"><div id="compRatio" class="text-3xl font-bold gradient-text">0</div><div class="text-xs uppercase tracking-wider text-white/40 mt-2">Leads Per Agent</div></div>
+                <div class="text-center"><div id="compLevel" class="text-lg font-bold mt-1">-</div><div class="text-xs uppercase tracking-wider text-white/40 mt-2">Competition Level</div></div>
             </div>
-            <div class="bg-gray-50 rounded-lg p-4">
-                <div class="flex justify-between text-xs text-gray-500 mb-1">
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+                <div class="flex justify-between text-xs uppercase tracking-wider text-white/40 mb-2">
                     <span>Low Competition</span>
                     <span>High Competition</span>
                 </div>
-                <div class="w-full bg-gray-200 rounded-full h-3">
-                    <div id="compGauge" class="gauge-fill h-3 rounded-full" style="width: 0%; background: linear-gradient(90deg, #22c55e, #eab308, #ef4444);"></div>
+                <div class="w-full bg-white/[0.05] rounded-full h-3">
+                    <div id="compGauge" class="gauge-fill h-3 rounded-full" style="width: 0%; background: linear-gradient(90deg, #bfff00, #fbbf24, #f87171);"></div>
                 </div>
-                <p id="compInsight" class="text-sm text-gray-600 mt-3 text-center"></p>
+                <p id="compInsight" class="text-sm text-white/65 mt-4 text-center"></p>
             </div>
         </div>
 
         <!-- CTA -->
-        <div class="result-card bg-navy-800 rounded-xl shadow-lg p-8 text-center text-white">
-            <p class="text-brand-300 text-sm mb-2">Your full report has been sent to <span id="resultEmail" class="text-white font-semibold"></span></p>
-            <h2 class="text-2xl md:text-3xl font-extrabold mb-4">Want to see actual leads?</h2>
-            <p class="text-gray-300 mb-6">Start with 5 exclusive trigger alerts for your county. Full intelligence briefs, opening scripts, and premium estimates included.</p>
-            <a href="/taste-test/" onclick="trackEvent('click_taste_test', 'calculator', 'results_cta')" class="inline-block bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-10 rounded-lg text-lg transition-colors pulse-cta">
-                Get My 5 Free Leads
-            </a>
-            <p class="text-sm text-gray-400 mt-4">
-                Or call Raul directly: <a href="tel:+17865253625" class="text-brand-400 hover:text-brand-300 font-semibold">(786) 525-3625</a>
-            </p>
+        <div class="result-card rounded-2xl p-10 text-center relative overflow-hidden glass">
+            <div class="absolute inset-0 opacity-60" style="background: radial-gradient(ellipse at top, rgba(10,155,255,0.15), transparent 70%);"></div>
+            <div class="relative">
+                <p class="text-signal-300 text-sm mb-2">Your full report has been sent to <span id="resultEmail" class="text-white font-semibold"></span></p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Want to see <span class="display italic font-normal text-signal-300">actual leads</span>?</h2>
+                <p class="text-white/65 mb-8 max-w-lg mx-auto">Start with 5 exclusive trigger alerts for your county. Full intelligence briefs, opening scripts, and premium estimates included.</p>
+                <a href="/taste-test/" onclick="trackEvent('click_taste_test', 'calculator', 'results_cta')" class="cta-primary font-semibold text-base px-10 py-4 rounded-full inline-flex items-center gap-2">
+                    Get My 5 Free Leads
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </a>
+                <p class="text-sm text-white/40 mt-5">Or call Raul directly: <a href="tel:+17865253625" class="text-signal-300 hover:text-signal-200 font-semibold">(786) 525-3625</a></p>
+            </div>
         </div>
-
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-navy-900 text-gray-400 py-10 px-6 text-center text-sm">
+<!-- ============================ FOOTER ============================ -->
+<footer class="border-t border-white/[0.06] py-10 px-6 text-center text-sm text-white/50">
     <div class="max-w-4xl mx-auto space-y-3">
         <div class="flex items-center justify-center gap-2 mb-2">
-            <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-6 h-6 opacity-50">
-            <span class="text-gray-500">DataSignal AI</span>
+            <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-6 h-6 opacity-60">
+            <span class="text-white/60 text-sm">DataSignal AI</span>
         </div>
-        <p>AI-sourced trigger leads from Florida public records. Fresh daily.</p>
+        <p class="text-xs text-white/50">AI-sourced trigger leads from Florida public records. Fresh daily.</p>
         <div class="flex justify-center gap-6 text-xs">
-            <a href="../privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="../terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a>
-            <a href="mailto:raul@datasignalai.tech" class="hover:text-white transition-colors">Contact</a>
+            <a href="../privacy-policy.html" class="text-signal-300 hover:text-signal-200">Privacy Policy</a>
+            <a href="../terms-of-service.html" class="text-signal-300 hover:text-signal-200">Terms of Service</a>
+            <a href="mailto:raul@datasignalai.tech" class="text-signal-300 hover:text-signal-200">Contact</a>
         </div>
-        <p class="text-xs text-gray-600">&copy; 2026 DataSignal AI. All rights reserved.</p>
+        <p class="text-xs text-white/30">© 2026 DataSignal AI. All rights reserved.</p>
     </div>
 </footer>
 
 <script>
-// ══════════════════════════════════════════════════════════════════
-// DATA + CONFIG
-// ══════════════════════════════════════════════════════════════════
-
 const LICENSE_TYPES = [
     { id: 'pc', label: 'P&C', full: 'Property & Casualty' },
     { id: 'lh', label: 'Life & Health', full: 'Life & Health' },
@@ -305,19 +343,11 @@ const LICENSE_TYPES = [
 ];
 
 const LICENSE_KEY_MAP = {
-    'pc': 'P&C',
-    'lh': 'Life & Health',
-    'commercial': 'Commercial',
-    'auto': 'Auto',
-    'wc': 'Workers Comp',
-    'flood': 'Flood',
+    'pc': 'P&C', 'lh': 'Life & Health', 'commercial': 'Commercial',
+    'auto': 'Auto', 'wc': 'Workers Comp', 'flood': 'Flood',
 };
 
 let countyData = null;
-
-// ══════════════════════════════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', function() {
     loadCountyData();
@@ -353,8 +383,8 @@ function buildLicenseGrid() {
     for (const lt of LICENSE_TYPES) {
         const wrapper = document.createElement('div');
         wrapper.innerHTML = `
-            <input type="checkbox" id="lic_${lt.id}" value="${lt.id}" class="license-check hidden peer">
-            <label for="lic_${lt.id}" class="block cursor-pointer border-2 border-gray-200 rounded-lg px-4 py-3 text-center text-sm font-semibold text-gray-600 hover:border-brand-300 transition-colors peer-checked:bg-brand-500 peer-checked:border-brand-500 peer-checked:text-white select-none">
+            <input type="checkbox" id="lic_${lt.id}" value="${lt.id}" class="license-check hidden">
+            <label for="lic_${lt.id}" class="block cursor-pointer rounded-lg px-3 py-2.5 text-center text-sm font-medium select-none transition-all" style="border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); color: rgba(255,255,255,0.75);">
                 ${lt.label}
             </label>
         `;
@@ -362,63 +392,42 @@ function buildLicenseGrid() {
     }
 }
 
-// ══════════════════════════════════════════════════════════════════
-// FORM SUBMIT
-// ══════════════════════════════════════════════════════════════════
-
 function handleSubmit(e) {
     e.preventDefault();
-
     const county = document.getElementById('county').value;
     const email = document.getElementById('email').value;
     const selectedLicenses = [];
     for (const lt of LICENSE_TYPES) {
-        if (document.getElementById('lic_' + lt.id).checked) {
-            selectedLicenses.push(lt.id);
-        }
+        if (document.getElementById('lic_' + lt.id).checked) selectedLicenses.push(lt.id);
     }
-
     if (!county) { alert('Please select a county.'); return false; }
     if (selectedLicenses.length === 0) { alert('Please select at least one license type.'); return false; }
     if (!email) { alert('Please enter your email.'); return false; }
 
-    // Show loading
     const btn = document.getElementById('submitBtn');
     btn.disabled = true;
-    btn.innerHTML = '<span class="spinner"></span> Calculating...';
+    btn.innerHTML = '<span class="spinner"></span> Calculating…';
 
-    // Track
     trackEvent('calculator_submit', 'calculator', county);
 
-    // Simulate brief loading for effect, then show results
     setTimeout(function() {
         showResults(county, selectedLicenses, email);
         btn.disabled = false;
-        btn.innerHTML = 'Calculate My Opportunity';
-
-        // Try API call in background (for prospect capture)
+        btn.innerHTML = 'Calculate My Opportunity <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
         captureProspect(county, selectedLicenses, email);
     }, 800);
-
     return false;
 }
-
-// ══════════════════════════════════════════════════════════════════
-// RESULTS
-// ══════════════════════════════════════════════════════════════════
 
 function showResults(county, licenses, email) {
     const data = countyData.counties[county];
     if (!data) return;
-
     const isLowData = data.total_leads === 0;
 
-    // County name
     document.getElementById('resultCounty').textContent = county + ' County';
     document.getElementById('resultCounty2').textContent = county + ' County';
     document.getElementById('resultEmail').textContent = email;
 
-    // Calculate matching leads based on insurance categories and selected licenses
     let matchingLeads = 0;
     const selectedCategories = new Set();
     for (const lic of licenses) {
@@ -427,17 +436,12 @@ function showResults(county, licenses, email) {
         for (const c of cats) selectedCategories.add(c);
     }
 
-    // Count matching from category data
     if (data.insurance_categories && data.insurance_categories.length > 0) {
         for (const cat of data.insurance_categories) {
-            if (selectedCategories.has(cat.name)) {
-                matchingLeads += cat.count;
-            }
+            if (selectedCategories.has(cat.name)) matchingLeads += cat.count;
         }
-        // Deduplicate estimate (leads can have multiple categories)
         matchingLeads = Math.min(matchingLeads, data.total_leads);
         if (matchingLeads === 0 && data.total_leads > 0) {
-            // If no exact category match, estimate 40-60% of total
             matchingLeads = Math.round(data.total_leads * 0.5);
         }
     } else if (data.total_leads > 0) {
@@ -445,7 +449,6 @@ function showResults(county, licenses, email) {
         matchingLeads = Math.min(matchingLeads, data.total_leads);
     }
 
-    // Snapshot stats
     if (isLowData) {
         document.getElementById('noDataNotice').classList.remove('hidden');
         animateNumber('statTotal', 0, '--');
@@ -460,31 +463,27 @@ function showResults(county, licenses, email) {
         animateNumber('statNew', data.new_this_week || Math.round(data.total_leads * 0.08));
     }
 
-    // Revenue calculations
     let estPremium = data.est_annual_premium || 0;
     if (isLowData) estPremium = 0;
 
-    // Scale premium for matching leads vs total
     let matchPremium = estPremium;
     if (data.total_leads > 0 && matchingLeads > 0) {
         matchPremium = Math.round(estPremium * (matchingLeads / data.total_leads));
     }
-
     const commissionLow = Math.round(matchPremium * 0.10);
     const commissionHigh = Math.round(matchPremium * 0.15);
-    const fivePercent = Math.round(matchPremium * 0.05 * 0.125); // 5% close rate * avg 12.5% commission
+    const fivePercent = Math.round(matchPremium * 0.05 * 0.125);
 
     if (isLowData) {
-        document.getElementById('revPremium').textContent = 'Calculating...';
-        document.getElementById('revCommission').textContent = 'Calculating...';
-        document.getElementById('revFivePercent').textContent = 'Calculating...';
+        document.getElementById('revPremium').textContent = 'Calculating…';
+        document.getElementById('revCommission').textContent = 'Calculating…';
+        document.getElementById('revFivePercent').textContent = 'Calculating…';
     } else {
         document.getElementById('revPremium').textContent = '$' + fmt(matchPremium);
-        document.getElementById('revCommission').textContent = '$' + fmt(commissionLow) + ' - $' + fmt(commissionHigh);
+        document.getElementById('revCommission').textContent = '$' + fmt(commissionLow) + ' – $' + fmt(commissionHigh);
         document.getElementById('revFivePercent').textContent = '$' + fmt(fivePercent > 0 ? fivePercent : Math.round(matchingLeads * 2800 * 0.05 * 0.125)) + '/year';
     }
 
-    // Signal types
     const signalContainer = document.getElementById('signalList');
     const noSignalsNotice = document.getElementById('noSignalsNotice');
     signalContainer.innerHTML = '';
@@ -496,33 +495,27 @@ function showResults(county, licenses, email) {
         for (const sig of displaySignals) {
             const pct = maxCount > 0 ? Math.round((sig.count / maxCount) * 100) : 0;
             const el = document.createElement('div');
-            el.className = 'flex items-start gap-4';
             el.innerHTML = `
-                <div class="flex-1">
-                    <div class="flex justify-between items-baseline mb-1">
-                        <span class="font-semibold text-sm">${sig.name}</span>
-                        <span class="text-sm font-bold text-brand-600">${fmt(sig.count)} leads</span>
-                    </div>
-                    <div class="w-full bg-gray-100 rounded-full h-2 mb-1">
-                        <div class="signal-bar bg-brand-500 h-2 rounded-full" style="width: 0%;" data-width="${pct}%"></div>
-                    </div>
-                    <p class="text-xs text-gray-500">${sig.description}</p>
+                <div class="flex justify-between items-baseline mb-1.5">
+                    <span class="font-medium text-sm text-white">${sig.name}</span>
+                    <span class="text-sm font-semibold text-signal-300">${fmt(sig.count)} leads</span>
                 </div>
+                <div class="w-full rounded-full h-1.5 mb-1.5" style="background: rgba(255,255,255,0.05);">
+                    <div class="signal-bar h-1.5 rounded-full" style="width: 0%; background: linear-gradient(90deg, #0a9bff, #7dd2ff);" data-width="${pct}%"></div>
+                </div>
+                <p class="text-xs text-white/45">${sig.description}</p>
             `;
             signalContainer.appendChild(el);
         }
-        // Animate bars after a brief delay
         setTimeout(function() {
-            const bars = signalContainer.querySelectorAll('.signal-bar');
-            for (const bar of bars) {
+            signalContainer.querySelectorAll('.signal-bar').forEach(function(bar) {
                 bar.style.width = bar.dataset.width;
-            }
+            });
         }, 200);
     } else {
         noSignalsNotice.classList.remove('hidden');
     }
 
-    // Competition
     const agents = data.agent_count || 0;
     const totalLeads = data.total_leads || 0;
     let ratio = 0;
@@ -531,38 +524,25 @@ function showResults(county, licenses, email) {
     let gaugePct = 50;
     let insight = '';
 
-    if (agents > 0 && totalLeads > 0) {
-        ratio = (totalLeads / agents).toFixed(1);
-    } else if (totalLeads > 0) {
-        ratio = totalLeads;
-    }
+    if (agents > 0 && totalLeads > 0) ratio = (totalLeads / agents).toFixed(1);
+    else if (totalLeads > 0) ratio = totalLeads;
 
     if (ratio >= 20) {
-        compLevel = 'Low Competition';
-        compColor = 'text-green-600';
-        gaugePct = 20;
+        compLevel = 'Low Competition'; compColor = 'text-lime-300'; gaugePct = 20;
         insight = 'Right now there are ' + ratio + ' leads for every agent in ' + county + ' County. This is an underserved market with high opportunity.';
     } else if (ratio >= 8) {
-        compLevel = 'Moderate';
-        compColor = 'text-yellow-600';
-        gaugePct = 50;
+        compLevel = 'Moderate'; compColor = 'text-yellow-300'; gaugePct = 50;
         insight = 'There are ' + ratio + ' leads per agent in ' + county + ' County. Solid opportunity, especially if you move fast on fresh leads.';
     } else if (ratio > 0) {
-        compLevel = 'Competitive';
-        compColor = 'text-orange-600';
-        gaugePct = 75;
+        compLevel = 'Competitive'; compColor = 'text-orange-300'; gaugePct = 75;
         insight = 'There are ' + ratio + ' leads per agent in ' + county + ' County. Speed matters here. Agents who call within 24 hours win 60% of the time.';
     } else {
-        compLevel = 'No data yet';
-        compColor = 'text-gray-500';
-        gaugePct = 0;
+        compLevel = 'No data yet'; compColor = 'text-white/50'; gaugePct = 0;
         insight = 'We are still building competition data for ' + county + ' County. More data coming soon.';
     }
 
     if (agents === 0 && totalLeads > 0) {
-        compLevel = 'Wide Open';
-        compColor = 'text-green-600';
-        gaugePct = 5;
+        compLevel = 'Wide Open'; compColor = 'text-lime-300'; gaugePct = 5;
         insight = 'We have not detected many agents actively working ' + county + ' County yet. This could be a major first-mover opportunity.';
     }
 
@@ -573,18 +553,11 @@ function showResults(county, licenses, email) {
     document.getElementById('compGauge').style.width = gaugePct + '%';
     document.getElementById('compInsight').textContent = insight;
 
-    // Show results section
     document.getElementById('results').classList.remove('hidden');
-
-    // Scroll to results
     setTimeout(function() {
         document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
 }
-
-// ══════════════════════════════════════════════════════════════════
-// HELPERS
-// ══════════════════════════════════════════════════════════════════
 
 function fmt(n) {
     if (typeof n === 'string') return n;
@@ -595,180 +568,94 @@ function animateNumber(id, target, fallback) {
     const el = document.getElementById(id);
     if (fallback) { el.textContent = fallback; return; }
     if (target === 0) { el.textContent = '0'; return; }
-
     let current = 0;
     const increment = Math.ceil(target / 40);
     const interval = setInterval(function() {
         current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(interval);
-        }
+        if (current >= target) { current = target; clearInterval(interval); }
         el.textContent = fmt(current);
     }, 25);
 }
 
 async function captureProspect(county, licenses, email) {
-    // Try API endpoint for prospect capture
     const licenseLabels = licenses.map(function(l) { return LICENSE_KEY_MAP[l]; });
     try {
         const resp = await fetch('https://api.datasignalai.tech/api/calculator', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                county: county,
-                license_types: licenseLabels,
-                email: email,
-            }),
+            body: JSON.stringify({ county: county, license_types: licenseLabels, email: email }),
         });
-        if (resp.ok) {
-            const data = await resp.json();
-            console.log('Prospect captured:', data);
-        }
+        if (resp.ok) { const data = await resp.json(); console.log('Prospect captured:', data); }
     } catch (e) {
-        // Silently fail. Static page still works.
         console.log('API not available, prospect capture skipped');
     }
 }
 
-// ══════════════════════════════════════════════════════════════════
-// FALLBACK DATA (if county_data.json not available)
-// ══════════════════════════════════════════════════════════════════
-
 function buildFallbackData() {
-    const counties = [
-        "Alachua", "Baker", "Bay", "Bradford", "Brevard", "Broward", "Calhoun",
-        "Charlotte", "Citrus", "Clay", "Collier", "Columbia", "DeSoto", "Dixie",
-        "Duval", "Escambia", "Flagler", "Franklin", "Gadsden", "Gilchrist",
-        "Glades", "Gulf", "Hamilton", "Hardee", "Hendry", "Hernando", "Highlands",
-        "Hillsborough", "Holmes", "Indian River", "Jackson", "Jefferson",
-        "Lafayette", "Lake", "Lee", "Leon", "Levy", "Liberty", "Madison",
-        "Manatee", "Marion", "Martin", "Miami-Dade", "Monroe", "Nassau",
-        "Okaloosa", "Okeechobee", "Orange", "Osceola", "Palm Beach", "Pasco",
-        "Pinellas", "Polk", "Putnam", "Santa Rosa", "Sarasota", "Seminole",
-        "St. Johns", "St. Lucie", "Sumter", "Suwannee", "Taylor", "Union",
-        "Volusia", "Wakulla", "Walton", "Washington"
-    ];
-
-    // Population-weighted estimates for major counties
-    const majorCounties = {
-        "Miami-Dade": { leads: 12400, agents: 890, score: 62 },
-        "Broward": { leads: 9800, agents: 720, score: 59 },
-        "Palm Beach": { leads: 7200, agents: 580, score: 61 },
-        "Hillsborough": { leads: 6800, agents: 510, score: 58 },
-        "Orange": { leads: 6200, agents: 480, score: 60 },
-        "Duval": { leads: 5100, agents: 380, score: 57 },
-        "Pinellas": { leads: 4600, agents: 350, score: 59 },
-        "Lee": { leads: 3800, agents: 290, score: 58 },
-        "Polk": { leads: 3200, agents: 240, score: 56 },
-        "Brevard": { leads: 2800, agents: 210, score: 57 },
-        "Volusia": { leads: 2600, agents: 195, score: 55 },
-        "Seminole": { leads: 2400, agents: 180, score: 60 },
-        "Sarasota": { leads: 2200, agents: 170, score: 59 },
-        "Pasco": { leads: 2100, agents: 155, score: 56 },
-        "Manatee": { leads: 1900, agents: 140, score: 57 },
-        "Osceola": { leads: 1800, agents: 130, score: 58 },
-        "Lake": { leads: 1600, agents: 120, score: 55 },
-        "Collier": { leads: 1500, agents: 115, score: 61 },
-        "Marion": { leads: 1400, agents: 105, score: 54 },
-        "Escambia": { leads: 1300, agents: 95, score: 56 },
-        "St. Johns": { leads: 1200, agents: 90, score: 62 },
-        "St. Lucie": { leads: 1100, agents: 80, score: 57 },
-        "Leon": { leads: 1000, agents: 75, score: 55 },
-        "Alachua": { leads: 900, agents: 65, score: 56 },
-        "Clay": { leads: 800, agents: 60, score: 54 },
-        "Hernando": { leads: 750, agents: 55, score: 55 },
-        "Okaloosa": { leads: 700, agents: 50, score: 56 },
-        "Indian River": { leads: 650, agents: 48, score: 58 },
-        "Charlotte": { leads: 600, agents: 45, score: 57 },
-        "Martin": { leads: 550, agents: 42, score: 59 },
-        "Flagler": { leads: 500, agents: 38, score: 55 },
-        "Santa Rosa": { leads: 480, agents: 35, score: 54 },
-        "Bay": { leads: 450, agents: 32, score: 55 },
-        "Nassau": { leads: 400, agents: 30, score: 56 },
-        "Sumter": { leads: 380, agents: 28, score: 53 },
-        "Monroe": { leads: 350, agents: 25, score: 58 },
-        "Highlands": { leads: 320, agents: 22, score: 54 },
-        "Citrus": { leads: 300, agents: 20, score: 53 },
-        "Walton": { leads: 280, agents: 18, score: 56 },
-        "Putnam": { leads: 250, agents: 16, score: 52 },
-        "Columbia": { leads: 220, agents: 14, score: 53 },
-    };
-
+    const counties = ["Alachua","Baker","Bay","Bradford","Brevard","Broward","Calhoun","Charlotte","Citrus","Clay","Collier","Columbia","DeSoto","Dixie","Duval","Escambia","Flagler","Franklin","Gadsden","Gilchrist","Glades","Gulf","Hamilton","Hardee","Hendry","Hernando","Highlands","Hillsborough","Holmes","Indian River","Jackson","Jefferson","Lafayette","Lake","Lee","Leon","Levy","Liberty","Madison","Manatee","Marion","Martin","Miami-Dade","Monroe","Nassau","Okaloosa","Okeechobee","Orange","Osceola","Palm Beach","Pasco","Pinellas","Polk","Putnam","Santa Rosa","Sarasota","Seminole","St. Johns","St. Lucie","Sumter","Suwannee","Taylor","Union","Volusia","Wakulla","Walton","Washington"];
+    const majorCounties = {"Miami-Dade":{leads:12400,agents:890,score:62},"Broward":{leads:9800,agents:720,score:59},"Palm Beach":{leads:7200,agents:580,score:61},"Hillsborough":{leads:6800,agents:510,score:58},"Orange":{leads:6200,agents:480,score:60},"Duval":{leads:5100,agents:380,score:57},"Pinellas":{leads:4600,agents:350,score:59},"Lee":{leads:3800,agents:290,score:58},"Polk":{leads:3200,agents:240,score:56},"Brevard":{leads:2800,agents:210,score:57},"Volusia":{leads:2600,agents:195,score:55},"Seminole":{leads:2400,agents:180,score:60},"Sarasota":{leads:2200,agents:170,score:59},"Pasco":{leads:2100,agents:155,score:56},"Manatee":{leads:1900,agents:140,score:57},"Osceola":{leads:1800,agents:130,score:58},"Lake":{leads:1600,agents:120,score:55},"Collier":{leads:1500,agents:115,score:61},"Marion":{leads:1400,agents:105,score:54},"Escambia":{leads:1300,agents:95,score:56},"St. Johns":{leads:1200,agents:90,score:62},"St. Lucie":{leads:1100,agents:80,score:57},"Leon":{leads:1000,agents:75,score:55},"Alachua":{leads:900,agents:65,score:56},"Clay":{leads:800,agents:60,score:54},"Hernando":{leads:750,agents:55,score:55},"Okaloosa":{leads:700,agents:50,score:56},"Indian River":{leads:650,agents:48,score:58},"Charlotte":{leads:600,agents:45,score:57},"Martin":{leads:550,agents:42,score:59},"Flagler":{leads:500,agents:38,score:55},"Santa Rosa":{leads:480,agents:35,score:54},"Bay":{leads:450,agents:32,score:55},"Nassau":{leads:400,agents:30,score:56},"Sumter":{leads:380,agents:28,score:53},"Monroe":{leads:350,agents:25,score:58},"Highlands":{leads:320,agents:22,score:54},"Citrus":{leads:300,agents:20,score:53},"Walton":{leads:280,agents:18,score:56},"Putnam":{leads:250,agents:16,score:52},"Columbia":{leads:220,agents:14,score:53}};
     const defaultSignals = [
-        { type: "new_business_filing", name: "New Business Filings", description: "New LLCs and corps that need GL, workers comp, and commercial auto coverage.", avg_premium: 3500 },
-        { type: "home_purchase", name: "Home Purchases", description: "Property transfers where new homeowners need coverage before closing.", avg_premium: 2800 },
-        { type: "contractor_license", name: "Contractor Licenses", description: "New and renewed DBPR licenses. Legally required to carry GL and workers comp.", avg_premium: 4800 },
-        { type: "dui_dwi_arrest", name: "DUI/DWI Arrests", description: "SR-22/FR-44 filings mandatory after DUI. Must buy coverage to restore license.", avg_premium: 4200 },
-        { type: "mortgage_filing", name: "Mortgage Filings", description: "New mortgages requiring homeowners and often life insurance coverage.", avg_premium: 2600 },
+        {type:"new_business_filing",name:"New Business Filings",description:"New LLCs and corps that need GL, workers comp, and commercial auto coverage.",avg_premium:3500},
+        {type:"home_purchase",name:"Home Purchases",description:"Property transfers where new homeowners need coverage before closing.",avg_premium:2800},
+        {type:"contractor_license",name:"Contractor Licenses",description:"New and renewed DBPR licenses. Legally required to carry GL and workers comp.",avg_premium:4800},
+        {type:"dui_dwi_arrest",name:"DUI/DWI Arrests",description:"SR-22/FR-44 filings mandatory after DUI. Must buy coverage to restore license.",avg_premium:4200},
+        {type:"mortgage_filing",name:"Mortgage Filings",description:"New mortgages requiring homeowners and often life insurance coverage.",avg_premium:2600}
     ];
-
     const countyObj = {};
     for (const c of counties) {
         const major = majorCounties[c];
         if (major) {
-            const signals = defaultSignals.map(function(s, i) {
-                const count = Math.round(major.leads * (0.3 - i * 0.05));
-                return Object.assign({}, s, { count: Math.max(count, Math.round(major.leads * 0.05)) });
-            });
-            const estPremium = signals.reduce(function(sum, s) { return sum + s.count * s.avg_premium; }, 0);
+            const signals = defaultSignals.map(function(s,i){ const count = Math.round(major.leads*(0.3-i*0.05)); return Object.assign({},s,{count:Math.max(count,Math.round(major.leads*0.05))}); });
+            const estPremium = signals.reduce(function(sum,s){return sum+s.count*s.avg_premium;},0);
             countyObj[c] = {
-                total_leads: major.leads,
-                avg_score: major.score,
-                new_this_week: Math.round(major.leads * 0.08),
-                agent_count: major.agents,
+                total_leads: major.leads, avg_score: major.score,
+                new_this_week: Math.round(major.leads*0.08), agent_count: major.agents,
                 top_signals: signals,
                 insurance_categories: [
-                    { name: "Commercial General Liability", count: Math.round(major.leads * 0.25) },
-                    { name: "Homeowners", count: Math.round(major.leads * 0.22) },
-                    { name: "Auto Insurance", count: Math.round(major.leads * 0.18) },
-                    { name: "Workers Compensation", count: Math.round(major.leads * 0.15) },
-                    { name: "Life Insurance", count: Math.round(major.leads * 0.12) },
-                    { name: "Flood Insurance", count: Math.round(major.leads * 0.10) },
-                    { name: "Business Owner Policy", count: Math.round(major.leads * 0.08) },
-                    { name: "Commercial Auto", count: Math.round(major.leads * 0.07) },
-                    { name: "Professional Liability", count: Math.round(major.leads * 0.05) },
-                    { name: "Umbrella", count: Math.round(major.leads * 0.04) },
+                    {name:"Commercial General Liability",count:Math.round(major.leads*0.25)},
+                    {name:"Homeowners",count:Math.round(major.leads*0.22)},
+                    {name:"Auto Insurance",count:Math.round(major.leads*0.18)},
+                    {name:"Workers Compensation",count:Math.round(major.leads*0.15)},
+                    {name:"Life Insurance",count:Math.round(major.leads*0.12)},
+                    {name:"Flood Insurance",count:Math.round(major.leads*0.10)},
+                    {name:"Business Owner Policy",count:Math.round(major.leads*0.08)},
+                    {name:"Commercial Auto",count:Math.round(major.leads*0.07)},
+                    {name:"Professional Liability",count:Math.round(major.leads*0.05)},
+                    {name:"Umbrella",count:Math.round(major.leads*0.04)}
                 ],
-                est_annual_premium: estPremium,
+                est_annual_premium: estPremium
             };
         } else {
-            // Smaller counties with minimal data
-            const leads = Math.floor(Math.random() * 150) + 50;
-            const signals = defaultSignals.slice(0, 3).map(function(s, i) {
-                return Object.assign({}, s, { count: Math.max(Math.round(leads * (0.3 - i * 0.08)), 5) });
-            });
+            const leads = Math.floor(Math.random()*150)+50;
+            const signals = defaultSignals.slice(0,3).map(function(s,i){ return Object.assign({},s,{count:Math.max(Math.round(leads*(0.3-i*0.08)),5)}); });
             countyObj[c] = {
-                total_leads: leads,
-                avg_score: Math.round(50 + Math.random() * 12),
-                new_this_week: Math.round(leads * 0.06),
-                agent_count: Math.floor(Math.random() * 10) + 3,
+                total_leads: leads, avg_score: Math.round(50+Math.random()*12),
+                new_this_week: Math.round(leads*0.06), agent_count: Math.floor(Math.random()*10)+3,
                 top_signals: signals,
                 insurance_categories: [
-                    { name: "Commercial General Liability", count: Math.round(leads * 0.25) },
-                    { name: "Homeowners", count: Math.round(leads * 0.2) },
-                    { name: "Auto Insurance", count: Math.round(leads * 0.15) },
-                    { name: "Workers Compensation", count: Math.round(leads * 0.12) },
-                    { name: "Life Insurance", count: Math.round(leads * 0.1) },
-                    { name: "Flood Insurance", count: Math.round(leads * 0.08) },
+                    {name:"Commercial General Liability",count:Math.round(leads*0.25)},
+                    {name:"Homeowners",count:Math.round(leads*0.2)},
+                    {name:"Auto Insurance",count:Math.round(leads*0.15)},
+                    {name:"Workers Compensation",count:Math.round(leads*0.12)},
+                    {name:"Life Insurance",count:Math.round(leads*0.1)},
+                    {name:"Flood Insurance",count:Math.round(leads*0.08)}
                 ],
-                est_annual_premium: leads * 2800,
+                est_annual_premium: leads*2800
             };
         }
     }
-
     return {
         generated_at: new Date().toISOString(),
         total_counties: 67,
         license_to_categories: {
-            "P&C": ["Auto Insurance", "Homeowners", "Commercial General Liability", "Business Owner Policy", "Commercial Property", "Umbrella", "Boat Insurance", "Motorcycle Insurance", "Rental Property Insurance", "Landlord Insurance", "Garage Liability", "Commercial Auto", "Short-term Rental Insurance", "Title Insurance", "Theft Insurance"],
-            "Life & Health": ["Life Insurance", "Health Insurance", "Long-Term Care Insurance", "Final Expense", "Medicare Supplement", "Disability", "Estate Planning"],
-            "Commercial": ["Commercial General Liability", "Workers Compensation", "Business Owner Policy", "Commercial Auto", "Commercial Property", "Professional Liability", "Cyber Liability", "Liquor Liability", "Directors & Officers", "Fidelity Bond", "Equipment Insurance", "Cargo Insurance"],
-            "Auto": ["Auto Insurance", "Commercial Auto", "Motorcycle Insurance", "Garage Liability"],
-            "Workers Comp": ["Workers Compensation"],
-            "Flood": ["Flood Insurance"],
+            "P&C":["Auto Insurance","Homeowners","Commercial General Liability","Business Owner Policy","Commercial Property","Umbrella","Boat Insurance","Motorcycle Insurance","Rental Property Insurance","Landlord Insurance","Garage Liability","Commercial Auto","Short-term Rental Insurance","Title Insurance","Theft Insurance"],
+            "Life & Health":["Life Insurance","Health Insurance","Long-Term Care Insurance","Final Expense","Medicare Supplement","Disability","Estate Planning"],
+            "Commercial":["Commercial General Liability","Workers Compensation","Business Owner Policy","Commercial Auto","Commercial Property","Professional Liability","Cyber Liability","Liquor Liability","Directors & Officers","Fidelity Bond","Equipment Insurance","Cargo Insurance"],
+            "Auto":["Auto Insurance","Commercial Auto","Motorcycle Insurance","Garage Liability"],
+            "Workers Comp":["Workers Compensation"],
+            "Flood":["Flood Insurance"]
         },
-        counties: countyObj,
+        counties: countyObj
     };
 }
 </script>

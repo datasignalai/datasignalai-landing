@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>Your County Report is Ready | DataSignal AI</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YTPFXE2QV9');
+    function trackEvent(action, category, label) {
+      gtag('event', action, { event_category: category, event_label: label });
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white min-h-screen flex items-center justify-center">
+    <div class="max-w-lg mx-auto px-6 py-16 text-center">
+        <!-- Success Icon -->
+        <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+
+        <h1 class="text-3xl font-bold mb-4">Your <span id="county-name" class="text-cyan-400">County</span> Report is On Its Way</h1>
+
+        <p class="text-gray-400 text-lg mb-8">
+            Check your inbox at <strong id="user-email" class="text-white">your email</strong>. Your county intelligence report includes filing volumes, top lead categories, and estimated commissions.
+        </p>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 mb-8 text-left">
+            <h2 class="text-lg font-semibold mb-3">While you wait, here is what agents do next:</h2>
+            <ul class="space-y-3 text-gray-300">
+                <li class="flex items-start gap-3">
+                    <span class="text-cyan-400 font-bold mt-0.5">1</span>
+                    <span>Review the report. See what is filing in your county and where the revenue is.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-cyan-400 font-bold mt-0.5">2</span>
+                    <span>Try 5 real leads with names, phones, and call scripts. One-time $29, no subscription.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-cyan-400 font-bold mt-0.5">3</span>
+                    <span>Call the leads. Most agents make their first contact within 48 hours.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Taste Test CTA -->
+        <a href="/taste-test/" id="taste-test-link"
+           onclick="trackEvent('cta_click', 'county_report', 'taste_test')"
+           class="inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors mb-4 w-full">
+            Try 5 Leads for $29
+        </a>
+
+        <p class="text-gray-500 text-sm mb-8">One-time purchase. No subscription required.</p>
+
+        <!-- Secondary Links -->
+        <div class="flex flex-col gap-3 text-sm">
+            <a href="/calculator/" class="text-cyan-400 hover:text-cyan-300">See your county's filing calculator</a>
+            <a href="/" class="text-gray-500 hover:text-gray-400">Back to DataSignal AI</a>
+        </div>
+    </div>
+
+    <script>
+    // Parse URL params and populate page
+    const params = new URLSearchParams(window.location.search);
+    const county = params.get('county') || 'Your';
+    const name = params.get('name') || '';
+    const email = params.get('email') || '';
+
+    document.getElementById('county-name').textContent = county;
+    if (email) {
+        document.getElementById('user-email').textContent = email;
+    }
+
+    // Track conversion
+    trackEvent('county_report_delivered', 'conversion', county);
+    </script>
+</body>
+</html>

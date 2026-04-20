@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     <title>Done-For-You Lead System - DataSignal AI</title>
     <meta name="description" content="We build and run your entire lead generation system. $10,000 setup + $2,500/mo. Your own dashboard, configured pipelines, full sales plan.">
     <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YTPFXE2QV9');
+    function trackEvent(action, category, label) {
+      gtag('event', action, { event_category: category, event_label: label });
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {

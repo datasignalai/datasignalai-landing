@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
     <title>Get Your Free County Report | DataSignal AI</title>
     <meta name="description" content="Qualify for a free county-level trigger lead report. Licensed Florida insurance agents only. See how many leads are available in your territory.">
     <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
@@ -17,15 +18,22 @@
       gtag('event', action, { event_category: category, event_label: label });
     }
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                        serif: ['"Instrument Serif"', 'ui-serif', 'Georgia'],
+                    },
                     colors: {
-                        brand: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
-                        accent: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' },
-                        navy: { 800: '#0a1628', 900: '#060f1c' },
+                        ink: { 950: '#05070d', 900: '#0a0d16', 800: '#111624' },
+                        signal: { 100: '#d6f2ff', 200: '#aee4ff', 300: '#7dd2ff', 400: '#3ab6ff', 500: '#0a9bff', 600: '#007be0', 700: '#005fb5' },
+                        lime: { 300: '#d9ff4a', 400: '#bfff00', 500: '#a3e900' },
                     }
                 }
             }
@@ -33,369 +41,308 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        .gradient-hero { background: linear-gradient(135deg, #0a1628 0%, #0c2d4a 40%, #0369a1 80%, #0ea5e9 100%); }
-        .fade-in { animation: fadeIn 0.6s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui;
+            background: #05070d;
+            color: #e6e9f0;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: -0.011em;
+        }
+        .display { font-family: 'Instrument Serif', ui-serif, Georgia; letter-spacing: -0.02em; }
+        .mesh-hero {
+            position: relative;
+            background:
+                radial-gradient(ellipse 80% 60% at 15% 20%, rgba(10,155,255,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse 70% 50% at 85% 30%, rgba(191,255,0,0.12) 0%, transparent 55%),
+                radial-gradient(ellipse 100% 80% at 50% 100%, rgba(0,95,181,0.4) 0%, transparent 65%),
+                linear-gradient(180deg, #05070d 0%, #0a0d16 60%, #05070d 100%);
+        }
+        .grid-lines {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 64px 64px;
+        }
+        .glass {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px -20px rgba(0,0,0,0.8);
+        }
+        .orb-glow { background: radial-gradient(circle, rgba(10,155,255,0.5) 0%, transparent 70%); animation: pulse-glow 4s ease-in-out infinite; }
+        @keyframes pulse-glow { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.15); } }
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #7dd2ff 60%, #bfff00 100%);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .cta-primary {
+            background: linear-gradient(180deg, #bfff00, #a3e900);
+            color: #05070d;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 0 1px rgba(191,255,0,0.4), 0 20px 40px -10px rgba(191,255,0,0.3);
+        }
+        .cta-primary:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(191,255,0,0.6), 0 28px 50px -10px rgba(191,255,0,0.45); }
+        .cta-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(10,155,255,0.08);
+            border: 1px solid rgba(10,155,255,0.2);
+            color: #7dd2ff;
+            padding: 6px 14px; border-radius: 999px;
+            font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+        }
+        .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #bfff00; box-shadow: 0 0 12px #bfff00; animation: dot-pulse 2s ease infinite; }
+        @keyframes dot-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .fade-in { animation: fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Form styles */
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
         .form-input {
             width: 100%;
             padding: 0.75rem 1rem;
-            border: 1px solid #1e3a5f;
-            border-radius: 0.5rem;
-            background: rgba(255,255,255,0.05);
-            color: #e2e8f0;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: #e6e9f0;
+            font-family: inherit;
             font-size: 0.95rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            transition: all 0.2s;
         }
         .form-input:focus {
-            outline: none;
-            border-color: #0ea5e9;
-            box-shadow: 0 0 0 3px rgba(14,165,233,0.15);
+            border-color: rgba(10,155,255,0.5);
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 0 0 4px rgba(10,155,255,0.1);
         }
-        .form-input::placeholder { color: #64748b; }
-        .form-input option { background: #0a1628; color: #e2e8f0; }
+        .form-input::placeholder { color: rgba(255,255,255,0.3); }
+        .form-input option { background: #0a0d16; color: #e6e9f0; }
 
-        .form-label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #94a3b8;
-            margin-bottom: 0.4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Radio and checkbox custom styles */
         .radio-group, .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
         .radio-option, .checkbox-option {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1rem;
-            border: 1px solid #1e3a5f;
-            border-radius: 0.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
+            padding: 0.55rem 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
             cursor: pointer;
-            transition: border-color 0.2s, background 0.2s;
-            font-size: 0.9rem;
-            color: #cbd5e1;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: all 0.2s;
         }
         .radio-option:hover, .checkbox-option:hover {
-            border-color: #0ea5e9;
-            background: rgba(14,165,233,0.05);
-        }
-        .radio-option input:checked + span,
-        .checkbox-option input:checked + span {
-            color: #38bdf8;
+            border-color: rgba(10,155,255,0.35);
+            background: rgba(10,155,255,0.04);
         }
         .radio-option:has(input:checked),
         .checkbox-option:has(input:checked) {
-            border-color: #0ea5e9;
-            background: rgba(14,165,233,0.1);
+            border-color: rgba(10,155,255,0.6);
+            background: rgba(10,155,255,0.1);
+            color: #7dd2ff;
         }
-
         input[type="radio"], input[type="checkbox"] {
-            accent-color: #0ea5e9;
-            width: 1rem;
-            height: 1rem;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: #0ea5e9;
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-        }
-        .submit-btn:hover { background: #0284c7; }
-        .submit-btn:active { transform: scale(0.99); }
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
+            accent-color: #0a9bff;
+            width: 1rem; height: 1rem;
         }
 
         .error-text {
-            color: #f87171;
-            font-size: 0.8rem;
-            margin-top: 0.25rem;
+            color: #ff8a8a;
+            font-size: 0.75rem;
+            margin-top: 0.35rem;
             display: none;
         }
         .field-error .error-text { display: block; }
-        .field-error .form-input { border-color: #f87171; }
+        .field-error .form-input { border-color: rgba(255,138,138,0.6); }
     </style>
 </head>
-<body class="text-gray-800 leading-relaxed">
+<body>
 
-<!-- HEADER -->
-<section class="gradient-hero text-white py-16 px-6 text-center">
-    <div class="max-w-2xl mx-auto fade-in">
-        <a href="https://datasignalai.tech" class="inline-block mb-6">
-            <div class="flex items-center justify-center gap-3">
-                <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-10 h-10">
-                <span class="text-2xl font-extralight tracking-widest text-gray-100">DATA</span><span class="text-2xl font-bold tracking-widest text-brand-500">SIGNAL</span>
-                <span class="text-lg font-light tracking-widest text-gray-500">AI</span>
+<!-- ============================ HERO ============================ -->
+<section id="heroSection" class="mesh-hero overflow-hidden">
+    <div class="grid-lines">
+    <div class="max-w-3xl mx-auto px-6 pt-10 pb-16 relative text-center">
+        <a href="https://datasignalai.tech" class="inline-flex items-center justify-center gap-3 mb-12 fade-in">
+            <div class="relative">
+                <div class="absolute inset-0 orb-glow rounded-full"></div>
+                <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal" class="w-9 h-9 relative">
+            </div>
+            <div class="text-sm font-semibold tracking-wide">
+                <span class="text-white/60 font-light">DATA</span><span class="text-white">SIGNAL</span>
+                <span class="text-white/40 font-light ml-1 text-xs">AI</span>
             </div>
         </a>
-        <h1 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
-            Get Your Free County Report
+        <div class="mb-6 fade-in">
+            <span class="badge"><span class="badge-dot"></span> Free · For Florida-licensed agents</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-6 fade-in">
+            Get your <span class="display italic font-normal gradient-text">free county report</span>.
         </h1>
-        <p class="text-lg opacity-90 max-w-xl mx-auto">
-            See how many trigger leads are available in your county right now. New business filings, home purchases, DUI arrests, and more. Scored and ready to call.
+        <p class="text-lg text-white/55 max-w-2xl mx-auto fade-in">
+            See how many trigger leads are available in your county right now. New business filings, home purchases, DUI arrests, contractor licenses. Scored and ready to call.
         </p>
+    </div>
     </div>
 </section>
 
-<!-- FORM SECTION -->
-<section class="bg-navy-800 py-16 px-6">
+<!-- ============================ FORM ============================ -->
+<section id="formSection" class="bg-ink-950 py-20 px-6 border-t border-white/[0.04]">
     <div class="max-w-xl mx-auto">
-        <div class="bg-navy-900/60 border border-white/10 rounded-2xl p-8 md:p-10 fade-in">
-            <p class="text-sm text-gray-400 mb-8 text-center">
+        <div class="glass rounded-3xl p-8 md:p-10 fade-in">
+            <p class="text-sm text-white/50 mb-8 text-center">
                 Fill out the form below. Licensed FL agents get an instant county report with lead counts, top trigger types, and sample data.
             </p>
 
             <form id="qualifyForm" novalidate>
-                <!-- Full Name -->
                 <div class="mb-5" id="field-name">
-                    <label class="form-label" for="fullName">Full Name <span class="text-red-400">*</span></label>
+                    <label class="form-label" for="fullName">Full name <span class="text-red-400 normal-case tracking-normal">*</span></label>
                     <input type="text" id="fullName" name="full_name" class="form-input" placeholder="Jane Smith" required autocomplete="name">
                     <p class="error-text">Please enter your full name.</p>
                 </div>
 
-                <!-- Email -->
                 <div class="mb-5" id="field-email">
-                    <label class="form-label" for="email">Email <span class="text-red-400">*</span></label>
+                    <label class="form-label" for="email">Email <span class="text-red-400 normal-case tracking-normal">*</span></label>
                     <input type="email" id="email" name="email" class="form-input" placeholder="jane@agency.com" required autocomplete="email">
                     <p class="error-text">Please enter a valid email address.</p>
                 </div>
 
-                <!-- Phone -->
                 <div class="mb-5" id="field-phone">
-                    <label class="form-label" for="phone">Phone <span class="text-gray-500">(optional)</span></label>
+                    <label class="form-label" for="phone">Phone <span class="text-white/30 normal-case tracking-normal">(optional)</span></label>
                     <input type="tel" id="phone" name="phone" class="form-input" placeholder="(305) 555-0100" autocomplete="tel">
                 </div>
 
-                <!-- Licensed Agent -->
                 <div class="mb-5" id="field-licensed">
-                    <label class="form-label">Are you a licensed FL insurance agent? <span class="text-red-400">*</span></label>
-                    <div class="radio-group mt-1">
-                        <label class="radio-option">
-                            <input type="radio" name="licensed" value="yes" required>
-                            <span>Yes</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="licensed" value="no" required>
-                            <span>No</span>
-                        </label>
+                    <label class="form-label">Are you a licensed FL insurance agent? <span class="text-red-400 normal-case tracking-normal">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="licensed" value="yes" required><span>Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="licensed" value="no" required><span>No</span></label>
                     </div>
                     <p class="error-text">Please select an option.</p>
                 </div>
 
-                <!-- County -->
                 <div class="mb-5" id="field-county">
-                    <label class="form-label" for="county">Which county do you primarily serve? <span class="text-red-400">*</span></label>
+                    <label class="form-label" for="county">Which county do you primarily serve? <span class="text-red-400 normal-case tracking-normal">*</span></label>
                     <select id="county" name="county" class="form-input" required>
-                        <option value="">Select a county...</option>
-                        <option value="Alachua">Alachua</option>
-                        <option value="Baker">Baker</option>
-                        <option value="Bay">Bay</option>
-                        <option value="Bradford">Bradford</option>
-                        <option value="Brevard">Brevard</option>
-                        <option value="Broward">Broward</option>
-                        <option value="Calhoun">Calhoun</option>
-                        <option value="Charlotte">Charlotte</option>
-                        <option value="Citrus">Citrus</option>
-                        <option value="Clay">Clay</option>
-                        <option value="Collier">Collier</option>
-                        <option value="Columbia">Columbia</option>
-                        <option value="DeSoto">DeSoto</option>
-                        <option value="Dixie">Dixie</option>
-                        <option value="Duval">Duval</option>
-                        <option value="Escambia">Escambia</option>
-                        <option value="Flagler">Flagler</option>
-                        <option value="Franklin">Franklin</option>
-                        <option value="Gadsden">Gadsden</option>
-                        <option value="Gilchrist">Gilchrist</option>
-                        <option value="Glades">Glades</option>
-                        <option value="Gulf">Gulf</option>
-                        <option value="Hamilton">Hamilton</option>
-                        <option value="Hardee">Hardee</option>
-                        <option value="Hendry">Hendry</option>
-                        <option value="Hernando">Hernando</option>
-                        <option value="Highlands">Highlands</option>
-                        <option value="Hillsborough">Hillsborough</option>
-                        <option value="Holmes">Holmes</option>
-                        <option value="Indian River">Indian River</option>
-                        <option value="Jackson">Jackson</option>
-                        <option value="Jefferson">Jefferson</option>
-                        <option value="Lafayette">Lafayette</option>
-                        <option value="Lake">Lake</option>
-                        <option value="Lee">Lee</option>
-                        <option value="Leon">Leon</option>
-                        <option value="Levy">Levy</option>
-                        <option value="Liberty">Liberty</option>
-                        <option value="Madison">Madison</option>
-                        <option value="Manatee">Manatee</option>
-                        <option value="Marion">Marion</option>
-                        <option value="Martin">Martin</option>
-                        <option value="Miami-Dade">Miami-Dade</option>
-                        <option value="Monroe">Monroe</option>
-                        <option value="Nassau">Nassau</option>
-                        <option value="Okaloosa">Okaloosa</option>
-                        <option value="Okeechobee">Okeechobee</option>
-                        <option value="Orange">Orange</option>
-                        <option value="Osceola">Osceola</option>
-                        <option value="Palm Beach">Palm Beach</option>
-                        <option value="Pasco">Pasco</option>
-                        <option value="Pinellas">Pinellas</option>
-                        <option value="Polk">Polk</option>
-                        <option value="Putnam">Putnam</option>
-                        <option value="Santa Rosa">Santa Rosa</option>
-                        <option value="Sarasota">Sarasota</option>
-                        <option value="Seminole">Seminole</option>
-                        <option value="St. Johns">St. Johns</option>
-                        <option value="St. Lucie">St. Lucie</option>
-                        <option value="Sumter">Sumter</option>
-                        <option value="Suwannee">Suwannee</option>
-                        <option value="Taylor">Taylor</option>
-                        <option value="Union">Union</option>
-                        <option value="Volusia">Volusia</option>
-                        <option value="Wakulla">Wakulla</option>
-                        <option value="Walton">Walton</option>
-                        <option value="Washington">Washington</option>
+                        <option value="">Select a county…</option>
+                        <option value="Alachua">Alachua</option><option value="Baker">Baker</option><option value="Bay">Bay</option><option value="Bradford">Bradford</option>
+                        <option value="Brevard">Brevard</option><option value="Broward">Broward</option><option value="Calhoun">Calhoun</option><option value="Charlotte">Charlotte</option>
+                        <option value="Citrus">Citrus</option><option value="Clay">Clay</option><option value="Collier">Collier</option><option value="Columbia">Columbia</option>
+                        <option value="DeSoto">DeSoto</option><option value="Dixie">Dixie</option><option value="Duval">Duval</option><option value="Escambia">Escambia</option>
+                        <option value="Flagler">Flagler</option><option value="Franklin">Franklin</option><option value="Gadsden">Gadsden</option><option value="Gilchrist">Gilchrist</option>
+                        <option value="Glades">Glades</option><option value="Gulf">Gulf</option><option value="Hamilton">Hamilton</option><option value="Hardee">Hardee</option>
+                        <option value="Hendry">Hendry</option><option value="Hernando">Hernando</option><option value="Highlands">Highlands</option><option value="Hillsborough">Hillsborough</option>
+                        <option value="Holmes">Holmes</option><option value="Indian River">Indian River</option><option value="Jackson">Jackson</option><option value="Jefferson">Jefferson</option>
+                        <option value="Lafayette">Lafayette</option><option value="Lake">Lake</option><option value="Lee">Lee</option><option value="Leon">Leon</option>
+                        <option value="Levy">Levy</option><option value="Liberty">Liberty</option><option value="Madison">Madison</option><option value="Manatee">Manatee</option>
+                        <option value="Marion">Marion</option><option value="Martin">Martin</option><option value="Miami-Dade">Miami-Dade</option><option value="Monroe">Monroe</option>
+                        <option value="Nassau">Nassau</option><option value="Okaloosa">Okaloosa</option><option value="Okeechobee">Okeechobee</option><option value="Orange">Orange</option>
+                        <option value="Osceola">Osceola</option><option value="Palm Beach">Palm Beach</option><option value="Pasco">Pasco</option><option value="Pinellas">Pinellas</option>
+                        <option value="Polk">Polk</option><option value="Putnam">Putnam</option><option value="Santa Rosa">Santa Rosa</option><option value="Sarasota">Sarasota</option>
+                        <option value="Seminole">Seminole</option><option value="St. Johns">St. Johns</option><option value="St. Lucie">St. Lucie</option><option value="Sumter">Sumter</option>
+                        <option value="Suwannee">Suwannee</option><option value="Taylor">Taylor</option><option value="Union">Union</option><option value="Volusia">Volusia</option>
+                        <option value="Wakulla">Wakulla</option><option value="Walton">Walton</option><option value="Washington">Washington</option>
                     </select>
                     <p class="error-text">Please select your county.</p>
                 </div>
 
-                <!-- Lines of Business -->
                 <div class="mb-5" id="field-lines">
-                    <label class="form-label">What lines do you write? <span class="text-red-400">*</span></label>
-                    <div class="checkbox-group mt-1">
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="lines" value="P&C">
-                            <span>P&amp;C</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="lines" value="Life & Health">
-                            <span>Life &amp; Health</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="lines" value="Commercial">
-                            <span>Commercial</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="lines" value="Auto">
-                            <span>Auto</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="lines" value="Workers Comp">
-                            <span>Workers Comp</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="lines" value="Flood">
-                            <span>Flood</span>
-                        </label>
+                    <label class="form-label">What lines do you write? <span class="text-red-400 normal-case tracking-normal">*</span></label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option"><input type="checkbox" name="lines" value="P&C"><span>P&amp;C</span></label>
+                        <label class="checkbox-option"><input type="checkbox" name="lines" value="Life & Health"><span>Life &amp; Health</span></label>
+                        <label class="checkbox-option"><input type="checkbox" name="lines" value="Commercial"><span>Commercial</span></label>
+                        <label class="checkbox-option"><input type="checkbox" name="lines" value="Auto"><span>Auto</span></label>
+                        <label class="checkbox-option"><input type="checkbox" name="lines" value="Workers Comp"><span>Workers Comp</span></label>
+                        <label class="checkbox-option"><input type="checkbox" name="lines" value="Flood"><span>Flood</span></label>
                     </div>
                     <p class="error-text">Please select at least one line of business.</p>
                 </div>
 
-                <!-- Policies Per Month -->
                 <div class="mb-8" id="field-policies">
-                    <label class="form-label" for="policies">How many policies did you write last month? <span class="text-red-400">*</span></label>
+                    <label class="form-label" for="policies">How many policies did you write last month? <span class="text-red-400 normal-case tracking-normal">*</span></label>
                     <select id="policies" name="policies_per_month" class="form-input" required>
-                        <option value="">Select...</option>
-                        <option value="0-5">0 - 5</option>
-                        <option value="6-15">6 - 15</option>
-                        <option value="16-30">16 - 30</option>
-                        <option value="31-50">31 - 50</option>
+                        <option value="">Select…</option>
+                        <option value="0-5">0 – 5</option>
+                        <option value="6-15">6 – 15</option>
+                        <option value="16-30">16 – 30</option>
+                        <option value="31-50">31 – 50</option>
                         <option value="50+">50+</option>
                     </select>
                     <p class="error-text">Please select an option.</p>
                 </div>
 
-                <!-- Submit -->
-                <button type="submit" class="submit-btn" id="submitBtn">
+                <button type="submit" id="submitBtn" class="cta-primary w-full font-semibold text-base py-4 rounded-full inline-flex items-center justify-center gap-2">
                     Get My Free County Report
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 </button>
 
-                <p class="text-xs text-gray-500 text-center mt-4">
-                    Your information is private. We never share or sell your data.
-                </p>
+                <p class="text-xs text-white/40 text-center mt-4">Your information is private. We never share or sell your data.</p>
             </form>
         </div>
 
         <!-- Trust signals -->
         <div class="mt-8 grid grid-cols-3 gap-4 text-center">
-            <div>
-                <div class="text-2xl font-extrabold text-brand-400">90+</div>
-                <div class="text-xs text-gray-500">Data Sources</div>
-            </div>
-            <div>
-                <div class="text-2xl font-extrabold text-brand-400">67</div>
-                <div class="text-xs text-gray-500">FL Counties</div>
-            </div>
-            <div>
-                <div class="text-2xl font-extrabold text-brand-400">24hr</div>
-                <div class="text-xs text-gray-500">Fresh Data</div>
-            </div>
+            <div><div class="text-2xl font-bold gradient-text">90+</div><div class="text-xs uppercase tracking-wider text-white/40 mt-1">Data Sources</div></div>
+            <div><div class="text-2xl font-bold gradient-text">67</div><div class="text-xs uppercase tracking-wider text-white/40 mt-1">FL Counties</div></div>
+            <div><div class="text-2xl font-bold gradient-text">24hr</div><div class="text-xs uppercase tracking-wider text-white/40 mt-1">Fresh Data</div></div>
         </div>
     </div>
 </section>
 
-<!-- NOT QUALIFIED PAGE (hidden by default) -->
-<section id="notQualifiedPage" class="bg-navy-800 py-20 px-6 text-center" style="display:none;">
-    <div class="max-w-xl mx-auto fade-in">
-        <div class="bg-navy-900/60 border border-white/10 rounded-2xl p-10">
-            <div class="w-16 h-16 bg-brand-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg class="w-8 h-8 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+<!-- ============================ NOT QUALIFIED ============================ -->
+<section id="notQualifiedPage" class="bg-ink-950 py-28 px-6" style="display:none;">
+    <div class="max-w-xl mx-auto text-center fade-in">
+        <div class="glass rounded-3xl p-10">
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: linear-gradient(135deg, rgba(10,155,255,0.15), rgba(10,155,255,0.02)); border: 1px solid rgba(10,155,255,0.25);">
+                <svg class="w-7 h-7 text-signal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <h2 class="text-2xl font-bold text-white mb-4">Thanks for Your Interest</h2>
-            <p class="text-gray-300 mb-6">
-                DataSignal AI is built specifically for licensed Florida insurance agents. Our trigger leads are designed for agents who can write policies on the leads we deliver.
-            </p>
-            <p class="text-gray-400 mb-8">
-                If you are interested in becoming a licensed insurance agent in Florida, here are some resources to get started.
-            </p>
+            <h2 class="text-3xl font-bold tracking-tight mb-4">Thanks for your interest.</h2>
+            <p class="text-white/65 mb-6">DataSignal AI is built specifically for licensed Florida insurance agents. Our trigger leads are designed for agents who can write policies on the leads we deliver.</p>
+            <p class="text-white/50 text-sm mb-8">If you are interested in becoming a licensed insurance agent in Florida, here are some resources to get started.</p>
             <div class="space-y-3 text-left max-w-sm mx-auto">
-                <a href="https://www.myfloridacfo.com/division/agents/licensure/general-information" target="_blank" rel="noopener" class="block border border-white/10 rounded-lg p-4 hover:border-brand-500/50 transition-colors">
-                    <p class="text-white font-semibold text-sm">Florida CFO - Agent Licensure</p>
-                    <p class="text-gray-500 text-xs">Official state licensing information and requirements.</p>
+                <a href="https://www.myfloridacfo.com/division/agents/licensure/general-information" target="_blank" rel="noopener" class="block glass rounded-xl p-4 hover:border-signal-400/40 transition-colors">
+                    <p class="text-white font-semibold text-sm">Florida CFO – Agent Licensure</p>
+                    <p class="text-white/50 text-xs mt-0.5">Official state licensing information and requirements.</p>
                 </a>
-                <a href="https://www.myfloridalicense.com/intentions2.asp?SID=&chBoard=true&boardid=13" target="_blank" rel="noopener" class="block border border-white/10 rounded-lg p-4 hover:border-brand-500/50 transition-colors">
+                <a href="https://www.myfloridalicense.com/intentions2.asp?SID=&chBoard=true&boardid=13" target="_blank" rel="noopener" class="block glass rounded-xl p-4 hover:border-signal-400/40 transition-colors">
                     <p class="text-white font-semibold text-sm">DFS License Application</p>
-                    <p class="text-gray-500 text-xs">Apply for your FL insurance license online.</p>
+                    <p class="text-white/50 text-xs mt-0.5">Apply for your FL insurance license online.</p>
                 </a>
             </div>
             <div class="mt-8">
-                <a href="https://datasignalai.tech" class="text-brand-400 hover:text-brand-300 text-sm">Back to DataSignal AI</a>
+                <a href="https://datasignalai.tech" class="text-signal-300 hover:text-signal-200 text-sm">Back to DataSignal AI</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-navy-900 text-gray-400 py-10 px-6 text-center text-sm">
+<!-- ============================ FOOTER ============================ -->
+<footer class="border-t border-white/[0.06] py-10 px-6 text-center text-sm text-white/50">
     <div class="max-w-4xl mx-auto space-y-3">
         <div class="flex items-center justify-center gap-2 mb-2">
-            <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-6 h-6 opacity-50">
-            <span class="text-gray-500">DataSignal AI</span>
+            <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-6 h-6 opacity-60">
+            <span class="text-white/60 text-sm">DataSignal AI</span>
         </div>
-        <p>AI-sourced trigger leads from Florida public records. Fresh daily.</p>
+        <p class="text-xs text-white/50">AI-sourced trigger leads from Florida public records. Fresh daily.</p>
         <div class="flex justify-center gap-6 text-xs">
-            <a href="../privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="../terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a>
-            <a href="mailto:raul@datasignalai.tech" class="hover:text-white transition-colors">Contact</a>
+            <a href="../privacy-policy.html" class="text-signal-300 hover:text-signal-200">Privacy Policy</a>
+            <a href="../terms-of-service.html" class="text-signal-300 hover:text-signal-200">Terms of Service</a>
+            <a href="mailto:raul@datasignalai.tech" class="text-signal-300 hover:text-signal-200">Contact</a>
         </div>
-        <p class="text-xs text-gray-600">All data sourced from Florida public records. Not affiliated with any government agency.</p>
-        <div class="mt-2 text-xs text-gray-600">&copy; 2026 DataSignal AI. All rights reserved.</div>
+        <p class="text-xs text-white/30">All data sourced from Florida public records. Not affiliated with any government agency.</p>
+        <div class="mt-2 text-xs text-white/30">© 2026 DataSignal AI. All rights reserved.</div>
     </div>
 </footer>
 
@@ -404,25 +351,17 @@
     const form = document.getElementById('qualifyForm');
     const submitBtn = document.getElementById('submitBtn');
     const notQualifiedPage = document.getElementById('notQualifiedPage');
+    const heroSection = document.getElementById('heroSection');
+    const formSection = document.getElementById('formSection');
     const API_URL = 'https://api.datasignalai.tech/api/qualify';
 
-    // Validation helpers
-    function validateEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    function clearErrors() {
-        document.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
-    }
-
-    function setError(fieldId) {
-        document.getElementById(fieldId).classList.add('field-error');
-    }
+    function validateEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+    function clearErrors() { document.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error')); }
+    function setError(fieldId) { document.getElementById(fieldId).classList.add('field-error'); }
 
     function validateForm() {
         clearErrors();
         let valid = true;
-
         const name = document.getElementById('fullName').value.trim();
         const email = document.getElementById('email').value.trim();
         const licensed = document.querySelector('input[name="licensed"]:checked');
@@ -436,14 +375,12 @@
         if (!county) { setError('field-county'); valid = false; }
         if (lines.length === 0) { setError('field-lines'); valid = false; }
         if (!policies) { setError('field-policies'); valid = false; }
-
         return valid;
     }
 
     function getFormData() {
         const lines = [];
         document.querySelectorAll('input[name="lines"]:checked').forEach(cb => lines.push(cb.value));
-
         return {
             full_name: document.getElementById('fullName').value.trim(),
             email: document.getElementById('email').value.trim(),
@@ -456,61 +393,42 @@
     }
 
     function showNotQualified() {
-        // Hide the form section, show the not-qualified page
-        document.querySelector('section.bg-navy-800').style.display = 'none';
-        document.querySelector('section.gradient-hero').style.display = 'none';
+        heroSection.style.display = 'none';
+        formSection.style.display = 'none';
         notQualifiedPage.style.display = 'block';
         window.scrollTo(0, 0);
         trackEvent('form_not_qualified', 'qualification', 'not_licensed');
     }
 
     function redirectQualified(data) {
-        const params = new URLSearchParams({
-            county: data.county,
-            name: data.full_name,
-            email: data.email
-        });
+        const params = new URLSearchParams({ county: data.county, name: data.full_name, email: data.email });
         trackEvent('form_qualified', 'qualification', data.county);
         window.location.href = '/county-report/?' + params.toString();
     }
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
-
         if (!validateForm()) return;
-
         const data = getFormData();
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Processing...';
+        submitBtn.textContent = 'Processing…';
 
-        // Try API first, fall back to client-side
         try {
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-
             if (response.ok) {
                 const result = await response.json();
-                if (result.qualified) {
-                    redirectQualified(data);
-                } else {
-                    showNotQualified();
-                }
+                if (result.qualified) { redirectQualified(data); } else { showNotQualified(); }
                 return;
             }
         } catch (err) {
-            // API unavailable, fall back to client-side logic
             console.log('API unavailable, using client-side qualification.');
         }
 
-        // Client-side fallback: qualify based on licensed answer
-        if (data.licensed) {
-            redirectQualified(data);
-        } else {
-            showNotQualified();
-        }
+        if (data.licensed) { redirectQualified(data); } else { showNotQualified(); }
     });
 })();
 </script>

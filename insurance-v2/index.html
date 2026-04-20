@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>DataSignal AI — Fresh Insurance Leads from Florida Public Records</title>
+    <meta name="description" content="AI-powered Florida insurance lead generation. New businesses, homeowners, contractors, boat owners — scored and delivered daily to your territory.">
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                        serif: ['"Instrument Serif"', 'ui-serif', 'Georgia'],
+                    },
+                    colors: {
+                        ink: { 950: '#05070d', 900: '#0a0d16', 800: '#111624', 700: '#1a2033', 600: '#262e47' },
+                        signal: { 50: '#eefaff', 100: '#d6f2ff', 200: '#aee4ff', 300: '#7dd2ff', 400: '#3ab6ff', 500: '#0a9bff', 600: '#007be0', 700: '#005fb5', 800: '#00478a', 900: '#012f5c' },
+                        lime: { 300: '#d9ff4a', 400: '#bfff00', 500: '#a3e900' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui;
+            background: #05070d;
+            color: #e6e9f0;
+            -webkit-font-smoothing: antialiased;
+            font-feature-settings: "cv11", "ss01", "ss03";
+            letter-spacing: -0.011em;
+        }
+        .display { font-family: 'Instrument Serif', ui-serif, Georgia; letter-spacing: -0.02em; }
+
+        /* Mesh gradient hero */
+        .mesh-hero {
+            position: relative;
+            background:
+                radial-gradient(ellipse 80% 60% at 15% 20%, rgba(10,155,255,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse 70% 50% at 85% 30%, rgba(191,255,0,0.12) 0%, transparent 55%),
+                radial-gradient(ellipse 100% 80% at 50% 100%, rgba(0,95,181,0.4) 0%, transparent 65%),
+                linear-gradient(180deg, #05070d 0%, #0a0d16 60%, #05070d 100%);
+        }
+        .mesh-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+            opacity: 0.06; mix-blend-mode: overlay; pointer-events: none;
+        }
+        .grid-lines {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 64px 64px;
+        }
+
+        /* Glass cards */
+        .glass {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px -20px rgba(0,0,0,0.8);
+        }
+        .glass-hover { transition: all 0.3s cubic-bezier(0.2,0.8,0.2,1); }
+        .glass-hover:hover {
+            border-color: rgba(10,155,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 30px 70px -20px rgba(10,155,255,0.15);
+        }
+
+        /* Animated glow orb behind logo */
+        .orb-glow {
+            background: radial-gradient(circle, rgba(10,155,255,0.5) 0%, transparent 70%);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+        @keyframes pulse-glow { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.15); } }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #7dd2ff 60%, #bfff00 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* CTA pulse button */
+        .cta-primary {
+            position: relative;
+            background: linear-gradient(180deg, #bfff00, #a3e900);
+            color: #05070d;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 0 1px rgba(191,255,0,0.4), 0 20px 40px -10px rgba(191,255,0,0.3);
+        }
+        .cta-primary:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(191,255,0,0.6), 0 28px 50px -10px rgba(191,255,0,0.45); }
+
+        .cta-ghost {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+            transition: all 0.25s ease;
+        }
+        .cta-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); }
+
+        /* Badge */
+        .badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(10,155,255,0.08);
+            border: 1px solid rgba(10,155,255,0.2);
+            color: #7dd2ff;
+            padding: 6px 14px; border-radius: 999px;
+            font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+        }
+        .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #bfff00; box-shadow: 0 0 12px #bfff00; animation: dot-pulse 2s ease infinite; }
+        @keyframes dot-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        /* Lead type icon containers */
+        .icon-tile {
+            position: relative;
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(10,155,255,0.15), rgba(10,155,255,0.02));
+            border: 1px solid rgba(10,155,255,0.25);
+            display: flex; align-items: center; justify-content: center;
+            color: #7dd2ff;
+        }
+
+        /* Divider */
+        .hline { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+
+        /* Stat bar separator */
+        .stat-sep { border-right: 1px solid rgba(255,255,255,0.06); }
+        @media (max-width: 768px) { .stat-sep { border-right: 0; } }
+
+        .fade-in { animation: fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+<!-- ============================ HERO ============================ -->
+<section class="mesh-hero overflow-hidden">
+    <div class="grid-lines">
+    <div class="max-w-7xl mx-auto px-6 pt-10 pb-28 relative">
+
+        <!-- Top nav -->
+        <nav class="flex items-center justify-between mb-24 fade-in">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <div class="absolute inset-0 orb-glow rounded-full"></div>
+                    <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal" class="w-9 h-9 relative">
+                </div>
+                <div class="text-sm font-semibold tracking-wide">
+                    <span class="text-white/60 font-light">DATA</span><span class="text-white">SIGNAL</span>
+                    <span class="text-white/40 font-light ml-1 text-xs">AI</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm text-white/60">
+                <a href="#leads" class="hover:text-white transition">Lead Types</a>
+                <a href="#demo" class="hover:text-white transition">Demo</a>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                <a href="#signup" class="cta-ghost px-4 py-2 rounded-full text-white text-xs font-semibold">Sign in</a>
+            </div>
+        </nav>
+
+        <!-- Hero content -->
+        <div class="max-w-4xl mx-auto text-center relative">
+            <div class="mb-8 fade-in">
+                <span class="badge"><span class="badge-dot"></span> LIVE · 90+ government databases scanning daily</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight mb-8 fade-in delay-1">
+                Be the <span class="display italic font-normal gradient-text">first call</span><br>
+                when someone in your county<br>
+                <span class="text-white/70">files paperwork that</span><br>
+                creates an insurance need.
+            </h1>
+
+            <p class="text-lg text-white/55 max-w-2xl mx-auto mb-12 fade-in delay-2 leading-relaxed">
+                We scan 90+ Florida government sources every morning — new LLCs, home purchases, DUI arrests, contractor licenses — score every lead 0 to 100, and drop them on your dashboard before your first coffee.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3 justify-center items-center fade-in delay-3">
+                <a href="#signup" class="cta-primary font-semibold text-base px-8 py-4 rounded-full inline-flex items-center gap-2">
+                    Subscribe &amp; Get 10 Bonus Leads
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </a>
+                <a href="#demo" class="cta-ghost text-white font-medium text-base px-8 py-4 rounded-full inline-flex items-center gap-2">
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M5 3l8 5-8 5V3z" fill="currentColor"/></svg>
+                    Watch the 2-min demo
+                </a>
+            </div>
+
+            <p class="mt-6 text-xs text-white/40 fade-in delay-3">
+                Plans from $149/mo · Cancel anytime · 10 bonus leads delivered instantly
+            </p>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- ============================ TRUST BAR ============================ -->
+<section class="bg-ink-950 border-y border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+            <div class="stat-sep pr-6">
+                <div class="text-4xl md:text-5xl font-bold tracking-tight gradient-text">90+</div>
+                <div class="text-xs uppercase tracking-[0.15em] text-white/40 mt-2">Government sources</div>
+            </div>
+            <div class="stat-sep pr-6">
+                <div class="text-4xl md:text-5xl font-bold tracking-tight gradient-text">67</div>
+                <div class="text-xs uppercase tracking-[0.15em] text-white/40 mt-2">FL counties</div>
+            </div>
+            <div class="stat-sep pr-6">
+                <div class="text-4xl md:text-5xl font-bold tracking-tight gradient-text">37</div>
+                <div class="text-xs uppercase tracking-[0.15em] text-white/40 mt-2">Insurance lines</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold tracking-tight gradient-text">Daily</div>
+                <div class="text-xs uppercase tracking-[0.15em] text-white/40 mt-2">Fresh, never recycled</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ LEAD TYPES (BENTO) ============================ -->
+<section id="leads" class="bg-ink-950 py-28">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-2xl mb-16">
+            <span class="badge mb-5"><span class="badge-dot"></span> Lead taxonomy</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">
+                Every lead is <span class="display italic font-normal text-signal-300">triggered</span> by a real life event.
+            </h2>
+            <p class="text-white/55 text-lg">Not someone who clicked an ad. Not a shared form-fill. A verifiable filing in a government database that creates an insurance need — yesterday.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="icon-tile mb-5">
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17V7l7-4 7 4v10M3 17h14M7 17v-4h6v4M8 10h1M11 10h1"/></svg>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">New Business Filings</h3>
+                <p class="text-white/50 text-sm mb-5 leading-relaxed">Fresh LLC and Corp registrations straight from state databases. They need CGL, Workers Comp, BOP, Commercial Auto.</p>
+                <div class="hline mb-4"></div>
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-white/40">Intent score range</span>
+                    <span class="text-signal-300 font-mono font-semibold">40 – 85</span>
+                </div>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="icon-tile mb-5">
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l7-6 7 6v9H3V9z M8 18v-5h4v5"/></svg>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">New Homeowners</h3>
+                <p class="text-white/50 text-sm mb-5 leading-relaxed">Recent property sales pulled from county appraisers. They need Homeowners, Flood, Umbrella, Life.</p>
+                <div class="hline mb-4"></div>
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-white/40">Intent score range</span>
+                    <span class="text-signal-300 font-mono font-semibold">50 – 100</span>
+                </div>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="icon-tile mb-5">
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 17l4-4 3 3 5-6M14 10h3v3"/></svg>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">Building Permits</h3>
+                <p class="text-white/50 text-sm mb-5 leading-relaxed">New construction permits filed with the county. They need Builders Risk, GL, Workers Comp.</p>
+                <div class="hline mb-4"></div>
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-white/40">Intent score range</span>
+                    <span class="text-signal-300 font-mono font-semibold">45 – 90</span>
+                </div>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="icon-tile mb-5">
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 13c2-2 4-2 6 0s4 2 6 0 2-2 4 0M2 16c2-2 4-2 6 0s4 2 6 0 2-2 4 0"/></svg>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">Flood Zone Properties</h3>
+                <p class="text-white/50 text-sm mb-5 leading-relaxed">Federal flood zone data cross-referenced with property records. Mandatory flood insurance leads.</p>
+                <div class="hline mb-4"></div>
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-white/40">Intent score range</span>
+                    <span class="text-signal-300 font-mono font-semibold">30 – 80</span>
+                </div>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="icon-tile mb-5">
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 14c-3-1-5-3-5-6a3 3 0 016 0 3 3 0 016 0c0 3-2 5-5 6M10 14v4M7 18h6"/></svg>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">New Marriages</h3>
+                <p class="text-white/50 text-sm mb-5 leading-relaxed">Marriage license filings from county records. Life, Health, auto bundling opportunities.</p>
+                <div class="hline mb-4"></div>
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-white/40">Intent score range</span>
+                    <span class="text-signal-300 font-mono font-semibold">25 – 65</span>
+                </div>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="icon-tile mb-5">
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 13h16l-3-4h-4V6H7v3H5L2 13zM6 15v2M14 15v2"/></svg>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">Boat Registrations</h3>
+                <p class="text-white/50 text-sm mb-5 leading-relaxed">Florida vessel registrations and titles. They need Marine / Boat insurance and Umbrella.</p>
+                <div class="hline mb-4"></div>
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-white/40">Intent score range</span>
+                    <span class="text-signal-300 font-mono font-semibold">50 – 90</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="#pricing" class="inline-flex items-center gap-2 text-signal-300 hover:text-signal-200 text-sm font-medium group">
+                See 31 more lead types
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ SAMPLE LEAD CARD ============================ -->
+<section class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-2xl mb-14">
+            <span class="badge mb-5"><span class="badge-dot"></span> Inside the dashboard</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">A real lead, <span class="display italic font-normal text-signal-300">redacted</span>.</h2>
+            <p class="text-white/55 text-lg">Here is exactly what lands in your dashboard — contact info, intent score, trigger events, coverage tags, and projected commission. You get the playbook, not just the name.</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-10">
+            <div class="flex flex-col md:flex-row md:items-start gap-8">
+                <div class="flex-1">
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="inline-flex items-center gap-1.5 bg-signal-500/10 border border-signal-500/30 text-signal-300 text-xs font-semibold px-3 py-1 rounded-full">
+                            <svg class="w-3 h-3" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="3"/></svg>
+                            Score 78 / 100
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 bg-lime-400/10 border border-lime-400/30 text-lime-300 text-xs font-semibold px-3 py-1 rounded-full">HOT LEAD</span>
+                        <span class="text-xs text-white/40 ml-auto md:ml-2">Added Mar 12, 2026</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1">J****** M. Rodriguez</h3>
+                    <p class="text-white/50 text-sm">Sunshine Coast Contracting LLC</p>
+                    <div class="mt-6 grid grid-cols-2 gap-x-8 gap-y-3 text-sm">
+                        <div><span class="text-white/35 text-xs uppercase tracking-wider">Phone</span><br><span class="text-white/85 font-mono">(813) 555-••••</span></div>
+                        <div><span class="text-white/35 text-xs uppercase tracking-wider">Email</span><br><span class="text-white/85 font-mono">j••••@suncoast••••.com</span></div>
+                        <div><span class="text-white/35 text-xs uppercase tracking-wider">County</span><br><span class="text-white/85">Hillsborough</span></div>
+                        <div><span class="text-white/35 text-xs uppercase tracking-wider">Type</span><br><span class="text-white/85">Business</span></div>
+                    </div>
+                </div>
+                <div class="md:w-72 flex-shrink-0 bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6">
+                    <div class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-3">Insurance Needs</div>
+                    <div class="flex flex-wrap gap-1.5 mb-5">
+                        <span class="bg-signal-500/10 border border-signal-500/25 text-signal-300 text-xs px-2.5 py-1 rounded-md font-medium">CGL</span>
+                        <span class="bg-signal-500/10 border border-signal-500/25 text-signal-300 text-xs px-2.5 py-1 rounded-md font-medium">Workers Comp</span>
+                        <span class="bg-signal-500/10 border border-signal-500/25 text-signal-300 text-xs px-2.5 py-1 rounded-md font-medium">Commercial Auto</span>
+                        <span class="bg-signal-500/10 border border-signal-500/25 text-signal-300 text-xs px-2.5 py-1 rounded-md font-medium">BOP</span>
+                    </div>
+                    <div class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-3">Signals</div>
+                    <div class="space-y-1.5 text-xs text-white/70 mb-5">
+                        <div class="flex items-center gap-2"><span class="text-lime-400">+</span> New business filing · Mar 8</div>
+                        <div class="flex items-center gap-2"><span class="text-lime-400">+</span> Contractor license · Mar 10</div>
+                        <div class="flex items-center gap-2"><span class="text-lime-400">+</span> Building permit filed · Mar 11</div>
+                    </div>
+                    <div class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-2">Est. Annual Commission</div>
+                    <div class="text-2xl font-bold gradient-text">$3,200 – $5,800</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ CTA ============================ -->
+<section id="signup" class="bg-ink-950 pb-32">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="glass rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-60" style="background: radial-gradient(ellipse at top, rgba(10,155,255,0.15), transparent 70%);"></div>
+            <div class="relative">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">
+                    Stop calling <span class="display italic font-normal text-white/50">recycled</span> leads.
+                </h2>
+                <p class="text-white/55 text-lg max-w-xl mx-auto mb-10">Start your first county territory today. 10 bonus leads delivered instantly when you subscribe.</p>
+                <a href="#" class="cta-primary font-semibold text-base px-10 py-4 rounded-full inline-flex items-center gap-2">
+                    Subscribe &amp; Get 10 Bonus Leads
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </a>
+                <p class="mt-5 text-xs text-white/40">From $149/mo · Cancel anytime · Pay with BTC for 10% off</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="border-t border-white/[0.06] py-10 text-center text-xs text-white/30">
+    © 2026 DataSignal AI · Built in Florida
+</footer>
+
+</body>
+</html>
