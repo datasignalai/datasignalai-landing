@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Waitlist - DataSignal AI</title>
+    <meta name="description" content="DataSignal AI is focused on Florida insurance right now. Join the waitlist to be notified when we expand to your vertical.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YTPFXE2QV9');
+    function trackEvent(action, category, label) {
+      gtag('event', action, { event_category: category, event_label: label });
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                fontFamily: {
+                    sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                    serif: ['"Instrument Serif"', 'ui-serif', 'Georgia'],
+                },
+                colors: {
+                    ink: { 950: '#05070d', 900: '#0a0d16', 800: '#111624', 700: '#1a2033', 600: '#262e47' },
+                    signal: { 50: '#eefaff', 100: '#d6f2ff', 200: '#aee4ff', 300: '#7dd2ff', 400: '#3ab6ff', 500: '#0a9bff', 600: '#007be0', 700: '#005fb5', 800: '#00478a', 900: '#012f5c' },
+                    lime: { 300: '#d9ff4a', 400: '#bfff00', 500: '#a3e900' },
+                }
+            } }
+        }
+    </script>
+
+    <link rel="stylesheet" href="../assets/brand.css">
+</head>
+<body>
+
+<section class="mesh-hero min-h-screen">
+    <div class="grid-lines">
+    <div class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+
+        <!-- Nav -->
+        <nav class="flex items-center justify-between mb-16 fade-in">
+            <a href="/" class="flex items-center gap-3">
+                <div class="relative">
+                    <div class="absolute inset-0 orb-glow rounded-full"></div>
+                    <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal" class="w-9 h-9 relative">
+                </div>
+                <div class="text-sm font-semibold tracking-wide">
+                    <span class="text-white/60 font-light">DATA</span><span class="text-white">SIGNAL</span>
+                    <span class="text-white/40 font-light ml-1 text-xs">AI</span>
+                </div>
+            </a>
+            <a href="/insurance/" class="text-sm text-white/60 hover:text-white">Insurance agents &rarr;</a>
+        </nav>
+
+        <!-- Hero -->
+        <div class="text-center mb-12 fade-in delay-1">
+            <div class="inline-flex mb-6">
+                <span class="badge"><span class="badge-dot"></span>Insurance-only focus</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                <span class="display italic text-white/90">You're early.</span><br>
+                <span class="gradient-text">We'll notify you when we expand.</span>
+            </h1>
+            <p class="text-white/70 text-lg max-w-xl mx-auto">
+                DataSignal AI is currently focused on Florida insurance agents. We'll expand to other verticals once we've proven the model. Drop your email and we'll tell you the day your vertical goes live.
+            </p>
+        </div>
+
+        <!-- Form -->
+        <div class="glass rounded-2xl p-8 md:p-10 max-w-xl mx-auto fade-in delay-2">
+            <form id="waitlist-form" onsubmit="return submitWaitlist(event)" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-medium text-white/70 mb-2">Email</label>
+                    <input type="email" name="email" required placeholder="you@agency.com" autocomplete="email">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-white/70 mb-2">Your vertical</label>
+                    <select name="vertical" id="vertical-select" required>
+                        <option value="">Select one</option>
+                        <option value="mortgage">Mortgage</option>
+                        <option value="contractors">Contractors / trades</option>
+                        <option value="real-estate">Real estate (agents)</option>
+                        <option value="realty">Realty (brokers)</option>
+                        <option value="financial">Financial services</option>
+                        <option value="attorneys">Attorneys</option>
+                        <option value="accountants">Accountants / CPAs</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-white/70 mb-2">What would you want from DataSignal? (optional)</label>
+                    <textarea name="notes" rows="3" placeholder="E.g. new homeowners in Broward for mortgage refi, probate filings for estate attorneys, etc."></textarea>
+                </div>
+
+                <button type="submit" class="cta-primary w-full font-bold py-4 rounded-xl">
+                    Notify me when my vertical launches
+                </button>
+
+                <p class="text-xs text-white/40 text-center">
+                    No spam. One email when we launch your vertical. Unsubscribe any time.
+                </p>
+            </form>
+
+            <!-- Success state -->
+            <div id="waitlist-success" class="hidden text-center py-6">
+                <div class="w-16 h-16 rounded-full bg-lime-400/10 border border-lime-400/40 mx-auto mb-5 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">You're on the list.</h3>
+                <p class="text-white/70 text-sm">We'll email you the day DataSignal AI launches for your vertical. In the meantime, if you know a Florida insurance agent, send them to <a href="/insurance/" class="text-signal-300 underline">datasignalai.tech/insurance</a>.</p>
+            </div>
+        </div>
+
+        <!-- Context -->
+        <div class="mt-16 max-w-2xl mx-auto fade-in delay-3">
+            <div class="hline mb-10"></div>
+            <h2 class="text-xl font-bold mb-4 text-white/90">Why insurance-only right now?</h2>
+            <div class="space-y-4 text-white/70 text-sm leading-relaxed">
+                <p>Florida insurance is where we've built every scraper, every score, and every proof point. 105 active data sources. 9.8M prospects in the system. 67 counties covered. The model works here first.</p>
+                <p>Rather than spread thin across verticals with half-built infrastructure, we're going deep on insurance until the model is bulletproof. Then we expand, one vertical at a time, with the same data depth.</p>
+                <p>If you landed here from a link that promised mortgage leads, contractor leads, or real-estate leads: those are on the roadmap, not the shelf. Drop your email and we'll tell you the day they ship.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-20 text-center text-xs text-white/40">
+            <p>&copy; 2026 DataSignal AI LLC. Miami, FL.</p>
+            <p class="mt-2">
+                <a href="/privacy-policy.html" class="hover:text-white/60">Privacy</a>
+                <span class="mx-2">&middot;</span>
+                <a href="/terms-of-service.html" class="hover:text-white/60">Terms</a>
+                <span class="mx-2">&middot;</span>
+                <a href="mailto:raul@datasignalai.tech" class="hover:text-white/60">raul@datasignalai.tech</a>
+            </p>
+        </footer>
+
+    </div>
+    </div>
+</section>
+
+<script>
+    // Pre-select vertical from ?from= query param (set by _redirects)
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var from = params.get('from');
+        if (from) {
+            var select = document.getElementById('vertical-select');
+            if (select) {
+                for (var i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === from) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            trackEvent('waitlist_arrival', 'waitlist', from);
+        }
+    })();
+
+    function submitWaitlist(event) {
+        event.preventDefault();
+        var form = event.target;
+        var data = {
+            email:    form.email.value,
+            vertical: form.vertical.value,
+            notes:    form.notes.value || '',
+            source:   (new URLSearchParams(window.location.search)).get('from') || 'direct',
+            ts:       new Date().toISOString(),
+        };
+
+        trackEvent('waitlist_submit', 'waitlist', data.vertical);
+
+        // POST to Cloudflare Pages Function (to be implemented). Fallback: mailto.
+        fetch('/api/waitlist', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        }).then(function(r) {
+            if (!r.ok) throw new Error('waitlist submit failed');
+            showSuccess();
+        }).catch(function() {
+            // Fallback: open mailto
+            var subject = 'Waitlist signup: ' + data.vertical;
+            var body = 'Email: ' + data.email + '\nVertical: ' + data.vertical + '\nSource: ' + data.source + '\nNotes: ' + data.notes;
+            window.location.href = 'mailto:raul@datasignalai.tech?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            showSuccess();
+        });
+
+        return false;
+    }
+
+    function showSuccess() {
+        document.getElementById('waitlist-form').classList.add('hidden');
+        document.getElementById('waitlist-success').classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>

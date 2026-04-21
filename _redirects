@@ -10,4 +10,22 @@
 /scripts  /landing/scripts/  302
 /taste-test  /landing/taste-test/  302
 
+# Insurance-only focus (2026-04-21): 301 redirect paused verticals to waitlist
+# Source: project_insurance_only_focus memory (Apr 17). Non-insurance verticals
+# are paused until post-revenue. Waitlist captures demand signal by vertical.
+/mortgage       /waitlist/?from=mortgage       301
+/mortgage/*     /waitlist/?from=mortgage       301
+/contractors    /waitlist/?from=contractors    301
+/contractors/*  /waitlist/?from=contractors    301
+/real-estate    /waitlist/?from=real-estate    301
+/real-estate/*  /waitlist/?from=real-estate    301
+/realty         /waitlist/?from=realty         301
+/realty/*       /waitlist/?from=realty         301
+/financial      /waitlist/?from=financial      301
+/financial/*    /waitlist/?from=financial      301
+/attorneys      /waitlist/?from=attorneys      301
+/attorneys/*    /waitlist/?from=attorneys      301
+/accountants    /waitlist/?from=accountants    301
+/accountants/*  /waitlist/?from=accountants    301
+
 # No SPA catch-all. All pages are static HTML served directly by Cloudflare Pages.

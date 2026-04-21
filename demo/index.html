@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <title>Live Demo: FL Trigger Alerts for Insurance Agents | DataSignal AI</title>
-    <meta name="description" content="Live demo showing how Florida trigger alerts help insurance agents write 3 to 5 extra policies per month. Wednesday April 8, 12 PM ET. Free.">
+    <meta name="color-scheme" content="dark">
+    <title>Live Demo: Fresh Florida Insurance Leads for Agents | DataSignal AI</title>
+    <meta name="description" content="Live demo showing how fresh Florida insurance leads, triggered by real life events, help agents write 3 to 5 extra policies per month. Free 30-minute session.">
     <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,119 +18,160 @@
       gtag('event', action, { event_category: category, event_label: label });
     }
     </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
-                        accent: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' },
-                        navy: { 800: '#0a1628', 900: '#060f1c' },
-                    }
+            theme: { extend: {
+                fontFamily: {
+                    sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                    serif: ['"Instrument Serif"', 'ui-serif', 'Georgia'],
+                },
+                colors: {
+                    ink: { 950: '#05070d', 900: '#0a0d16', 800: '#111624', 700: '#1a2033', 600: '#262e47' },
+                    signal: { 50: '#eefaff', 100: '#d6f2ff', 200: '#aee4ff', 300: '#7dd2ff', 400: '#3ab6ff', 500: '#0a9bff', 600: '#007be0', 700: '#005fb5', 800: '#00478a', 900: '#012f5c' },
+                    lime: { 300: '#d9ff4a', 400: '#bfff00', 500: '#a3e900' },
                 }
-            }
+            } }
         }
     </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        .gradient-hero { background: linear-gradient(135deg, #0a1628 0%, #0c2d4a 40%, #0369a1 80%, #0ea5e9 100%); }
-        .fade-in { animation: fadeIn 0.6s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+
+    <link rel="stylesheet" href="../assets/brand.css">
 </head>
-<body class="text-gray-800 leading-relaxed">
+<body>
 
-<!-- HERO -->
-<section class="gradient-hero text-white py-20 px-6 text-center">
-    <div class="max-w-3xl mx-auto fade-in">
-        <a href="https://datasignalai.tech" class="inline-block mb-8">
-            <div class="flex items-center justify-center gap-3">
-                <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal AI" class="w-10 h-10">
-                <span class="text-2xl font-extralight tracking-widest text-gray-100">DATA</span><span class="text-2xl font-bold tracking-widest text-brand-500">SIGNAL</span>
-                <span class="text-lg font-light tracking-widest text-gray-500">AI</span>
+<!-- HERO + FORM -->
+<section class="mesh-hero min-h-screen">
+    <div class="grid-lines">
+        <div class="max-w-4xl mx-auto px-6 pt-12 pb-20">
+
+            <!-- Nav -->
+            <nav class="flex items-center justify-between mb-16 fade-in">
+                <a href="/" class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="absolute inset-0 orb-glow rounded-full"></div>
+                        <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal" class="w-9 h-9 relative">
+                    </div>
+                    <div class="text-sm font-semibold tracking-wide">
+                        <span class="text-white/60 font-light">DATA</span><span class="text-white">SIGNAL</span>
+                        <span class="text-white/40 font-light ml-1 text-xs">AI</span>
+                    </div>
+                </a>
+                <a href="/insurance/" class="text-sm text-white/60 hover:text-white">Monthly plans &rarr;</a>
+            </nav>
+
+            <!-- Hero -->
+            <div class="text-center mb-14 fade-in delay-1">
+                <div class="inline-flex mb-6">
+                    <span class="badge"><span class="badge-dot"></span>Free. 30 minutes. Live.</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">
+                    <span class="display italic text-white/90">Live demo:</span><br>
+                    <span class="gradient-text">How fresh Florida leads help you write 3 to 5 extra policies per month</span>
+                </h1>
+
+                <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto">
+                    Thirty minutes. Your county's real data, pulled live. Scripts, ROI math, the AI call simulator. No slides. No fluff.
+                </p>
+
+                <div class="mt-8 inline-flex flex-col items-center gap-2">
+                    <div class="badge-grandslam">
+                        Grand Slam Guarantee: 3 closes in 30 days or your next month is free
+                    </div>
+                    <a href="/terms-of-service.html#5a" class="text-xs text-white/40 underline hover:text-white/70">Guarantee details</a>
+                </div>
             </div>
-        </a>
-        <div class="mb-3">
-            <span class="inline-block bg-brand-600/30 text-brand-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Free. 30 minutes.</span>
+
+            <!-- WHAT YOU'LL SEE -->
+            <div class="grid md:grid-cols-2 gap-4 mb-12 fade-in delay-2">
+                <div class="glass glass-hover rounded-2xl p-6">
+                    <div class="icon-tile mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10a2 2 0 002 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H6a2 2 0 00-2 2z"/></svg>
+                    </div>
+                    <h3 class="font-bold mb-2 text-white">Real lead data</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Pulled live for YOUR county. New LLCs, property sales, permits, probate filings from the past 7 days. Each one a trigger event.</p>
+                </div>
+                <div class="glass glass-hover rounded-2xl p-6">
+                    <div class="icon-tile mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    </div>
+                    <h3 class="font-bold mb-2 text-white">Cold call scripts</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Generated instantly for each lead. Personalized with name, business, filing date, and coverage needs.</p>
+                </div>
+                <div class="glass glass-hover rounded-2xl p-6">
+                    <div class="icon-tile mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+                    </div>
+                    <h3 class="font-bold mb-2 text-white">AI call simulator</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Practice your pitch before dialing. AI plays the prospect so you can refine your opener.</p>
+                </div>
+                <div class="glass glass-hover rounded-2xl p-6">
+                    <div class="icon-tile mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="font-bold mb-2 text-white">The ROI math</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">How $149/mo turns into $1,350 in commission. 806% ROI at a conservative 3% close rate.</p>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="glass rounded-2xl p-8 md:p-10 max-w-xl mx-auto fade-in delay-3">
+                <h2 class="text-xl font-bold text-center mb-2 text-white">Reserve your spot</h2>
+                <p class="text-white/60 text-sm text-center mb-6">Tell us your county so we can pull live data for your demo.</p>
+
+                <form id="demoForm" class="space-y-5">
+                    <div>
+                        <label for="first_name" class="block text-sm font-medium text-white/70 mb-2">First Name</label>
+                        <input type="text" id="first_name" name="first_name" required placeholder="Your first name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-white/70 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="you@agency.com">
+                    </div>
+                    <div>
+                        <label for="county" class="block text-sm font-medium text-white/70 mb-2">Your County</label>
+                        <select id="county" name="county" required>
+                            <option value="">Select your county</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="submitBtn" class="cta-primary w-full font-bold py-4 rounded-xl text-lg">
+                        Reserve My Spot
+                    </button>
+                </form>
+
+                <!-- Success message -->
+                <div id="successMsg" class="hidden text-center py-6">
+                    <div class="w-16 h-16 rounded-full bg-lime-400/10 border border-lime-400/40 mx-auto mb-5 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-lime-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">You're registered.</h3>
+                    <p class="text-white/60">Check your email for the Zoom link.</p>
+                </div>
+
+                <!-- Error message -->
+                <div id="errorMsg" class="hidden text-center py-4 text-red-400 font-medium"></div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="mt-20 text-center text-xs text-white/40">
+                <p>&copy; 2026 DataSignal AI LLC. Miami, FL.</p>
+                <p class="mt-2">
+                    <a href="../privacy-policy.html" class="hover:text-white/60">Privacy</a>
+                    <span class="mx-2">&middot;</span>
+                    <a href="../terms-of-service.html" class="hover:text-white/60">Terms</a>
+                    <span class="mx-2">&middot;</span>
+                    <a href="mailto:raul@datasignalai.tech" class="hover:text-white/60">raul@datasignalai.tech</a>
+                </p>
+            </footer>
+
         </div>
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-            Live demo: how FL trigger alerts<br>
-            <span class="text-brand-400">help you write 3 to 5 extra policies per month</span>
-        </h1>
-        <p class="text-lg md:text-xl opacity-90 mb-4">
-            Wednesday April 8, 12:00 PM ET
-        </p>
     </div>
 </section>
-
-<!-- WHAT YOU'LL SEE -->
-<section class="py-16 px-6 bg-white">
-    <div class="max-w-3xl mx-auto">
-        <h2 class="text-2xl font-bold text-center mb-10">What you will see</h2>
-        <div class="grid md:grid-cols-2 gap-6 mb-12">
-            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-brand-500">
-                <h3 class="font-bold mb-2">Real trigger alert data</h3>
-                <p class="text-gray-600 text-sm">Pulled live for YOUR county. New LLCs, property sales, permits, probate filings from the past 7 days.</p>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-brand-500">
-                <h3 class="font-bold mb-2">Cold call scripts</h3>
-                <p class="text-gray-600 text-sm">Generated instantly for each lead. Personalized with name, business, filing date, and coverage needs.</p>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-brand-500">
-                <h3 class="font-bold mb-2">AI call simulator</h3>
-                <p class="text-gray-600 text-sm">Practice your pitch before dialing. AI plays the prospect so you can refine your opener.</p>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-brand-500">
-                <h3 class="font-bold mb-2">The ROI math</h3>
-                <p class="text-gray-600 text-sm">How $149/mo turns into $1,350 in commission. 806% ROI at a conservative 3% close rate.</p>
-            </div>
-        </div>
-
-        <!-- FORM -->
-        <div class="max-w-lg mx-auto">
-            <form id="demoForm" class="space-y-5">
-                <div>
-                    <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                    <input type="text" id="first_name" name="first_name" required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
-                        placeholder="Your first name">
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" id="email" name="email" required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
-                        placeholder="you@example.com">
-                </div>
-                <div>
-                    <label for="county" class="block text-sm font-medium text-gray-700 mb-1">Your County</label>
-                    <select id="county" name="county" required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-white">
-                        <option value="">Select your county</option>
-                    </select>
-                </div>
-                <button type="submit" id="submitBtn"
-                    class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-6 rounded-lg text-lg transition-colors">
-                    Reserve My Spot
-                </button>
-            </form>
-
-            <!-- Success message -->
-            <div id="successMsg" class="hidden text-center py-8">
-                <div class="text-5xl mb-4">&#10003;</div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">You're registered.</h2>
-                <p class="text-gray-600">Check your email for the Zoom link.</p>
-            </div>
-
-            <!-- Error message -->
-            <div id="errorMsg" class="hidden text-center py-4 text-red-600 font-medium"></div>
-        </div>
-    </div>
-</section>
-
-<footer class="py-8 px-6 text-center text-sm text-gray-400">
-    <p>&copy; 2026 DataSignal AI. <a href="../privacy-policy.html" class="underline">Privacy Policy</a> | <a href="../terms-of-service.html" class="underline">Terms</a></p>
-</footer>
 
 <script>
 const FL_COUNTIES = [

@@ -182,6 +182,8 @@
         .comparison tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
         .comparison tr.alt { background: rgba(255,255,255,0.015); }
     </style>
+
+    <link rel="stylesheet" href="../assets/brand.css">
 </head>
 <body>
 
@@ -230,9 +232,15 @@
                     Watch the 2-min demo
                 </a>
             </div>
-            <p class="mt-6 text-xs text-white/40 fade-in delay-3">
-                Plans from $149/mo · Cancel anytime · 10 bonus leads delivered instantly
-            </p>
+            <div class="mt-6 flex flex-col items-center gap-2 fade-in delay-3">
+                <span class="badge-grandslam">
+                    <span class="badge-dot" style="background:#d9ff4a;box-shadow:0 0 12px #d9ff4a;"></span>
+                    Grand Slam Guarantee: 3 closes in 30 days or your next month is free
+                </span>
+                <p class="text-xs text-white/40">
+                    Plans from $149/mo · Cancel anytime · 10 bonus leads delivered instantly · <a href="/terms-of-service.html#5a" class="underline hover:text-white/60">Guarantee details</a>
+                </p>
+            </div>
         </div>
     </div>
     </div>
@@ -666,10 +674,12 @@
                 </div>
             </div>
             <div class="flex items-start gap-2">
-                <input type="checkbox" id="tos-agree" required class="accent-signal-500 mt-1">
+                <input type="checkbox" id="tos-agree" name="tos_accepted" value="true" required class="accent-signal-500 mt-1">
                 <label for="tos-agree" class="text-xs text-white/50">I agree to the <a href="/terms-of-service.html" target="_blank" class="text-signal-300 underline">Terms of Service</a> and <a href="/privacy-policy.html" target="_blank" class="text-signal-300 underline">Privacy Policy</a></label>
             </div>
-            <button type="submit" class="cta-primary w-full font-semibold text-base py-4 rounded-full inline-flex items-center justify-center gap-2">
+            <input type="hidden" name="tos_accepted_at" id="tos-accepted-at">
+            <button type="submit" class="cta-primary w-full font-semibold text-base py-4 rounded-full inline-flex items-center justify-center gap-2"
+                onclick="document.getElementById('tos-accepted-at').value = new Date().toISOString();">
                 Subscribe &amp; Get My 10 Bonus Leads
                 <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </button>
@@ -740,9 +750,16 @@
             <span class="mx-2 text-white/20">·</span>
             <a href="tel:+17865253625" class="text-signal-300 hover:text-signal-200">(786) 525-3625</a>
         </p>
+        <div class="text-xs space-x-4 mb-3">
+            <a href="/calculator/" class="text-signal-300 hover:text-signal-200">County Calculator</a>
+            <span class="text-white/20">·</span>
+            <a href="/scripts/" class="text-signal-300 hover:text-signal-200">Free Call Scripts</a>
+            <span class="text-white/20">·</span>
+            <a href="/newsletter/" class="text-signal-300 hover:text-signal-200">Newsletter</a>
+        </div>
         <div class="text-xs space-x-4 mb-4">
-            <a href="/terms-of-service.html" class="text-signal-300 hover:text-signal-200">Terms of Service</a>
-            <a href="/privacy-policy.html" class="text-signal-300 hover:text-signal-200">Privacy Policy</a>
+            <a href="/terms-of-service.html" class="text-white/50 hover:text-white/70">Terms of Service</a>
+            <a href="/privacy-policy.html" class="text-white/50 hover:text-white/70">Privacy Policy</a>
         </div>
         <p class="text-xs text-white/30">All data sourced from Florida public records. Not affiliated with any government agency.</p>
         <div class="mt-4 text-xs text-white/30">© 2026 DataSignal AI. All rights reserved.</div>
