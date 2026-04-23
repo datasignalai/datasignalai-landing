@@ -1,174 +1,715 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <title>Done-For-You Lead System - DataSignal AI</title>
-    <meta name="description" content="We build and run your entire lead generation system. $10,000 setup + $2,500/mo. Your own dashboard, configured pipelines, full sales plan.">
-    <link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
-    <!-- GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YTPFXE2QV9');
-    function trackEvent(action, category, label) {
-      gtag('event', action, { event_category: category, event_label: label });
-    }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
-                        navy: { 800: '#0a1628', 900: '#060f1c' },
-                    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Done-For-You Territory Domination | DataSignal AI</title>
+<meta name="description" content="White-glove lead generation for FL insurance agencies. We build your dashboard, run your pipelines, train your team, lock your territory. Founding Client rate: $5K setup + $2,500/mo for the first 3 agencies. By application only.">
+<link rel="icon" type="image/svg+xml" href="../assets/logos/DataSignal_AI_Icon_512.svg">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTPFXE2QV9"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YTPFXE2QV9');
+function trackEvent(action, category, label) {
+  gtag('event', action, { event_category: category, event_label: label });
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                    serif: ['"Instrument Serif"', 'ui-serif', 'Georgia'],
+                },
+                colors: {
+                    ink: { 950: '#05070d', 900: '#0a0d16', 800: '#111624', 700: '#1a2033', 600: '#262e47' },
+                    signal: { 50: '#eefaff', 100: '#d6f2ff', 200: '#aee4ff', 300: '#7dd2ff', 400: '#3ab6ff', 500: '#0a9bff', 600: '#007be0', 700: '#005fb5', 800: '#00478a', 900: '#012f5c' },
+                    lime: { 300: '#d9ff4a', 400: '#bfff00', 500: '#a3e900' },
                 }
             }
         }
-    </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        .gradient-hero { background: linear-gradient(135deg, #0a1628 0%, #0c2d4a 40%, #0369a1 80%, #0ea5e9 100%); }
-    </style>
+    }
+</script>
+<style>
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: 'Inter', ui-sans-serif, system-ui;
+        background: #05070d;
+        color: #e6e9f0;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: -0.011em;
+    }
+    .display { font-family: 'Instrument Serif', ui-serif, Georgia; letter-spacing: -0.02em; }
+    .mesh-hero {
+        position: relative;
+        background:
+            radial-gradient(ellipse 80% 60% at 15% 20%, rgba(10,155,255,0.35) 0%, transparent 60%),
+            radial-gradient(ellipse 70% 50% at 85% 30%, rgba(191,255,0,0.12) 0%, transparent 55%),
+            radial-gradient(ellipse 100% 80% at 50% 100%, rgba(0,95,181,0.4) 0%, transparent 65%),
+            linear-gradient(180deg, #05070d 0%, #0a0d16 60%, #05070d 100%);
+    }
+    .grid-lines {
+        background-image:
+            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        background-size: 64px 64px;
+    }
+    .glass {
+        background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+        border: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px -20px rgba(0,0,0,0.8);
+    }
+    .glass-hover { transition: all 0.3s cubic-bezier(0.2,0.8,0.2,1); }
+    .glass-hover:hover {
+        border-color: rgba(10,155,255,0.3);
+        transform: translateY(-2px);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 30px 70px -20px rgba(10,155,255,0.15);
+    }
+    .gradient-text {
+        background: linear-gradient(135deg, #fff 0%, #7dd2ff 60%, #bfff00 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(230,233,240,0.6);
+    }
+    .badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #bfff00;
+        box-shadow: 0 0 10px #bfff00;
+    }
+    .badge-premium {
+        background: linear-gradient(135deg, rgba(191,255,0,0.18), rgba(125,210,255,0.12));
+        border: 1px solid rgba(191,255,0,0.45);
+        color: #d9ff4a;
+    }
+    .cta-primary {
+        background: linear-gradient(135deg, #bfff00, #3ab6ff);
+        color: #05070d;
+        box-shadow: 0 20px 50px -15px rgba(191,255,0,0.5);
+        transition: all 0.2s ease;
+    }
+    .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 28px 60px -15px rgba(191,255,0,0.65); }
+    .cta-ghost {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.2s ease;
+    }
+    .cta-ghost:hover { background: rgba(255,255,255,0.08); }
+    .stat-sep { border-right: 1px solid rgba(255,255,255,0.06); }
+    .stat-sep:last-child { border-right: none; }
+    .icon-tile {
+        width: 40px; height: 40px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(10,155,255,0.2), rgba(0,95,181,0.35));
+        border: 1px solid rgba(125,210,255,0.3);
+        display: flex; align-items: center; justify-content: center;
+        color: #7dd2ff;
+        flex-shrink: 0;
+    }
+    .orb-glow {
+        background: radial-gradient(circle at 30% 30%, #7dd2ff, #005fb5 70%);
+        filter: blur(8px);
+        opacity: 0.8;
+    }
+    /* Form controls */
+    .df-input, .df-select {
+        width: 100%;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #e6e9f0;
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 14px;
+        transition: all 0.2s ease;
+    }
+    .df-input:focus, .df-select:focus {
+        outline: none;
+        border-color: rgba(125,210,255,0.5);
+        background: rgba(10,155,255,0.05);
+    }
+    .df-select option { background: #0a0d16; color: #e6e9f0; }
+    .df-input::placeholder { color: rgba(230,233,240,0.3); }
+    /* FAQ details */
+    details summary { list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary svg { transition: transform 0.2s ease; }
+    details[open] summary svg { transform: rotate(180deg); }
+    /* Timeline connector */
+    .timeline-dot {
+        width: 10px; height: 10px; border-radius: 50%;
+        background: linear-gradient(135deg, #bfff00, #3ab6ff);
+        box-shadow: 0 0 12px rgba(191,255,0,0.5);
+    }
+</style>
 </head>
-<body class="bg-white text-gray-900">
+<body>
 
-<!-- Hero -->
-<section class="gradient-hero text-white py-20 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-        <p class="text-brand-300 text-sm font-semibold tracking-wider uppercase mb-4">For agencies ready to dominate their market</p>
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">We Build and Run Your Entire Lead System</h1>
-        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Your own DataSignal-powered dashboard. Pipelines configured for your counties.
-            Full sales and marketing plan. You focus on selling. We handle everything else.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <span class="text-3xl font-bold">$10,000 setup</span>
-            <span class="text-gray-400 text-xl">+</span>
-            <span class="text-3xl font-bold">$2,500/mo</span>
+<!-- ============================ HERO ============================ -->
+<section class="mesh-hero overflow-hidden">
+    <div class="grid-lines">
+    <div class="max-w-7xl mx-auto px-6 pt-10 pb-28 relative">
+        <nav class="flex items-center justify-between mb-20">
+            <a href="/" class="flex items-center gap-3">
+                <div class="relative">
+                    <div class="absolute inset-0 orb-glow rounded-full"></div>
+                    <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal" class="w-9 h-9 relative">
+                </div>
+                <div class="text-sm font-semibold tracking-wide">
+                    <span class="text-white/60 font-light">DATA</span><span class="text-white">SIGNAL</span>
+                    <span class="text-white/40 font-light ml-1 text-xs">AI</span>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm text-white/60">
+                <a href="#included" class="hover:text-white transition">Included</a>
+                <a href="#how" class="hover:text-white transition">The system</a>
+                <a href="#timeline" class="hover:text-white transition">Timeline</a>
+                <a href="#apply" class="cta-ghost px-4 py-2 rounded-full text-white text-xs font-semibold">Apply</a>
+            </div>
+        </nav>
+
+        <div class="max-w-4xl mx-auto text-center relative">
+            <div class="mb-8">
+                <span class="badge badge-premium"><span class="badge-dot" style="background:#d9ff4a;box-shadow:0 0 12px #d9ff4a"></span> White Glove · By Application Only</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight mb-8">
+                The <span class="display italic font-normal gradient-text">done-for-you</span><br>
+                territory domination<br>
+                <span class="text-white/70">system.</span>
+            </h1>
+            <p class="text-lg text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed">
+                We build your dashboard. We tune your pipelines. We train your team. We lock your territory. You focus on closing. Reserved for agency owners who want to own their market, not rent leads from aggregators.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-8 justify-center items-center mb-10">
+                <div class="text-left">
+                    <div class="text-xs uppercase tracking-widest text-white/40 mb-1">Setup</div>
+                    <div class="flex items-baseline gap-3">
+                        <span class="text-xl md:text-2xl font-semibold text-white/35 line-through">$10,000</span>
+                        <span class="text-4xl md:text-5xl font-bold gradient-text">$5,000</span>
+                    </div>
+                    <div class="text-xs text-lime-300 mt-1 font-semibold">Founding Client rate · first 3 agencies</div>
+                </div>
+                <div class="text-white/20 text-2xl font-light hidden sm:block">+</div>
+                <div class="text-left">
+                    <div class="text-xs uppercase tracking-widest text-white/40 mb-1">Monthly</div>
+                    <div class="text-4xl md:text-5xl font-bold"><span class="gradient-text">$2,500</span></div>
+                    <div class="text-xs text-white/40 mt-1">Unlimited leads · locked territory</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <a href="#apply" class="cta-primary font-semibold text-base px-8 py-4 rounded-full inline-flex items-center gap-2" onclick="trackEvent('dfy_cta_hero','nav','apply')">
+                    Apply for discovery call
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </a>
+                <a href="#how" class="cta-ghost text-white font-medium text-base px-8 py-4 rounded-full">
+                    See the system
+                </a>
+            </div>
+
+            <p class="text-xs text-white/40 mt-8">
+                <b class="text-lime-300">3 Founding Client slots</b> this quarter · 90-day founder access · Grand Slam Guarantee
+            </p>
+            <p class="text-xs text-white/35 mt-2 max-w-xl mx-auto">
+                One agency per FL county. Your territory goes to whoever applies first.
+            </p>
+            <p class="text-xs text-white/40 mt-4">
+                Not ready to apply? <a href="/qualify/" class="text-signal-300 hover:text-signal-200 underline underline-offset-2">See your county's 30-day signal sample</a> first.
+            </p>
         </div>
-        <a href="#apply" class="inline-block bg-brand-500 hover:bg-brand-600 text-white font-semibold py-4 px-8 rounded-lg text-lg transition">
-            Schedule a Discovery Call
-        </a>
+    </div>
     </div>
 </section>
 
-<!-- What You Get -->
-<section class="py-16 px-6">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">What You Get</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="border border-gray-200 rounded-lg p-6">
-                <h3 class="text-xl font-semibold mb-3">Your Own Dashboard</h3>
-                <p class="text-gray-600">A fully configured DataSignal dashboard running 24/7. Your branding, your domain. Same system that processes 9M+ records across 50+ Florida counties.</p>
+<!-- ============================ TRUST BAR ============================ -->
+<section class="bg-ink-950 border-y border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+            <div class="stat-sep pr-6"><div class="text-4xl md:text-5xl font-bold tracking-tight gradient-text">500+</div><div class="text-xs uppercase tracking-[0.15em] text-white/40 mt-2">Scored leads / month</div></div>
+            <div class="stat-sep pr-6"><div class="text-4xl md:text-5xl font-bold tracking-tight gradient-text">48h</div><div class="text-xs uppercase tracking-[0.15em] text-white/40 mt-2">Territory lock per lead</div></div>
+            <div class="stat-sep pr-6"><div class="text-4xl md:text-5xl font-bold tracking-tight gradient-text">14%</div><div class="text-xs uppercase tracking-[0.15em] text-white/40 mt-2">Avg close rate</div></div>
+            <div><div class="text-4xl md:text-5xl font-bold tracking-tight gradient-text">90d</div><div class="text-xs uppercase tracking-[0.15em] text-white/40 mt-2">Founder access</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ INTEGRATION STRIP ============================ -->
+<section class="bg-ink-950 py-10 border-b border-white/[0.04]">
+    <div class="max-w-6xl mx-auto px-6">
+        <p class="text-xs uppercase tracking-[0.22em] text-white/35 text-center mb-6 font-semibold">Exports to the stack you already run</p>
+        <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-white/50">
+            <span class="font-bold tracking-tight text-base md:text-lg">EZLynx</span>
+            <span class="font-bold tracking-tight text-base md:text-lg">AgencyZoom</span>
+            <span class="font-bold tracking-tight text-base md:text-lg">HubSpot</span>
+            <span class="font-bold tracking-tight text-base md:text-lg">GoHighLevel</span>
+            <span class="font-bold tracking-tight text-base md:text-lg">Hawksoft</span>
+            <span class="font-bold tracking-tight text-base md:text-lg">Zapier</span>
+            <span class="font-bold tracking-tight text-base md:text-lg">Slack</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ QUALIFICATION ============================ -->
+<section class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="badge mb-5"><span class="badge-dot"></span> Qualification</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">Is this <span class="display italic font-normal text-signal-300">for you</span>?</h2>
+            <p class="text-white/55 text-lg">Not every agency. We turn down more applicants than we accept. Here's what we look for.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="glass rounded-2xl p-7">
+                <div class="flex items-start gap-4">
+                    <div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3 3 7-7"/></svg></div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">You run an agency with 3+ agents</h3>
+                        <p class="text-white/55 text-sm leading-relaxed">Solo producers should start with the self-serve subscription. DFY is built for teams that can work 500+ leads a month.</p>
+                    </div>
+                </div>
             </div>
-            <div class="border border-gray-200 rounded-lg p-6">
-                <h3 class="text-xl font-semibold mb-3">Configured Pipelines</h3>
-                <p class="text-gray-600">48+ government database scrapers tuned to your counties. DUI arrests, home purchases, foreclosures, new businesses, contractor licenses. All automated daily.</p>
+            <div class="glass rounded-2xl p-7">
+                <div class="flex items-start gap-4">
+                    <div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3 3 7-7"/></svg></div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">You want to own a territory</h3>
+                        <p class="text-white/55 text-sm leading-relaxed">Not buy shared leads. Not compete on price with seven other agents. We lock your counties. No other agency gets those signals.</p>
+                    </div>
+                </div>
             </div>
-            <div class="border border-gray-200 rounded-lg p-6">
-                <h3 class="text-xl font-semibold mb-3">Full Sales Plan</h3>
-                <p class="text-gray-600">Call scripts for every lead type. Objection handling. Follow-up cadence (Day 1, 3, 5, 7, 14). Email templates. Everything your team needs to convert leads into policies.</p>
+            <div class="glass rounded-2xl p-7">
+                <div class="flex items-start gap-4">
+                    <div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3 3 7-7"/></svg></div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">You can work leads within 24 hours</h3>
+                        <p class="text-white/55 text-sm leading-relaxed">Speed-to-contact is the whole edge. If your team can't call fresh signals daily, DataSignal won't save you.</p>
+                    </div>
+                </div>
             </div>
-            <div class="border border-gray-200 rounded-lg p-6">
-                <h3 class="text-xl font-semibold mb-3">90 Days of Strategy Calls</h3>
-                <p class="text-gray-600">Weekly 1-on-1 calls with the founder. Review pipeline performance, optimize scoring, adjust territory strategy. Direct access via Slack/WhatsApp.</p>
-            </div>
-            <div class="border border-gray-200 rounded-lg p-6">
-                <h3 class="text-xl font-semibold mb-3">Team Training</h3>
-                <p class="text-gray-600">We train your agents on the dashboard, lead scoring system, and speed-to-contact workflow. Recorded sessions your team can reference later.</p>
-            </div>
-            <div class="border border-gray-200 rounded-lg p-6">
-                <h3 class="text-xl font-semibold mb-3">Full County Lockout</h3>
-                <p class="text-gray-600">Territory Domination included. No other agent or agency gets leads in your counties. Unlimited leads. Real-time alerts every 4 hours.</p>
+            <div class="glass rounded-2xl p-7">
+                <div class="flex items-start gap-4">
+                    <div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3 3 7-7"/></svg></div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">You already spend on lead gen</h3>
+                        <p class="text-white/55 text-sm leading-relaxed">If Zillow, EverQuote, or Facebook ads are in your stack, we replace that spend. Flat fee. No per-lead cost. No shared leads.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- The Math -->
-<section class="bg-gray-50 py-16 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-8">The Math</h2>
-        <div class="bg-white rounded-lg shadow-sm p-8 text-left">
-            <p class="text-lg mb-4">Average FL insurance policy annual premium: <strong>$2,000-4,000</strong></p>
-            <p class="text-lg mb-4">Average agent commission: <strong>10-15%</strong> = $200-600 per policy</p>
-            <p class="text-lg mb-4">Leads needed to cover $2,500/mo at 10% close rate: <strong>5 policies</strong></p>
-            <p class="text-lg mb-8">We deliver <strong>500+ scored leads per month</strong> in your territory.</p>
-            <div class="bg-brand-50 border border-brand-200 rounded-lg p-6 text-center">
-                <p class="text-2xl font-bold text-brand-700">5 closed policies pays for the entire system</p>
-                <p class="text-gray-600 mt-2">Everything after that is profit.</p>
+<!-- ============================ WHAT'S INCLUDED ============================ -->
+<section id="included" class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="badge mb-5"><span class="badge-dot"></span> The package</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">What you get when we <span class="display italic font-normal text-signal-300">go live</span>.</h2>
+            <p class="text-white/55 text-lg">Every box checked. No DIY. No "here's a Loom, good luck." We deploy the system, train your team, and stay on-call for 90 days.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4"><div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M3 8h14"/></svg></div><h3 class="font-semibold text-lg">Your own dashboard</h3></div>
+                <p class="text-white/60 text-sm leading-relaxed">A fully configured DataSignal dashboard on your domain, your branding. Same engine processing 9.8M+ records across 67 FL counties.</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4"><div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l4-4 3 3 7-7"/><path d="M13 5h4v4"/></svg></div><h3 class="font-semibold text-lg">Configured pipelines</h3></div>
+                <p class="text-white/60 text-sm leading-relaxed">90+ government database scrapers tuned to your counties. DUI arrests, home purchases, new LLCs, contractor licenses, code violations, court filings. Automated daily.</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4"><div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0 7 4 11 11 11l2-4-4-2-2 2c-2-1-3-2-4-4l2-2-2-4-3 2z"/></svg></div><h3 class="font-semibold text-lg">Full sales playbook</h3></div>
+                <p class="text-white/60 text-sm leading-relaxed">Call scripts per lead type. Objection handlers. Follow-up cadence (Day 1, 3, 5, 7, 14). Email templates. SMS drops. Everything to convert signals into bound premium.</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4"><div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="3"/><path d="M4 17c0-3 3-5 6-5s6 2 6 5"/></svg></div><h3 class="font-semibold text-lg">90 days of founder access</h3></div>
+                <p class="text-white/60 text-sm leading-relaxed">Weekly 1-on-1 calls with Raul. Pipeline review, scoring optimization, territory strategy. Direct Slack or WhatsApp line.</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4"><div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V7l6-4 6 4v10"/><path d="M8 17v-5h4v5"/></svg></div><h3 class="font-semibold text-lg">Team training</h3></div>
+                <p class="text-white/60 text-sm leading-relaxed">Live workshops for your agents on the dashboard, lead scoring, and speed-to-contact workflow. Recorded so new hires can ramp later.</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4"><div class="icon-tile"><svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/></svg></div><h3 class="font-semibold text-lg">Territory lockout</h3></div>
+                <p class="text-white/60 text-sm leading-relaxed">No other agency gets signals in your counties. Period. Unlimited leads. Real-time alerts. Your market becomes yours.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Application Form -->
-<section id="apply" class="py-16 px-6">
-    <div class="max-w-2xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-4">Apply for Done-For-You</h2>
-        <p class="text-center text-gray-600 mb-8">Not everyone qualifies. We only take agencies that are serious about dominating their market.</p>
-        <form action="https://api.datasignalai.tech/api/dfy-apply" method="POST" class="space-y-6">
+<!-- ============================ FUNNEL MATH ============================ -->
+<section class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="badge mb-5"><span class="badge-dot"></span> The signal funnel</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">What <span class="display italic font-normal text-signal-300">500 signals</span> actually become.</h2>
+            <p class="text-white/55 text-lg">Typical monthly funnel for an agency working leads within 24 hours. Your numbers move with speed-to-contact and close rate.</p>
+        </div>
+
+        <div class="glass rounded-3xl p-6 md:p-10">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-2 items-stretch">
+                <!-- Stage 1 -->
+                <div class="relative">
+                    <div class="rounded-2xl p-6 h-full" style="background:linear-gradient(180deg, rgba(10,155,255,0.18), rgba(10,155,255,0.04));border:1px solid rgba(125,210,255,0.3)">
+                        <div class="text-[10px] uppercase tracking-[0.18em] text-signal-300 font-bold mb-2">Delivered</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-1">500</div>
+                        <div class="text-xs text-white/60 leading-snug">Scored signals in your territory</div>
+                    </div>
+                </div>
+                <!-- Stage 2 -->
+                <div class="relative">
+                    <div class="rounded-2xl p-6 h-full" style="background:linear-gradient(180deg, rgba(10,155,255,0.15), rgba(10,155,255,0.03));border:1px solid rgba(125,210,255,0.25)">
+                        <div class="text-[10px] uppercase tracking-[0.18em] text-signal-300 font-bold mb-2">Contacted</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-1">250</div>
+                        <div class="text-xs text-white/60 leading-snug">50% reach rate · fresh signals answer</div>
+                    </div>
+                </div>
+                <!-- Stage 3 -->
+                <div class="relative">
+                    <div class="rounded-2xl p-6 h-full" style="background:linear-gradient(180deg, rgba(10,155,255,0.12), rgba(10,155,255,0.03));border:1px solid rgba(125,210,255,0.22)">
+                        <div class="text-[10px] uppercase tracking-[0.18em] text-signal-300 font-bold mb-2">Quoted</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-1">75</div>
+                        <div class="text-xs text-white/60 leading-snug">30% quote rate on reached leads</div>
+                    </div>
+                </div>
+                <!-- Stage 4 -->
+                <div class="relative">
+                    <div class="rounded-2xl p-6 h-full" style="background:linear-gradient(180deg, rgba(191,255,0,0.1), rgba(10,155,255,0.04));border:1px solid rgba(191,255,0,0.24)">
+                        <div class="text-[10px] uppercase tracking-[0.18em] text-lime-300 font-bold mb-2">Bound</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-1">10</div>
+                        <div class="text-xs text-white/60 leading-snug">14% close rate · trigger-driven intent</div>
+                    </div>
+                </div>
+                <!-- Stage 5 -->
+                <div class="relative">
+                    <div class="rounded-2xl p-6 h-full" style="background:linear-gradient(135deg, rgba(191,255,0,0.18), rgba(125,210,255,0.12));border:1px solid rgba(191,255,0,0.4);box-shadow:0 20px 50px -15px rgba(191,255,0,0.25)">
+                        <div class="text-[10px] uppercase tracking-[0.18em] text-lime-300 font-bold mb-2">Commission</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-1">$18K+</div>
+                        <div class="text-xs text-white/60 leading-snug">10 policies · year-one at $1.8K avg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-white/[0.06] grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div>
+                    <div class="text-xs uppercase tracking-widest text-white/40 mb-1">Your investment</div>
+                    <div class="text-2xl font-bold gradient-text">$2,500/mo</div>
+                </div>
+                <div>
+                    <div class="text-xs uppercase tracking-widest text-white/40 mb-1">Month-1 commission potential</div>
+                    <div class="text-2xl font-bold gradient-text">$18,000+</div>
+                </div>
+                <div>
+                    <div class="text-xs uppercase tracking-widest text-white/40 mb-1">Return multiple</div>
+                    <div class="text-2xl font-bold gradient-text">7.2x</div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-xs text-white/35 text-center mt-6 max-w-2xl mx-auto">Rates reflect what trigger-driven signals produce for agencies with 24-hour speed-to-contact. Your outcomes depend on team capacity and follow-up discipline. We stack-rank pipeline health weekly during your 90-day founder access.</p>
+    </div>
+</section>
+
+<!-- ============================ THE SYSTEM (Animation) ============================ -->
+<section id="how" class="bg-ink-950 py-24 border-t border-white/[0.04]">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="badge mb-5"><span class="badge-dot"></span> The engine</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">This is what we <span class="display italic font-normal text-signal-300">run for you</span>.</h2>
+            <p class="text-white/55 text-lg">Every DFY deployment ships with this exact pipeline. You see the leads. We run the machine.</p>
+        </div>
+        <div class="glass rounded-3xl p-2 overflow-hidden">
+            <iframe src="../insurance/hero-animation.html"
+                    class="w-full rounded-[22px] block"
+                    style="aspect-ratio: 16/9; border: 0; min-height: 540px;"
+                    loading="lazy"
+                    title="DataSignal system overview"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ TIMELINE ============================ -->
+<section id="timeline" class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="badge mb-5"><span class="badge-dot"></span> The rollout</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">From kickoff to live in <span class="display italic font-normal text-signal-300">30 days</span>.</h2>
+            <p class="text-white/55 text-lg">Four weeks. Structured. No surprises.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="glass rounded-2xl p-6 relative">
+                <div class="timeline-dot absolute -top-1.5 left-6"></div>
+                <div class="text-signal-300 text-xs font-mono font-bold mb-3 tracking-wider">WEEK 1</div>
+                <h3 class="font-semibold mb-2">Discovery</h3>
+                <p class="text-white/55 text-sm leading-relaxed">Deep-dive call. Territory mapping. Competitive audit. Goals and quota targets. Kickoff signed.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 relative">
+                <div class="timeline-dot absolute -top-1.5 left-6"></div>
+                <div class="text-signal-300 text-xs font-mono font-bold mb-3 tracking-wider">WEEK 2</div>
+                <h3 class="font-semibold mb-2">Deploy</h3>
+                <p class="text-white/55 text-sm leading-relaxed">Dashboard stood up on your domain. Pipelines configured for your counties. Brand applied. Scripts customized.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 relative">
+                <div class="timeline-dot absolute -top-1.5 left-6"></div>
+                <div class="text-signal-300 text-xs font-mono font-bold mb-3 tracking-wider">WEEK 3</div>
+                <h3 class="font-semibold mb-2">Train</h3>
+                <p class="text-white/55 text-sm leading-relaxed">Live team training. Practice calls with real leads. Speed-to-contact SOP installed. CRM export flow tested.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 relative">
+                <div class="timeline-dot absolute -top-1.5 left-6"></div>
+                <div class="text-signal-300 text-xs font-mono font-bold mb-3 tracking-wider">WEEK 4</div>
+                <h3 class="font-semibold mb-2">Go live</h3>
+                <p class="text-white/55 text-sm leading-relaxed">Territory locked. First batch of scored leads hits your team. Daily stand-ups for the first 14 days of live ops.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ THE MATH ============================ -->
+<section class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="badge mb-5"><span class="badge-dot"></span> The math</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">Break-even at <span class="display italic font-normal text-lime-300">5 policies</span>.</h2>
+        </div>
+        <div class="glass rounded-3xl p-8 md:p-12">
+            <div class="space-y-1 text-base md:text-lg">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center py-4 border-b border-white/[0.06] gap-1">
+                    <span class="text-white/70">Average FL annual policy premium</span>
+                    <span class="font-semibold gradient-text text-xl md:text-2xl">$2,000 &ndash; $4,000</span>
+                </div>
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center py-4 border-b border-white/[0.06] gap-1">
+                    <span class="text-white/70">Average agent commission</span>
+                    <span class="font-semibold gradient-text text-xl md:text-2xl">10 &ndash; 15%</span>
+                </div>
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center py-4 border-b border-white/[0.06] gap-1">
+                    <span class="text-white/70">Policies to cover $2,500/mo at 10% close</span>
+                    <span class="font-semibold gradient-text text-xl md:text-2xl">5</span>
+                </div>
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center py-4 gap-1">
+                    <span class="text-white/70">Leads delivered per month</span>
+                    <span class="font-semibold gradient-text text-xl md:text-2xl">500+ in your territory</span>
+                </div>
+            </div>
+            <div class="mt-8 p-6 rounded-2xl" style="background:linear-gradient(135deg, rgba(191,255,0,0.08), rgba(125,210,255,0.08));border:1px solid rgba(191,255,0,0.25)">
+                <p class="text-2xl md:text-3xl font-bold text-center">
+                    5 closed policies pays for the entire system.
+                </p>
+                <p class="text-center text-white/60 mt-2">Everything after that is profit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ GRAND SLAM GUARANTEE ============================ -->
+<section class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="relative rounded-[28px] p-10 md:p-14 overflow-hidden"
+             style="background:linear-gradient(180deg, rgba(191,255,0,0.08) 0%, rgba(10,155,255,0.06) 60%, rgba(10,13,22,0.6) 100%);border:1px solid rgba(191,255,0,0.4);box-shadow:0 60px 140px -30px rgba(191,255,0,0.2), inset 0 1px 0 rgba(255,255,255,0.08)">
+            <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at top, rgba(191,255,0,0.12), transparent 60%)"></div>
+            <div class="relative text-center">
+                <span class="badge badge-premium mb-6"><span class="badge-dot" style="background:#d9ff4a;box-shadow:0 0 12px #d9ff4a"></span> Grand Slam Guarantee</span>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-5 leading-[1.05]">
+                    3 closes in 30 days.<br>
+                    <span class="display italic font-normal gradient-text">Or your next month is free.</span>
+                </h2>
+                <p class="text-white/65 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+                    If your team doesn't bind three policies in the first 30 days of live operations, your second month of service is on us. We can promise it because we only accept 3 agencies per quarter and we deploy everything ourselves.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10">
+                    <div class="rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)">
+                        <div class="text-xs uppercase tracking-widest text-white/40 mb-2 font-semibold">What triggers it</div>
+                        <div class="text-sm text-white/80 font-medium leading-snug">Fewer than 3 bound policies in your first 30 days live</div>
+                    </div>
+                    <div class="rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)">
+                        <div class="text-xs uppercase tracking-widest text-white/40 mb-2 font-semibold">What you get</div>
+                        <div class="text-sm text-white/80 font-medium leading-snug">Month 2 monthly fee waived ($2,500 credit)</div>
+                    </div>
+                    <div class="rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)">
+                        <div class="text-xs uppercase tracking-widest text-white/40 mb-2 font-semibold">Why we can offer it</div>
+                        <div class="text-sm text-white/80 font-medium leading-snug">3-agency quarterly cap · founder-led deploy</div>
+                    </div>
+                </div>
+                <a href="#apply" class="cta-primary inline-flex items-center gap-2 font-bold text-base px-8 py-4 rounded-full" onclick="trackEvent('dfy_cta_guarantee','nav','apply')">
+                    Apply for a quarterly slot
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </a>
+                <p class="text-xs text-white/40 mt-6">Guarantee applies to active DFY subscriptions deployed by DataSignal. Full terms reviewed at kickoff.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ FOUNDER NOTE ============================ -->
+<section class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-3xl mx-auto px-6">
+        <div class="glass rounded-3xl p-10 md:p-14">
+            <span class="badge mb-6"><span class="badge-dot"></span> From the founder</span>
+            <div class="text-xl md:text-2xl leading-relaxed text-white/80 space-y-5 font-light">
+                <p>"I built DataSignal after watching insurance agents burn budgets on shared Zillow leads that closed at 3%."</p>
+                <p>"Done-For-You is what I wish existed when I was trying to scale an agency. It's the system, the playbook, and 90 days of my calendar. If I can't get your team to ROI inside 90 days, I haven't done my job."</p>
+                <p class="text-white/60 text-base pt-2">Raul Salazar, Founder</p>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="text-sm text-white/50">
+                    <span>raul@datasignalai.tech</span>
+                    <span class="mx-2">·</span>
+                    <span>(786) 525-3625</span>
+                </div>
+                <a href="#apply" class="cta-ghost px-5 py-2.5 rounded-full text-white font-semibold text-sm">Start my application</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ APPLICATION FORM ============================ -->
+<section id="apply" class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-2xl mx-auto px-6">
+        <div class="text-center mb-10">
+            <span class="badge badge-premium mb-5"><span class="badge-dot" style="background:#d9ff4a;box-shadow:0 0 12px #d9ff4a"></span> 3 Founding Client slots · $5,000 setup savings</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">Apply for <span class="display italic font-normal text-signal-300">Done-For-You</span>.</h2>
+            <p class="text-white/55 text-lg">We review every application. Response within 24 hours. One agency per FL county &mdash; your territory goes to whoever applies first.</p>
+        </div>
+        <form action="https://api.datasignalai.tech/api/dfy-apply" method="POST" class="space-y-5 glass rounded-3xl p-8 md:p-10">
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-sm font-medium mb-1">Your Name</label>
-                    <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+                    <label class="block text-xs uppercase tracking-widest text-white/50 mb-2 font-semibold">Your name</label>
+                    <input type="text" name="name" required class="df-input">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-1">Agency Name</label>
-                    <input type="text" name="agency" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+                    <label class="block text-xs uppercase tracking-widest text-white/50 mb-2 font-semibold">Agency name</label>
+                    <input type="text" name="agency" required class="df-input">
                 </div>
             </div>
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-sm font-medium mb-1">Email</label>
-                    <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+                    <label class="block text-xs uppercase tracking-widest text-white/50 mb-2 font-semibold">Email</label>
+                    <input type="email" name="email" required class="df-input">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-1">Phone</label>
-                    <input type="tel" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+                    <label class="block text-xs uppercase tracking-widest text-white/50 mb-2 font-semibold">Phone</label>
+                    <input type="tel" name="phone" class="df-input">
                 </div>
             </div>
             <div>
-                <label class="block text-sm font-medium mb-1">Counties You Want to Dominate</label>
-                <input type="text" name="counties" placeholder="e.g. Miami-Dade, Broward, Palm Beach" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+                <label class="block text-xs uppercase tracking-widest text-white/50 mb-2 font-semibold">Counties you want to dominate</label>
+                <input type="text" name="counties" placeholder="e.g. Miami-Dade, Broward, Palm Beach" class="df-input">
             </div>
-            <div>
-                <label class="block text-sm font-medium mb-1">How Many Agents on Your Team?</label>
-                <select name="team_size" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
-                    <option>1-3</option>
-                    <option>4-10</option>
-                    <option>11-25</option>
-                    <option>25+</option>
-                </select>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-white/50 mb-2 font-semibold">Team size</label>
+                    <select name="team_size" class="df-select">
+                        <option>1-3 agents</option>
+                        <option>4-10 agents</option>
+                        <option>11-25 agents</option>
+                        <option>25+ agents</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-white/50 mb-2 font-semibold">Current monthly lead spend</label>
+                    <select name="lead_spend" class="df-select">
+                        <option>Under $500</option>
+                        <option>$500 - $1,000</option>
+                        <option>$1,000 - $3,000</option>
+                        <option>$3,000 - $10,000</option>
+                        <option>$10,000+</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <label class="block text-sm font-medium mb-1">Current Monthly Lead Spend (approx)</label>
-                <select name="lead_spend" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
-                    <option>Under $500</option>
-                    <option>$500-$1,000</option>
-                    <option>$1,000-$3,000</option>
-                    <option>$3,000-$10,000</option>
-                    <option>$10,000+</option>
-                </select>
-            </div>
-            <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-4 px-8 rounded-lg text-lg transition">
-                Schedule My Discovery Call
+            <button type="submit" class="cta-primary w-full font-bold text-base py-4 px-8 rounded-full inline-flex items-center justify-center gap-2 mt-4" onclick="trackEvent('dfy_apply_submit','form','dfy_page')">
+                Schedule my discovery call
+                <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </button>
-            <p class="text-center text-sm text-gray-500">We will reply within 24 hours to schedule a call.</p>
+            <p class="text-center text-xs text-white/40">We reply within 24 hours. If we're not a fit, we tell you and recommend what is.</p>
         </form>
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-navy-800 text-gray-400 py-8 px-6 text-center text-sm">
-    <p>DataSignal AI | raul@datasignalai.tech | (786) 525-3625</p>
-    <p class="mt-2"><a href="/privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="/terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+<!-- ============================ FAQ ============================ -->
+<section class="bg-ink-950 py-28 border-t border-white/[0.04]">
+    <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="badge mb-5"><span class="badge-dot"></span> Questions</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight">What people <span class="display italic font-normal text-signal-300">ask</span>.</h2>
+        </div>
+        <div class="space-y-3">
+            <details class="glass rounded-2xl p-6">
+                <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center gap-4">
+                    Why is there a setup fee, and what's the Founding rate?
+                    <svg class="w-5 h-5 text-white/40 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">We build, brand, and deploy your infrastructure: dashboard hosting on your domain, 90+ scraper pipelines tuned to your counties, sales scripts customized to your voice, team training. Standard setup is <b>$10,000</b>. The first 3 agencies this quarter pay a <b class="text-lime-300">Founding Client rate of $5,000</b> &mdash; half off &mdash; because they help us refine the deployment playbook and fund remaining infrastructure work. Once those 3 slots fill, pricing returns to $10K.</p>
+            </details>
+            <details class="glass rounded-2xl p-6">
+                <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center gap-4">
+                    What if it doesn't work?
+                    <svg class="w-5 h-5 text-white/40 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">We back DFY with our Grand Slam Guarantee: if your team doesn't close 3 policies in your first 30 days of live operations, your next month is free. We only accept 3 agencies per quarter so we can actually deliver on that promise.</p>
+            </details>
+            <details class="glass rounded-2xl p-6">
+                <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center gap-4">
+                    Can I just buy the self-serve subscription?
+                    <svg class="w-5 h-5 text-white/40 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">Yes. <a href="/insurance/#signup" class="text-signal-300 underline hover:text-signal-200">Plans start at $149/mo</a>. DFY is for agencies that want the system deployed, branded, trained, and managed &mdash; not just data access. If you have 1 or 2 agents or want to handle setup yourself, self-serve is the right tier.</p>
+            </details>
+            <details class="glass rounded-2xl p-6">
+                <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center gap-4">
+                    What does "territory lockout" actually mean?
+                    <svg class="w-5 h-5 text-white/40 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">Whichever FL counties you reserve are yours. No other DFY client or self-serve subscriber receives leads from those ZIPs in the same insurance category. You are always the first and only call.</p>
+            </details>
+            <details class="glass rounded-2xl p-6">
+                <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center gap-4">
+                    How do I know you can handle the volume?
+                    <svg class="w-5 h-5 text-white/40 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">The platform processes 9.8M+ prospect records across 67 FL counties. 105 active scrapers. Daily pipeline runs every evening. Production-scale infrastructure is already in place.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="bg-ink-950 border-t border-white/[0.06] py-10 px-6 text-center text-sm text-white/40">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-center gap-3 mb-4">
+            <img src="../assets/logos/DataSignal_AI_Icon_512.svg" alt="DataSignal" class="w-6 h-6 opacity-70">
+            <span class="text-xs font-semibold tracking-wide">
+                <span class="text-white/50 font-light">DATA</span><span class="text-white/70">SIGNAL</span>
+                <span class="text-white/30 font-light ml-1">AI</span>
+            </span>
+        </div>
+        <p class="mb-2">raul@datasignalai.tech · (786) 525-3625</p>
+        <p><a href="/privacy-policy.html" class="hover:text-white/70">Privacy</a> · <a href="/terms-of-service.html" class="hover:text-white/70">Terms</a></p>
+    </div>
 </footer>
 
 </body>
