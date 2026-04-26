@@ -1,14 +1,18 @@
 # Short redirect aliases
-/s  /landing/scripts/  302
-/t  /landing/taste-test/  302
-/go/scripts  /landing/scripts/  302
-/go/taste-test  /landing/taste-test/  302
-/go/newsletter  /landing/newsletter/  302
+# Note 2026-04-25: CF Pages serves the landing/ directory AS the site root.
+# Earlier rules had `/landing/...` destinations which 404'd → SPA-fallback
+# served homepage HTML on those paths with broken relative brand.css refs
+# (text/html MIME on /landing/scripts/assets/brand.css). Fixed below.
+/s  /scripts/  302
+/t  /taste-test/  302
+/go/scripts  /scripts/  302
+/go/taste-test  /taste-test/  302
+/go/newsletter  /newsletter/  302
 /go/calculator  /calculator/  302
 
-# Legacy redirects
-/scripts  /landing/scripts/  302
-/taste-test  /landing/taste-test/  302
+# Legacy redirects (kept for back-compat, now pointing at canonical paths)
+/scripts  /scripts/  301
+/taste-test  /taste-test/  301
 
 # Insurance-only focus (2026-04-21): 301 redirect paused verticals to waitlist
 # Source: project_insurance_only_focus memory (Apr 17). Non-insurance verticals
