@@ -582,7 +582,6 @@
                 <div class="text-5xl font-bold tracking-tight">$99<span class="text-lg text-white/40 font-normal">/mo</span></div>
                 <div class="text-xs text-signal-300 font-mono mt-2 mb-6">$0.99/lead · vs. $6-15 industry avg</div>
                 <ul class="text-left space-y-3 text-sm mb-8 text-white/70">
-                    <li class="flex gap-2"><span class="text-signal-300">✓</span> <strong class="text-white">AI Daily Brief agent</strong> (8 a.m. email, top 5 leads ranked)</li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> 1 county territory</li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> 100 leads/month</li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> Daily delivery</li>
@@ -603,8 +602,6 @@
                 <div class="text-5xl font-bold tracking-tight gradient-text">$249<span class="text-lg text-white/40 font-normal">/mo</span></div>
                 <div class="text-xs text-signal-300 font-mono mt-2 mb-6">$0.83/lead · best for agencies</div>
                 <ul class="text-left space-y-3 text-sm mb-8 text-white/70">
-                    <li class="flex gap-2"><span class="text-signal-300">✓</span> <strong class="text-white">AI Daily Brief agent</strong> (full reasoning, top 10 leads)</li>
-                    <li class="flex gap-2"><span class="text-signal-300">✓</span> <strong class="text-white">AI Territory Watch agent</strong> (weekly market report)</li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> 1 county</li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> <strong class="text-white">300 leads/month</strong></li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> Daily delivery</li>
@@ -626,9 +623,6 @@
                 <div class="text-5xl font-bold tracking-tight">$499<span class="text-lg text-white/40 font-normal">/mo</span></div>
                 <div class="text-xs text-signal-300 font-mono mt-2 mb-6">Exclusive per insurance category.</div>
                 <ul class="text-left space-y-3 text-sm mb-8 text-white/70">
-                    <li class="flex gap-2"><span class="text-signal-300">✓</span> <strong class="text-white">AI Daily Brief agent</strong> (full reasoning, top 10 leads)</li>
-                    <li class="flex gap-2"><span class="text-signal-300">✓</span> <strong class="text-white">AI Territory Watch agent</strong> (weekly market report)</li>
-                    <li class="flex gap-2"><span class="text-lime-400">✓</span> <strong class="text-white">AI Reply Handler agent</strong> (drafts responses to lead replies)</li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> <strong class="text-white">1 county</strong></li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> <strong class="text-white">Up to 500 leads/month</strong></li>
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> Daily delivery</li>
@@ -642,7 +636,36 @@
                     <li class="flex gap-2"><span class="text-signal-300">✓</span> Dedicated account manager</li>
                 </ul>
                 <a href="mailto:raul@datasignalai.tech?subject=DataSignal%20Pro%20Tier%20Early%20Access" class="block cta-ghost text-white font-semibold py-3 rounded-full">Request Invitation</a>
-                <div class="mt-3 text-xs text-amber-400/70">Reply Handler agent in beta. Email for early access.</div>
+                <div class="mt-3 text-xs text-white/40">Add AI agents to any plan below.</div>
+            </div>
+        </div>
+
+        <!-- AI Agent Add-ons -->
+        <div class="max-w-5xl mx-auto mb-16">
+            <div class="text-center mb-8">
+                <div class="text-xs font-semibold uppercase tracking-wider text-signal-300 mb-2">Add-ons</div>
+                <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-3">Bolt AI agents onto <span class="display italic font-normal text-signal-300">any plan</span></h3>
+                <p class="text-white/55 text-base">Pick the lead plan that fits, then add the agents you want. Billed monthly on the same subscription. Cancel anytime.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="glass rounded-2xl p-6 flex flex-col">
+                    <div class="text-sm font-medium text-white/60 mb-1">AI Daily Brief</div>
+                    <div class="text-3xl font-bold tracking-tight mb-3">$29<span class="text-base text-white/40 font-normal">/mo</span></div>
+                    <p class="text-sm text-white/65 mb-5 flex-1">8 a.m. email ranking your top leads with reasoning and the opening angle for each.</p>
+                    <button type="button" onclick="addAddon('daily_brief')" class="cta-ghost text-white font-semibold py-2.5 rounded-full text-sm">Add at checkout</button>
+                </div>
+                <div class="glass rounded-2xl p-6 flex flex-col">
+                    <div class="text-sm font-medium text-white/60 mb-1">AI Territory Watch</div>
+                    <div class="text-3xl font-bold tracking-tight mb-3">$49<span class="text-base text-white/40 font-normal">/mo</span></div>
+                    <p class="text-sm text-white/65 mb-5 flex-1">Weekly market report on movement and opportunity across your county.</p>
+                    <button type="button" onclick="addAddon('territory_watch')" class="cta-ghost text-white font-semibold py-2.5 rounded-full text-sm">Add at checkout</button>
+                </div>
+                <div class="glass rounded-2xl p-6 flex flex-col">
+                    <div class="text-sm font-medium text-white/60 mb-1">AI Reply Handler</div>
+                    <div class="text-3xl font-bold tracking-tight mb-3">$79<span class="text-base text-white/40 font-normal">/mo</span></div>
+                    <p class="text-sm text-white/65 mb-5 flex-1">Drafts responses to lead replies so you answer in seconds, not hours.</p>
+                    <button type="button" onclick="addAddon('reply_handler')" class="cta-ghost text-white font-semibold py-2.5 rounded-full text-sm">Add at checkout</button>
+                </div>
             </div>
         </div>
 
@@ -696,7 +719,7 @@
             <p class="text-white/55">Tell us your county and what kind of leads you want. We'll deliver 10 real leads to your inbox within 24 hours.</p>
         </div>
 
-        <form action="/api/checkout/subscribe" method="POST" class="glass rounded-3xl p-8 space-y-5" id="signup-form">
+        <form action="https://api.datasignalai.tech/api/checkout/subscribe" method="POST" class="glass rounded-3xl p-8 space-y-5" id="signup-form">
             <div>
                 <label class="block text-sm font-medium mb-2 text-white/70">Full name</label>
                 <input type="text" name="name" required placeholder="Jane Smith">
@@ -770,6 +793,14 @@
                     <label class="flex items-center gap-2"><input type="checkbox" name="types" value="flood" class="accent-signal-500"> Flood Zone</label>
                     <label class="flex items-center gap-2"><input type="checkbox" name="types" value="boat" class="accent-signal-500"> Boat Owners</label>
                     <label class="flex items-center gap-2"><input type="checkbox" name="types" value="all" class="accent-signal-500" checked> All Types</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-2 text-white/70">AI agent add-ons <span class="text-white/40 font-normal">(optional)</span></label>
+                <div class="space-y-2 text-sm text-white/70">
+                    <label class="flex items-center gap-2"><input type="checkbox" id="addon-daily_brief" name="addons" value="daily_brief" class="accent-signal-500"> AI Daily Brief <span class="text-white/40">— $29/mo</span></label>
+                    <label class="flex items-center gap-2"><input type="checkbox" id="addon-territory_watch" name="addons" value="territory_watch" class="accent-signal-500"> AI Territory Watch <span class="text-white/40">— $49/mo</span></label>
+                    <label class="flex items-center gap-2"><input type="checkbox" id="addon-reply_handler" name="addons" value="reply_handler" class="accent-signal-500"> AI Reply Handler <span class="text-white/40">— $79/mo</span></label>
                 </div>
             </div>
             <div class="flex items-start gap-2">
@@ -866,39 +897,46 @@
 </footer>
 
 <script>
-const PAYMENT_LINKS = {
-    starter: 'https://buy.stripe.com/9B6dR37JK6S8goM0B0dIA01',
-    growth: 'https://buy.stripe.com/7sY6oBc001xOdcA6ZodIA02',
-    pro: 'https://buy.stripe.com/8x26oB3tu3FW2xW97wdIA03'
-};
+// Checkout posts natively to the form action (api.datasignalai.tech), which
+// builds a Stripe Checkout session from current env prices ($99/$249/$499)
+// plus any selected AI add-ons. No static payment links (they drift out of sync).
+
+function scrollToSignup() {
+    const target = document.getElementById('signup') || document.getElementById('signup-form');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+}
 
 function selectPlan(planValue) {
     trackEvent('select_plan', 'checkout', planValue);
-    if (PAYMENT_LINKS[planValue]) {
-        trackEvent('begin_checkout', 'checkout', planValue);
-        window.location.href = PAYMENT_LINKS[planValue];
-    }
+    const radio = document.querySelector('input[name="plan"][value="' + planValue + '"]');
+    if (radio) radio.checked = true;
+    scrollToSignup();
+}
+
+function addAddon(key) {
+    trackEvent('add_addon', 'checkout', key);
+    const box = document.getElementById('addon-' + key);
+    if (box) box.checked = true;
+    scrollToSignup();
 }
 
 const form = document.getElementById('signup-form');
 if (form) {
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
         const plan = form.querySelector('input[name="plan"]:checked');
         const planValue = plan ? plan.value : 'starter';
+        const addons = Array.from(form.querySelectorAll('input[name="addons"]:checked')).map(function(c){ return c.value; });
+        const tsField = document.getElementById('tos-accepted-at');
+        if (tsField) tsField.value = new Date().toISOString();
         trackEvent('signup_submit', 'checkout', planValue);
+        trackEvent('begin_checkout', 'checkout', planValue + (addons.length ? '+' + addons.join('+') : ''));
         const btn = form.querySelector('button[type="submit"]');
         if (btn) {
-            btn.disabled = true;
             btn.innerHTML = '<span class="inline-block animate-spin mr-2">◐</span> Connecting to secure checkout…';
+            setTimeout(function(){ btn.disabled = true; }, 0);
         }
-        if (PAYMENT_LINKS[planValue]) {
-            trackEvent('begin_checkout', 'checkout', planValue);
-            window.location.href = PAYMENT_LINKS[planValue];
-        } else {
-            trackEvent('begin_checkout', 'checkout', 'starter_fallback');
-            window.location.href = PAYMENT_LINKS.starter;
-        }
+        // No preventDefault: the form POSTs natively to its action and the
+        // server 303-redirects to Stripe Checkout.
     });
 }
 </script>
